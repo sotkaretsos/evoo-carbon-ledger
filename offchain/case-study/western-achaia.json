@@ -1,0 +1,329 @@
+{
+  "description": "Replay of the Western Achaia case study (Tables 1-2 of the article; source thesis [28]). The holding records three-year average quantities (2022-2024); they are replayed as one representative season recorded under crop year 2024. Seasonal totals are split into the applications described in the source (three weed cuttings, three plant-protection sprays, two foliar sprays) and into ten illustrative daily harvest lots, because lot-level records do not exist. Device signatures are produced with test keys standing in for edge gateways.",
+  "orchard": {
+    "id": "ORCHARD/WESTERN-ACHAIA-01",
+    "areaM2": 48000,
+    "cropYear": 2024,
+    "location": "Municipality of Western Achaia, Greece"
+  },
+  "farmEvents": [
+    {
+      "date": "2024-01-15T15:00:00Z",
+      "activity": "FERTILISATION",
+      "variable": "COMPOUND_FERTILISER_KG",
+      "quantity": 2700,
+      "source": "Invoice",
+      "doc": "fertiliser invoice",
+      "documentId": "INVOICE/2024/0007",
+      "note": "compound N-P-K-B-Mg fertiliser, 3 kg per tree, applied manually over four days"
+    },
+    {
+      "date": "2024-04-12T14:00:00Z",
+      "activity": "SOIL_PREPARATION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 70,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log",
+      "note": "weed cutting (spring)"
+    },
+    {
+      "date": "2024-05-06T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "COPPER_OXYCHLORIDE_KG",
+      "quantity": 2.6,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-05-06T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "PYRETHROID_KG",
+      "quantity": 0.1,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-05-06T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "SPRAY_WATER_M3",
+      "quantity": 0.5,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-05-06T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 20,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log"
+    },
+    {
+      "date": "2024-05-20T13:00:00Z",
+      "activity": "FOLIAR_FERTILISATION",
+      "variable": "FOLIAR_FERTILISER_KG",
+      "quantity": 2.5,
+      "source": "OperatorEntry",
+      "doc": "spray record (20-20-20)"
+    },
+    {
+      "date": "2024-05-20T13:00:00Z",
+      "activity": "FOLIAR_FERTILISATION",
+      "variable": "SPRAY_WATER_M3",
+      "quantity": 0.5,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-05-20T13:00:00Z",
+      "activity": "FOLIAR_FERTILISATION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 20,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log"
+    },
+    {
+      "date": "2024-06-03T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "COPPER_OXYCHLORIDE_KG",
+      "quantity": 2.6,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-06-03T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "PYRETHROID_KG",
+      "quantity": 0.1,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-06-03T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "SPRAY_WATER_M3",
+      "quantity": 0.5,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-06-03T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 20,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log"
+    },
+    {
+      "date": "2024-06-17T13:00:00Z",
+      "activity": "FOLIAR_FERTILISATION",
+      "variable": "FOLIAR_FERTILISER_KG",
+      "quantity": 2.5,
+      "source": "OperatorEntry",
+      "doc": "spray record (20-20-20)"
+    },
+    {
+      "date": "2024-06-17T13:00:00Z",
+      "activity": "FOLIAR_FERTILISATION",
+      "variable": "SPRAY_WATER_M3",
+      "quantity": 0.5,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-06-17T13:00:00Z",
+      "activity": "FOLIAR_FERTILISATION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 20,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log"
+    },
+    {
+      "date": "2024-06-28T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "COPPER_OXYCHLORIDE_KG",
+      "quantity": 2.6,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-06-28T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "PYRETHROID_KG",
+      "quantity": 0.1,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-06-28T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "SPRAY_WATER_M3",
+      "quantity": 0.5,
+      "source": "OperatorEntry",
+      "doc": "spray record"
+    },
+    {
+      "date": "2024-06-28T13:00:00Z",
+      "activity": "PLANT_PROTECTION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 20,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log"
+    },
+    {
+      "date": "2024-07-10T14:00:00Z",
+      "activity": "SOIL_PREPARATION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 70,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log",
+      "note": "weed cutting (summer)"
+    },
+    {
+      "date": "2024-08-21T14:00:00Z",
+      "activity": "SOIL_PREPARATION",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 70,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log",
+      "note": "weed cutting (summer)"
+    },
+    {
+      "date": "2024-12-20T16:00:00Z",
+      "activity": "PRUNING",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 50,
+      "source": "OperatorEntry",
+      "doc": "chainsaw fuel log",
+      "note": "two chainsaws; recorded as diesel in the original records",
+      "correction": {
+        "variable": "FIELD_PETROL_L",
+        "reason": "Chainsaws are petrol-powered; fuel reclassified from diesel to petrol (Section 2.4)",
+        "doc": "equipment specification sheets"
+      }
+    },
+    {
+      "date": "2024-12-20T16:05:00Z",
+      "activity": "HARVESTING",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 300,
+      "source": "OperatorEntry",
+      "doc": "olive-beater fuel log",
+      "note": "portable olive beaters; recorded as diesel in the original records",
+      "correction": {
+        "variable": "FIELD_PETROL_L",
+        "reason": "Portable olive beaters are petrol-powered; fuel reclassified from diesel to petrol (Section 2.4)",
+        "doc": "equipment specification sheets"
+      }
+    },
+    {
+      "date": "2024-12-20T16:10:00Z",
+      "activity": "HARVESTING",
+      "variable": "FIELD_DIESEL_L",
+      "quantity": 70,
+      "source": "OperatorEntry",
+      "doc": "tractor fuel log",
+      "note": "tractor used during harvesting"
+    }
+  ],
+  "harvest": {
+    "days": [
+      "2024-11-04",
+      "2024-11-08",
+      "2024-11-13",
+      "2024-11-18",
+      "2024-11-22",
+      "2024-11-27",
+      "2024-12-02",
+      "2024-12-06",
+      "2024-12-11",
+      "2024-12-16"
+    ],
+    "lotMassKg": 4500,
+    "transport": {
+      "distanceKm": 9.5,
+      "dieselLPerDelivery": 10,
+      "vehicle": "agricultural vehicle of the mill",
+      "note": "mill staff collect the sacks after each harvest day; 100 L diesel per season"
+    }
+  },
+  "farmClosure": "2025-01-10T10:00:00Z",
+  "farmVerification": "2025-02-14T10:00:00Z",
+  "mill": {
+    "batchId": "BATCH/WESTERN-ACHAIA-01/2024",
+    "createdAt": "2024-12-17T08:00:00Z",
+    "events": [
+      {
+        "date": "2024-12-18T18:00:00Z",
+        "activity": "MILL_PROCESSING",
+        "variable": "MILL_ELECTRICITY_KWH",
+        "quantity": 5000,
+        "source": "Meter",
+        "device": "ELEC-SUBMETER-01",
+        "doc": "sub-meter reading",
+        "note": "recorded mill electricity for the season"
+      },
+      {
+        "date": "2024-12-18T18:05:00Z",
+        "activity": "MILL_PROCESSING",
+        "variable": "OIL_OUTPUT_KG",
+        "quantity": 8894,
+        "source": "Meter",
+        "device": "OIL-SCALE-01",
+        "doc": "oil-tank scale ticket"
+      },
+      {
+        "date": "2024-12-18T18:10:00Z",
+        "activity": "MILL_PROCESSING",
+        "variable": "OMW_WASTEWATER_L",
+        "quantity": 15653.44,
+        "source": "Estimate",
+        "doc": "mill estimate (1.76 L per kg oil)"
+      },
+      {
+        "date": "2024-12-18T18:15:00Z",
+        "activity": "MILL_PROCESSING",
+        "variable": "POMACE_KG",
+        "quantity": 33886.14,
+        "source": "Estimate",
+        "doc": "mill estimate (3.81 kg per kg oil)"
+      },
+      {
+        "date": "2024-12-18T18:20:00Z",
+        "activity": "BY_PRODUCT_HANDLING",
+        "variable": "MILL_DIESEL_L",
+        "quantity": 6.035,
+        "source": "Estimate",
+        "doc": "mill estimate (0.00057 kg diesel per kg oil)"
+      }
+    ],
+    "closedAt": "2024-12-19T09:00:00Z",
+    "receptionMassKg": 45000
+  },
+  "act2": {
+    "date": "2025-03-20T10:00:00Z",
+    "factorSet": "FS-2025-CONF",
+    "approval": "2025-03-27T10:00:00Z"
+  },
+  "act3": {
+    "correctionsProposed": "2026-06-15T09:00:00Z",
+    "correctionsAuthorized": "2026-06-18T09:00:00Z",
+    "factorSetProposed": "2026-06-01T09:00:00Z",
+    "factorSetApproved": "2026-06-02T09:00:00Z",
+    "oldFactorSetRetired": "2026-06-22T09:00:00Z",
+    "reverification": "2026-06-25T09:00:00Z",
+    "resultSubmitted": "2026-07-01T09:00:00Z",
+    "approval": "2026-07-03T09:00:00Z",
+    "factorSet": "FS-2026-01"
+  },
+  "expected": {
+    "conferenceVersion_kgCO2eq_per_kg": 1.993,
+    "journalVersion_kgCO2eq_per_kg": 1.8352,
+    "journalVersion_kgCO2eq_per_ha": 3400.5,
+    "phases_per_kg": {
+      "cultivation": 1.6095,
+      "transport": 0.0299,
+      "mill": 0.1958
+    }
+  }
+}

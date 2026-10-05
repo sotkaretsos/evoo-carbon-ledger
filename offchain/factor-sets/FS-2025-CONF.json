@@ -1,0 +1,232 @@
+{
+  "id": "FS-2025-CONF",
+  "version": 1,
+  "title": "Reconstruction of the factor basis of the conference-version calculation",
+  "description": "Factor basis implied by the source calculation used in the conference version: all portable field equipment treated as diesel consumers and an undocumented grid factor of about 0.60 kg CO2eq per kWh.",
+  "gwpBasis": "GWP100 (presumed; not documented in the source calculation)",
+  "geography": "GR",
+  "referencePeriod": "2022-2024",
+  "validFrom": "2025-01-01T00:00:00Z",
+  "validTo": "2027-12-31T23:59:59Z",
+  "supersedes": null,
+  "densities_kg_per_L": {
+    "DIESEL": 0.84
+  },
+  "factors": {
+    "DIESEL_COMBUSTION": {
+      "value": 3.1700680272108843,
+      "unit": "kg CO2eq per kg diesel",
+      "type": "derived intensity",
+      "source": "233.00 kg CO2eq ha-1 / 73.5 kg diesel ha-1 (original pruning-and-harvesting group of the source calculation); corresponds to combustion CO2 only"
+    },
+    "GRID_ELECTRICITY": {
+      "value": 0.59958,
+      "unit": "kg CO2eq per kWh",
+      "type": "implied factor",
+      "source": "implied by the source mill-stage result (627.91 kg CO2eq ha-1 for 1041.67 kWh ha-1 after by-product handling); origin undocumented"
+    },
+    "FERTILISATION_GROUP": {
+      "value": 4.6489777777777785,
+      "unit": "kg CO2eq per kg compound fertiliser",
+      "type": "group ratio",
+      "source": "2615.05 kg CO2eq ha-1 / 562.50 kg ha-1 (source calculation); subsumes other fertilisation inputs and field burdens; not a product-specific factor"
+    },
+    "PLANT_PROTECTION_GROUP": {
+      "value": 45.13,
+      "unit": "kg CO2eq per ha",
+      "type": "group result",
+      "source": "plant-protection group result of the source calculation; fuel and active-substance components not separable"
+    }
+  },
+  "rules": [
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "SOIL_PREPARATION"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "SOIL_PREPARATION"
+    },
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "PRUNING",
+        "HARVESTING"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "PRUNING_HARVESTING"
+    },
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "FOLIAR_FERTILISATION"
+      ],
+      "method": "subsumed",
+      "group": "FERTILISATION",
+      "note": "included in the fertilisation group intensity"
+    },
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "COMPOUND_FERTILISER_KG",
+      "activities": [
+        "FERTILISATION"
+      ],
+      "method": "linear",
+      "factor": "FERTILISATION_GROUP",
+      "group": "FERTILISATION"
+    },
+    {
+      "variable": "FOLIAR_FERTILISER_KG",
+      "activities": [
+        "FOLIAR_FERTILISATION"
+      ],
+      "method": "subsumed",
+      "group": "FERTILISATION",
+      "note": "included in the fertilisation group intensity"
+    },
+    {
+      "variable": "SPRAY_WATER_M3",
+      "activities": [
+        "FOLIAR_FERTILISATION"
+      ],
+      "method": "subsumed",
+      "group": "FERTILISATION",
+      "note": "included in the fertilisation group intensity"
+    },
+    {
+      "variable": "COPPER_OXYCHLORIDE_KG",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "PYRETHROID_KG",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "SPRAY_WATER_M3",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "IRRIGATION_ELECTRICITY_KWH",
+      "activities": [
+        "IRRIGATION"
+      ],
+      "method": "linear",
+      "factor": "GRID_ELECTRICITY",
+      "group": "IRRIGATION"
+    },
+    {
+      "variable": "IRRIGATION_WATER_M3",
+      "activities": [
+        "IRRIGATION"
+      ],
+      "method": "inventory_only",
+      "group": "IRRIGATION",
+      "note": "water volume recorded for water-use indicators; not a carbon flow"
+    },
+    {
+      "variable": "TRANSPORT_DIESEL_L",
+      "activities": [
+        "TRANSPORT"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "TRANSPORT"
+    },
+    {
+      "variable": "MILL_ELECTRICITY_KWH",
+      "activities": [
+        "MILL_PROCESSING"
+      ],
+      "method": "linear",
+      "factor": "GRID_ELECTRICITY",
+      "group": "MILL_PROCESSING"
+    },
+    {
+      "variable": "MILL_DIESEL_L",
+      "activities": [
+        "BY_PRODUCT_HANDLING"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "MILL_PROCESSING"
+    },
+    {
+      "variable": "PROCESS_WATER_M3",
+      "activities": [
+        "*"
+      ],
+      "method": "inventory_only",
+      "group": "MILL_PROCESSING",
+      "note": "water input; no carbon factor in this set"
+    },
+    {
+      "variable": "OIL_OUTPUT_KG",
+      "activities": [
+        "*"
+      ],
+      "method": "reference_flow"
+    },
+    {
+      "variable": "OMW_WASTEWATER_L",
+      "activities": [
+        "*"
+      ],
+      "method": "output_flow",
+      "note": "olive-mill wastewater leaving the process; treatment outside the boundary"
+    },
+    {
+      "variable": "POMACE_KG",
+      "activities": [
+        "*"
+      ],
+      "method": "output_flow",
+      "note": "co-product; mass used only by allocation variants"
+    }
+  ],
+  "areaGroups": [
+    {
+      "group": "PLANT_PROTECTION",
+      "factor": "PLANT_PROTECTION_GROUP",
+      "whenActivity": "PLANT_PROTECTION",
+      "note": "applied once per farm scope and hectare when plant-protection events exist"
+    }
+  ],
+  "groups": {
+    "SOIL_PREPARATION": "Soil preparation and weed control",
+    "FERTILISATION": "Fertilization",
+    "PLANT_PROTECTION": "Plant protection",
+    "PRUNING_HARVESTING": "Pruning and harvesting",
+    "IRRIGATION": "Irrigation",
+    "TRANSPORT": "Transport to mill",
+    "MILL_PROCESSING": "Mill processing"
+  }
+}

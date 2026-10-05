@@ -1,0 +1,479 @@
+{
+  "generatedAt": "2026-10-03T08:50:15.465Z",
+  "network": "Hardhat EVM (London rules, zero gas price), solc 0.8.28 viaIR, optimizer 200 runs",
+  "eventCount": 42,
+  "results": {
+    "v1_conferenceVersion": {
+      "perKgOil": 1.993109968196858,
+      "perHa": 3693.0666785714284,
+      "phasesPerKgOil": {
+        "cultivation": 1.6242932313919496,
+        "transport": 0.029939927398888497,
+        "mill": 0.3388768094060201
+      },
+      "groupsPerHa": {
+        "FERTILISATION": 2615.0500000000006,
+        "SOIL_PREPARATION": 116.49999999999999,
+        "PLANT_PROTECTION": 45.13,
+        "PRUNING_HARVESTING": 233.00000000000003,
+        "TRANSPORT": 55.476190476190474,
+        "MILL_PROCESSING": 627.9104880952382
+      },
+      "resultPackage": {
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "functionalUnit": "0x45564f4f5f314b475f4d494c4c5f474154450000000000000000000000000000",
+        "allocationRule": "0x4e4f4e455f554e414c4c4f434154454400000000000000000000000000000000",
+        "factorSetId": "0x46532d323032352d434f4e460000000000000000000000000000000000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e302e300000000000000000000000",
+        "reportHash": "0xedd33f4c5d38d2d4d347784ae4722916a32ad4e17b89f4e2740a39f7ccab11cd",
+        "evidenceManifest": "0x3a4d38c5e77421a892488ccaf9e09608af7e16ebf056b53ab55b634c363dcb31",
+        "phaseMg": [
+          "1624293",
+          "29940",
+          "338877"
+        ],
+        "totalMg": "1993110"
+      },
+      "reportHash": "0xedd33f4c5d38d2d4d347784ae4722916a32ad4e17b89f4e2740a39f7ccab11cd",
+      "manifestHash": "0x3a4d38c5e77421a892488ccaf9e09608af7e16ebf056b53ab55b634c363dcb31"
+    },
+    "v2_journalVersion": {
+      "perKgOil": 1.8352057510279802,
+      "perHa": 3400.483322842262,
+      "phasesPerKgOil": {
+        "cultivation": 1.6095079708230267,
+        "transport": 0.029939927398888497,
+        "mill": 0.19575785280606506
+      },
+      "groupsPerHa": {
+        "FERTILISATION": 2615.0500000000006,
+        "SOIL_PREPARATION": 116.49999999999999,
+        "PLANT_PROTECTION": 45.13,
+        "PRUNING_HARVESTING": 205.6041442708333,
+        "TRANSPORT": 55.476190476190474,
+        "MILL_PROCESSING": 362.72298809523807
+      },
+      "resultPackage": {
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "functionalUnit": "0x45564f4f5f314b475f4d494c4c5f474154450000000000000000000000000000",
+        "allocationRule": "0x4e4f4e455f554e414c4c4f434154454400000000000000000000000000000000",
+        "factorSetId": "0x46532d323032362d303100000000000000000000000000000000000000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e302e300000000000000000000000",
+        "reportHash": "0x07595ad430a172a29be06b485bea0f25417ba32bdd9e1a9e50f005913689ddc4",
+        "evidenceManifest": "0xc1ed413eb5ad89fbb4fb2bfa9b465fcaafc9df7aea39b846f970c32486b1d71b",
+        "phaseMg": [
+          "1609508",
+          "29940",
+          "195758"
+        ],
+        "totalMg": "1835206"
+      },
+      "reportHash": "0x07595ad430a172a29be06b485bea0f25417ba32bdd9e1a9e50f005913689ddc4",
+      "manifestHash": "0xc1ed413eb5ad89fbb4fb2bfa9b465fcaafc9df7aea39b846f970c32486b1d71b"
+    },
+    "allocationVariants": {
+      "economic": 1.784221618285473,
+      "wetMass": 0.3815396571783743
+    }
+  },
+  "literPackageRejection": "FunctionalUnitMismatch",
+  "fs2025OnCorrectedChain": "No rule for FIELD_PETROL_L in activity PRUNING under factor set FS-2025-CONF",
+  "certificateTimeline": [
+    {
+      "label": "after submission of v1 (not yet approved)",
+      "date": "2025-03-20T10:00:03.000Z",
+      "status": "None",
+      "version": 0,
+      "kgCO2eqPerFU": 0,
+      "factorSet": null,
+      "functionalUnit": null
+    },
+    {
+      "label": "v1 approved",
+      "date": "2025-03-27T10:00:01.000Z",
+      "status": "Valid",
+      "version": 1,
+      "kgCO2eqPerFU": 1.99311,
+      "factorSet": "FS-2025-CONF",
+      "functionalUnit": "EVOO_1KG_MILL_GATE"
+    },
+    {
+      "label": "corrections proposed, pending authorization",
+      "date": "2026-06-15T09:00:02.000Z",
+      "status": "Valid",
+      "version": 1,
+      "kgCO2eqPerFU": 1.99311,
+      "factorSet": "FS-2025-CONF",
+      "functionalUnit": "EVOO_1KG_MILL_GATE"
+    },
+    {
+      "label": "corrections authorised",
+      "date": "2026-06-18T09:00:02.000Z",
+      "status": "Outdated",
+      "version": 1,
+      "kgCO2eqPerFU": 1.99311,
+      "factorSet": "FS-2025-CONF",
+      "functionalUnit": "EVOO_1KG_MILL_GATE"
+    },
+    {
+      "label": "FS-2025-CONF retired",
+      "date": "2026-06-22T09:00:01.000Z",
+      "status": "Outdated",
+      "version": 1,
+      "kgCO2eqPerFU": 1.99311,
+      "factorSet": "FS-2025-CONF",
+      "functionalUnit": "EVOO_1KG_MILL_GATE"
+    },
+    {
+      "label": "v2 approved",
+      "date": "2026-07-03T09:00:01.000Z",
+      "status": "Valid",
+      "version": 2,
+      "kgCO2eqPerFU": 1.835206,
+      "factorSet": "FS-2026-01",
+      "functionalUnit": "EVOO_1KG_MILL_GATE"
+    }
+  ],
+  "deployments": [
+    {
+      "name": "EnvelopeValidation",
+      "gasUsed": 521764,
+      "runtimeBytes": 2169,
+      "initcodeBytes": 2200
+    },
+    {
+      "name": "Consortium",
+      "gasUsed": 1603299,
+      "runtimeBytes": 5722,
+      "initcodeBytes": 7417
+    },
+    {
+      "name": "FactorRegistry",
+      "gasUsed": 613365,
+      "runtimeBytes": 2589,
+      "initcodeBytes": 2775
+    },
+    {
+      "name": "EvidenceRegistry",
+      "gasUsed": 607280,
+      "runtimeBytes": 2559,
+      "initcodeBytes": 2735
+    },
+    {
+      "name": "CarbonTraceability",
+      "gasUsed": 4738745,
+      "runtimeBytes": 21285,
+      "initcodeBytes": 21715
+    },
+    {
+      "name": "CarbonCertification",
+      "gasUsed": 1598060,
+      "runtimeBytes": 7050,
+      "initcodeBytes": 7522
+    }
+  ],
+  "deploymentTotalGas": 9682513,
+  "totalsByAct": {
+    "setup": {
+      "transactions": 37,
+      "gasUsed": 3422426,
+      "calldataBytes": 6036,
+      "logBytes": 8736,
+      "newSlots": 101
+    },
+    "act1": {
+      "transactions": 75,
+      "gasUsed": 13797012,
+      "calldataBytes": 25804,
+      "logBytes": 29728,
+      "newSlots": 396
+    },
+    "act2": {
+      "transactions": 6,
+      "gasUsed": 1067946,
+      "calldataBytes": 1048,
+      "logBytes": 1472,
+      "newSlots": 28
+    },
+    "act3": {
+      "transactions": 11,
+      "gasUsed": 1743405,
+      "calldataBytes": 2028,
+      "logBytes": 3360,
+      "newSlots": 43
+    }
+  },
+  "operationalTotals": {
+    "transactions": 92,
+    "gasUsed": 16608363,
+    "calldataBytes": 28880,
+    "logBytes": 34560,
+    "newSlots": 467
+  },
+  "perOperation": [
+    {
+      "label": "Consortium.registerActor",
+      "count": 11,
+      "gasMin": 119307,
+      "gasMean": 119360,
+      "gasMax": 119433,
+      "calldataBytesMean": 132,
+      "logBytesMean": 288,
+      "newSlotsMean": 4,
+      "totalGas": 1312960
+    },
+    {
+      "label": "Consortium.defineVariable",
+      "count": 16,
+      "gasMin": 75853,
+      "gasMean": 80443,
+      "gasMax": 120665,
+      "calldataBytesMean": 228,
+      "logBytesMean": 256,
+      "newSlotsMean": 2.2,
+      "totalGas": 1287084
+    },
+    {
+      "label": "CarbonCertification.defineFunctionalUnit",
+      "count": 2,
+      "gasMin": 53209,
+      "gasMean": 53221,
+      "gasMax": 53233,
+      "calldataBytesMean": 68,
+      "logBytesMean": 96,
+      "newSlotsMean": 1,
+      "totalGas": 106442
+    },
+    {
+      "label": "Consortium.registerDevice",
+      "count": 4,
+      "gasMin": 120455,
+      "gasMean": 120497,
+      "gasMax": 120527,
+      "calldataBytesMean": 100,
+      "logBytesMean": 160,
+      "newSlotsMean": 4,
+      "totalGas": 481988
+    },
+    {
+      "label": "Consortium.recordCalibration",
+      "count": 4,
+      "gasMin": 58443,
+      "gasMean": 58488,
+      "gasMax": 58539,
+      "calldataBytesMean": 100,
+      "logBytesMean": 160,
+      "newSlotsMean": 1,
+      "totalGas": 233952
+    },
+    {
+      "label": "CarbonTraceability.registerOrchard",
+      "count": 1,
+      "gasMin": 102572,
+      "gasMean": 102572,
+      "gasMax": 102572,
+      "calldataBytesMean": 100,
+      "logBytesMean": 192,
+      "newSlotsMean": 3,
+      "totalGas": 102572
+    },
+    {
+      "label": "CarbonTraceability.recordFarmEvent",
+      "count": 25,
+      "gasMin": 202175,
+      "gasMean": 202998,
+      "gasMax": 219801,
+      "calldataBytesMean": 452,
+      "logBytesMean": 544,
+      "newSlotsMean": 6,
+      "totalGas": 5074953
+    },
+    {
+      "label": "CarbonTraceability.registerLot",
+      "count": 10,
+      "gasMin": 134137,
+      "gasMean": 134148,
+      "gasMax": 134149,
+      "calldataBytesMean": 164,
+      "logBytesMean": 224,
+      "newSlotsMean": 4,
+      "totalGas": 1341478
+    },
+    {
+      "label": "CarbonTraceability.initiateTransfer",
+      "count": 10,
+      "gasMin": 216615,
+      "gasMean": 216625,
+      "gasMax": 216627,
+      "calldataBytesMean": 228,
+      "logBytesMean": 288,
+      "newSlotsMean": 7,
+      "totalGas": 2166246
+    },
+    {
+      "label": "CarbonTraceability.recordTransportEvent",
+      "count": 10,
+      "gasMin": 199293,
+      "gasMean": 199303,
+      "gasMax": 199305,
+      "calldataBytesMean": 420,
+      "logBytesMean": 544,
+      "newSlotsMean": 6,
+      "totalGas": 1993026
+    },
+    {
+      "label": "CarbonTraceability.confirmReceipt",
+      "count": 10,
+      "gasMin": 106069,
+      "gasMean": 106077,
+      "gasMax": 106081,
+      "calldataBytesMean": 292,
+      "logBytesMean": 192,
+      "newSlotsMean": 1,
+      "totalGas": 1060774
+    },
+    {
+      "label": "CarbonTraceability.createBatch",
+      "count": 1,
+      "gasMin": 772440,
+      "gasMean": 772440,
+      "gasMax": 772440,
+      "calldataBytesMean": 836,
+      "logBytesMean": 192,
+      "newSlotsMean": 28,
+      "totalGas": 772440
+    },
+    {
+      "label": "CarbonTraceability.recordMillEvent",
+      "count": 5,
+      "gasMin": 203360,
+      "gasMean": 218667,
+      "gasMax": 244177,
+      "calldataBytesMean": 458,
+      "logBytesMean": 544,
+      "newSlotsMean": 6.4,
+      "totalGas": 1093335
+    },
+    {
+      "label": "CarbonTraceability.closeBatch",
+      "count": 1,
+      "gasMin": 88053,
+      "gasMean": 88053,
+      "gasMax": 88053,
+      "calldataBytesMean": 68,
+      "logBytesMean": 160,
+      "newSlotsMean": 1,
+      "totalGas": 88053
+    },
+    {
+      "label": "CarbonTraceability.closeFarmPhase",
+      "count": 1,
+      "gasMin": 43242,
+      "gasMean": 43242,
+      "gasMax": 43242,
+      "calldataBytesMean": 68,
+      "logBytesMean": 192,
+      "newSlotsMean": 0,
+      "totalGas": 43242
+    },
+    {
+      "label": "CarbonTraceability.verifyFarmPhase",
+      "count": 2,
+      "gasMin": 43793,
+      "gasMean": 52343,
+      "gasMax": 60893,
+      "calldataBytesMean": 100,
+      "logBytesMean": 192,
+      "newSlotsMean": 0.5,
+      "totalGas": 104686
+    },
+    {
+      "label": "FactorRegistry.propose",
+      "count": 2,
+      "gasMin": 128063,
+      "gasMean": 138067,
+      "gasMax": 148071,
+      "calldataBytesMean": 228,
+      "logBytesMean": 288,
+      "newSlotsMean": 4.5,
+      "totalGas": 276134
+    },
+    {
+      "label": "FactorRegistry.approve",
+      "count": 2,
+      "gasMin": 60400,
+      "gasMean": 60412,
+      "gasMax": 60424,
+      "calldataBytesMean": 36,
+      "logBytesMean": 96,
+      "newSlotsMean": 1,
+      "totalGas": 120824
+    },
+    {
+      "label": "EvidenceRegistry.register",
+      "count": 3,
+      "gasMin": 125086,
+      "gasMean": 125090,
+      "gasMax": 125098,
+      "calldataBytesMean": 164,
+      "logBytesMean": 224,
+      "newSlotsMean": 4,
+      "totalGas": 375270
+    },
+    {
+      "label": "CarbonCertification.submitResult",
+      "count": 2,
+      "gasMin": 450649,
+      "gasMean": 458023,
+      "gasMax": 465396,
+      "calldataBytesMean": 388,
+      "logBytesMean": 512,
+      "newSlotsMean": 13.5,
+      "totalGas": 916045
+    },
+    {
+      "label": "CarbonCertification.approveResult",
+      "count": 2,
+      "gasMin": 151980,
+      "gasMean": 157936,
+      "gasMax": 163891,
+      "calldataBytesMean": 68,
+      "logBytesMean": 128,
+      "newSlotsMean": 0.5,
+      "totalGas": 315871
+    },
+    {
+      "label": "CarbonTraceability.proposeCorrection",
+      "count": 2,
+      "gasMin": 297324,
+      "gasMean": 297348,
+      "gasMax": 297372,
+      "calldataBytesMean": 452,
+      "logBytesMean": 736,
+      "newSlotsMean": 10,
+      "totalGas": 594696
+    },
+    {
+      "label": "CarbonTraceability.authorizeCorrection",
+      "count": 2,
+      "gasMin": 65930,
+      "gasMean": 65930,
+      "gasMax": 65930,
+      "calldataBytesMean": 36,
+      "logBytesMean": 160,
+      "newSlotsMean": 0,
+      "totalGas": 131860
+    },
+    {
+      "label": "FactorRegistry.retire",
+      "count": 1,
+      "gasMin": 36858,
+      "gasMean": 36858,
+      "gasMax": 36858,
+      "calldataBytesMean": 68,
+      "logBytesMean": 128,
+      "newSlotsMean": 0,
+      "totalGas": 36858
+    }
+  ]
+}

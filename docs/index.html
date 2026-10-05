@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EVOO Carbon Ledger · Live demo</title>
+  <meta name="description" content="The smart contracts of the EVOO Carbon Ledger prototype running in your browser: replay of the Western Achaia olive-oil case study and attempts to break the auditability rules.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M10 54C24 44 36 30 50 10' stroke='%235a6b2e' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='26' cy='30' rx='13' ry='6' transform='rotate(-40 26 30)' fill='%237a8c3c'/%3E%3Cellipse cx='42' cy='38' rx='12' ry='5.5' transform='rotate(-10 42 38)' fill='%237a8c3c'/%3E%3Ccircle cx='46' cy='18' r='7' fill='%233d4a1c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <p class="eyebrow">Live demo · Smart-contract prototype</p>
+      <h1>EVOO Carbon Ledger</h1>
+      <p class="lede">The Solidity contracts of the article <cite>From Orchard to Ledger: An IoT-Enabled Blockchain Architecture for Auditable Carbon Footprint Traceability in Extra Virgin Olive Oil</cite> run here, in your browser, on an in-memory Ethereum Virtual Machine. Replay the Western Achaia case study event by event, then try to break the rules.</p>
+      <ul class="facts">
+        <li>Solidity 0.8.28 · London EVM</li>
+        <li>Five contracts and one library</li>
+        <li>Runs locally · no wallet, no fees</li>
+      </ul>
+      <nav class="links">
+        <a class="btn ghost" href="https://github.com/sotkaretsos/evoo-carbon-ledger">Source code on GitHub</a>
+        <a class="btn ghost" href="https://github.com/sotkaretsos/evoo-carbon-ledger/blob/main/docs/requirements-mapping.md">Requirements R1–R9</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="replay-title">
+      <div class="section-head">
+        <h2 id="replay-title"><span class="n">1</span> Replay the case study</h2>
+        <p>A 4.8 ha Koroneiki orchard and its olive mill record one season on a permissioned ledger. An off-chain LCA service computes the footprint from the ledger records and the contracts decide what can be certified.</p>
+      </div>
+
+      <div class="controls">
+        <button id="run-next" class="btn primary" type="button" disabled>Run next step</button>
+        <button id="run-all" class="btn" type="button" disabled>Run all</button>
+        <button id="restart" class="btn ghost" type="button" disabled>Start over</button>
+        <label class="toggle"><input id="pace" type="checkbox"> Presentation pace</label>
+        <p id="status" class="status busy" role="status">Loading…</p>
+      </div>
+
+      <div class="replay-grid">
+        <ol id="steps" class="steps" aria-label="Replay steps"></ol>
+
+        <aside class="card certificate" aria-labelledby="cert-title">
+          <p class="card-kicker">Public certificate · BATCH/WA-01/2024</p>
+          <h3 id="cert-title" class="sr-only">Certificate</h3>
+          <div class="cert-top">
+            <span id="cert-status" class="pill none">No certificate yet</span>
+            <span id="cert-version" class="version">–</span>
+          </div>
+          <p class="cert-value"><span id="cert-value">–</span> <span class="unit">kg CO<sub>2</sub>eq per kg EVOO</span></p>
+          <p id="cert-note" class="cert-note">A certificate appears once a result package is approved.</p>
+          <div id="cert-bars" class="bars" aria-label="Phase shares"></div>
+          <dl class="kv">
+            <dt>Factor set</dt><dd id="cert-fs">–</dd>
+            <dt>Functional unit</dt><dd id="cert-fu">–</dd>
+            <dt>Approved</dt><dd id="cert-approved">–</dd>
+            <dt>Evidence</dt><dd id="cert-evidence">–</dd>
+          </dl>
+          <p class="card-kicker">History</p>
+          <ol id="cert-timeline" class="timeline"></ol>
+        </aside>
+      </div>
+
+      <div id="check" class="check" hidden></div>
+
+      <div id="results-wrap" class="card table-card" hidden>
+        <h3>Result packages</h3>
+        <div class="scroll">
+          <table id="results">
+            <thead>
+              <tr><th>Package</th><th>Factor set</th><th>Functional unit</th><th class="num">kg CO<sub>2</sub>eq per FU</th><th class="num">Cultivation and harvesting</th><th class="num">Transport</th><th class="num">Mill</th><th>Outcome</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p id="results-note" class="muted small"></p>
+      </div>
+
+      <div class="card table-card">
+        <div class="feed-head">
+          <h3>Ledger feed</h3>
+          <span class="muted small"><span id="feed-count">0 entries</span> · newest first · <span id="totals"></span></span>
+        </div>
+        <div class="scroll feed-scroll">
+          <table id="feed">
+            <thead>
+              <tr><th class="num">#</th><th>Chain date (UTC)</th><th>Step</th><th>Actor</th><th>Function</th><th>Detail</th><th class="num">Gas</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="attacks-title">
+      <div class="section-head">
+        <h2 id="attacks-title"><span class="n">2</span> Try to break the rules</h2>
+        <p>Each attempt is sent to the deployed contracts on a snapshot of the chain and rolled back afterwards, so the replayed season stays intact. The tag shows the auditability requirement of the article that the rule enforces.</p>
+      </div>
+      <div id="attacks" class="attacks"></div>
+    </section>
+
+    <section aria-labelledby="how-title" class="how">
+      <div class="section-head">
+        <h2 id="how-title"><span class="n">3</span> How this page works</h2>
+      </div>
+      <div class="how-grid">
+        <div>
+          <h3>Same bytecode, same code paths</h3>
+          <p>The page loads the bytecode compiled from the repository's Solidity sources (Solidity 0.8.28, intermediate-representation pipeline, 200 optimizer runs, London rules) and executes it with the EthereumJS virtual machine. The replay plan, the consortium catalogue, the encodings and the off-chain LCA engine are the same JavaScript modules that the repository's tests use.</p>
+        </div>
+        <div>
+          <h3>A private test chain in this tab</h3>
+          <p>Chain ID 31337, zero gas price and one block per transaction, with block timestamps set to the dates of the case study. Accounts come from the public Hardhat test mnemonic and device signatures from deterministic test keys; nothing leaves your browser.</p>
+        </div>
+        <div>
+          <h3>Run it yourself</h3>
+          <p>Clone the repository, then run <code>npm ci</code> and <code>npx hardhat test</code> for the 77 tests, or <code>npm run evaluate</code> for the gas and storage reports. The demo is rebuilt with <code>cd demo &amp;&amp; npm ci &amp;&amp; npm run build</code>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Companion code of the article <cite>From Orchard to Ledger</cite> by Sotirios Karetsos, Maria Stavropoulou, Constantina Costopoulou and Konstantinos Demestichas, Informatics Laboratory, Agricultural University of Athens. MIT License.</p>
+      <p>This research was funded by the European Union's Horizon Europe research and innovation programme through the TALLHEDA project, grant agreement No. 101136578. Funded by the European Union. Views and opinions expressed are, however, those of the authors only and do not necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the European Union nor the granting authority can be held responsible for them.</p>
+    </div>
+  </footer>
+  <script src="assets/demo.js" defer></script>
+</body>
+</html>

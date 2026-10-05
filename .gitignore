@@ -1,0 +1,12 @@
+node_modules/
+artifacts/
+cache/
+coverage/
+coverage.json
+typechain-types/
+deployments/
+besu/networkFiles/
+besu/nodes/
+besu/.env
+demo/node_modules/
+demo/build/

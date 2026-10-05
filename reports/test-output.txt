@@ -1,0 +1,114 @@
+
+
+  Case study — Western Achaia replay
+    ✔ records the season as 42 events with ten dual-signature custody transfers
+    ✔ reproduces the conference-version result (1.993 kg CO2eq per kg) under FS-2025-CONF
+    ✔ rejects the per-liter declaration of the conference version
+    ✔ reproduces the journal baseline of Table 5 (3400.5 kg CO2eq/ha; 1.835 kg CO2eq/kg) under FS-2026-01
+    ✔ reproduces the allocation variants of Table 7 (economic 1.78; wet mass 0.38)
+    ✔ keeps the superseded fuel records and both result versions
+    ✔ moves the certificate through Valid (v1), Outdated and Valid (v2)
+
+  Edge cases — farm phase
+    ✔ validates orchard registration (124ms)
+    ✔ validates farm events, lots, closure and verification
+
+  Edge cases — custody transfer
+    ✔ validates the sender's declaration
+    ✔ lets the sender cancel an unconfirmed transfer
+    ✔ validates the receiver's weighing
+
+  Edge cases — mill batches
+    ✔ validates batch composition (181ms)
+    ✔ validates mill events and closure
+    ✔ applies governed plausibility parameters
+
+  Edge cases — corrections and results
+    ✔ validates correction identifiers and competing proposals (170ms)
+    ✔ handles result versions, approvals and empty certificates
+
+  Edge cases — registries
+    ✔ validates device registration and calibration
+    ✔ maintains the list of mandatory mill fields
+    ✔ validates factor-set governance
+    ✔ validates evidence registration and retention
+
+  R1 — attribution of every quantity to a source class and an actor
+    ✔ stores the actor, phase and source class and logs the full envelope
+    ✔ rejects accounts that are not consortium members
+    ✔ rejects growers of another organisation on this orchard
+    ✔ rejects suspended actors without erasing their earlier records
+    ✔ requires a document identifier for invoice-based quantities
+    ✔ keeps estimates distinguishable from measurements
+
+  R2 — device identity and calibration status
+    ✔ accepts a meter reading signed by the registered, calibrated device
+    ✔ rejects readings signed with another key
+    ✔ rejects malformed signatures without reverting inside the signature library
+    ✔ rejects readings attributed to a device of another organisation
+    ✔ rejects readings observed after the calibration certificate expired
+    ✔ rejects readings of a deactivated device
+    ✔ lets only certification bodies record calibration certificates
+    ✔ rejects operator entries for variables that must come from a meter
+    ✔ binds signatures to one scope and rejects re-sent envelopes
+
+  R3 — unit and range validation
+    ✔ rejects quantities outside the governed range
+    ✔ rejects variables that belong to another phase
+    ✔ rejects undefined or deactivated variables
+    ✔ rejects timestamps beyond the tolerated clock skew
+    ✔ rejects incomplete envelopes
+    ✔ rejects an implausible oil yield at batch closure
+    ✔ restricts variable definitions to the methodological authority
+    ✔ re-checks the oil yield when the oil output of a closed batch is corrected (150ms)
+
+  R4 — lot identity across custody and transformation
+    ✔ changes custody only after the sender's declaration and the receiver's signed weighing
+    ✔ rejects confirmation by a mill other than the designated receiver
+    ✔ rejects received masses outside the tolerance and unsigned weighings
+    ✔ does not batch lots that have not been received, nor the same lot twice
+    ✔ requires a declared mixing rule and mass-proportional shares
+    ✔ closes a batch only when mandatory meter fields and the mass balance pass
+    ✔ freezes the harvest basis and the farm record set at farm-phase closure
+    ✔ records transport events only for lots in transit, by the designated transporter
+
+  R5 — emission-factor versioning
+    ✔ requires approval of a factor set by a second methodological authority (160ms)
+    ✔ rejects results that reference an unapproved, expired or retired factor set
+    ✔ flags certificates whose factor set was later retired
+    ✔ records a recalculation as a new result version and keeps earlier versions
+
+  R6 — functional unit, system boundary and allocation rule
+    ✔ rejects result packages with missing method fields
+    ✔ rejects unknown functional units and units that differ from the measured output
+    ✔ rejects totals that differ from the sum of the phase results
+    ✔ does not accept results before the batch and its farm phases are closed
+    ✔ exposes boundary, functional unit, allocation rule and factor set on the certificate (177ms)
+
+  R7 — correction without deletion of history
+    ✔ keeps the original event, links the replacement and records reason and authoriser (172ms)
+    ✔ requires authorization by an auditor other than the proposer
+    ✔ rejects corrections proposed by another organisation
+    ✔ outdates the certificate and invalidates results computed from the earlier chain
+    ✔ requires renewed farm verification after a farm correction
+    ✔ leaves the original effective when a correction is rejected
+    ✔ does not correct a superseded event again and validates replacements like new events
+    ✔ outdates the certificate when a transport record of one lot is corrected
+    ✔ keeps the mill reference flow consistent when an oil-output reading is corrected (147ms)
+
+  R8 — confidentiality with integrity verification
+    ✔ stores only the evidence hash and verifies presented documents against it
+    ✔ discloses totals, phase shares and method fields on the public certificate only (168ms)
+
+  R9 — retention of off-chain evidence
+    ✔ rejects results whose evidence manifest is unregistered, too short-lived or under-replicated
+    ✔ flags failed retrieval checks on the certificate and blocks new results until resolved
+    ✔ allows retention to be extended but never shortened
+
+  Separation of duties and consortium governance
+    ✔ prevents an account holding both roles from approving its own result
+    ✔ admits members only through the governor and only with operational roles
+
+
+  77 passing (4s)
+

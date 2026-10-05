@@ -1,0 +1,38 @@
+{
+  "name": "evoo-carbon-ledger",
+  "version": "1.0.0",
+  "description": "Prototype smart contracts and evaluation for auditable carbon-footprint traceability in extra virgin olive oil (Hyperledger Besu / QBFT)",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "coverage": "hardhat coverage",
+    "gas:report": "REPORT_GAS=true hardhat test",
+    "evaluate": "hardhat run scripts/scaling.js && hardhat run scripts/evaluate-case-study.js",
+    "deploy:besu": "hardhat run scripts/deploy.js --network besu",
+    "bench:besu": "hardhat run scripts/benchmark-latency.js --network besu"
+  },
+  "keywords": [
+    "blockchain",
+    "smart-contracts",
+    "hyperledger-besu",
+    "qbft",
+    "carbon-footprint",
+    "life-cycle-assessment",
+    "olive-oil",
+    "traceability"
+  ],
+  "author": "Karetsos S., Stavropoulou M., Costopoulou C., Demestichas K. (Agricultural University of Athens)",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "5.0.0",
+    "hardhat": "2.29.1",
+    "solc": "0.8.28"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.6.1"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
+}
