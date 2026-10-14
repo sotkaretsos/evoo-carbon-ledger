@@ -1,9 +1,10 @@
 # EVOO Carbon Ledger
 
 Prototype smart contracts, off-chain LCA engine and evaluation for the article
-*From Orchard to Ledger: An IoT-Enabled Blockchain Architecture for Auditable Carbon Footprint
-Traceability in Extra Virgin Olive Oil* (Karetsos, Stavropoulou, Costopoulou and Demestichas;
-manuscript in preparation). The same code is provided as Supplementary File S1 of the article.
+*An IoT-Enabled Blockchain Architecture for Auditable Carbon Footprint Traceability in Extra
+Virgin Olive Oil* by Sotirios Karetsos, Maria Stavropoulou, Constantina
+Costopoulou and Konstantinos Demestichas (Informatics Laboratory, Agricultural University of
+Athens). The same code is provided as Supplementary File S1 of the article.
 
 The prototype implements the event model and smart-contract controls of the article for a
 permissioned Ethereum-compatible ledger (Hyperledger Besu with QBFT consensus), and replays the
@@ -47,7 +48,7 @@ the season, 9,682,513 gas for deployment. Source: `demo/`; built site: `docs/`.
 | `FactorRegistry` | Versioned emission-factor sets: content hash, GWP basis, validity window; proposal and approval by two different methodological-authority accounts; retirement | R5 |
 | `EvidenceRegistry` | Evidence packages: persistent-identifier hash, repository, retention period, replicas, auditor retrieval checks | R8, R9 |
 | `CarbonTraceability` | Farm events per orchard and crop year, harvest lots, dual-signature custody transfer, transport events, mill batches with mass balance and mixing rule, append-only corrections | R1–R4, R7, R8 |
-| `CarbonCertification` | LCA result packages, method-field checks, certifier approval, public certificate | R5, R6, R7, R9 |
+| `CarbonCertification` | LCA result packages, method-field checks, certifier approval, public certificate | R5–R9 |
 | `EnvelopeValidation` (library) | Envelope checks against the variable definition; device and calibration checks; EIP-191 signature verification | R1–R3 |
 
 Every event carries the common envelope of Section 2.8: activity (business step), governed
@@ -98,9 +99,9 @@ Full tables: `reports/gas-report.md`, `reports/scaling.json`, `reports/transacti
 
 The operational record of the whole season (92 transactions, from orchard registration to the
 second certified result) used 16.6 Mgas, 14.9 kB of new contract storage, 28.9 kB of calldata and
-34.6 kB of logs. Batch-level costs grow linearly with
+34.6 kB of logs. Batch creation, result submission and approval grow approximately linearly with
 the number of lots (56,770 gas per lot at batch creation; 7,494 gas per lot at submission and
-approval). Network latency, finality and throughput on a multi-node QBFT network were **not**
+approval), while batch closure does not depend on it. Network latency, finality and throughput on a multi-node QBFT network were **not**
 measured; `scripts/benchmark-latency.js` measures them on such a network.
 
 Tests: 77 passing; coverage 100% of statements, functions and lines and 82.3% of branches
