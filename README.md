@@ -2,9 +2,8 @@
 
 Prototype smart contracts, off-chain LCA engine and evaluation for the article
 *An IoT-Enabled Blockchain Architecture for Auditable Carbon Footprint Traceability in Extra
-Virgin Olive Oil* by Sotirios Karetsos, Maria Stavropoulou, Constantina
-Costopoulou and Konstantinos Demestichas (Informatics Laboratory, Agricultural University of
-Athens). The same code is provided as Supplementary File S1 of the article.
+Virgin Olive Oil* by Sotirios Karetsos, Konstantinos Demestichas and Constantina Costopoulou
+(Informatics Laboratory, Agricultural University of Athens). The same code is provided as Supplementary File S1 of the article.
 
 The prototype implements the event model and smart-contract controls of the article for a
 permissioned Ethereum-compatible ledger (Hyperledger Besu with QBFT consensus), and replays the
@@ -20,7 +19,7 @@ and lets visitors try eleven rule-breaking attempts (wrong functional unit, forg
 signature, duplicate envelope, out-of-range quantity, short delivery, self-approved factor set,
 retired factor set, edits to a closed season, tampered evidence, unarchived evidence, non-member
 writes), each on a snapshot that is rolled back afterwards. The in-browser replay reproduces the
-transaction count and gas of the Hardhat replay exactly: 92 transactions and 16,608,363 gas for
+transaction count and gas of the Hardhat replay exactly: 92 transactions and 16,608,339 gas for
 the season, 9,682,513 gas for deployment. Source: `demo/`; built site: `docs/`.
 
 ## Contents
@@ -29,7 +28,7 @@ the season, 9,682,513 gas for deployment. Source: `demo/`; built site: `docs/`.
 |---|---|
 | `contracts/` | Solidity 0.8.28 contracts (London EVM rules) |
 | `offchain/lca-engine.js` | Reference off-chain LCA calculation service |
-| `offchain/factor-sets/` | Factor-set documents FS-2025-CONF (conference version) and FS-2026-01 (journal version) |
+| `offchain/factor-sets/` | Factor-set documents FS-2025-CONF (basis of the source calculation) and FS-2026-01 (documented factors of the article) |
 | `offchain/case-study/western-achaia.json` | Replay plan built from Tables 1–2 of the article and the source thesis |
 | `lib/` | Encoding helpers, consortium catalogue, deployment, replay and gas/storage recorder |
 | `test/` | 77 tests: requirement-mapped (R1–R9), edge cases and case-study replay |
@@ -68,16 +67,17 @@ year 2024; ten illustrative harvest lots of 4500 kg) in three acts:
 
 1. **Season 2024** – 25 farm events, 10 custody transfers with transport fuel and signed weighbridge
    readings, one mill batch with signed electricity and oil-scale readings and mill estimates.
-2. **Conference version** – factor set FS-2025-CONF (all portable equipment as diesel, implied grid
-   factor of about 0.60 kg CO2eq/kWh). The per-liter result package is rejected
+2. **Source calculation** – factor set FS-2025-CONF reconstructs the basis of the original
+   calculation of the case study (all portable equipment as diesel, implied grid factor of about
+   0.60 kg CO2eq/kWh). The per-liter result package is rejected
    (`FunctionalUnitMismatch`: oil output was weighed in kg); the per-kg package is certified.
-3. **Journal version** – the chainsaw and olive-beater fuel records are reclassified from diesel to
+3. **Revisions of the article** – the chainsaw and olive-beater fuel records are reclassified from diesel to
    petrol by two audited corrections (the certificate becomes `Outdated`), FS-2026-01 replaces
    FS-2025-CONF, and the recalculated result is certified.
 
 | Result package | kg CO2eq/kg EVOO | kg CO2eq/ha | Article |
 |---|---|---|---|
-| v1, FS-2025-CONF | 1.993 | 3693.1 | conference version: 1.993 |
+| v1, FS-2025-CONF | 1.993 | 3693.1 | source calculation: 1.993 |
 | v2, FS-2026-01 | 1.835 | 3400.5 | Table 5: 1.84 (1.835) and 3400.5 |
 | v2, economic / wet-mass allocation (off-chain variants) | 1.78 / 0.38 | – | Table 7: 1.78 / 0.38 |
 
@@ -93,7 +93,7 @@ Full tables: `reports/gas-report.md`, `reports/scaling.json`, `reports/transacti
 | Mill event, signed meter reading | 238,934–244,177 | 7 |
 | Custody transfer (declaration + signed receipt) | 216,625 + 106,077 | 7 + 1 |
 | Batch of 10 lots | 772,440 | 28 |
-| Result submission / approval | 458,023 / 157,936 | 13.5 / 0.5 |
+| Result submission / approval | 458,017 / 157,936 | 13.5 / 0.5 |
 | Correction (proposal + authorization) | 297,348 + 65,930 | 10 + 0 |
 | Deployment (five contracts and the library) | 9,682,513 | – |
 

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-03T08:50:15.465Z",
+  "generatedAt": "2026-10-14T13:24:16.991Z",
   "network": "Hardhat EVM (London rules, zero gas price), solc 0.8.28 viaIR, optimizer 200 runs",
   "eventCount": 42,
   "results": {
-    "v1_conferenceVersion": {
+    "v1_sourceCalculation": {
       "perKgOil": 1.993109968196858,
       "perHa": 3693.0666785714284,
       "phasesPerKgOil": {
@@ -25,8 +25,8 @@
         "allocationRule": "0x4e4f4e455f554e414c4c4f434154454400000000000000000000000000000000",
         "factorSetId": "0x46532d323032352d434f4e460000000000000000000000000000000000000000",
         "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e302e300000000000000000000000",
-        "reportHash": "0xedd33f4c5d38d2d4d347784ae4722916a32ad4e17b89f4e2740a39f7ccab11cd",
-        "evidenceManifest": "0x3a4d38c5e77421a892488ccaf9e09608af7e16ebf056b53ab55b634c363dcb31",
+        "reportHash": "0x9c24cfa12cae742e29a0811d5059d8dfb83a923a3aa588d1568851f9bb14dbdf",
+        "evidenceManifest": "0x5617374c7d6f1e538b2b7cd01f5d40cee852ecd36b01806e15aa821e8c379200",
         "phaseMg": [
           "1624293",
           "29940",
@@ -34,10 +34,10 @@
         ],
         "totalMg": "1993110"
       },
-      "reportHash": "0xedd33f4c5d38d2d4d347784ae4722916a32ad4e17b89f4e2740a39f7ccab11cd",
-      "manifestHash": "0x3a4d38c5e77421a892488ccaf9e09608af7e16ebf056b53ab55b634c363dcb31"
+      "reportHash": "0x9c24cfa12cae742e29a0811d5059d8dfb83a923a3aa588d1568851f9bb14dbdf",
+      "manifestHash": "0x5617374c7d6f1e538b2b7cd01f5d40cee852ecd36b01806e15aa821e8c379200"
     },
-    "v2_journalVersion": {
+    "v2_article": {
       "perKgOil": 1.8352057510279802,
       "perHa": 3400.483322842262,
       "phasesPerKgOil": {
@@ -59,8 +59,8 @@
         "allocationRule": "0x4e4f4e455f554e414c4c4f434154454400000000000000000000000000000000",
         "factorSetId": "0x46532d323032362d303100000000000000000000000000000000000000000000",
         "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e302e300000000000000000000000",
-        "reportHash": "0x07595ad430a172a29be06b485bea0f25417ba32bdd9e1a9e50f005913689ddc4",
-        "evidenceManifest": "0xc1ed413eb5ad89fbb4fb2bfa9b465fcaafc9df7aea39b846f970c32486b1d71b",
+        "reportHash": "0x68f92d5321cc13d55a6136135386462c600e7b4653aa5ff350edb2aea98aeedc",
+        "evidenceManifest": "0x0f48ab5a75cc43a385490fe202d7778ef9cb4931f6720af370f3ca7d65aca8dc",
         "phaseMg": [
           "1609508",
           "29940",
@@ -68,8 +68,8 @@
         ],
         "totalMg": "1835206"
       },
-      "reportHash": "0x07595ad430a172a29be06b485bea0f25417ba32bdd9e1a9e50f005913689ddc4",
-      "manifestHash": "0xc1ed413eb5ad89fbb4fb2bfa9b465fcaafc9df7aea39b846f970c32486b1d71b"
+      "reportHash": "0x68f92d5321cc13d55a6136135386462c600e7b4653aa5ff350edb2aea98aeedc",
+      "manifestHash": "0x0f48ab5a75cc43a385490fe202d7778ef9cb4931f6720af370f3ca7d65aca8dc"
     },
     "allocationVariants": {
       "economic": 1.784221618285473,
@@ -190,7 +190,7 @@
     },
     "act2": {
       "transactions": 6,
-      "gasUsed": 1067946,
+      "gasUsed": 1067922,
       "calldataBytes": 1048,
       "logBytes": 1472,
       "newSlots": 28
@@ -205,7 +205,7 @@
   },
   "operationalTotals": {
     "transactions": 92,
-    "gasUsed": 16608363,
+    "gasUsed": 16608339,
     "calldataBytes": 28880,
     "logBytes": 34560,
     "newSlots": 467
@@ -412,24 +412,24 @@
     {
       "label": "EvidenceRegistry.register",
       "count": 3,
-      "gasMin": 125086,
-      "gasMean": 125090,
+      "gasMin": 125074,
+      "gasMean": 125086,
       "gasMax": 125098,
       "calldataBytesMean": 164,
       "logBytesMean": 224,
       "newSlotsMean": 4,
-      "totalGas": 375270
+      "totalGas": 375258
     },
     {
       "label": "CarbonCertification.submitResult",
       "count": 2,
       "gasMin": 450649,
-      "gasMean": 458023,
-      "gasMax": 465396,
+      "gasMean": 458017,
+      "gasMax": 465384,
       "calldataBytesMean": 388,
       "logBytesMean": 512,
       "newSlotsMean": 13.5,
-      "totalGas": 916045
+      "totalGas": 916033
     },
     {
       "label": "CarbonCertification.approveResult",

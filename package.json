@@ -21,7 +21,7 @@
     "olive-oil",
     "traceability"
   ],
-  "author": "Karetsos S., Stavropoulou M., Costopoulou C., Demestichas K. (Agricultural University of Athens)",
+  "author": "Karetsos S., Demestichas K., Costopoulou C. (Agricultural University of Athens)",
   "license": "MIT",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "5.0.0",

@@ -1,7 +1,7 @@
 {
   "id": "FS-2026-01",
   "version": 2,
-  "title": "Documented factor set of the journal version",
+  "title": "Documented factor set of the article",
   "description": "Petrol combustion factor for chainsaws and portable olive beaters and a documented life-cycle grid factor for Greek electricity, 2022-2024; other entries unchanged.",
   "gwpBasis": "GWP100 (presumed; not documented in the source calculation)",
   "geography": "GR",

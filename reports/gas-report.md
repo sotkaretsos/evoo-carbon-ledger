@@ -1,15 +1,15 @@
 # Gas, storage and ledger-footprint report
 
-Generated 2026-10-03T08:50:15.465Z on the Hardhat EVM (London rules, zero gas price), solc 0.8.28 viaIR, optimizer 200 runs. Gas is a measure of computational and storage load; on a permissioned network with zero gas price it carries no fee.
+Generated 2026-10-14T13:24:16.991Z on the Hardhat EVM (London rules, zero gas price), solc 0.8.28 viaIR, optimizer 200 runs. Gas is a measure of computational and storage load; on a permissioned network with zero gas price it carries no fee.
 
 ## Case-study results computed from the ledger
 
 | Result package | kg CO2eq per kg EVOO | kg CO2eq per ha | Cultivation | Transport | Mill |
 |---|---|---|---|---|---|
-| v1 – FS-2025-CONF (conference version) | 1.9931 | 3693.1 | 1.6243 | 0.0299 | 0.3389 |
-| v2 – FS-2026-01 (journal version) | 1.8352 | 3400.5 | 1.6095 | 0.0299 | 0.1958 |
+| v1 – FS-2025-CONF (source calculation) | 1.9931 | 3693.1 | 1.6243 | 0.0299 | 0.3389 |
+| v2 – FS-2026-01 (article) | 1.8352 | 3400.5 | 1.6095 | 0.0299 | 0.1958 |
 
-Per-liter package of the conference version rejected with `FunctionalUnitMismatch`. FS-2025-CONF on the corrected chain: “No rule for FIELD_PETROL_L in activity PRUNING under factor set FS-2025-CONF”.
+Per-liter package of the source calculation rejected with `FunctionalUnitMismatch`. FS-2025-CONF on the corrected chain: “No rule for FIELD_PETROL_L in activity PRUNING under factor set FS-2025-CONF”.
 
 ## Certificate timeline
 
@@ -56,8 +56,8 @@ Per-liter package of the conference version rejected with `FunctionalUnitMismatc
 | CarbonTraceability.verifyFarmPhase | 2 | 52,343 | 43,793–60,893 | 100 | 192 | 0.5 |
 | FactorRegistry.propose | 2 | 138,067 | 128,063–148,071 | 228 | 288 | 4.5 |
 | FactorRegistry.approve | 2 | 60,412 | 60,400–60,424 | 36 | 96 | 1 |
-| EvidenceRegistry.register | 3 | 125,090 | 125,086–125,098 | 164 | 224 | 4 |
-| CarbonCertification.submitResult | 2 | 458,023 | 450,649–465,396 | 388 | 512 | 13.5 |
+| EvidenceRegistry.register | 3 | 125,086 | 125,074–125,098 | 164 | 224 | 4 |
+| CarbonCertification.submitResult | 2 | 458,017 | 450,649–465,384 | 388 | 512 | 13.5 |
 | CarbonCertification.approveResult | 2 | 157,936 | 151,980–163,891 | 68 | 128 | 0.5 |
 | CarbonTraceability.proposeCorrection | 2 | 297,348 | 297,324–297,372 | 452 | 736 | 10 |
 | CarbonTraceability.authorizeCorrection | 2 | 65,930 | 65,930–65,930 | 36 | 160 | 0 |
@@ -69,9 +69,9 @@ Per-liter package of the conference version rejected with `FunctionalUnitMismatc
 |---|---|---|---|---|---|
 | Consortium configuration | 37 | 3,422,426 | 6,036 | 8,736 | 101 (3,232 B) |
 | Act 1 – 2024 season | 75 | 13,797,012 | 25,804 | 29,728 | 396 (12,672 B) |
-| Act 2 – conference-version result | 6 | 1,067,946 | 1,048 | 1,472 | 28 (896 B) |
-| Act 3 – journal-version corrections | 11 | 1,743,405 | 2,028 | 3,360 | 43 (1,376 B) |
-| **Operational total (acts 1–3)** | **92** | **16,608,363** | **28,880** | **34,560** | **467 (14,944 B)** |
+| Act 2 – source-calculation result | 6 | 1,067,922 | 1,048 | 1,472 | 28 (896 B) |
+| Act 3 – revisions of the article | 11 | 1,743,405 | 2,028 | 3,360 | 43 (1,376 B) |
+| **Operational total (acts 1–3)** | **92** | **16,608,339** | **28,880** | **34,560** | **467 (14,944 B)** |
 
 ## Scaling with the number of lots per batch
 

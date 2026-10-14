@@ -7,7 +7,7 @@ Mutation check: each safeguard removed separately; the test suite must fail.
 
 ## functional-unit-check
 75 passing, 2 failing
-  1) rejects the per-liter declaration of the conference version
+  1) rejects the per-liter declaration of the source calculation
   2) rejects unknown functional units and units that differ from the measured output
   1) Case study — Western Achaia replay
   2) R6 — functional unit, system boundary and allocation rule

@@ -21,7 +21,7 @@ async function main() {
   const r = await runCaseStudyReplay(hre, { traceStorage: true, log: console.log });
   fs.mkdirSync(OUT, { recursive: true });
 
-  const acts = { setup: "Consortium configuration", act1: "Act 1 – 2024 season", act2: "Act 2 – conference-version result", act3: "Act 3 – journal-version corrections" };
+  const acts = { setup: "Consortium configuration", act1: "Act 1 – 2024 season", act2: "Act 2 – source-calculation result", act3: "Act 3 – revisions of the article" };
   const totalsByAct = Object.fromEntries(Object.keys(acts).map((a) => [a, r.rec.totals((e) => e.act === a)]));
   const operational = r.rec.totals((e) => e.act !== "setup");
   const summarize = (x) => ({
@@ -38,8 +38,8 @@ async function main() {
     network: "Hardhat EVM (London rules, zero gas price), solc 0.8.28 viaIR, optimizer 200 runs",
     eventCount: r.eventCount,
     results: {
-      v1_conferenceVersion: summarize(r.results.v1),
-      v2_journalVersion: summarize(r.results.v2),
+      v1_sourceCalculation: summarize(r.results.v1),
+      v2_article: summarize(r.results.v2),
       allocationVariants: { economic: r.results.economic.report.total.perKgOil, wetMass: r.results.wetMass.report.total.perKgOil },
     },
     literPackageRejection: r.literRejection,
@@ -69,10 +69,10 @@ async function main() {
   md.push(`Generated ${out.generatedAt} on the ${out.network}. Gas is a measure of computational and storage load; on a permissioned network with zero gas price it carries no fee.`, "");
   md.push("## Case-study results computed from the ledger", "");
   md.push("| Result package | kg CO2eq per kg EVOO | kg CO2eq per ha | Cultivation | Transport | Mill |", "|---|---|---|---|---|---|");
-  for (const [k, v] of [["v1 – FS-2025-CONF (conference version)", out.results.v1_conferenceVersion], ["v2 – FS-2026-01 (journal version)", out.results.v2_journalVersion]]) {
+  for (const [k, v] of [["v1 – FS-2025-CONF (source calculation)", out.results.v1_sourceCalculation], ["v2 – FS-2026-01 (article)", out.results.v2_article]]) {
     md.push(`| ${k} | ${v.perKgOil.toFixed(4)} | ${v.perHa.toFixed(1)} | ${v.phasesPerKgOil.cultivation.toFixed(4)} | ${v.phasesPerKgOil.transport.toFixed(4)} | ${v.phasesPerKgOil.mill.toFixed(4)} |`);
   }
-  md.push("", `Per-liter package of the conference version rejected with \`${out.literPackageRejection}\`. FS-2025-CONF on the corrected chain: “${out.fs2025OnCorrectedChain}”.`, "");
+  md.push("", `Per-liter package of the source calculation rejected with \`${out.literPackageRejection}\`. FS-2025-CONF on the corrected chain: “${out.fs2025OnCorrectedChain}”.`, "");
   md.push("## Certificate timeline", "", "| Step | Date (chain time) | Status | Version | kg CO2eq/kg | Factor set |", "|---|---|---|---|---|---|");
   for (const c of out.certificateTimeline) md.push(`| ${c.label} | ${c.date.slice(0, 10)} | ${c.status} | ${c.version} | ${c.kgCO2eqPerFU || "–"} | ${c.factorSet ?? "–"} |`);
   md.push("", "## Deployment", "", "| Contract | Deployment gas | Runtime bytecode (bytes) | Share of EIP-170 limit |", "|---|---|---|---|");

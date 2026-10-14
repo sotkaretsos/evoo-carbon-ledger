@@ -1,7 +1,7 @@
 "use strict";
 // Replays the Western Achaia case study through the prototype and checks that the off-chain
 // engine, fed only with the recorded event chain, reproduces the results reported in the article
-// (Table 5, Section 3.3) and in the conference version, and that the certificate follows the
+// (Table 5, Section 3.3) and by the source calculation, and that the certificate follows the
 // correction history.
 
 const { expect } = require("chai");
@@ -29,7 +29,7 @@ describe("Case study — Western Achaia replay", function () {
     expect(batch.oilOutputMilli).to.equal(8894000n);
   });
 
-  it("reproduces the conference-version result (1.993 kg CO2eq per kg) under FS-2025-CONF", function () {
+  it("reproduces the source-calculation result (1.993 kg CO2eq per kg) under FS-2025-CONF", function () {
     const v1 = r.results.v1.report;
     expect(v1.total.perKgOil).to.be.closeTo(1.993, 0.0005);
     expect(v1.total.perHa).to.be.closeTo(3693.0, 0.5);
@@ -37,11 +37,11 @@ describe("Case study — Western Achaia replay", function () {
     expect(v1.groups.MILL_PROCESSING.perHa).to.be.closeTo(627.91, 0.01);
   });
 
-  it("rejects the per-liter declaration of the conference version", function () {
+  it("rejects the per-liter declaration of the source calculation", function () {
     expect(r.literRejection).to.equal("FunctionalUnitMismatch");
   });
 
-  it("reproduces the journal baseline of Table 5 (3400.5 kg CO2eq/ha; 1.835 kg CO2eq/kg) under FS-2026-01", function () {
+  it("reproduces the baseline of Table 5 (3400.5 kg CO2eq/ha; 1.835 kg CO2eq/kg) under FS-2026-01", function () {
     const v2 = r.results.v2.report;
     expect(v2.total.perHa).to.be.closeTo(3400.5, 0.05);
     expect(v2.total.perKgOil).to.be.closeTo(1.8352, 0.0001);

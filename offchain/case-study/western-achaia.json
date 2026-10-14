@@ -317,9 +317,9 @@
     "factorSet": "FS-2026-01"
   },
   "expected": {
-    "conferenceVersion_kgCO2eq_per_kg": 1.993,
-    "journalVersion_kgCO2eq_per_kg": 1.8352,
-    "journalVersion_kgCO2eq_per_ha": 3400.5,
+    "sourceCalculation_kgCO2eq_per_kg": 1.993,
+    "article_kgCO2eq_per_kg": 1.8352,
+    "article_kgCO2eq_per_ha": 3400.5,
     "phases_per_kg": {
       "cultivation": 1.6095,
       "transport": 0.0299,

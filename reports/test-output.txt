@@ -1,16 +1,14 @@
-
-
   Case study — Western Achaia replay
     ✔ records the season as 42 events with ten dual-signature custody transfers
-    ✔ reproduces the conference-version result (1.993 kg CO2eq per kg) under FS-2025-CONF
-    ✔ rejects the per-liter declaration of the conference version
-    ✔ reproduces the journal baseline of Table 5 (3400.5 kg CO2eq/ha; 1.835 kg CO2eq/kg) under FS-2026-01
+    ✔ reproduces the source-calculation result (1.993 kg CO2eq per kg) under FS-2025-CONF
+    ✔ rejects the per-liter declaration of the source calculation
+    ✔ reproduces the baseline of Table 5 (3400.5 kg CO2eq/ha; 1.835 kg CO2eq/kg) under FS-2026-01
     ✔ reproduces the allocation variants of Table 7 (economic 1.78; wet mass 0.38)
     ✔ keeps the superseded fuel records and both result versions
     ✔ moves the certificate through Valid (v1), Outdated and Valid (v2)
 
   Edge cases — farm phase
-    ✔ validates orchard registration (124ms)
+    ✔ validates orchard registration
     ✔ validates farm events, lots, closure and verification
 
   Edge cases — custody transfer
@@ -19,12 +17,12 @@
     ✔ validates the receiver's weighing
 
   Edge cases — mill batches
-    ✔ validates batch composition (181ms)
+    ✔ validates batch composition
     ✔ validates mill events and closure
     ✔ applies governed plausibility parameters
 
   Edge cases — corrections and results
-    ✔ validates correction identifiers and competing proposals (170ms)
+    ✔ validates correction identifiers and competing proposals
     ✔ handles result versions, approvals and empty certificates
 
   Edge cases — registries
@@ -60,7 +58,7 @@
     ✔ rejects incomplete envelopes
     ✔ rejects an implausible oil yield at batch closure
     ✔ restricts variable definitions to the methodological authority
-    ✔ re-checks the oil yield when the oil output of a closed batch is corrected (150ms)
+    ✔ re-checks the oil yield when the oil output of a closed batch is corrected
 
   R4 — lot identity across custody and transformation
     ✔ changes custody only after the sender's declaration and the receiver's signed weighing
@@ -73,7 +71,7 @@
     ✔ records transport events only for lots in transit, by the designated transporter
 
   R5 — emission-factor versioning
-    ✔ requires approval of a factor set by a second methodological authority (160ms)
+    ✔ requires approval of a factor set by a second methodological authority
     ✔ rejects results that reference an unapproved, expired or retired factor set
     ✔ flags certificates whose factor set was later retired
     ✔ records a recalculation as a new result version and keeps earlier versions
@@ -83,10 +81,10 @@
     ✔ rejects unknown functional units and units that differ from the measured output
     ✔ rejects totals that differ from the sum of the phase results
     ✔ does not accept results before the batch and its farm phases are closed
-    ✔ exposes boundary, functional unit, allocation rule and factor set on the certificate (177ms)
+    ✔ exposes boundary, functional unit, allocation rule and factor set on the certificate
 
   R7 — correction without deletion of history
-    ✔ keeps the original event, links the replacement and records reason and authoriser (172ms)
+    ✔ keeps the original event, links the replacement and records reason and authoriser
     ✔ requires authorization by an auditor other than the proposer
     ✔ rejects corrections proposed by another organisation
     ✔ outdates the certificate and invalidates results computed from the earlier chain
@@ -94,11 +92,11 @@
     ✔ leaves the original effective when a correction is rejected
     ✔ does not correct a superseded event again and validates replacements like new events
     ✔ outdates the certificate when a transport record of one lot is corrected
-    ✔ keeps the mill reference flow consistent when an oil-output reading is corrected (147ms)
+    ✔ keeps the mill reference flow consistent when an oil-output reading is corrected
 
   R8 — confidentiality with integrity verification
     ✔ stores only the evidence hash and verifies presented documents against it
-    ✔ discloses totals, phase shares and method fields on the public certificate only (168ms)
+    ✔ discloses totals, phase shares and method fields on the public certificate only
 
   R9 — retention of off-chain evidence
     ✔ rejects results whose evidence manifest is unregistered, too short-lived or under-replicated
@@ -111,4 +109,3 @@
 
 
   77 passing (4s)
-

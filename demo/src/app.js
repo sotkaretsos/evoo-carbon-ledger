@@ -34,14 +34,14 @@ const STEPS = [
   },
   {
     key: "act2",
-    title: "Act 2 · Conference-version result",
+    title: "Act 2 · Source-calculation result",
     period: "March 2025",
     lede: "Factor set FS-2025-CONF is approved. A result package per liter of oil is rejected; the package per kilogram is certified.",
     run: (d) => d.act2(),
   },
   {
     key: "act3",
-    title: "Act 3 · Journal-version corrections",
+    title: "Act 3 · Revisions of the article",
     period: "June – July 2026",
     lede: "Two audited corrections reclassify the chainsaw and olive-beater fuel as petrol, FS-2026-01 replaces FS-2025-CONF, and the recalculated result is certified.",
     run: (d) => d.act3(),

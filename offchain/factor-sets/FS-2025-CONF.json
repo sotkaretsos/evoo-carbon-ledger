@@ -1,8 +1,8 @@
 {
   "id": "FS-2025-CONF",
   "version": 1,
-  "title": "Reconstruction of the factor basis of the conference-version calculation",
-  "description": "Factor basis implied by the source calculation used in the conference version: all portable field equipment treated as diesel consumers and an undocumented grid factor of about 0.60 kg CO2eq per kWh.",
+  "title": "Reconstruction of the factor basis of the source calculation",
+  "description": "Factor basis implied by the source calculation of the case study: all portable field equipment treated as diesel consumers and an undocumented grid factor of about 0.60 kg CO2eq per kWh.",
   "gwpBasis": "GWP100 (presumed; not documented in the source calculation)",
   "geography": "GR",
   "referencePeriod": "2022-2024",

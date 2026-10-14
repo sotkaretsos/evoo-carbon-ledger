@@ -290,7 +290,7 @@ export class CaseStudyDemo {
     this.state.act = 1;
   }
 
-  // ------------------------------------------------------------------ Act 2: conference version
+  // ------------------------------------------------------------------ Act 2: source calculation
 
   async act2() {
     const { traceability: ct, certification: cc, factorRegistry: fr, evidenceRegistry: er } = this.contracts;
@@ -338,7 +338,7 @@ export class CaseStudyDemo {
     this.state.act = 2;
   }
 
-  // ------------------------------------------------------------------ Act 3: journal version
+  // ------------------------------------------------------------------ Act 3: revisions of the article
 
   async act3() {
     const { traceability: ct, certification: cc, factorRegistry: fr, evidenceRegistry: er } = this.contracts;
@@ -560,7 +560,7 @@ export class CaseStudyDemo {
         key: "retired",
         requirement: "R5",
         title: "Re-submit with the retired factor set",
-        story: "After FS-2025-CONF was retired, the LCA service re-submits the certified conference-version package.",
+        story: "After FS-2025-CONF was retired, the LCA service re-submits the certified package of the source calculation.",
         needs: 3,
         run: () => this.sandbox(() => this.attempt(() => cc().connect(this.actors.lcaService).submitResult.staticCall(this.ids.batchId, this.results.v1.resultInput))),
       },
