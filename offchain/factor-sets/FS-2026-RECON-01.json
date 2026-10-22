@@ -1,0 +1,318 @@
+{
+  "id": "FS-2026-RECON-01",
+  "version": 2,
+  "title": "Reference factor set of the Western Achaia case",
+  "description": "Diesel and petrol combustion factors, life-cycle factor of Greek grid electricity (2022-2024) and the fertilisation and plant-protection group intensities of the reference assessment.",
+  "gwpBasis": "GWP100 (CO2eq) as reported in the reference assessment",
+  "geography": "GR",
+  "referencePeriod": "2022-2024",
+  "validFrom": "2025-01-01T00:00:00Z",
+  "validTo": "2030-12-31T23:59:59Z",
+  "densities_kg_per_L": {
+    "DIESEL": 0.84,
+    "PETROL": 0.745
+  },
+  "factors": {
+    "DIESEL_COMBUSTION": {
+      "value": 3.169585253456221,
+      "unit": "kg CO2eq per kg diesel",
+      "type": "reference-assessment intensity",
+      "source": "Combustion CO2 intensity of diesel in the reference assessment: (116.47 + 55.48) kg CO2eq ha-1 / (36.75 + 17.50) kg diesel ha-1 for soil preparation and transport"
+    },
+    "GRID_ELECTRICITY": {
+      "value": 0.345,
+      "unit": "kg CO2eq per kWh",
+      "type": "published statistic",
+      "source": "Our World in Data / Ember: Greek electricity carbon intensity, 2022–2024: 376.81, 336.40, 321.65 g CO2eq/kWh; mean 344.953333 g, applied rounded factor 0.345 kg CO2eq/kWh. Frozen extract: greek-grid-2022-2024.csv; retrieval and SHA-256: greek-grid-2022-2024.metadata.json."
+    },
+    "FERTILISATION_GROUP": {
+      "value": 4.6489777777777785,
+      "unit": "kg CO2eq per kg compound fertiliser",
+      "type": "group intensity",
+      "source": "Fertilisation group of the reference assessment: 2615.05 kg CO2eq ha-1 per 562.50 kg compound fertiliser ha-1; foliar fertiliser, spray water and application diesel are included in the group"
+    },
+    "PLANT_PROTECTION_GROUP": {
+      "value": 45.13,
+      "unit": "kg CO2eq per ha",
+      "type": "group result",
+      "source": "Plant-protection group of the reference assessment (fuel and active substances)"
+    },
+    "PETROL_COMBUSTION": {
+      "value": 3.0699899999999998,
+      "unit": "kg CO2 per kg petrol",
+      "type": "published default",
+      "source": "IPCC 2006 Guidelines, Vol. 2, default CO2 emission factor (69.3 t CO2 TJ-1) x net calorific value (44.3 TJ Gg-1) of motor gasoline; combustion CO2 only"
+    }
+  },
+  "rules": [
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "SOIL_PREPARATION"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "SOIL_PREPARATION"
+    },
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "PRUNING",
+        "HARVESTING"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "PRUNING_HARVESTING"
+    },
+    {
+      "variable": "FIELD_PETROL_L",
+      "activities": [
+        "PRUNING",
+        "HARVESTING"
+      ],
+      "method": "fuel",
+      "fuel": "PETROL",
+      "factor": "PETROL_COMBUSTION",
+      "group": "PRUNING_HARVESTING"
+    },
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "FOLIAR_FERTILISATION"
+      ],
+      "method": "subsumed",
+      "group": "FERTILISATION",
+      "note": "included in the fertilisation group intensity"
+    },
+    {
+      "variable": "FIELD_DIESEL_L",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "COMPOUND_FERTILISER_KG",
+      "activities": [
+        "FERTILISATION"
+      ],
+      "method": "linear",
+      "factor": "FERTILISATION_GROUP",
+      "group": "FERTILISATION"
+    },
+    {
+      "variable": "FOLIAR_FERTILISER_KG",
+      "activities": [
+        "FOLIAR_FERTILISATION"
+      ],
+      "method": "subsumed",
+      "group": "FERTILISATION",
+      "note": "included in the fertilisation group intensity"
+    },
+    {
+      "variable": "SPRAY_WATER_M3",
+      "activities": [
+        "FOLIAR_FERTILISATION"
+      ],
+      "method": "subsumed",
+      "group": "FERTILISATION",
+      "note": "included in the fertilisation group intensity"
+    },
+    {
+      "variable": "COPPER_OXYCHLORIDE_KG",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "PYRETHROID_KG",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "SPRAY_WATER_M3",
+      "activities": [
+        "PLANT_PROTECTION"
+      ],
+      "method": "subsumed",
+      "group": "PLANT_PROTECTION",
+      "note": "included in the plant-protection group result"
+    },
+    {
+      "variable": "IRRIGATION_ELECTRICITY_KWH",
+      "activities": [
+        "IRRIGATION"
+      ],
+      "method": "linear",
+      "factor": "GRID_ELECTRICITY",
+      "group": "IRRIGATION"
+    },
+    {
+      "variable": "IRRIGATION_WATER_M3",
+      "activities": [
+        "IRRIGATION"
+      ],
+      "method": "inventory_only",
+      "group": "IRRIGATION",
+      "note": "water volume recorded for water-use indicators; not a carbon flow"
+    },
+    {
+      "variable": "TRANSPORT_DIESEL_L",
+      "activities": [
+        "TRANSPORT"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "TRANSPORT"
+    },
+    {
+      "variable": "MILL_ELECTRICITY_KWH",
+      "activities": [
+        "MILL_PROCESSING"
+      ],
+      "method": "linear",
+      "factor": "GRID_ELECTRICITY",
+      "group": "MILL_PROCESSING"
+    },
+    {
+      "variable": "MILL_DIESEL_L",
+      "activities": [
+        "BY_PRODUCT_HANDLING"
+      ],
+      "method": "fuel",
+      "fuel": "DIESEL",
+      "factor": "DIESEL_COMBUSTION",
+      "group": "MILL_PROCESSING"
+    },
+    {
+      "variable": "PROCESS_WATER_M3",
+      "activities": [
+        "*"
+      ],
+      "method": "inventory_only",
+      "group": "MILL_PROCESSING",
+      "note": "water input; no carbon factor in this set"
+    },
+    {
+      "variable": "OIL_OUTPUT_L",
+      "activities": [
+        "*"
+      ],
+      "method": "reference_flow",
+      "note": "reference flow of the functional unit (1 L EVOO at the mill gate)"
+    },
+    {
+      "variable": "OMW_WASTEWATER_L",
+      "activities": [
+        "*"
+      ],
+      "method": "output_flow",
+      "note": "olive-mill wastewater leaving the process; treatment outside the boundary"
+    },
+    {
+      "variable": "POMACE_KG",
+      "activities": [
+        "*"
+      ],
+      "method": "output_flow",
+      "note": "co-product; mass used only by allocation variants"
+    }
+  ],
+  "areaGroups": [
+    {
+      "group": "PLANT_PROTECTION",
+      "factor": "PLANT_PROTECTION_GROUP",
+      "whenActivity": "PLANT_PROTECTION",
+      "note": "applied once per farm scope and hectare when plant-protection events exist"
+    }
+  ],
+  "groups": {
+    "SOIL_PREPARATION": "Soil preparation and weed control",
+    "FERTILISATION": "Fertilization",
+    "PLANT_PROTECTION": "Plant protection",
+    "PRUNING_HARVESTING": "Pruning and harvesting",
+    "IRRIGATION": "Irrigation",
+    "TRANSPORT": "Transport to mill",
+    "MILL_PROCESSING": "Mill processing"
+  },
+  "methodologicalPolicy": {
+    "minimumStatus": 1,
+    "requiredLimitations": 9
+  },
+  "calibratedAggregates": [
+    {
+      "group": "FERTILISATION",
+      "scaling": "common_proportional",
+      "inputs": [
+        {
+          "activity": "FERTILISATION",
+          "variable": "COMPOUND_FERTILISER_KG",
+          "quantityPerHa": 562.5,
+          "unit": "kg",
+          "materialCode": "NPK_21_7_14_PLAIN"
+        },
+        {
+          "activity": "FOLIAR_FERTILISATION",
+          "variable": "FOLIAR_FERTILISER_KG",
+          "quantityPerHa": 1.0416666666666667,
+          "unit": "kg",
+          "materialCode": "NPK_20_20_20"
+        },
+        {
+          "activity": "FOLIAR_FERTILISATION",
+          "variable": "FIELD_DIESEL_L",
+          "quantityPerHa": 8.357083333333334,
+          "unit": "L"
+        },
+        {
+          "activity": "FOLIAR_FERTILISATION",
+          "variable": "SPRAY_WATER_M3",
+          "quantityPerHa": 0.20833333333333334,
+          "unit": "m3"
+        }
+      ]
+    },
+    {
+      "group": "PLANT_PROTECTION",
+      "scaling": "baseline_per_ha",
+      "inputs": [
+        {
+          "activity": "PLANT_PROTECTION",
+          "variable": "COPPER_OXYCHLORIDE_KG",
+          "quantityPerHa": 1.625,
+          "unit": "kg"
+        },
+        {
+          "activity": "PLANT_PROTECTION",
+          "variable": "PYRETHROID_KG",
+          "quantityPerHa": 0.0625,
+          "unit": "kg"
+        },
+        {
+          "activity": "PLANT_PROTECTION",
+          "variable": "FIELD_DIESEL_L",
+          "quantityPerHa": 12.5,
+          "unit": "L"
+        },
+        {
+          "activity": "PLANT_PROTECTION",
+          "variable": "SPRAY_WATER_M3",
+          "quantityPerHa": 0.3125,
+          "unit": "m3"
+        }
+      ]
+    }
+  ]
+}

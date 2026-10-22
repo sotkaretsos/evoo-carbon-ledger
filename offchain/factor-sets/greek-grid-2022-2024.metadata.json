@@ -1,0 +1,17 @@
+{
+  "source": "Our World in Data / Ember, electricity carbon intensity",
+  "sourceUrl": "https://ourworldindata.org/grapher/electricity-mix.csv?v=1&csvType=full&useColumnShortNames=false&frequency=annual&metric=carbon_intensity&source=total&country=GRC",
+  "retrievedOn": "2026-10-15",
+  "country": "GRC",
+  "years": [
+    2022,
+    2023,
+    2024
+  ],
+  "unit": "g CO2eq/kWh",
+  "mean_gCO2eq_per_kWh": 344.9533333333334,
+  "applied_kgCO2eq_per_kWh": 0.345,
+  "rounding": "Arithmetic mean converted from g to kg and rounded to three decimal places in kg CO2eq/kWh",
+  "archiveFile": "greek-grid-2022-2024.csv",
+  "sha256": "00d8c4937353f341fd9a7c7566f122cdbe15425ee5f548c2c4a3f4c37021ef21"
+}

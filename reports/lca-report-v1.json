@@ -1,26 +1,31 @@
 {
+  "allocation": {
+    "rule": "NONE_UNALLOCATED"
+  },
   "allocationRule": "NONE_UNALLOCATED",
   "areaHa": 4.8,
+  "assessmentHash": "0x09b87044ffd3068f3b78cd20d9a7012bc26db2c428c910108b6cb5a757bd091a",
   "batchId": "0x42415443482f57412d30312f3230323400000000000000000000000000000000",
   "boundary": "PARTIAL_CRADLE_TO_MILL_GATE",
   "coProducts": {
     "pomaceKg": 33886.14
   },
-  "engine": "evoo-lca-engine/1.0.0",
+  "engine": "evoo-lca-engine/1.2.0",
   "events": [
     {
       "activity": "FERTILISATION",
       "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
-      "evidenceHash": "0x287019116d144e0d028ef245a37b24762806268eaf39d1c1323323c910605207",
+      "evidenceHash": "0xfc78c24190f08238adaa2420903cc86c3a82e959266e34bef1dbfa734a106c4d",
       "group": "FERTILISATION",
       "index": 1,
       "kgCO2eq": 12552.240000000002,
+      "materialCode": "NPK_21_7_14_PLAIN",
       "method": "linear",
       "observedAt": 1705327200,
       "phase": 1,
       "quantity": 2700,
       "replaces": 0,
-      "source": "Invoice",
+      "source": "OperatorEntry",
       "uncertaintyPermille": 0,
       "variable": "COMPOUND_FERTILISER_KG"
     },
@@ -30,7 +35,8 @@
       "evidenceHash": "0x2aa6934ae3b6bfcb9f9cf79e6c0787383e00c17f9952a96994acc6322e4ee7ed",
       "group": "SOIL_PREPARATION",
       "index": 2,
-      "kgCO2eq": 186.39999999999998,
+      "kgCO2eq": 186.37161290322578,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1712926800,
       "phase": 1,
@@ -47,6 +53,7 @@
       "group": "PLANT_PROTECTION",
       "index": 3,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1714996800,
       "phase": 1,
@@ -63,6 +70,7 @@
       "group": "PLANT_PROTECTION",
       "index": 4,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1714996800,
       "phase": 1,
@@ -79,6 +87,7 @@
       "group": "PLANT_PROTECTION",
       "index": 5,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1714996800,
       "phase": 1,
@@ -95,6 +104,7 @@
       "group": "PLANT_PROTECTION",
       "index": 6,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1714996800,
       "phase": 1,
@@ -111,6 +121,7 @@
       "group": "FERTILISATION",
       "index": 7,
       "kgCO2eq": 0,
+      "materialCode": "NPK_20_20_20",
       "method": "subsumed",
       "observedAt": 1716206400,
       "phase": 1,
@@ -127,6 +138,7 @@
       "group": "FERTILISATION",
       "index": 8,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1716206400,
       "phase": 1,
@@ -143,10 +155,11 @@
       "group": "FERTILISATION",
       "index": 9,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1716206400,
       "phase": 1,
-      "quantity": 20,
+      "quantity": 20.057,
       "replaces": 0,
       "source": "OperatorEntry",
       "uncertaintyPermille": 0,
@@ -159,6 +172,7 @@
       "group": "PLANT_PROTECTION",
       "index": 10,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1717416000,
       "phase": 1,
@@ -175,6 +189,7 @@
       "group": "PLANT_PROTECTION",
       "index": 11,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1717416000,
       "phase": 1,
@@ -191,6 +206,7 @@
       "group": "PLANT_PROTECTION",
       "index": 12,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1717416000,
       "phase": 1,
@@ -207,6 +223,7 @@
       "group": "PLANT_PROTECTION",
       "index": 13,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1717416000,
       "phase": 1,
@@ -223,6 +240,7 @@
       "group": "FERTILISATION",
       "index": 14,
       "kgCO2eq": 0,
+      "materialCode": "NPK_20_20_20",
       "method": "subsumed",
       "observedAt": 1718625600,
       "phase": 1,
@@ -239,6 +257,7 @@
       "group": "FERTILISATION",
       "index": 15,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1718625600,
       "phase": 1,
@@ -255,10 +274,11 @@
       "group": "FERTILISATION",
       "index": 16,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1718625600,
       "phase": 1,
-      "quantity": 20,
+      "quantity": 20.057,
       "replaces": 0,
       "source": "OperatorEntry",
       "uncertaintyPermille": 0,
@@ -271,6 +291,7 @@
       "group": "PLANT_PROTECTION",
       "index": 17,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1719576000,
       "phase": 1,
@@ -287,6 +308,7 @@
       "group": "PLANT_PROTECTION",
       "index": 18,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1719576000,
       "phase": 1,
@@ -303,6 +325,7 @@
       "group": "PLANT_PROTECTION",
       "index": 19,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1719576000,
       "phase": 1,
@@ -319,6 +342,7 @@
       "group": "PLANT_PROTECTION",
       "index": 20,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "subsumed",
       "observedAt": 1719576000,
       "phase": 1,
@@ -334,7 +358,8 @@
       "evidenceHash": "0x8d96257ad2cf396a42906c6bd5e62c0199af8420ca20143835ea5a34e0f340b2",
       "group": "SOIL_PREPARATION",
       "index": 21,
-      "kgCO2eq": 186.39999999999998,
+      "kgCO2eq": 186.37161290322578,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1720616400,
       "phase": 1,
@@ -350,7 +375,8 @@
       "evidenceHash": "0x7a3b15369b44ba4b09608912f358ebbaa00215bf40d8d422b1ebd50a20a56552",
       "group": "SOIL_PREPARATION",
       "index": 22,
-      "kgCO2eq": 186.39999999999998,
+      "kgCO2eq": 186.37161290322578,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1724245200,
       "phase": 1,
@@ -363,10 +389,11 @@
     {
       "activity": "PRUNING",
       "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
-      "evidenceHash": "0xc67226455d7348941358d44ff4b1435572151c08e7a27f308dec9e7ca8ea1381",
+      "evidenceHash": "0x02ddd889e4cd865ec16b0b413bdca90586115a1b17e1c83d719cb0f42d7ab9a2",
       "group": "PRUNING_HARVESTING",
       "index": 38,
-      "kgCO2eq": 133.14285714285714,
+      "kgCO2eq": 114.35712749999999,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1734706800,
       "phase": 1,
@@ -374,15 +401,16 @@
       "replaces": 0,
       "source": "OperatorEntry",
       "uncertaintyPermille": 0,
-      "variable": "FIELD_DIESEL_L"
+      "variable": "FIELD_PETROL_L"
     },
     {
       "activity": "HARVESTING",
       "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
-      "evidenceHash": "0x3f33852a0db24bbb4faa3f764289958ac95512c7d323a3549ac5bd5aad201b38",
+      "evidenceHash": "0x6cdc8694d3019fe28ac4d3a4c2e3defbd62b65f468780a30dd8de2be643303d7",
       "group": "PRUNING_HARVESTING",
       "index": 39,
-      "kgCO2eq": 798.8571428571429,
+      "kgCO2eq": 686.1427649999999,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1734707100,
       "phase": 1,
@@ -390,7 +418,7 @@
       "replaces": 0,
       "source": "OperatorEntry",
       "uncertaintyPermille": 0,
-      "variable": "FIELD_DIESEL_L"
+      "variable": "FIELD_PETROL_L"
     },
     {
       "activity": "HARVESTING",
@@ -398,7 +426,8 @@
       "evidenceHash": "0x36a35305653574a3bd8ee821ff4d434103187a780f14ff73addb2eba7d28d717",
       "group": "PRUNING_HARVESTING",
       "index": 40,
-      "kgCO2eq": 186.39999999999998,
+      "kgCO2eq": 186.37161290322578,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1734707400,
       "phase": 1,
@@ -421,7 +450,8 @@
       "evidenceHash": "0x9465e46eb090953afe7e385f8c62b4b368b2ca5d84be5f82b4cc7b3996f6b5ad",
       "group": "TRANSPORT",
       "index": 23,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1730740800,
       "phase": 2,
@@ -437,7 +467,8 @@
       "evidenceHash": "0x08787f87387851421961394d0ef5900b4ea06a3cd16a535bb085c0e777159963",
       "group": "TRANSPORT",
       "index": 24,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1731086400,
       "phase": 2,
@@ -453,7 +484,8 @@
       "evidenceHash": "0x8dd157d8ed1781eb64befed1e3d1a33e20899b0a19d18edb3b49a3f26cd4acaa",
       "group": "TRANSPORT",
       "index": 25,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1731518400,
       "phase": 2,
@@ -469,7 +501,8 @@
       "evidenceHash": "0x93b23b1a926dd5586c79fdcf2aff0991091666bc87589d4150ae5cd8372672eb",
       "group": "TRANSPORT",
       "index": 26,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1731950400,
       "phase": 2,
@@ -485,7 +518,8 @@
       "evidenceHash": "0x288a684ab1067708db0c173ddf734cde7d20c7f334142dd3c4139b9c288ccca8",
       "group": "TRANSPORT",
       "index": 27,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1732296000,
       "phase": 2,
@@ -501,7 +535,8 @@
       "evidenceHash": "0x3ad8fba8f8845350359021809e24b6a78f52147085b2bd046de6a35e276111c8",
       "group": "TRANSPORT",
       "index": 28,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1732728000,
       "phase": 2,
@@ -517,7 +552,8 @@
       "evidenceHash": "0x6dff5225ed93fac0ec68956f76ef797dd44d3c311f5194e013ee95f5c3259a70",
       "group": "TRANSPORT",
       "index": 29,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1733160000,
       "phase": 2,
@@ -533,7 +569,8 @@
       "evidenceHash": "0x6014451820b03bcfc0e46e23ef1c74f6129c75cbabc9117e2a1c324c99cba95e",
       "group": "TRANSPORT",
       "index": 30,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1733505600,
       "phase": 2,
@@ -549,7 +586,8 @@
       "evidenceHash": "0xa38c1bfb922df16f37b695c1c9baee3d0092d7b1c1b5a5605707c89fd1a2dcd9",
       "group": "TRANSPORT",
       "index": 31,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1733937600,
       "phase": 2,
@@ -565,7 +603,8 @@
       "evidenceHash": "0xa0028a914be410ab81459e49b61ee9a7530b518f42f40a0006ea0d7005984e59",
       "group": "TRANSPORT",
       "index": 32,
-      "kgCO2eq": 26.62857142857143,
+      "kgCO2eq": 26.62451612903226,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1734369600,
       "phase": 2,
@@ -578,10 +617,11 @@
     {
       "activity": "MILL_PROCESSING",
       "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
-      "evidenceHash": "0x9fd043cd43c020bb61f3d021a5a6765f8a6a5750feb72f3ab75872fad7333c42",
+      "evidenceHash": "0x3e8e89c327268d4ac4421ad36a6ed99dfae64333328e4ca8dd97175f924ae866",
       "group": "MILL_PROCESSING",
       "index": 33,
-      "kgCO2eq": 2997.9,
+      "kgCO2eq": 1724.9999999999998,
+      "materialCode": null,
       "method": "linear",
       "observedAt": 1734544200,
       "phase": 3,
@@ -594,10 +634,11 @@
     {
       "activity": "MILL_PROCESSING",
       "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
-      "evidenceHash": "0x6f7cc3c6ac8506083dab5422c36cf51ffc1779d48f350b7d131f122d5d66d004",
+      "evidenceHash": "0xb2aa1367642ce4bf0f4d13d2811c6f118e3f25926c02518d8ecc8e4bb0a52fc1",
       "group": null,
       "index": 34,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "reference_flow",
       "observedAt": 1734544500,
       "phase": 3,
@@ -605,99 +646,103 @@
       "replaces": 0,
       "source": "Meter",
       "uncertaintyPermille": 0,
-      "variable": "OIL_OUTPUT_KG"
+      "variable": "OIL_OUTPUT_L"
     },
     {
       "activity": "MILL_PROCESSING",
       "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
-      "evidenceHash": "0x5c21960f53dca7a7132e5cad7ba7352d26a74f1ca925e338cdb12571fc93c00d",
+      "evidenceHash": "0x38e8132ca6ff0d0e0e022da5429f08f83f8347bf7e63c16b5f41c52393f0276f",
       "group": null,
       "index": 35,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "output_flow",
       "observedAt": 1734544800,
       "phase": 3,
       "quantity": 15653.44,
       "replaces": 0,
-      "source": "Estimate",
+      "source": "OperatorEntry",
       "uncertaintyPermille": 0,
       "variable": "OMW_WASTEWATER_L"
     },
     {
       "activity": "MILL_PROCESSING",
       "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
-      "evidenceHash": "0xe3d1157290aa51a927a785dd849259ba16b7854e20a530fbb06e136c8c3ba1cc",
+      "evidenceHash": "0x2d2d9d2706d68e948944e2bc63e7f58215e7c2120e04df121092fba658878046",
       "group": null,
       "index": 36,
       "kgCO2eq": 0,
+      "materialCode": null,
       "method": "output_flow",
       "observedAt": 1734545100,
       "phase": 3,
       "quantity": 33886.14,
       "replaces": 0,
-      "source": "Estimate",
+      "source": "OperatorEntry",
       "uncertaintyPermille": 0,
       "variable": "POMACE_KG"
     },
     {
       "activity": "BY_PRODUCT_HANDLING",
       "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
-      "evidenceHash": "0x1367bbbb8052a85c64715487f77947bfba0f3d5d9a15bbb67db7bc1f45f1be4f",
+      "evidenceHash": "0x5d6328fc0fb207c0e69dd4522f2b88a0c66da676d129e0e6a6131b4fdcc32bce",
       "group": "MILL_PROCESSING",
       "index": 37,
-      "kgCO2eq": 16.070342857142858,
+      "kgCO2eq": 16.067895483870966,
+      "materialCode": null,
       "method": "fuel",
       "observedAt": 1734545400,
       "phase": 3,
       "quantity": 6.035,
       "replaces": 0,
-      "source": "Estimate",
+      "source": "OperatorEntry",
       "uncertaintyPermille": 0,
       "variable": "MILL_DIESEL_L"
     }
   ],
   "factorSet": {
-    "contentHash": "0xa132442c5b519299f00e429831a936e6f25efc0446a4e28f9b632943b60fe95d",
-    "id": "FS-2025-CONF",
-    "version": 1
+    "contentHash": "0x603ade5b6a4828f981a1939c84cb838c30572b91c0f45d08cfecdd6bccac527b",
+    "gwpBasis": "GWP100 (CO2eq) as reported in the reference assessment",
+    "id": "FS-2026-RECON-01",
+    "version": 2
   },
-  "functionalUnit": "EVOO_1KG_MILL_GATE",
+  "functionalUnit": "EVOO_1L_MILL_GATE",
   "groups": {
     "FERTILISATION": {
       "kgCO2eq": 12552.240000000002,
       "label": "Fertilization",
-      "perHa": 2615.0500000000006,
-      "perKgOil": 1.4113154935911854
+      "perFU": 1.4113154935911854,
+      "perHa": 2615.0500000000006
     },
     "MILL_PROCESSING": {
-      "kgCO2eq": 3013.970342857143,
+      "kgCO2eq": 1741.0678954838706,
       "label": "Mill processing",
-      "perHa": 627.9104880952382,
-      "perKgOil": 0.3388768094060201
+      "perFU": 0.19575757763479543,
+      "perHa": 362.7224782258064
     },
     "PLANT_PROTECTION": {
       "kgCO2eq": 216.624,
       "label": "Plant protection",
-      "perHa": 45.13,
-      "perKgOil": 0.02435619518776703
+      "perFU": 0.02435619518776703,
+      "perHa": 45.13
     },
     "PRUNING_HARVESTING": {
-      "kgCO2eq": 1118.4,
+      "kgCO2eq": 986.8715054032258,
       "label": "Pruning and harvesting",
-      "perHa": 233.00000000000003,
-      "perKgOil": 0.1257476950753317
+      "perFU": 0.11095924279325678,
+      "perHa": 205.5982302923387
     },
     "SOIL_PREPARATION": {
-      "kgCO2eq": 559.1999999999999,
+      "kgCO2eq": 559.1148387096773,
       "label": "Soil preparation and weed control",
-      "perHa": 116.49999999999999,
-      "perKgOil": 0.06287384753766584
+      "perFU": 0.06286427239820973,
+      "perHa": 116.48225806451612
     },
     "TRANSPORT": {
-      "kgCO2eq": 266.2857142857143,
+      "kgCO2eq": 266.2451612903226,
       "label": "Transport to mill",
-      "perHa": 55.476190476190474,
-      "perKgOil": 0.029939927398888497
+      "perFU": 0.029935367808671304,
+      "perHa": 55.46774193548387
     }
   },
   "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
@@ -763,32 +808,206 @@
       "scopeId": "0x8a4b7d241b948f91b60cece610f598ea53fcb6ba892bc9801e456f59dbde100a"
     }
   ],
+  "methodologicalAssessment": {
+    "applicability": [
+      {
+        "applicable": true,
+        "areaHa": 4.8,
+        "checks": [
+          {
+            "activity": "FERTILISATION",
+            "eventCount": 1,
+            "expectedQuantity": 2700,
+            "materialCode": "NPK_21_7_14_PLAIN",
+            "materialsMatch": true,
+            "quantity": 2700,
+            "quantityMatches": true,
+            "quantityPerHa": 562.5,
+            "residual": 0,
+            "tolerance": 0.000500001,
+            "unit": "kg",
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "eventCount": 2,
+            "expectedQuantity": 5,
+            "materialCode": "NPK_20_20_20",
+            "materialsMatch": true,
+            "quantity": 5,
+            "quantityMatches": true,
+            "quantityPerHa": 1.0416666666666667,
+            "residual": 0,
+            "tolerance": 0.001000001,
+            "unit": "kg",
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "eventCount": 2,
+            "expectedQuantity": 40.114,
+            "materialsMatch": true,
+            "quantity": 40.114,
+            "quantityMatches": true,
+            "quantityPerHa": 8.357083333333334,
+            "residual": 0,
+            "tolerance": 0.001000001,
+            "unit": "L",
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "eventCount": 2,
+            "expectedQuantity": 1,
+            "materialsMatch": true,
+            "quantity": 1,
+            "quantityMatches": true,
+            "quantityPerHa": 0.20833333333333334,
+            "residual": 0,
+            "tolerance": 0.001000001,
+            "unit": "m3",
+            "variable": "SPRAY_WATER_M3"
+          }
+        ],
+        "classification": "calibrated_distribution",
+        "group": "FERTILISATION",
+        "interpretation": "Inputs within the applicability domain of the group intensity.",
+        "materialMismatch": false,
+        "scale": 1,
+        "scaling": "common_proportional",
+        "scopeId": "0x8a4b7d241b948f91b60cece610f598ea53fcb6ba892bc9801e456f59dbde100a"
+      },
+      {
+        "applicable": true,
+        "areaHa": 4.8,
+        "checks": [
+          {
+            "activity": "PLANT_PROTECTION",
+            "eventCount": 3,
+            "expectedQuantity": 7.8,
+            "materialsMatch": true,
+            "quantity": 7.800000000000001,
+            "quantityMatches": true,
+            "quantityPerHa": 1.625,
+            "residual": 8.881784197001252e-16,
+            "tolerance": 0.001500001,
+            "unit": "kg",
+            "variable": "COPPER_OXYCHLORIDE_KG"
+          },
+          {
+            "activity": "PLANT_PROTECTION",
+            "eventCount": 3,
+            "expectedQuantity": 0.3,
+            "materialsMatch": true,
+            "quantity": 0.30000000000000004,
+            "quantityMatches": true,
+            "quantityPerHa": 0.0625,
+            "residual": 5.551115123125783e-17,
+            "tolerance": 0.001500001,
+            "unit": "kg",
+            "variable": "PYRETHROID_KG"
+          },
+          {
+            "activity": "PLANT_PROTECTION",
+            "eventCount": 3,
+            "expectedQuantity": 60,
+            "materialsMatch": true,
+            "quantity": 60,
+            "quantityMatches": true,
+            "quantityPerHa": 12.5,
+            "residual": 0,
+            "tolerance": 0.001500001,
+            "unit": "L",
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "PLANT_PROTECTION",
+            "eventCount": 3,
+            "expectedQuantity": 1.5,
+            "materialsMatch": true,
+            "quantity": 1.5,
+            "quantityMatches": true,
+            "quantityPerHa": 0.3125,
+            "residual": 0,
+            "tolerance": 0.001500001,
+            "unit": "m3",
+            "variable": "SPRAY_WATER_M3"
+          }
+        ],
+        "classification": "calibrated_distribution",
+        "group": "PLANT_PROTECTION",
+        "interpretation": "Inputs within the applicability domain of the group intensity.",
+        "materialMismatch": false,
+        "scale": 1,
+        "scaling": "baseline_per_ha",
+        "scopeId": "0x8a4b7d241b948f91b60cece610f598ea53fcb6ba892bc9801e456f59dbde100a"
+      }
+    ],
+    "factorPolicy": {
+      "minimumStatus": 1,
+      "requiredLimitations": 9
+    },
+    "limitationFlags": 73,
+    "limitations": [
+      "AggregateProxy",
+      "UncertaintyUnquantified",
+      "ReportedActivityInput"
+    ],
+    "numericalUse": "Within the applicability domain of the factor set.",
+    "schema": "evoo-methodological-assessment/1",
+    "sourceQuality": {
+      "counts": {
+        "Meter": 2,
+        "OperatorEntry": 38
+      },
+      "electricity": [
+        {
+          "eventIndex": 33,
+          "quantity": 5000,
+          "source": "Meter",
+          "unit": "kWh"
+        }
+      ]
+    },
+    "status": "AggregateLimited",
+    "statusCode": 1,
+    "uncertainty": {
+      "quantitativeInterval": null,
+      "uncertaintyDistribution": "notProvided"
+    }
+  },
   "oilShare": 1,
   "phases": {
     "cultivation": {
-      "kgCO2eq": 14446.464,
-      "mg": 1624293,
-      "perKgOil": 1.6242932313919496
+      "kgCO2eq": 14314.850344112903,
+      "mg": 1609495,
+      "perFU": 1.6094952039704187
     },
     "mill": {
-      "kgCO2eq": 3013.970342857143,
-      "mg": 338877,
-      "perKgOil": 0.3388768094060201
+      "kgCO2eq": 1741.0678954838706,
+      "mg": 195758,
+      "perFU": 0.19575757763479543
     },
     "transport": {
-      "kgCO2eq": 266.2857142857143,
-      "mg": 29940,
-      "perKgOil": 0.029939927398888497
+      "kgCO2eq": 266.2451612903226,
+      "mg": 29935,
+      "perFU": 0.029935367808671304
     }
   },
   "referenceFlow": {
-    "kg": 8894,
-    "variable": "OIL_OUTPUT_KG"
+    "quantity": 8894,
+    "unit": "L",
+    "variable": "OIL_OUTPUT_L"
+  },
+  "snapshot": {
+    "blockHash": "0xec3c24cbac4f896615fd3673b116b046dc43c41d95898ba8ba506ee91bfc1d80",
+    "blockNumber": 185,
+    "revisionDigest": "0x732d13a43036373d21c0417013fee48eb390cd25605a5a8c40db55aa81cb1ebd"
   },
   "total": {
-    "kgCO2eq": 17726.720057142855,
-    "mg": 1993110,
-    "perHa": 3693.0666785714284,
-    "perKgOil": 1.993109968196858
+    "kgCO2eq": 16322.163400887097,
+    "mg": 1835188,
+    "perFU": 1.8351881494138855,
+    "perHa": 3400.4507085181453
   }
 }

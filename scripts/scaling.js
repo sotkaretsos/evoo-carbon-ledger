@@ -49,7 +49,7 @@ async function measure(n) {
   await g("createBatch", ct.connect(actors.mill).createBatch(batch, lots, shares, b32("MASS_PROPORTIONAL")));
   for (const [variable, q, device] of [
     ["MILL_ELECTRICITY_KWH", 111 * n, "ELEC-SUBMETER-01"],
-    ["OIL_OUTPUT_KG", 198 * n, "OIL-SCALE-01"],
+    ["OIL_OUTPUT_L", 198 * n, "OIL-METER-01"],
   ]) {
     const e = eventInput({ activity: "MILL_PROCESSING", variable, quantity: kg(q), observedAt: (await time.latest()) - 1, source: SourceClass.Meter, sourceId: deviceId(device), evidenceHash: id(variable) });
     await ct.connect(actors.mill).recordMillEvent(batch, e, await signObservation(devices[device], chainId, ledger, batch, e));
@@ -58,17 +58,23 @@ async function measure(n) {
   await ct.connect(actors.grower).closeFarmPhase(orchard, 2024);
   await ct.connect(actors.certifier).verifyFarmPhase(orchard, 2024, id("report"));
   const now = await time.latest();
-  await fr.connect(actors.methodAuthorityA).propose(b32("FS"), 1, id("doc"), b32("GWP100"), now - 10, now + 1e8, ethers.ZeroHash);
+  await fr.connect(actors.methodAuthorityA).propose(b32("FS"), 1, id("doc"), b32("GWP100"), now - 10, now + 1e8, ethers.ZeroHash, [0, 0]);
   await fr.connect(actors.methodAuthorityB).approve(b32("FS"));
   await er.connect(actors.lcaService).register(id("manifest"), id("pid"), b32("REPO"), now + 10 * 365 * 86400, 3);
+  const snapshot = await ethers.provider.getBlock("latest");
+  const [,,, expectedRevisionDigest] = await ct.certificationStatus(batch);
   const result = {
     boundaryCode: b32("PARTIAL_CRADLE_TO_MILL_GATE"),
-    functionalUnit: b32("EVOO_1KG_MILL_GATE"),
+    functionalUnit: b32("EVOO_1L_MILL_GATE"),
     allocationRule: b32("NONE_UNALLOCATED"),
     factorSetId: b32("FS"),
-    engineVersion: b32("evoo-lca-engine/1.0.0"),
+    engineVersion: b32("evoo-lca-engine/1.2.0"),
     reportHash: id("report"),
     evidenceManifest: id("manifest"),
+    expectedRevisionDigest,
+    snapshotBlockNumber: snapshot.number,
+    snapshotBlockHash: snapshot.hash,
+    methodologicalStatus: 0, limitationFlags: 512, assessmentHash: id("SYNTHETIC/UNASSESSED"),
     phaseMg: [1609508n, 29940n, 195758n],
     totalMg: 1835206n,
   };

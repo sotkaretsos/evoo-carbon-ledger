@@ -71,7 +71,7 @@ async function deliverLot(f, lotId, massKg, { receivedKg = massKg, confirm = tru
   await ct.connect(actors.mill).confirmReceipt(lotId, r, wb, weighedAt, sig);
 }
 
-/** Signed mill reading (electricity sub-meter or oil scale). */
+/** Signed mill reading (electricity sub-meter or oil flow meter). */
 async function millReading(f, batchId, variable, quantity, device) {
   const now = await time.latest();
   const e = eventInput({
@@ -90,7 +90,7 @@ async function millReading(f, batchId, variable, quantity, device) {
 
 /**
  * Complete chain ready for certification: one farm event, two lots (2 x 4500 kg) delivered,
- * a closed mill batch (1778.8 kg oil from 9000 kg olives), farm phase closed and verified,
+ * a closed mill batch (1778.8 L oil from 9000 kg olives), farm phase closed and verified,
  * an approved factor set and a registered evidence manifest.
  */
 async function readyFixture() {
@@ -102,24 +102,30 @@ async function readyFixture() {
   for (const l of lots) await deliverLot(f, l, 4500);
   await ct.connect(actors.mill).createBatch(BATCH, lots, [500, 500], b32("MASS_PROPORTIONAL"));
   await millReading(f, BATCH, "MILL_ELECTRICITY_KWH", 1000, "ELEC-SUBMETER-01");
-  await millReading(f, BATCH, "OIL_OUTPUT_KG", 1778.8, "OIL-SCALE-01");
+  await millReading(f, BATCH, "OIL_OUTPUT_L", 1778.8, "OIL-METER-01");
   await ct.connect(actors.mill).closeBatch(BATCH, kg(9000));
   await ct.connect(actors.grower).closeFarmPhase(f.orchardId, f.cropYear);
   await ct.connect(actors.certifier).verifyFarmPhase(f.orchardId, f.cropYear, id("VERIFICATION-REPORT"));
   const now = await time.latest();
   const fsId = b32("FS-TEST-01");
-  await fr.connect(actors.methodAuthorityA).propose(fsId, 1, factorSetContentHash({ id: "FS-TEST-01" }), b32("GWP100-AR5"), now - 86400, now + 3 * 365 * 86400, ethers.ZeroHash);
+  await fr.connect(actors.methodAuthorityA).propose(fsId, 1, factorSetContentHash({ id: "FS-TEST-01" }), b32("GWP100-AR5"), now - 86400, now + 3 * 365 * 86400, ethers.ZeroHash, [0, 0]);
   await fr.connect(actors.methodAuthorityB).approve(fsId);
   const manifest = id("MANIFEST/1");
   await er.connect(actors.lcaService).register(manifest, id("hdl:test/1"), b32("REPO/ARCHIVE"), now + 10 * 365 * 86400, 3);
+  const snapshot = await ethers.provider.getBlock("latest");
+  const [,,, expectedRevisionDigest] = await ct.certificationStatus(BATCH);
   const result = {
     boundaryCode: b32("PARTIAL_CRADLE_TO_MILL_GATE"),
-    functionalUnit: b32("EVOO_1KG_MILL_GATE"),
+    functionalUnit: b32("EVOO_1L_MILL_GATE"),
     allocationRule: b32("NONE_UNALLOCATED"),
     factorSetId: fsId,
-    engineVersion: b32("evoo-lca-engine/1.0.0"),
+    engineVersion: b32("evoo-lca-engine/1.2.0"),
     reportHash: id("REPORT/1"),
     evidenceManifest: manifest,
+    expectedRevisionDigest,
+    snapshotBlockNumber: snapshot.number,
+    snapshotBlockHash: snapshot.hash,
+    methodologicalStatus: 0, limitationFlags: 512, assessmentHash: id("SYNTHETIC/UNASSESSED"),
     phaseMg: [1609508n, 29940n, 195758n],
     totalMg: 1835206n,
   };

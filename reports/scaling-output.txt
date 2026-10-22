@@ -1,0 +1,39 @@
+{
+  lots: 1,
+  createBatch: 269521,
+  closeBatch: 106211,
+  submitResult: 494660,
+  approveResult: 109002,
+  getCertificate_view: 85507
+}
+{
+  lots: 4,
+  createBatch: 435975,
+  closeBatch: 106199,
+  submitResult: 517123,
+  approveResult: 131465,
+  getCertificate_view: 107970
+}
+{
+  lots: 16,
+  createBatch: 1101700,
+  closeBatch: 106199,
+  submitResult: 606982,
+  approveResult: 221336,
+  getCertificate_view: 197841
+}
+{
+  lots: 64,
+  createBatch: 3831475,
+  closeBatch: 106211,
+  submitResult: 966752,
+  approveResult: 581094,
+  getCertificate_view: 557599
+}
+marginal gas per lot {
+  createBatch: 56539,
+  closeBatch: 0,
+  submitResult: 7494,
+  approveResult: 7494,
+  getCertificate_view: 7494
+}

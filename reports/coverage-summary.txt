@@ -1,12 +1,13 @@
+Solidity coverage: 107 tests passing.
 --------------------------|----------|----------|----------|----------|----------------|
 File                      |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
 --------------------------|----------|----------|----------|----------|----------------|
- contracts/               |      100 |    81.69 |      100 |      100 |                |
-  CarbonCertification.sol |      100 |    87.88 |      100 |      100 |                |
-  CarbonTraceability.sol  |      100 |    82.14 |      100 |      100 |                |
-  Consortium.sol          |      100 |    80.49 |      100 |      100 |                |
+ contracts/               |      100 |    83.11 |      100 |      100 |                |
+  CarbonCertification.sol |      100 |    90.48 |      100 |      100 |                |
+  CarbonTraceability.sol  |      100 |    83.48 |      100 |      100 |                |
+  Consortium.sol          |      100 |    81.25 |      100 |      100 |                |
   EvidenceRegistry.sol    |      100 |    73.33 |      100 |      100 |                |
-  FactorRegistry.sol      |      100 |       75 |      100 |      100 |                |
+  FactorRegistry.sol      |      100 |    73.08 |      100 |      100 |                |
   Roles.sol               |      100 |      100 |      100 |      100 |                |
  contracts/interfaces/    |      100 |      100 |      100 |      100 |                |
   ICarbonTraceability.sol |      100 |      100 |      100 |      100 |                |
@@ -17,7 +18,5 @@ File                      |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered
   EnvelopeValidation.sol  |      100 |    92.31 |      100 |      100 |                |
   EventTypes.sol          |      100 |      100 |      100 |      100 |                |
 --------------------------|----------|----------|----------|----------|----------------|
-All files                 |      100 |     82.3 |      100 |      100 |                |
+All files                 |      100 |    83.61 |      100 |      100 |                |
 --------------------------|----------|----------|----------|----------|----------------|
-
-> Istanbul reports written to ./coverage/ and ./coverage.json

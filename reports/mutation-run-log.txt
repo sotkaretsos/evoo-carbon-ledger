@@ -1,0 +1,84 @@
+Mutation check: each safeguard removed separately; the test suite must fail.
+
+## separation-of-duties
+106 passing, 1 failing
+  1) prevents an account holding both roles from approving its own result
+  1) Separation of duties and consortium governance
+
+## functional-unit-check
+105 passing, 2 failing
+  1) rejects a per-kilogram declaration because the oil output is reported in liters
+  2) rejects unknown functional units and units that differ from the measured output
+  1) Case study — Western Achaia replay
+  2) R6 — functional unit, system boundary and allocation rule
+
+## envelope-idempotency
+105 passing, 2 failing
+  1) binds signatures to one scope and rejects re-sent envelopes
+  2) does not correct a superseded event again and validates replacements like new events
+  1) R2 — device identity and calibration status
+  2) R7 — correction without deletion of history
+
+## verification-reset
+106 passing, 1 failing
+  1) requires renewed farm verification after a farm correction
+  1) R7 — correction without deletion of history
+
+## lot-consumption
+103 passing, 4 failing
+  1) validates mill events and closure
+  2) rejects duplicate IDs and rolls back consumption of every lot
+  3) does not batch lots that have not been received, nor the same lot twice
+  4) requires a declared mixing rule and mass-proportional shares
+  1) Edge cases — mill batches
+  2) R4 regression — unique lots within one batch
+  3) R4 — lot identity across custody and transformation
+  4) R4 — lot identity across custody and transformation
+
+## calculation-revision
+106 passing, 1 failing
+  1) rejects a report computed before a correction even when submitted afterwards
+  1) R7 regression — calculation snapshots and correction invariants
+
+## correction-variable
+105 passing, 2 failing
+  1) cannot replace the mandatory electricity variable with a coproduct
+  2) does not correct a superseded event again and validates replacements like new events
+  1) R7 regression — calculation snapshots and correction invariants
+  2) R7 — correction without deletion of history
+
+## approval-evidence-check
+104 passing, 3 failing
+  1) rejects approval after failed retrieval and accepts it after retrieval recovers
+  2) rejects approval when replica metadata falls below the required minimum
+  3) rechecks the retention horizon at approval rather than only at submission
+  1) R9 regression — evidence remains usable at approval
+  2) R9 regression — evidence remains usable at approval
+  3) R9 regression — evidence remains usable at approval
+
+## methodological-policy-floor
+106 passing, 1 failing
+  1) rejects an Unassessed package or missing mandatory limitation flags
+  1) Methodological assurance — public certificate and governed floor
+
+## aggregate-applicability-status
+99 passing, 8 failing
+  1) keeps NeedsRecalculation after a correction of the principal fertilizer alone
+  2) requires recalculation after changing the principal fertilizer alone
+  3) requires recalculation after changing the foliar fertilizer alone
+  4) requires recalculation after changing the foliar diesel alone
+  5) requires recalculation after changing the spray water alone
+  6) requires recalculation when a material code is missing or different
+  7) requires recalculation for missing inputs and independent plant-protection changes
+  8) checks each orchard before allocation, so offsetting changes cannot cancel in a mixed batch
+  1) Case study — Western Achaia replay
+  2) Methodological applicability — group intensities
+  3) Methodological applicability — group intensities
+  4) Methodological applicability — group intensities
+  5) Methodological applicability — group intensities
+  6) Methodological applicability — group intensities
+  7) Methodological applicability — group intensities
+  8) Methodological applicability — group intensities
+
+All mutations detected.
+Nothing to compile

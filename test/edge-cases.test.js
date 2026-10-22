@@ -122,7 +122,7 @@ describe("Edge cases — mill batches", function () {
     await expect(f.traceability.connect(f.actors.millB).recordMillEvent(batch, e, "0x")).to.be.revertedWithCustomError(ct, "Unauthorized");
     await ct.recordMillEvent(batch, e, "0x");
     await millReading(f, batch, "MILL_ELECTRICITY_KWH", 1000, "ELEC-SUBMETER-01");
-    await millReading(f, batch, "OIL_OUTPUT_KG", 1778.8, "OIL-SCALE-01");
+    await millReading(f, batch, "OIL_OUTPUT_L", 1778.8, "OIL-METER-01");
     await expect(ct.closeBatch(b32("NONE"), kg(9000))).to.be.revertedWithCustomError(ct, "NotFound");
     await expect(f.traceability.connect(f.actors.millB).closeBatch(batch, kg(9000))).to.be.revertedWithCustomError(ct, "Unauthorized");
     await expect(ct.closeBatch(batch, 0)).to.be.revertedWithCustomError(ct, "InvalidArgument");
@@ -138,11 +138,11 @@ describe("Edge cases — mill batches", function () {
   it("applies governed plausibility parameters", async function () {
     const f = await loadFixture(baseFixture);
     const ct = f.traceability;
-    await expect(ct.connect(f.actors.grower).setParameters(100, 50, 350, b32("OIL_OUTPUT_KG"))).to.be.revertedWithCustomError(ct, "Unauthorized");
-    await expect(ct.connect(f.actors.methodAuthorityA).setParameters(1001, 50, 350, b32("OIL_OUTPUT_KG"))).to.be.revertedWithCustomError(ct, "InvalidArgument");
-    await expect(ct.connect(f.actors.methodAuthorityA).setParameters(200, 100, 300, b32("OIL_OUTPUT_KG")))
+    await expect(ct.connect(f.actors.grower).setParameters(100, 50, 350, b32("OIL_OUTPUT_L"))).to.be.revertedWithCustomError(ct, "Unauthorized");
+    await expect(ct.connect(f.actors.methodAuthorityA).setParameters(1001, 50, 350, b32("OIL_OUTPUT_L"))).to.be.revertedWithCustomError(ct, "InvalidArgument");
+    await expect(ct.connect(f.actors.methodAuthorityA).setParameters(200, 100, 300, b32("OIL_OUTPUT_L")))
       .to.emit(ct, "ParametersUpdated")
-      .withArgs(200, 100, 300, b32("OIL_OUTPUT_KG"));
+      .withArgs(200, 100, 300, b32("OIL_OUTPUT_L"));
     expect(await ct.massToleranceBp()).to.equal(200);
     const cc = f.certification;
     await expect(cc.connect(f.actors.methodAuthorityA).setParameters(0, 0)).to.be.revertedWithCustomError(cc, "InvalidArgument");
@@ -215,7 +215,7 @@ describe("Edge cases — registries", function () {
     expect((await f.consortium.mandatoryMillVariables()).length).to.equal(3);
     await c.defineVariable(b32("PROCESS_WATER_M3"), "0x6d33000000000000", 3, true, false, 1, 100000000); // no longer mandatory
     expect((await f.consortium.mandatoryMillVariables()).length).to.equal(2);
-    await c.deactivateVariable(b32("OIL_OUTPUT_KG"));
+    await c.deactivateVariable(b32("OIL_OUTPUT_L"));
     expect(await f.consortium.mandatoryMillVariables()).to.deep.equal([b32("MILL_ELECTRICITY_KWH")]);
     await expect(f.consortium.connect(f.actors.grower).deactivateVariable(b32("FIELD_DIESEL_L"))).to.be.revertedWithCustomError(c, "NotActiveMember");
   });
@@ -224,10 +224,10 @@ describe("Edge cases — registries", function () {
     const f = await loadFixture(baseFixture);
     const fr = f.factorRegistry;
     const now = await time.latest();
-    await expect(fr.connect(f.actors.grower).propose(b32("FS"), 1, id("d"), b32("GWP"), now, now + 10, ethers.ZeroHash)).to.be.revertedWithCustomError(fr, "Unauthorized");
-    await expect(fr.connect(f.actors.lcaService).propose(b32("FS"), 1, id("d"), b32("GWP"), now + 10, now, ethers.ZeroHash)).to.be.revertedWithCustomError(fr, "InvalidArgument");
-    await fr.connect(f.actors.lcaService).propose(b32("FS"), 1, id("d"), b32("GWP"), now, now + 1000, ethers.ZeroHash);
-    await expect(fr.connect(f.actors.lcaService).propose(b32("FS"), 1, id("d"), b32("GWP"), now, now + 1000, ethers.ZeroHash)).to.be.revertedWithCustomError(fr, "FactorSetExists");
+    await expect(fr.connect(f.actors.grower).propose(b32("FS"), 1, id("d"), b32("GWP"), now, now + 10, ethers.ZeroHash, [0, 0])).to.be.revertedWithCustomError(fr, "Unauthorized");
+    await expect(fr.connect(f.actors.lcaService).propose(b32("FS"), 1, id("d"), b32("GWP"), now + 10, now, ethers.ZeroHash, [0, 0])).to.be.revertedWithCustomError(fr, "InvalidArgument");
+    await fr.connect(f.actors.lcaService).propose(b32("FS"), 1, id("d"), b32("GWP"), now, now + 1000, ethers.ZeroHash, [0, 0]);
+    await expect(fr.connect(f.actors.lcaService).propose(b32("FS"), 1, id("d"), b32("GWP"), now, now + 1000, ethers.ZeroHash, [0, 0])).to.be.revertedWithCustomError(fr, "FactorSetExists");
     await expect(fr.connect(f.actors.methodAuthorityA).approve(b32("NONE"))).to.be.revertedWithCustomError(fr, "InvalidStatus");
     await expect(fr.connect(f.actors.methodAuthorityA).retire(b32("NONE"), id("r"))).to.be.revertedWithCustomError(fr, "InvalidStatus");
     await expect(fr.connect(f.actors.grower).retire(b32("FS"), id("r"))).to.be.revertedWithCustomError(fr, "Unauthorized");

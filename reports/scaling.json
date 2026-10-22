@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T13:24:13.757Z",
+  "generatedAt": "2026-10-21T15:04:23.926Z",
   "lotCounts": [
     1,
     4,
@@ -9,39 +9,39 @@
   "rows": [
     {
       "lots": 1,
-      "createBatch": 269779,
-      "closeBatch": 87981,
-      "submitResult": 397809,
-      "approveResult": 96436,
-      "getCertificate_view": 82612
+      "createBatch": 269521,
+      "closeBatch": 106211,
+      "submitResult": 494660,
+      "approveResult": 109002,
+      "getCertificate_view": 85507
     },
     {
       "lots": 4,
-      "createBatch": 436926,
-      "closeBatch": 87969,
-      "submitResult": 420272,
-      "approveResult": 118899,
-      "getCertificate_view": 105075
+      "createBatch": 435975,
+      "closeBatch": 106199,
+      "submitResult": 517123,
+      "approveResult": 131465,
+      "getCertificate_view": 107970
     },
     {
       "lots": 16,
-      "createBatch": 1105423,
-      "closeBatch": 87969,
-      "submitResult": 510143,
-      "approveResult": 208770,
-      "getCertificate_view": 194946
+      "createBatch": 1101700,
+      "closeBatch": 106199,
+      "submitResult": 606982,
+      "approveResult": 221336,
+      "getCertificate_view": 197841
     },
     {
       "lots": 64,
-      "createBatch": 3846286,
-      "closeBatch": 87981,
-      "submitResult": 869901,
-      "approveResult": 568528,
-      "getCertificate_view": 554704
+      "createBatch": 3831475,
+      "closeBatch": 106211,
+      "submitResult": 966752,
+      "approveResult": 581094,
+      "getCertificate_view": 557599
     }
   ],
   "marginalGasPerLot": {
-    "createBatch": 56770,
+    "createBatch": 56539,
     "closeBatch": 0,
     "submitResult": 7494,
     "approveResult": 7494,

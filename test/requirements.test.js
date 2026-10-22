@@ -1,6 +1,6 @@
 "use strict";
 // Requirement-mapped tests: each describe block corresponds to one auditability requirement
-// (R1-R9) of Section 2.9 / Table 8 of the article. Every requirement is tested with accepted
+// (R1-R9) of Section 2.5 / Table 6 of the article. Every requirement is tested with accepted
 // (positive) and rejected (negative) cases.
 
 const { expect } = require("chai");
@@ -16,7 +16,7 @@ describe("R1 — attribution of every quantity to a source class and an actor", 
     const e = await fieldEvent({ locationHash: id("GEO/plot-3"), uncertaintyPermille: 20 });
     await expect(f.traceability.connect(f.actors.grower).recordFarmEvent(f.orchardId, f.cropYear, e, "0x"))
       .to.emit(f.traceability, "ActivityRecorded")
-      .withArgs(1, f.scopeId, 1, (input) => input.variable === e.variable && input.locationHash === e.locationHash && input.uncertaintyPermille === 20n, f.actors.grower.address, 0, 1);
+      .withArgs(1, f.scopeId, 1, (input) => input.variable === e.variable && input.locationHash === e.locationHash && input.uncertaintyPermille === 20n, f.actors.grower.address, 0, 2);
     const stored = await f.traceability.getActivityEvent(1);
     expect(stored.actor).to.equal(f.actors.grower.address);
     expect(stored.source).to.equal(SourceClass.OperatorEntry);
@@ -134,6 +134,14 @@ describe("R2 — device identity and calibration status", function () {
     await expect(f.traceability.connect(f.actors.grower).recordFarmEvent(f.orchardId, 2025, e, sig)).to.be.revertedWithCustomError(f.traceability, "DuplicateEvent");
     expect(await f.traceability.isRecorded(await f.traceability.envelopeHash(otherScope, e))).to.equal(true);
   });
+
+  it("binds the declared material identity into the signed envelope", async function () {
+    const f = await loadFixture(baseFixture);
+    const { e, sig } = await meterEvent(f, { materialCode: "ORIGINAL_MATERIAL" });
+    await expect(f.traceability.connect(f.actors.grower).recordFarmEvent(f.orchardId, f.cropYear, { ...e, materialCode: b32("DIFFERENT_MATERIAL") }, sig))
+      .to.be.revertedWithCustomError(f.traceability, "InvalidDeviceSignature");
+    await f.traceability.connect(f.actors.grower).recordFarmEvent(f.orchardId, f.cropYear, e, sig);
+  });
 });
 
 describe("R3 — unit and range validation", function () {
@@ -184,7 +192,7 @@ describe("R3 — unit and range validation", function () {
     await deliverLot(f, lot, 4500);
     await f.traceability.connect(f.actors.mill).createBatch(b32("BATCH/Y"), [lot], [1000], ethers.ZeroHash);
     await millReading(f, b32("BATCH/Y"), "MILL_ELECTRICITY_KWH", 500, "ELEC-SUBMETER-01");
-    await millReading(f, b32("BATCH/Y"), "OIL_OUTPUT_KG", 2000, "OIL-SCALE-01"); // 44.4 % yield
+    await millReading(f, b32("BATCH/Y"), "OIL_OUTPUT_L", 2000, "OIL-METER-01"); // 44.4 L per 100 kg of olives
     await expect(f.traceability.connect(f.actors.mill).closeBatch(b32("BATCH/Y"), kg(4500)))
       .to.be.revertedWithCustomError(f.traceability, "ImplausibleYield")
       .withArgs(444);
@@ -196,8 +204,8 @@ describe("R3 — unit and range validation", function () {
       f.consortium,
       "NotActiveMember"
     );
-    // A mandatory closure field must be a mill meter field.
-    await expect(f.consortium.connect(f.actors.methodAuthorityA).defineVariable(b32("NEW_KG"), "0x6b67000000000000", 3, false, true, 1, 1000)).to.be.revertedWithCustomError(
+    // A mandatory closure field must belong to the mill phase.
+    await expect(f.consortium.connect(f.actors.methodAuthorityA).defineVariable(b32("NEW_KG"), "0x6b67000000000000", 1, false, true, 1, 1000)).to.be.revertedWithCustomError(
       f.consortium,
       "InvalidArgument"
     );
@@ -207,9 +215,9 @@ describe("R3 — unit and range validation", function () {
     const f = await loadFixture(readyFixture);
     const oilIndex = Number(await f.ct.eventCount());
     const now = await time.latest();
-    const e = eventInput({ activity: "MILL_PROCESSING", variable: "OIL_OUTPUT_KG", quantity: kg(4000), observedAt: now - 10, source: SourceClass.Meter, sourceId: deviceId("OIL-SCALE-01"), evidenceHash: nextEvidence("re-weighing"), methodCode: "DEVICE_READING" });
-    const sig = await signObservation(f.devices["OIL-SCALE-01"], f.chainId, f.ledger, f.batchId, e);
-    await f.ct.connect(f.actors.mill).proposeCorrection(oilIndex, e, sig, id("tank re-weighed"));
+    const e = eventInput({ activity: "MILL_PROCESSING", variable: "OIL_OUTPUT_L", quantity: kg(4000), observedAt: now - 10, source: SourceClass.Meter, sourceId: deviceId("OIL-METER-01"), evidenceHash: nextEvidence("meter-re-reading"), methodCode: "DEVICE_READING" });
+    const sig = await signObservation(f.devices["OIL-METER-01"], f.chainId, f.ledger, f.batchId, e);
+    await f.ct.connect(f.actors.mill).proposeCorrection(oilIndex, e, sig, id("flow meter re-read"));
     await expect(f.ct.connect(f.actors.auditor).authorizeCorrection(1))
       .to.be.revertedWithCustomError(f.ct, "ImplausibleYield")
       .withArgs(444);
@@ -291,7 +299,7 @@ describe("R4 — lot identity across custody and transformation", function () {
     await deliverLot(f, lot, 4500);
     const batch = b32("BATCH/B");
     await f.traceability.connect(f.actors.mill).createBatch(batch, [lot], [1000], ethers.ZeroHash);
-    await millReading(f, batch, "OIL_OUTPUT_KG", 890, "OIL-SCALE-01");
+    await millReading(f, batch, "OIL_OUTPUT_L", 890, "OIL-METER-01");
     await expect(f.traceability.connect(f.actors.mill).closeBatch(batch, kg(4500)))
       .to.be.revertedWithCustomError(f.traceability, "MissingMandatoryVariable")
       .withArgs(b32("MILL_ELECTRICITY_KWH"));
@@ -330,7 +338,7 @@ describe("R5 — emission-factor versioning", function () {
   it("requires approval of a factor set by a second methodological authority", async function () {
     const f = await loadFixture(readyFixture);
     const now = await time.latest();
-    await f.fr.connect(f.actors.methodAuthorityA).propose(b32("FS-X"), 2, id("doc"), b32("GWP100-AR6"), now, now + 1000000, f.fsId);
+    await f.fr.connect(f.actors.methodAuthorityA).propose(b32("FS-X"), 2, id("doc"), b32("GWP100-AR6"), now, now + 1000000, f.fsId, [0, 0]);
     await expect(f.fr.connect(f.actors.methodAuthorityA).approve(b32("FS-X"))).to.be.revertedWithCustomError(f.fr, "SeparationOfDuties");
     await expect(f.fr.connect(f.actors.lcaService).approve(b32("FS-X"))).to.be.revertedWithCustomError(f.fr, "Unauthorized");
     await f.fr.connect(f.actors.methodAuthorityB).approve(b32("FS-X"));
@@ -340,7 +348,7 @@ describe("R5 — emission-factor versioning", function () {
   it("rejects results that reference an unapproved, expired or retired factor set", async function () {
     const f = await loadFixture(readyFixture);
     const now = await time.latest();
-    await f.fr.connect(f.actors.methodAuthorityA).propose(b32("FS-PROPOSED"), 2, id("doc2"), b32("GWP100-AR6"), now, now + 1000000, ethers.ZeroHash);
+    await f.fr.connect(f.actors.methodAuthorityA).propose(b32("FS-PROPOSED"), 2, id("doc2"), b32("GWP100-AR6"), now, now + 1000000, ethers.ZeroHash, [0, 0]);
     const r = { ...f.result, factorSetId: b32("FS-PROPOSED") };
     await expect(f.cc.connect(f.actors.lcaService).submitResult(f.batchId, r))
       .to.be.revertedWithCustomError(f.cc, "FactorSetNotUsable")
@@ -363,7 +371,7 @@ describe("R5 — emission-factor versioning", function () {
     await f.cc.connect(f.actors.lcaService).submitResult(f.batchId, f.result);
     await f.cc.connect(f.actors.certifier).approveResult(f.batchId, 1);
     const now = await time.latest();
-    await f.fr.connect(f.actors.methodAuthorityA).propose(b32("FS-TEST-02"), 2, id("doc v2"), b32("GWP100-AR6"), now, now + 1000000, f.fsId);
+    await f.fr.connect(f.actors.methodAuthorityA).propose(b32("FS-TEST-02"), 2, id("doc v2"), b32("GWP100-AR6"), now, now + 1000000, f.fsId, [0, 0]);
     await f.fr.connect(f.actors.methodAuthorityB).approve(b32("FS-TEST-02"));
     const r2 = { ...f.result, factorSetId: b32("FS-TEST-02"), reportHash: id("REPORT/2"), phaseMg: [1500000n, 29940n, 195758n], totalMg: 1725698n };
     await f.cc.connect(f.actors.lcaService).submitResult(f.batchId, r2);
@@ -394,9 +402,9 @@ describe("R6 — functional unit, system boundary and allocation rule", function
       f.cc,
       "UnknownFunctionalUnit"
     );
-    await expect(f.cc.connect(f.actors.lcaService).submitResult(f.batchId, { ...f.result, functionalUnit: b32("EVOO_1L_MILL_GATE") }))
+    await expect(f.cc.connect(f.actors.lcaService).submitResult(f.batchId, { ...f.result, functionalUnit: b32("EVOO_1KG_MILL_GATE") }))
       .to.be.revertedWithCustomError(f.cc, "FunctionalUnitMismatch")
-      .withArgs("0x4c00000000000000", "0x6b67000000000000");
+      .withArgs("0x6b67000000000000", "0x4c00000000000000");
   });
 
   it("rejects totals that differ from the sum of the phase results", async function () {
@@ -423,7 +431,7 @@ describe("R6 — functional unit, system boundary and allocation rule", function
     await f.cc.connect(f.actors.certifier).approveResult(f.batchId, 1);
     const c = await f.cc.getCertificate(f.batchId);
     expect(c.boundaryCode).to.equal(b32("PARTIAL_CRADLE_TO_MILL_GATE"));
-    expect(c.functionalUnit).to.equal(b32("EVOO_1KG_MILL_GATE"));
+    expect(c.functionalUnit).to.equal(b32("EVOO_1L_MILL_GATE"));
     expect(c.allocationRule).to.equal(b32("NONE_UNALLOCATED"));
     expect(c.factorSetId).to.equal(f.fsId);
     expect(c.totalMg).to.equal(1835206n);
@@ -431,7 +439,7 @@ describe("R6 — functional unit, system boundary and allocation rule", function
 });
 
 async function readyFixtureResult() {
-  return { result: { boundaryCode: b32("B"), functionalUnit: b32("EVOO_1KG_MILL_GATE"), allocationRule: b32("A"), factorSetId: b32("F"), engineVersion: b32("E"), reportHash: id("R"), evidenceManifest: id("M"), phaseMg: [1n, 1n, 1n], totalMg: 3n } };
+  return { result: { boundaryCode: b32("B"), functionalUnit: b32("EVOO_1L_MILL_GATE"), allocationRule: b32("A"), factorSetId: b32("F"), engineVersion: b32("E"), reportHash: id("R"), evidenceManifest: id("M"), expectedRevisionDigest: ethers.ZeroHash, snapshotBlockNumber: 0, snapshotBlockHash: ethers.ZeroHash, methodologicalStatus: 0, limitationFlags: 512, assessmentHash: id("SYNTHETIC/UNASSESSED"), phaseMg: [1n, 1n, 1n], totalMg: 3n } };
 }
 
 describe("R7 — correction without deletion of history", function () {
@@ -442,12 +450,12 @@ describe("R7 — correction without deletion of history", function () {
     const original = await f.ct.getActivityEvent(1);
     const now = await time.latest();
     const replacement = eventInput({
-      activity: "PRUNING",
-      variable: "FIELD_PETROL_L",
-      quantity: original.quantity,
+      activity: "SOIL_PREPARATION",
+      variable: "FIELD_DIESEL_L",
+      quantity: original.quantity + kg(5),
       observedAt: now - 3600,
       source: SourceClass.OperatorEntry,
-      evidenceHash: nextEvidence("equipment-sheet"),
+      evidenceHash: nextEvidence("corrected-fuel-log"),
       methodCode: "OPERATOR_LOG",
     });
     const replacementIndex = Number(await f.ct.eventCount()) + 1; // next index in the event log
@@ -457,9 +465,9 @@ describe("R7 — correction without deletion of history", function () {
   it("keeps the original event, links the replacement and records reason and authoriser", async function () {
     const f = await loadFixture(correctedFixture);
     const r = f.replacementIndex;
-    await expect(f.ct.connect(f.actors.grower).proposeCorrection(1, f.replacement, "0x", id("fuel reclassified")))
+    await expect(f.ct.connect(f.actors.grower).proposeCorrection(1, f.replacement, "0x", id("quantity transcribed incorrectly")))
       .to.emit(f.ct, "CorrectionProposed")
-      .withArgs(1, 1, r, id("fuel reclassified"), f.actors.grower.address);
+      .withArgs(1, 1, r, id("quantity transcribed incorrectly"), f.actors.grower.address);
     expect((await f.ct.getActivityEvent(r)).status).to.equal(EventStatus.PendingReplacement);
     await expect(f.ct.connect(f.actors.auditor).authorizeCorrection(1)).to.emit(f.ct, "CorrectionApplied").withArgs(1, 1, r, f.actors.auditor.address);
     const original = await f.ct.getActivityEvent(1);
@@ -471,7 +479,7 @@ describe("R7 — correction without deletion of history", function () {
     const c = await f.ct.getCorrection(1);
     expect(c.status).to.equal(CorrectionStatus.Applied);
     expect(c.authorizer).to.equal(f.actors.auditor.address);
-    expect(c.reasonHash).to.equal(id("fuel reclassified"));
+    expect(c.reasonHash).to.equal(id("quantity transcribed incorrectly"));
     expect(await f.ct.eventCount()).to.equal(r); // nothing was deleted: original and replacement coexist
   });
 
@@ -507,7 +515,9 @@ describe("R7 — correction without deletion of history", function () {
     await f.ct.connect(f.actors.grower).proposeCorrection(1, f.replacement, "0x", id("reason"));
     await f.ct.connect(f.actors.auditor).authorizeCorrection(1);
     expect((await f.ct.getFarmScope(f.orchardId, f.cropYear)).verified).to.equal(false);
-    await f.cc.connect(f.actors.lcaService).submitResult(f.batchId, { ...f.result, reportHash: id("REPORT/v2") });
+    const snapshot = await ethers.provider.getBlock("latest");
+    const [,,, expectedRevisionDigest] = await f.ct.certificationStatus(f.batchId);
+    await f.cc.connect(f.actors.lcaService).submitResult(f.batchId, { ...f.result, reportHash: id("REPORT/v2"), expectedRevisionDigest, snapshotBlockNumber: snapshot.number, snapshotBlockHash: snapshot.hash });
     await expect(f.cc.connect(f.actors.certifier).approveResult(f.batchId, 2)).to.be.revertedWithCustomError(f.cc, "PhaseNotVerified");
     await f.ct.connect(f.actors.certifier).verifyFarmPhase(f.orchardId, f.cropYear, id("VERIFICATION-REPORT/2"));
     await f.cc.connect(f.actors.certifier).approveResult(f.batchId, 2);
@@ -531,7 +541,7 @@ describe("R7 — correction without deletion of history", function () {
     await expect(f.ct.connect(f.actors.grower).proposeCorrection(1, { ...f.replacement, quantity: kg(49) }, "0x", id("again"))).to.be.revertedWithCustomError(f.ct, "InvalidStatus");
     const r = f.replacementIndex; // the replacement itself can be corrected, subject to the same rules
     await expect(f.ct.connect(f.actors.grower).proposeCorrection(r, { ...f.replacement, quantity: kg(9999) }, "0x", id("range"))).to.be.revertedWithCustomError(f.ct, "OutOfRange");
-    await expect(f.ct.connect(f.actors.grower).proposeCorrection(r, { ...f.replacement, variable: b32("TRANSPORT_DIESEL_L") }, "0x", id("phase"))).to.be.revertedWithCustomError(f.ct, "WrongPhase");
+    await expect(f.ct.connect(f.actors.grower).proposeCorrection(r, { ...f.replacement, variable: b32("TRANSPORT_DIESEL_L") }, "0x", id("phase"))).to.be.revertedWithCustomError(f.ct, "CorrectionVariableMismatch");
     await expect(f.ct.connect(f.actors.grower).proposeCorrection(r, f.replacement, "0x", id("duplicate"))).to.be.revertedWithCustomError(f.ct, "DuplicateEvent");
   });
 
@@ -559,9 +569,9 @@ describe("R7 — correction without deletion of history", function () {
     const f = await loadFixture(readyFixture);
     const oilIndex = Number(await f.ct.eventCount()); // last mill event = oil output
     const now = await time.latest();
-    const e = eventInput({ activity: "MILL_PROCESSING", variable: "OIL_OUTPUT_KG", quantity: kg(1800), observedAt: now - 10, source: SourceClass.Meter, sourceId: deviceId("OIL-SCALE-01"), evidenceHash: nextEvidence("re-weighing"), methodCode: "DEVICE_READING" });
-    const sig = await signObservation(f.devices["OIL-SCALE-01"], f.chainId, f.ledger, f.batchId, e);
-    await f.ct.connect(f.actors.mill).proposeCorrection(oilIndex, e, sig, id("tank re-weighed"));
+    const e = eventInput({ activity: "MILL_PROCESSING", variable: "OIL_OUTPUT_L", quantity: kg(1800), observedAt: now - 10, source: SourceClass.Meter, sourceId: deviceId("OIL-METER-01"), evidenceHash: nextEvidence("meter-re-reading"), methodCode: "DEVICE_READING" });
+    const sig = await signObservation(f.devices["OIL-METER-01"], f.chainId, f.ledger, f.batchId, e);
+    await f.ct.connect(f.actors.mill).proposeCorrection(oilIndex, e, sig, id("flow meter re-read"));
     await f.ct.connect(f.actors.auditor).authorizeCorrection(1);
     const [batch] = await f.ct.getBatch(f.batchId);
     expect(batch.oilOutputMilli).to.equal(kg(1800));

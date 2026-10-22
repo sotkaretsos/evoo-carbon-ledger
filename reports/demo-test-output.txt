@@ -1,0 +1,22 @@
+setup        tx 37/37 gas 3422160/3422160 same
+act1         tx 75/75 gas 13939925/13939925 same
+act2         tx 5/5 gas 1076069/1076045 within tolerance (24 gas)
+operational  tx 80/80 gas 15015994/15015970 within tolerance (24 gas)
+deployment gas 10327115/10327115
+v1 per L 1.8351881494138855 per ha 3400.4507085181453 reference flow {"variable":"OIL_OUTPUT_L","unit":"L","quantity":8894}
+per-kg package FunctionalUnitMismatch economic 1.7842045056645217 wet mass 0.35569876107979664
+events 40
+certificate timeline None v0 0 | Valid v1 1.835188
+attack outsider     R1 -> Unauthorized ["account: 0x71bE63…5788"]
+attack forged       R2 -> InvalidDeviceSignature ["device or variable: IRRIGATION-METER-01"]
+attack duplicate    R2 -> DuplicateEvent ["envelope: 0xe23b36…2c55"]
+attack range        R3 -> OutOfRange ["variable: COMPOUND_FERTILISER_KG","quantity: 50,000"]
+attack mass         R4 -> MassMismatch ["declared: 4,500 kg","received: 4,400 kg"]
+attack selfApproval R5 -> SeparationOfDuties []
+attack retired      R5 -> FactorSetNotUsable ["factor set: FS-2026-RECON-01"]
+attack perKg        R6 -> FunctionalUnitMismatch ["declared unit: kg","measured output: L"]
+attack closed       R7 -> PhaseClosed ["scope: 0x8a4b7d…100a"]
+attack tampered     R8 -> HashMismatch ["original payload: matches","edited payload: does not match"]
+attack evidence     R9 -> EvidenceNotRetained ["manifest: 0x10db15…e355"]
+blocks unchanged after attacks: true
+elapsed 8.5 s; gas totals within the declared 512-gas tolerance of the Hardhat replay

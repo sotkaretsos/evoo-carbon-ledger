@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "functionalUnit": "1 L EVOO at the mill gate",
+  "areaHa": 4.8,
+  "oilOutputL": 8894,
+  "grid": {
+    "sourceMean_gCO2eq_per_kWh": 344.9533333333334,
+    "applied_kgCO2eq_per_kWh": 0.345,
+    "archiveSha256": "00d8c4937353f341fd9a7c7566f122cdbe15425ee5f548c2c4a3f4c37021ef21"
+  },
+  "diesel_kg_per_ha": {
+    "soil": 36.75,
+    "foliar": 7.019950000000001,
+    "plantProtection": 10.5,
+    "harvestTractor": 12.25,
+    "transport": 17.5
+  },
+  "millDiesel_kg_per_L_oil": 0.0005699797616370587,
+  "oilMassDensityAssumption_kg_per_L": 0.916,
+  "economicPriceAssumptions": {
+    "oil_EUR_per_L": 4,
+    "pomace_EUR_per_kg": 0.03
+  },
+  "kgCO2eq_per_L": 1.8351881494138855,
+  "kgCO2eq_per_ha": 3400.4507085181453,
+  "scope": "Checks units, conversions and the arithmetic of the reference factor set."
+}

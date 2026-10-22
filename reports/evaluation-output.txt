@@ -1,0 +1,16 @@
+Act 1: season 2024
+Act 2: calculation and certification (FS-2026-RECON-01)
+  per-kilogram package rejected: FunctionalUnitMismatch
+  certificate: None v0 0 (after submission of v1 (not yet approved))
+  certificate: Valid v1 1.835188 (v1 approved)
+reports written to reports
+{
+  "operational": {
+    "transactions": 80,
+    "gasUsed": 15015970,
+    "calldataBytes": 28224,
+    "logBytes": 32512,
+    "newSlots": 430
+  },
+  "deploymentTotalGas": 10327115
+}

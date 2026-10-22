@@ -1,0 +1,212 @@
+
+Version
+=======
+> solidity-coverage: v0.8.17
+
+Instrumenting for coverage...
+=============================
+
+> CarbonCertification.sol
+> CarbonTraceability.sol
+> Consortium.sol
+> EvidenceRegistry.sol
+> FactorRegistry.sol
+> interfaces/ICarbonTraceability.sol
+> interfaces/IConsortium.sol
+> interfaces/IEvidenceRegistry.sol
+> interfaces/IFactorRegistry.sol
+> lib/EnvelopeValidation.sol
+> lib/EventTypes.sol
+> Roles.sol
+
+Compilation:
+============
+
+Compiled 18 Solidity files successfully (evm target: london).
+
+Network Info
+============
+> HardhatEVM: v2.29.1
+> network:    hardhat
+
+
+
+  Case study — Western Achaia replay
+    ✔ records the season as 40 events with ten dual-signature custody transfers (45ms)
+    ✔ records petrol for chainsaws and olive beaters and diesel for the harvesting tractor
+    ✔ rejects a per-kilogram declaration because the oil output is reported in liters
+    ✔ reproduces the baseline of Table 4 (3400.5 kg CO2eq/ha; 1.835 kg CO2eq/L) under FS-2026-RECON-01
+    ✔ reproduces the allocation variants of Table 5 (economic 1.78; wet mass 0.36)
+    ✔ certifies the per-liter result package as version 1 (68ms)
+    ✔ moves the certificate from no certificate to Valid (v1)
+    ✔ records mill electricity and oil output as signed readings of calibrated mill meters
+    ✔ retains the methodological status and limitation flags in the approved public certificate (75ms)
+    ✔ keeps NeedsRecalculation after a correction of the principal fertilizer alone (684ms)
+
+  Edge cases — farm phase
+    ✔ validates orchard registration (396ms)
+    ✔ validates farm events, lots, closure and verification (154ms)
+
+  Edge cases — custody transfer
+    ✔ validates the sender's declaration (134ms)
+    ✔ lets the sender cancel an unconfirmed transfer (71ms)
+    ✔ validates the receiver's weighing (75ms)
+
+  Edge cases — mill batches
+    ✔ validates batch composition (569ms)
+    ✔ validates mill events and closure (227ms)
+    ✔ applies governed plausibility parameters (40ms)
+
+  Edge cases — corrections and results
+    ✔ validates correction identifiers and competing proposals (905ms)
+    ✔ handles result versions, approvals and empty certificates (198ms)
+
+  Edge cases — registries
+    ✔ validates device registration and calibration (79ms)
+    ✔ maintains the list of mandatory mill fields (77ms)
+    ✔ validates factor-set governance (87ms)
+    ✔ validates evidence registration and retention (76ms)
+
+  Methodological applicability — group intensities
+    ✔ returns AggregateLimited for the reference input pattern of the group intensities
+    ✔ returns AggregateLimited for a common proportional change of all fertilization inputs
+    ✔ requires recalculation after changing the principal fertilizer alone
+    ✔ requires recalculation after changing the foliar fertilizer alone
+    ✔ requires recalculation after changing the foliar diesel alone
+    ✔ requires recalculation after changing the spray water alone
+    ✔ requires recalculation when a material code is missing or different
+    ✔ requires recalculation for missing inputs and independent plant-protection changes
+    ✔ checks each orchard before allocation, so offsetting changes cannot cancel in a mixed batch
+    ✔ keeps a synthetic process example Unassessed
+
+  Methodological assurance — public certificate and governed floor
+    ✔ rejects an Unassessed package or missing mandatory limitation flags (924ms)
+    ✔ preserves AggregateLimited and its report-bound assessment after procedural approval (130ms)
+    ✔ preserves NeedsRecalculation restrictions through approval and supersession (271ms)
+    ✔ rejects an undefined methodological status in factor governance
+
+  Mandatory mill inputs
+    ✔ requires the mandatory mill inputs and keeps their source classes (269ms)
+
+  R4 regression — unique lots within one batch
+    ✔ rejects duplicate IDs and rolls back consumption of every lot (141ms)
+
+  R7 regression — calculation snapshots and correction invariants
+    ✔ rejects a report computed before a correction even when submitted afterwards (1178ms)
+    ✔ rejects missing, altered and future snapshot block hashes (178ms)
+    ✔ requires recomputation after the snapshot blockhash window expires (60ms)
+    ✔ cannot replace the mandatory electricity variable with a coproduct
+    ✔ preserves the required signed meter after a legitimate same-variable correction (85ms)
+
+  R9 regression — evidence remains usable at approval
+    ✔ rejects approval after failed retrieval and accepts it after retrieval recovers (158ms)
+    ✔ rejects approval when replica metadata falls below the required minimum (123ms)
+    ✔ rechecks the retention horizon at approval rather than only at submission (104ms)
+
+  LCA units and snapshot consistency
+    ✔ keeps milligrams, liters and hectare totals dimensionally consistent (46ms)
+    ✔ does not compute a per-kilogram result from a volumetric reference flow (59ms)
+
+  R1 — attribution of every quantity to a source class and an actor
+    ✔ stores the actor, phase and source class and logs the full envelope (48ms)
+    ✔ rejects accounts that are not consortium members
+    ✔ rejects growers of another organisation on this orchard
+    ✔ rejects suspended actors without erasing their earlier records (53ms)
+    ✔ requires a document identifier for invoice-based quantities (74ms)
+    ✔ keeps estimates distinguishable from measurements (69ms)
+
+  R2 — device identity and calibration status
+    ✔ accepts a meter reading signed by the registered, calibrated device (58ms)
+    ✔ rejects readings signed with another key (51ms)
+    ✔ rejects malformed signatures without reverting inside the signature library (53ms)
+    ✔ rejects readings attributed to a device of another organisation (42ms)
+    ✔ rejects readings observed after the calibration certificate expired (51ms)
+    ✔ rejects readings of a deactivated device (38ms)
+    ✔ lets only certification bodies record calibration certificates
+    ✔ rejects operator entries for variables that must come from a meter
+    ✔ binds signatures to one scope and rejects re-sent envelopes (215ms)
+    ✔ binds the declared material identity into the signed envelope (92ms)
+
+  R3 — unit and range validation
+    ✔ rejects quantities outside the governed range (95ms)
+    ✔ rejects variables that belong to another phase
+    ✔ rejects undefined or deactivated variables (54ms)
+    ✔ rejects timestamps beyond the tolerated clock skew
+    ✔ rejects incomplete envelopes (55ms)
+    ✔ rejects an implausible oil yield at batch closure (190ms)
+    ✔ restricts variable definitions to the methodological authority
+    ✔ re-checks the oil yield when the oil output of a closed batch is corrected (704ms)
+
+  R4 — lot identity across custody and transformation
+    ✔ changes custody only after the sender's declaration and the receiver's signed weighing (79ms)
+    ✔ rejects confirmation by a mill other than the designated receiver (45ms)
+    ✔ rejects received masses outside the tolerance and unsigned weighings (107ms)
+    ✔ does not batch lots that have not been received, nor the same lot twice (128ms)
+    ✔ requires a declared mixing rule and mass-proportional shares (193ms)
+    ✔ closes a batch only when mandatory meter fields and the mass balance pass (284ms)
+    ✔ freezes the harvest basis and the farm record set at farm-phase closure (77ms)
+    ✔ records transport events only for lots in transit, by the designated transporter (85ms)
+
+  R5 — emission-factor versioning
+    ✔ requires approval of a factor set by a second methodological authority (887ms)
+    ✔ rejects results that reference an unapproved, expired or retired factor set (99ms)
+    ✔ flags certificates whose factor set was later retired (161ms)
+    ✔ records a recalculation as a new result version and keeps earlier versions (266ms)
+
+  R6 — functional unit, system boundary and allocation rule
+    ✔ rejects result packages with missing method fields (160ms)
+    ✔ rejects unknown functional units and units that differ from the measured output (63ms)
+    ✔ rejects totals that differ from the sum of the phase results (54ms)
+    ✔ does not accept results before the batch and its farm phases are closed (131ms)
+    ✔ exposes boundary, functional unit, allocation rule and factor set on the certificate (802ms)
+
+  R7 — correction without deletion of history
+    ✔ keeps the original event, links the replacement and records reason and authoriser (869ms)
+    ✔ requires authorization by an auditor other than the proposer (55ms)
+    ✔ rejects corrections proposed by another organisation (50ms)
+    ✔ outdates the certificate and invalidates results computed from the earlier chain (203ms)
+    ✔ requires renewed farm verification after a farm correction (225ms)
+    ✔ leaves the original effective when a correction is rejected (96ms)
+    ✔ does not correct a superseded event again and validates replacements like new events (138ms)
+    ✔ outdates the certificate when a transport record of one lot is corrected (224ms)
+    ✔ keeps the mill reference flow consistent when an oil-output reading is corrected (811ms)
+
+  R8 — confidentiality with integrity verification
+    ✔ stores only the evidence hash and verifies presented documents against it (43ms)
+    ✔ discloses totals, phase shares and method fields on the public certificate only (848ms)
+
+  R9 — retention of off-chain evidence
+    ✔ rejects results whose evidence manifest is unregistered, too short-lived or under-replicated (172ms)
+    ✔ flags failed retrieval checks on the certificate and blocks new results until resolved (207ms)
+    ✔ allows retention to be extended but never shortened
+
+  Separation of duties and consortium governance
+    ✔ prevents an account holding both roles from approving its own result (77ms)
+    ✔ admits members only through the governor and only with operational roles
+
+
+  107 passing (22s)
+
+--------------------------|----------|----------|----------|----------|----------------|
+File                      |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------------------|----------|----------|----------|----------|----------------|
+ contracts/               |      100 |    83.11 |      100 |      100 |                |
+  CarbonCertification.sol |      100 |    90.48 |      100 |      100 |                |
+  CarbonTraceability.sol  |      100 |    83.48 |      100 |      100 |                |
+  Consortium.sol          |      100 |    81.25 |      100 |      100 |                |
+  EvidenceRegistry.sol    |      100 |    73.33 |      100 |      100 |                |
+  FactorRegistry.sol      |      100 |    73.08 |      100 |      100 |                |
+  Roles.sol               |      100 |      100 |      100 |      100 |                |
+ contracts/interfaces/    |      100 |      100 |      100 |      100 |                |
+  ICarbonTraceability.sol |      100 |      100 |      100 |      100 |                |
+  IConsortium.sol         |      100 |      100 |      100 |      100 |                |
+  IEvidenceRegistry.sol   |      100 |      100 |      100 |      100 |                |
+  IFactorRegistry.sol     |      100 |      100 |      100 |      100 |                |
+ contracts/lib/           |      100 |    92.31 |      100 |      100 |                |
+  EnvelopeValidation.sol  |      100 |    92.31 |      100 |      100 |                |
+  EventTypes.sol          |      100 |      100 |      100 |      100 |                |
+--------------------------|----------|----------|----------|----------|----------------|
+All files                 |      100 |    83.61 |      100 |      100 |                |
+--------------------------|----------|----------|----------|----------|----------------|
+
+> Istanbul reports written to ./coverage/ and ./coverage.json
