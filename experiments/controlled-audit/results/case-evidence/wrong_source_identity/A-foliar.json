@@ -1,0 +1,16 @@
+{
+  "activity": "FOLIAR_FERTILISATION",
+  "cropYear": 2024,
+  "evidenceId": "A-foliar",
+  "issuerActorKey": "grower",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "10",
+  "recordType": "Activity",
+  "scope": "SYN/ORCHARD/A",
+  "scopeType": "farm",
+  "source": "Invoice",
+  "sourceCode": "SYN-DOC-A-FOLIAR",
+  "synthetic": true,
+  "unit": "kg",
+  "variable": "FOLIAR_FERTILISER_KG"
+}

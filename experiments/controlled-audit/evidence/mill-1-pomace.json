@@ -1,0 +1,15 @@
+{
+  "activity": "MILL_PROCESSING",
+  "evidenceId": "mill-1-pomace",
+  "issuerActorKey": "mill",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "6000",
+  "recordType": "Activity",
+  "scope": "SYN/BATCH/1",
+  "scopeType": "mill",
+  "source": "Estimate",
+  "sourceCode": "SYN-POMACE-1",
+  "synthetic": true,
+  "unit": "kg",
+  "variable": "POMACE_KG"
+}

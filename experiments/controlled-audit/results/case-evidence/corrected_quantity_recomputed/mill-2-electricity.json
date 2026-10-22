@@ -1,0 +1,15 @@
+{
+  "activity": "MILL_PROCESSING",
+  "evidenceId": "mill-2-electricity",
+  "issuerActorKey": "mill",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "1000",
+  "recordType": "Activity",
+  "scope": "SYN/BATCH/2",
+  "scopeType": "mill",
+  "source": "Meter",
+  "sourceCode": "ELEC-SUBMETER-01",
+  "synthetic": true,
+  "unit": "kWh",
+  "variable": "MILL_ELECTRICITY_KWH"
+}

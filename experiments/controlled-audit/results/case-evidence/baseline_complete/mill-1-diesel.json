@@ -1,0 +1,15 @@
+{
+  "activity": "BY_PRODUCT_HANDLING",
+  "evidenceId": "mill-1-diesel",
+  "issuerActorKey": "mill",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "5",
+  "recordType": "Activity",
+  "scope": "SYN/BATCH/1",
+  "scopeType": "mill",
+  "source": "OperatorEntry",
+  "sourceCode": "SYN-MILL-FUEL-1",
+  "synthetic": true,
+  "unit": "L",
+  "variable": "MILL_DIESEL_L"
+}

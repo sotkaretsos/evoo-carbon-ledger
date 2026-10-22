@@ -1,0 +1,464 @@
+{
+  "algorithm": "Keccak-256 canonical sorted-key JSON; public commitment ABI bytes32,uint8,uint32,bytes32",
+  "arithmeticRole": "None; arithmetic is independently reconstructed by Python Decimal",
+  "sharedPrimitive": "ethers cryptographic library, not the production engine",
+  "trustBoundary": "Snapshots, registry and certificate captures are trusted producer exports; no independent RPC/consensus/block-proof validation. These checks detect disclosed-data inconsistencies, not a malicious fully rewritten coherent producer export.",
+  "pass": true,
+  "checksPassed": 112,
+  "checksTotal": 112,
+  "snapshotSha256": {
+    "snapshot-baseline.json": "bb23beffaad296f58c90b672d6c900b1b3c0f010b0dd8d86fcf92fa574219ad3",
+    "snapshot-corrected.json": "63d6ee0eb365e9fb01a780a2eedee224b0509be3404dfa970d06de995e8615e5",
+    "snapshot-wrongSource.json": "0fa7ab114b2d29f5fdb037cece3ce8201bc91a1b51f492f8ab42c3985a065b32"
+  },
+  "checks": [
+    {
+      "label": "baseline/SYN/BATCH/1/NONE_UNALLOCATED:factor",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/NONE_UNALLOCATED:report",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/NONE_UNALLOCATED:manifest",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/NONE_UNALLOCATED:assessment",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/NONE_UNALLOCATED:revision",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/NONE_UNALLOCATED:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/ECONOMIC:factor",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/ECONOMIC:report",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/ECONOMIC:manifest",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/ECONOMIC:assessment",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/ECONOMIC:revision",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/ECONOMIC:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/WET_MASS:factor",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/WET_MASS:report",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/WET_MASS:manifest",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/WET_MASS:assessment",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/WET_MASS:revision",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1/WET_MASS:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/NONE_UNALLOCATED:factor",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/NONE_UNALLOCATED:report",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/NONE_UNALLOCATED:manifest",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/NONE_UNALLOCATED:assessment",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/NONE_UNALLOCATED:revision",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/NONE_UNALLOCATED:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/ECONOMIC:factor",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/ECONOMIC:report",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/ECONOMIC:manifest",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/ECONOMIC:assessment",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/ECONOMIC:revision",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/ECONOMIC:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/WET_MASS:factor",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/WET_MASS:report",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/WET_MASS:manifest",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/WET_MASS:assessment",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/WET_MASS:revision",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2/WET_MASS:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/1:public_method_commitment",
+      "pass": true
+    },
+    {
+      "label": "baseline/SYN/BATCH/2:public_method_commitment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/NONE_UNALLOCATED:factor",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/NONE_UNALLOCATED:report",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/NONE_UNALLOCATED:manifest",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/NONE_UNALLOCATED:assessment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/NONE_UNALLOCATED:revision",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/NONE_UNALLOCATED:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/ECONOMIC:factor",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/ECONOMIC:report",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/ECONOMIC:manifest",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/ECONOMIC:assessment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/ECONOMIC:revision",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/ECONOMIC:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/WET_MASS:factor",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/WET_MASS:report",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/WET_MASS:manifest",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/WET_MASS:assessment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/WET_MASS:revision",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1/WET_MASS:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/NONE_UNALLOCATED:factor",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/NONE_UNALLOCATED:report",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/NONE_UNALLOCATED:manifest",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/NONE_UNALLOCATED:assessment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/NONE_UNALLOCATED:revision",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/NONE_UNALLOCATED:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/ECONOMIC:factor",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/ECONOMIC:report",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/ECONOMIC:manifest",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/ECONOMIC:assessment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/ECONOMIC:revision",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/ECONOMIC:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/WET_MASS:factor",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/WET_MASS:report",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/WET_MASS:manifest",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/WET_MASS:assessment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/WET_MASS:revision",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2/WET_MASS:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/1:public_method_commitment",
+      "pass": true
+    },
+    {
+      "label": "corrected/SYN/BATCH/2:public_method_commitment",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/NONE_UNALLOCATED:factor",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/NONE_UNALLOCATED:report",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/NONE_UNALLOCATED:manifest",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/NONE_UNALLOCATED:assessment",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/NONE_UNALLOCATED:revision",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/NONE_UNALLOCATED:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/ECONOMIC:factor",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/ECONOMIC:report",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/ECONOMIC:manifest",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/ECONOMIC:assessment",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/ECONOMIC:revision",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/ECONOMIC:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/WET_MASS:factor",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/WET_MASS:report",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/WET_MASS:manifest",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/WET_MASS:assessment",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/WET_MASS:revision",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/1/WET_MASS:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/NONE_UNALLOCATED:factor",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/NONE_UNALLOCATED:report",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/NONE_UNALLOCATED:manifest",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/NONE_UNALLOCATED:assessment",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/NONE_UNALLOCATED:revision",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/NONE_UNALLOCATED:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/ECONOMIC:factor",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/ECONOMIC:report",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/ECONOMIC:manifest",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/ECONOMIC:assessment",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/ECONOMIC:revision",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/ECONOMIC:manifest_events",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/WET_MASS:factor",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/WET_MASS:report",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/WET_MASS:manifest",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/WET_MASS:assessment",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/WET_MASS:revision",
+      "pass": true
+    },
+    {
+      "label": "wrongSource/SYN/BATCH/2/WET_MASS:manifest_events",
+      "pass": true
+    }
+  ]
+}

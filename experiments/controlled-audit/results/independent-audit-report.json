@@ -1,0 +1,1152 @@
+{
+  "experiment": "CONTROLLED-SYNTHETIC-AUDIT-01",
+  "evaluationType": "controlled synthetic software evaluation",
+  "verifier": "Python Decimal reference formulas and SHA-256 exact-byte evidence retrieval; production lca-engine not imported",
+  "externalHumanAudit": false,
+  "physicalValidation": false,
+  "fieldTrial": false,
+  "pass": true,
+  "checksPassed": 54,
+  "checksTotal": 54,
+  "casesMatchingPredeclaredExpectations": 6,
+  "casesTotal": 6,
+  "cases": [
+    {
+      "id": "baseline_complete",
+      "decision": "PASS",
+      "expectedDecision": "PASS",
+      "detections": [],
+      "expectedDetections": [],
+      "matchesPredeclaredExpectation": true,
+      "retrievalAttempts": 28,
+      "verifiedFiles": 28,
+      "effectiveEvents": 22,
+      "claimsCompared": 6,
+      "trustedReconstruction": "completed",
+      "issues": [],
+      "reconstructions": [
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "NONE_UNALLOCATED",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "367.20",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1291.20000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1816.80000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "1",
+          "perFU": "0.75700",
+          "phasesPerFU": {
+            "cultivation": "0.53800",
+            "transport": "0.014",
+            "mill": "0.205"
+          },
+          "phaseMg": [
+            538000,
+            14000,
+            205000
+          ],
+          "totalMg": 757000
+        },
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "ECONOMIC",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "367.20",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1291.20000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1816.80000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "0.97560975609756097560975609756097560975609756097561",
+          "perFU": "0.73853658536585365853658536585365853658536585365854",
+          "phasesPerFU": {
+            "cultivation": "0.52487804878048780487804878048780487804878048780488",
+            "transport": "0.013658536585365853658536585365853658536585365853658",
+            "mill": "0.20000000000000000000000000000000000000000000000"
+          },
+          "phaseMg": [
+            524878,
+            13659,
+            200000
+          ],
+          "totalMg": 738537
+        },
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "WET_MASS",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "367.20",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1291.20000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1816.80000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "0.26470588235294117647058823529411764705882352941176",
+          "perFU": "0.20038235294117647058823529411764705882352941176470",
+          "phasesPerFU": {
+            "cultivation": "0.14241176470588235294117647058823529411764705882352",
+            "transport": "0.0037058823529411764705882352941176470588235294117646",
+            "mill": "0.054264705882352941176470588235294117647058823529412"
+          },
+          "phaseMg": [
+            142412,
+            3706,
+            54265
+          ],
+          "totalMg": 200383
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "NONE_UNALLOCATED",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "388.80",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1452.80000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1903.20000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "1",
+          "perFU": "0.73200",
+          "phasesPerFU": {
+            "cultivation": "0.55876923076923076923076923076923076923076923076923",
+            "transport": "0.013846153846153846153846153846153846153846153846154",
+            "mill": "0.15938461538461538461538461538461538461538461538462"
+          },
+          "phaseMg": [
+            558769,
+            13846,
+            159385
+          ],
+          "totalMg": 732000
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "ECONOMIC",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "388.80",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1452.80000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1903.20000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "0.97014925373134328358208955223880597014925373134328",
+          "perFU": "0.71014925373134328358208955223880597014925373134327",
+          "phasesPerFU": {
+            "cultivation": "0.54208955223880597014925373134328358208955223880596",
+            "transport": "0.013432835820895522388059701492537313432835820895522",
+            "mill": "0.15462686567164179104477611940298507462686567164179"
+          },
+          "phaseMg": [
+            542090,
+            13433,
+            154627
+          ],
+          "totalMg": 710150
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "WET_MASS",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "388.80",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1452.80000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1903.20000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "0.22630560928433268858800773694390715667311411992263",
+          "perFU": "0.16565570599613152804642166344294003868471953578337",
+          "phasesPerFU": {
+            "cultivation": "0.12645261121856866537717601547388781431334622823985",
+            "transport": "0.0031334622823984526112185686653771760154738878143133",
+            "mill": "0.036069632495164410058027079303675048355899419729207"
+          },
+          "phaseMg": [
+            126453,
+            3133,
+            36070
+          ],
+          "totalMg": 165656
+        }
+      ]
+    },
+    {
+      "id": "missing_evidence",
+      "decision": "FAIL",
+      "expectedDecision": "FAIL",
+      "detections": [
+        "EVIDENCE_MISSING"
+      ],
+      "expectedDetections": [
+        "EVIDENCE_MISSING"
+      ],
+      "matchesPredeclaredExpectation": true,
+      "retrievalAttempts": 28,
+      "verifiedFiles": 27,
+      "effectiveEvents": 22,
+      "claimsCompared": 0,
+      "trustedReconstruction": "blocked by evidence/source failure",
+      "issues": [
+        {
+          "code": "EVIDENCE_MISSING",
+          "subject": "A-foliar",
+          "detail": "Actual retrieval returned no file"
+        }
+      ],
+      "reconstructions": []
+    },
+    {
+      "id": "corrupt_evidence",
+      "decision": "FAIL",
+      "expectedDecision": "FAIL",
+      "detections": [
+        "EVIDENCE_HASH_MISMATCH"
+      ],
+      "expectedDetections": [
+        "EVIDENCE_HASH_MISMATCH"
+      ],
+      "matchesPredeclaredExpectation": true,
+      "retrievalAttempts": 28,
+      "verifiedFiles": 27,
+      "effectiveEvents": 22,
+      "claimsCompared": 0,
+      "trustedReconstruction": "blocked by evidence/source failure",
+      "issues": [
+        {
+          "code": "EVIDENCE_HASH_MISMATCH",
+          "subject": "mill-1-electricity",
+          "detail": "Retrieved bytes differ from the event commitment"
+        }
+      ],
+      "reconstructions": []
+    },
+    {
+      "id": "corrected_quantity_stale_claim",
+      "decision": "FAIL",
+      "expectedDecision": "FAIL",
+      "detections": [
+        "ARITHMETIC_MISMATCH",
+        "REVISION_MISMATCH"
+      ],
+      "expectedDetections": [
+        "ARITHMETIC_MISMATCH",
+        "REVISION_MISMATCH"
+      ],
+      "matchesPredeclaredExpectation": true,
+      "retrievalAttempts": 28,
+      "verifiedFiles": 28,
+      "effectiveEvents": 22,
+      "claimsCompared": 6,
+      "trustedReconstruction": "completed",
+      "issues": [
+        {
+          "code": "REVISION_MISMATCH",
+          "subject": "SYN/BATCH/1",
+          "detail": "Claim commits a superseded event revision"
+        },
+        {
+          "code": "ARITHMETIC_MISMATCH",
+          "subject": "SYN/BATCH/1/NONE_UNALLOCATED",
+          "detail": "total kg, per FU, total per ha, cultivation kg, cultivation per FU, FIELD_FUEL kg, integer phase/total mg"
+        },
+        {
+          "code": "ARITHMETIC_MISMATCH",
+          "subject": "SYN/BATCH/1/ECONOMIC",
+          "detail": "total kg, per FU, total per ha, cultivation kg, cultivation per FU, FIELD_FUEL kg, integer phase/total mg"
+        },
+        {
+          "code": "ARITHMETIC_MISMATCH",
+          "subject": "SYN/BATCH/1/WET_MASS",
+          "detail": "total kg, per FU, total per ha, cultivation kg, cultivation per FU, FIELD_FUEL kg, integer phase/total mg"
+        },
+        {
+          "code": "REVISION_MISMATCH",
+          "subject": "SYN/BATCH/2",
+          "detail": "Claim commits a superseded event revision"
+        },
+        {
+          "code": "ARITHMETIC_MISMATCH",
+          "subject": "SYN/BATCH/2/NONE_UNALLOCATED",
+          "detail": "total kg, per FU, total per ha, cultivation kg, cultivation per FU, FIELD_FUEL kg, integer phase/total mg"
+        },
+        {
+          "code": "ARITHMETIC_MISMATCH",
+          "subject": "SYN/BATCH/2/ECONOMIC",
+          "detail": "total kg, per FU, total per ha, cultivation kg, cultivation per FU, FIELD_FUEL kg, integer phase/total mg"
+        },
+        {
+          "code": "ARITHMETIC_MISMATCH",
+          "subject": "SYN/BATCH/2/WET_MASS",
+          "detail": "total kg, per FU, total per ha, cultivation kg, cultivation per FU, FIELD_FUEL kg, integer phase/total mg"
+        }
+      ],
+      "reconstructions": [
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "NONE_UNALLOCATED",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "374.40",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1298.40000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1824.00000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "1",
+          "perFU": "0.76000",
+          "phasesPerFU": {
+            "cultivation": "0.54100",
+            "transport": "0.014",
+            "mill": "0.205"
+          },
+          "phaseMg": [
+            541000,
+            14000,
+            205000
+          ],
+          "totalMg": 760000
+        },
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "ECONOMIC",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "374.40",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1298.40000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1824.00000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "0.97560975609756097560975609756097560975609756097561",
+          "perFU": "0.74146341463414634146341463414634146341463414634146",
+          "phasesPerFU": {
+            "cultivation": "0.52780487804878048780487804878048780487804878048779",
+            "transport": "0.013658536585365853658536585365853658536585365853658",
+            "mill": "0.20000000000000000000000000000000000000000000000"
+          },
+          "phaseMg": [
+            527805,
+            13659,
+            200000
+          ],
+          "totalMg": 741464
+        },
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "WET_MASS",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "374.40",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1298.40000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1824.00000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "0.26470588235294117647058823529411764705882352941176",
+          "perFU": "0.20117647058823529411764705882352941176470588235294",
+          "phasesPerFU": {
+            "cultivation": "0.14320588235294117647058823529411764705882352941176",
+            "transport": "0.0037058823529411764705882352941176470588235294117646",
+            "mill": "0.054264705882352941176470588235294117647058823529412"
+          },
+          "phaseMg": [
+            143206,
+            3706,
+            54265
+          ],
+          "totalMg": 201177
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "NONE_UNALLOCATED",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "405.60",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1469.60000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1920.00000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "1",
+          "perFU": "0.73846153846153846153846153846153846153846153846154",
+          "phasesPerFU": {
+            "cultivation": "0.56523076923076923076923076923076923076923076923077",
+            "transport": "0.013846153846153846153846153846153846153846153846154",
+            "mill": "0.15938461538461538461538461538461538461538461538462"
+          },
+          "phaseMg": [
+            565231,
+            13846,
+            159385
+          ],
+          "totalMg": 738462
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "ECONOMIC",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "405.60",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1469.60000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1920.00000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "0.97014925373134328358208955223880597014925373134328",
+          "perFU": "0.71641791044776119402985074626865671641791044776119",
+          "phasesPerFU": {
+            "cultivation": "0.54835820895522388059701492537313432835820895522388",
+            "transport": "0.013432835820895522388059701492537313432835820895522",
+            "mill": "0.15462686567164179104477611940298507462686567164179"
+          },
+          "phaseMg": [
+            548358,
+            13433,
+            154627
+          ],
+          "totalMg": 716418
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "WET_MASS",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "405.60",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1469.60000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1920.00000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "0.22630560928433268858800773694390715667311411992263",
+          "perFU": "0.16711798839458413926499032882011605415860735009671",
+          "phasesPerFU": {
+            "cultivation": "0.12791489361702127659574468085106382978723404255319",
+            "transport": "0.0031334622823984526112185686653771760154738878143133",
+            "mill": "0.036069632495164410058027079303675048355899419729207"
+          },
+          "phaseMg": [
+            127915,
+            3133,
+            36070
+          ],
+          "totalMg": 167118
+        }
+      ]
+    },
+    {
+      "id": "corrected_quantity_recomputed",
+      "decision": "PASS",
+      "expectedDecision": "PASS",
+      "detections": [],
+      "expectedDetections": [],
+      "matchesPredeclaredExpectation": true,
+      "retrievalAttempts": 28,
+      "verifiedFiles": 28,
+      "effectiveEvents": 22,
+      "claimsCompared": 6,
+      "trustedReconstruction": "completed",
+      "issues": [],
+      "reconstructions": [
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "NONE_UNALLOCATED",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "374.40",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1298.40000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1824.00000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "1",
+          "perFU": "0.76000",
+          "phasesPerFU": {
+            "cultivation": "0.54100",
+            "transport": "0.014",
+            "mill": "0.205"
+          },
+          "phaseMg": [
+            541000,
+            14000,
+            205000
+          ],
+          "totalMg": 760000
+        },
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "ECONOMIC",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "374.40",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1298.40000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1824.00000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "0.97560975609756097560975609756097560975609756097561",
+          "perFU": "0.74146341463414634146341463414634146341463414634146",
+          "phasesPerFU": {
+            "cultivation": "0.52780487804878048780487804878048780487804878048779",
+            "transport": "0.013658536585365853658536585365853658536585365853658",
+            "mill": "0.20000000000000000000000000000000000000000000000"
+          },
+          "phaseMg": [
+            527805,
+            13659,
+            200000
+          ],
+          "totalMg": 741464
+        },
+        {
+          "batch": "SYN/BATCH/1",
+          "allocationRule": "WET_MASS",
+          "areaHa": "2.4",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.3",
+            "SYN/ORCHARD/B": "0.6"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "436.800",
+            "COMPOUND_DIRECT_N2O": "343.20000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "374.40",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1298.40000",
+            "transport": "33.6",
+            "mill": "492.0"
+          },
+          "totalKg": "1824.00000",
+          "oilL": "2400",
+          "pomaceKg": "6000",
+          "oilShare": "0.26470588235294117647058823529411764705882352941176",
+          "perFU": "0.20117647058823529411764705882352941176470588235294",
+          "phasesPerFU": {
+            "cultivation": "0.14320588235294117647058823529411764705882352941176",
+            "transport": "0.0037058823529411764705882352941176470588235294117646",
+            "mill": "0.054264705882352941176470588235294117647058823529412"
+          },
+          "phaseMg": [
+            143206,
+            3706,
+            54265
+          ],
+          "totalMg": 201177
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "NONE_UNALLOCATED",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "405.60",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1469.60000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1920.00000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "1",
+          "perFU": "0.73846153846153846153846153846153846153846153846154",
+          "phasesPerFU": {
+            "cultivation": "0.56523076923076923076923076923076923076923076923077",
+            "transport": "0.013846153846153846153846153846153846153846153846154",
+            "mill": "0.15938461538461538461538461538461538461538461538462"
+          },
+          "phaseMg": [
+            565231,
+            13846,
+            159385
+          ],
+          "totalMg": 738462
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "ECONOMIC",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "405.60",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1469.60000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1920.00000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "0.97014925373134328358208955223880597014925373134328",
+          "perFU": "0.71641791044776119402985074626865671641791044776119",
+          "phasesPerFU": {
+            "cultivation": "0.54835820895522388059701492537313432835820895522388",
+            "transport": "0.013432835820895522388059701492537313432835820895522",
+            "mill": "0.15462686567164179104477611940298507462686567164179"
+          },
+          "phaseMg": [
+            548358,
+            13433,
+            154627
+          ],
+          "totalMg": 716418
+        },
+        {
+          "batch": "SYN/BATCH/2",
+          "allocationRule": "WET_MASS",
+          "areaHa": "2.6",
+          "farmScopeShares": {
+            "SYN/ORCHARD/A": "0.7",
+            "SYN/ORCHARD/B": "0.4"
+          },
+          "cultivationProcessesKg": {
+            "COMPOUND_MANUFACTURE": "515.200",
+            "COMPOUND_DIRECT_N2O": "404.80000",
+            "FOLIAR_MANUFACTURE": "17.400",
+            "FOLIAR_DIRECT_N2O": "6.60000",
+            "DIESEL_COMBUSTION": "405.60",
+            "ELECTRICITY_SUPPLY": "120.00"
+          },
+          "phasesKg": {
+            "cultivation": "1469.60000",
+            "transport": "36.0",
+            "mill": "414.4"
+          },
+          "totalKg": "1920.00000",
+          "oilL": "2600",
+          "pomaceKg": "8000",
+          "oilShare": "0.22630560928433268858800773694390715667311411992263",
+          "perFU": "0.16711798839458413926499032882011605415860735009671",
+          "phasesPerFU": {
+            "cultivation": "0.12791489361702127659574468085106382978723404255319",
+            "transport": "0.0031334622823984526112185686653771760154738878143133",
+            "mill": "0.036069632495164410058027079303675048355899419729207"
+          },
+          "phaseMg": [
+            127915,
+            3133,
+            36070
+          ],
+          "totalMg": 167118
+        }
+      ]
+    },
+    {
+      "id": "wrong_source_identity",
+      "decision": "FAIL",
+      "expectedDecision": "FAIL",
+      "detections": [
+        "SOURCE_IDENTITY_MISMATCH"
+      ],
+      "expectedDetections": [
+        "SOURCE_IDENTITY_MISMATCH"
+      ],
+      "matchesPredeclaredExpectation": true,
+      "retrievalAttempts": 28,
+      "verifiedFiles": 28,
+      "effectiveEvents": 22,
+      "claimsCompared": 0,
+      "trustedReconstruction": "blocked by evidence/source failure",
+      "issues": [
+        {
+          "code": "SOURCE_IDENTITY_MISMATCH",
+          "subject": "24",
+          "detail": "Source identifier, actor or organisation does not match evidence"
+        }
+      ],
+      "reconstructions": []
+    }
+  ],
+  "checks": [
+    {
+      "check": "predeclared_fixture_commitment:design.json",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "predeclared_fixture_commitment:factors.synthetic.json",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "predeclared_fixture_commitment:expectations.json",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/1:cultivationKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/1:transportKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/1:millKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/1:totalKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/1:perFU",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/1:integer_rounding",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/2:cultivationKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/2:transportKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/2:millKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/2:totalKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/2:perFU",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:analytic:SYN/BATCH/2:integer_rounding",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:mass_and_burden_conservation",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:full_orchard:SYN/ORCHARD/A",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:harvest_share_conservation:SYN/ORCHARD/A",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:full_orchard:SYN/ORCHARD/B",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "baseline:harvest_share_conservation:SYN/ORCHARD/B",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/1:cultivationKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/1:transportKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/1:millKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/1:totalKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/1:perFU",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/1:integer_rounding",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/2:cultivationKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/2:transportKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/2:millKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/2:totalKg",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/2:perFU",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:analytic:SYN/BATCH/2:integer_rounding",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:mass_and_burden_conservation",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:full_orchard:SYN/ORCHARD/A",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:harvest_share_conservation:SYN/ORCHARD/A",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:full_orchard:SYN/ORCHARD/B",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "corrected:harvest_share_conservation:SYN/ORCHARD/B",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "correction_response:SYN/BATCH/1",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "correction_response:SYN/BATCH/2",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "allocation_fraction:SYN/BATCH/1:ECONOMIC",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "allocation_fraction:SYN/BATCH/1:WET_MASS",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "allocation_fraction:SYN/BATCH/2:ECONOMIC",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "allocation_fraction:SYN/BATCH/2:WET_MASS",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "mined_certificate_timeline:baseline",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "mined_certificate_timeline:afterCorrection",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "mined_certificate_timeline:recomputed",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "certificate_disclosure:baseline",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "certificate_disclosure:corrected",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "case_decision:baseline_complete",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "case_decision:missing_evidence",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "case_decision:corrupt_evidence",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "case_decision:corrected_quantity_stale_claim",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "case_decision:corrected_quantity_recomputed",
+      "pass": true,
+      "details": null
+    },
+    {
+      "check": "case_decision:wrong_source_identity",
+      "pass": true,
+      "details": null
+    }
+  ],
+  "scope": "Two invented orchards in distinct organisations, four unequal lots, two mixed batches, three allocation variants, retrieved evidence bytes, two actual append-only corrections.",
+  "limitations": [
+    "Test decisions apply to these six predeclared fixtures; no population accuracy/sensitivity estimate",
+    "Separately coded checker was authored by the same project team, not an external auditor",
+    "Ledger snapshots, registry and certificate captures remain trusted producer exports; this offline verifier does not independently query live RPC or validate consensus or block proofs",
+    "Commitment checks detect inconsistencies in disclosed data, not a malicious producer that fully rewrites a coherent export and its commitments",
+    "Contracts validate simulated device signatures; this Python checker checks source/actor bindings and exact evidence bytes but does not reimplement ECDSA",
+    "Local paths test retrieval and integrity, not long-term remote availability or replication",
+    "All activities, product compositions, factors and GWP parameter 280 are invented; none are proposed for the real field",
+    "Partial selected-process model, with explicit exclusions; no full agricultural CFP or propagated uncertainty"
+  ]
+}

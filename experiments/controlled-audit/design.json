@@ -1,0 +1,39 @@
+{
+  "id": "CONTROLLED-SYNTHETIC-AUDIT-01",
+  "version": 1,
+  "purpose": "Controlled software evaluation with invented observations and factors; not a field trial, external human audit, or empirical life-cycle estimate.",
+  "cropYear": 2024,
+  "orchards": [
+    {"id": "SYN/ORCHARD/A", "actor": "grower", "areaM2": 20000, "harvestKg": "10000", "events": [
+      {"id": "A-compound", "activity": "FERTILISATION", "variable": "COMPOUND_FERTILISER_KG", "quantity": "400", "unit": "kg", "source": "Invoice", "sourceCode": "SYN-DOC-A-COMPOUND"},
+      {"id": "A-foliar", "activity": "FOLIAR_FERTILISATION", "variable": "FOLIAR_FERTILISER_KG", "quantity": "10", "unit": "kg", "source": "Invoice", "sourceCode": "SYN-DOC-A-FOLIAR"},
+      {"id": "A-field-diesel", "activity": "SOIL_PREPARATION", "variable": "FIELD_DIESEL_L", "quantity": "100", "unit": "L", "source": "OperatorEntry", "sourceCode": "SYN-LOG-A-FIELD"},
+      {"id": "A-foliar-diesel", "activity": "FOLIAR_FERTILISATION", "variable": "FIELD_DIESEL_L", "quantity": "20", "unit": "L", "source": "OperatorEntry", "sourceCode": "SYN-LOG-A-FOLIAR"},
+      {"id": "A-irrigation", "activity": "IRRIGATION", "variable": "IRRIGATION_ELECTRICITY_KWH", "quantity": "200", "unit": "kWh", "source": "Meter", "sourceCode": "IRRIGATION-METER-01"}
+    ]},
+    {"id": "SYN/ORCHARD/B", "actor": "growerB", "areaM2": 30000, "harvestKg": "15000", "events": [
+      {"id": "B-compound", "activity": "FERTILISATION", "variable": "COMPOUND_FERTILISER_KG", "quantity": "450", "unit": "kg", "source": "Invoice", "sourceCode": "SYN-DOC-B-COMPOUND"},
+      {"id": "B-foliar", "activity": "FOLIAR_FERTILISATION", "variable": "FOLIAR_FERTILISER_KG", "quantity": "20", "unit": "kg", "source": "Invoice", "sourceCode": "SYN-DOC-B-FOLIAR"},
+      {"id": "B-field-diesel", "activity": "SOIL_PREPARATION", "variable": "FIELD_DIESEL_L", "quantity": "180", "unit": "L", "source": "OperatorEntry", "sourceCode": "SYN-LOG-B-FIELD"},
+      {"id": "B-foliar-diesel", "activity": "FOLIAR_FERTILISATION", "variable": "FIELD_DIESEL_L", "quantity": "15", "unit": "L", "source": "OperatorEntry", "sourceCode": "SYN-LOG-B-FOLIAR"},
+      {"id": "B-irrigation", "activity": "IRRIGATION", "variable": "IRRIGATION_ELECTRICITY_KWH", "quantity": "400", "unit": "kWh", "source": "Meter", "sourceCode": "SYN-IRRIGATION-B"}
+    ]}
+  ],
+  "lots": [
+    {"id": "SYN/LOT/A1", "orchard": "SYN/ORCHARD/A", "harvestKg": "3000", "transportDieselL": "4"},
+    {"id": "SYN/LOT/A2", "orchard": "SYN/ORCHARD/A", "harvestKg": "7000", "transportDieselL": "8"},
+    {"id": "SYN/LOT/B1", "orchard": "SYN/ORCHARD/B", "harvestKg": "9000", "transportDieselL": "10"},
+    {"id": "SYN/LOT/B2", "orchard": "SYN/ORCHARD/B", "harvestKg": "6000", "transportDieselL": "7"}
+  ],
+  "batches": [
+    {"id": "SYN/BATCH/1", "lots": ["SYN/LOT/A1", "SYN/LOT/B1"], "sharesPermille": [250, 750], "receivedKg": "12000", "oilL": "2400", "electricityKWh": "1200", "pomaceKg": "6000", "byproductDieselL": "5"},
+    {"id": "SYN/BATCH/2", "lots": ["SYN/LOT/A2", "SYN/LOT/B2"], "sharesPermille": [538, 462], "receivedKg": "13000", "oilL": "2600", "electricityKWh": "1000", "pomaceKg": "8000", "byproductDieselL": "6"}
+  ],
+  "allocationScenarios": [
+    {"allocationRule": "NONE_UNALLOCATED"},
+    {"allocationRule": "ECONOMIC", "prices": {"oil": 4, "pomace": 0.04}},
+    {"allocationRule": "WET_MASS", "oilDensityKgPerL": 0.9}
+  ],
+  "correction": {"originalEvidenceId": "A-foliar-diesel", "replacementEvidenceId": "A-foliar-diesel-corrected", "oldQuantity": "20", "newQuantity": "30", "reason": "Predeclared synthetic correction; original retained as superseded."},
+  "evidencePolicy": {"hashAlgorithm": "SHA-256 of exact UTF-8 file bytes", "retrieval": "Local repository paths with traversal rejected", "sourceIdentity": "Compare source class, source code, organisation, actor, scope and quantity with exported mined ledger records; device signatures are validated by the contracts in the producer run."}
+}

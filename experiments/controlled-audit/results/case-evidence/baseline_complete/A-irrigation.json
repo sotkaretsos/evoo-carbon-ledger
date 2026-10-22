@@ -1,0 +1,16 @@
+{
+  "activity": "IRRIGATION",
+  "cropYear": 2024,
+  "evidenceId": "A-irrigation",
+  "issuerActorKey": "grower",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "200",
+  "recordType": "Activity",
+  "scope": "SYN/ORCHARD/A",
+  "scopeType": "farm",
+  "source": "Meter",
+  "sourceCode": "IRRIGATION-METER-01",
+  "synthetic": true,
+  "unit": "kWh",
+  "variable": "IRRIGATION_ELECTRICITY_KWH"
+}

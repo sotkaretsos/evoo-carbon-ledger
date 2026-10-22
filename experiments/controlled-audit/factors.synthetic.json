@@ -1,0 +1,38 @@
+{
+  "id": "FS-SYNTHETIC-AUDIT-01",
+  "version": 1,
+  "title": "Invented process model for controlled software evaluation only",
+  "description": "All factors are hypothetical. No claim of representativeness or environmental accuracy. Separate explicit production and direct-soil components are combined only to provide the engine's single linear rule; the Decimal verifier reconstructs the components separately.",
+  "gwpBasis": "Hypothetical common GWP100: CO2=1; N2O=280. Not an IPCC parameter selection or the real field model.",
+  "validFrom": "2024-01-01T00:00:00Z",
+  "validTo": "2030-12-31T23:59:59Z",
+  "methodologicalPolicy": {"minimumStatus": 0, "requiredLimitations": 1024},
+  "syntheticProcessDefinitions": {
+    "gwp100_N2O": "280", "N2O_N_to_N2O_numerator": "44", "N2O_N_to_N2O_denominator": "28", "directEF_N2O_N_per_N": "0.01",
+    "compound": {"product": "Hypothetical C20; not the real 21-7-14", "N_mass_fraction": "0.20", "manufacturing_kgCO2eq_per_kg_product": "1.12"},
+    "foliar": {"product": "Hypothetical F10; not the real 20-20-20", "N_mass_fraction": "0.10", "manufacturing_kgCO2eq_per_kg_product": "1.16"},
+    "included": ["synthetic fertilizer manufacture", "synthetic direct soil N2O", "diesel combustion", "electricity supply"],
+    "excluded": ["indirect N2O", "urea CO2", "other agrochemicals", "capital goods", "land-use change", "carbon storage", "wastewater treatment", "packaging", "distribution"],
+    "uncertainty": "Unquantified; hypothetical exact inputs are test values, not measurements or confidence intervals."
+  },
+  "densities_kg_per_L": {"DIESEL": 0.8},
+  "factors": {
+    "SYN_COMPOUND": {"value": 2, "unit": "kg CO2eq per kg product", "type": "synthetic", "source": "1.12 manufacture + 0.20 N * 0.01 N2O-N/N * 44/28 * 280 = 2.00; invented"},
+    "SYN_FOLIAR": {"value": 1.6, "unit": "kg CO2eq per kg product", "type": "synthetic", "source": "1.16 manufacture + 0.10 N * 0.01 N2O-N/N * 44/28 * 280 = 1.60; invented"},
+    "SYN_DIESEL": {"value": 3, "unit": "kg CO2 per kg diesel", "type": "synthetic", "source": "Invented combustion coefficient; density 0.8 kg/L"},
+    "SYN_GRID": {"value": 0.4, "unit": "kg CO2eq per kWh", "type": "synthetic", "source": "Invented electricity supply coefficient"}
+  },
+  "rules": [
+    {"variable": "COMPOUND_FERTILISER_KG", "activities": ["FERTILISATION"], "method": "linear", "factor": "SYN_COMPOUND", "group": "FERTILIZER_COMPOUND"},
+    {"variable": "FOLIAR_FERTILISER_KG", "activities": ["FOLIAR_FERTILISATION"], "method": "linear", "factor": "SYN_FOLIAR", "group": "FERTILIZER_FOLIAR"},
+    {"variable": "FIELD_DIESEL_L", "activities": ["*"], "method": "fuel", "fuel": "DIESEL", "factor": "SYN_DIESEL", "group": "FIELD_FUEL"},
+    {"variable": "IRRIGATION_ELECTRICITY_KWH", "activities": ["IRRIGATION"], "method": "linear", "factor": "SYN_GRID", "group": "IRRIGATION"},
+    {"variable": "TRANSPORT_DIESEL_L", "activities": ["TRANSPORT"], "method": "fuel", "fuel": "DIESEL", "factor": "SYN_DIESEL", "group": "TRANSPORT"},
+    {"variable": "MILL_ELECTRICITY_KWH", "activities": ["MILL_PROCESSING"], "method": "linear", "factor": "SYN_GRID", "group": "MILL_PROCESSING"},
+    {"variable": "MILL_DIESEL_L", "activities": ["BY_PRODUCT_HANDLING"], "method": "fuel", "fuel": "DIESEL", "factor": "SYN_DIESEL", "group": "MILL_PROCESSING"},
+    {"variable": "OIL_OUTPUT_L", "activities": ["*"], "method": "reference_flow"},
+    {"variable": "POMACE_KG", "activities": ["*"], "method": "output_flow"}
+  ],
+  "areaGroups": [],
+  "groups": {"FERTILIZER_COMPOUND": "Synthetic compound manufacture and direct N2O", "FERTILIZER_FOLIAR": "Synthetic foliar manufacture and direct N2O", "FIELD_FUEL": "Field diesel combustion", "IRRIGATION": "Irrigation electricity", "TRANSPORT": "Transport diesel combustion", "MILL_PROCESSING": "Mill electricity and diesel"}
+}

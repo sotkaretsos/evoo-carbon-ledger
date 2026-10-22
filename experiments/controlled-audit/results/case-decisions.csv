@@ -1,0 +1,7 @@
+case,expectedDecision,computedDecision,computedDetections,verifiedFiles,claimsCompared,matchesExpectation
+baseline_complete,PASS,PASS,,28,6,True
+missing_evidence,FAIL,FAIL,EVIDENCE_MISSING,27,0,True
+corrupt_evidence,FAIL,FAIL,EVIDENCE_HASH_MISMATCH,27,0,True
+corrected_quantity_stale_claim,FAIL,FAIL,ARITHMETIC_MISMATCH;REVISION_MISMATCH,28,6,True
+corrected_quantity_recomputed,PASS,PASS,,28,6,True
+wrong_source_identity,FAIL,FAIL,SOURCE_IDENTITY_MISMATCH,28,0,True
