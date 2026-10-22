@@ -1,0 +1,52 @@
+name: Restore controlled audit experiment
+on:
+  push:
+    branches:
+      - review/v1.2.0-release-audit-20261022
+    paths:
+      - .release/execute
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore exact supplementary experiment files
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64, hashlib, lzma, pathlib
+          root = pathlib.Path('.')
+          chunks = sorted((root / '.release').glob('chunk-*.txt'))
+          assert len(chunks) == 12, f'Expected 12 chunks, found {len(chunks)}'
+          encoded = ''.join(p.read_text().strip() for p in chunks)
+          packed = base64.b64decode(encoded, validate=True)
+          assert hashlib.sha256(packed).hexdigest() == 'f19e7c9bce3bc7a0b7345f035154efb48173a9090ef42e19063850dc3e2ce640'
+          raw = memoryview(lzma.decompress(packed))
+          pos = count = 0
+          while pos < len(raw):
+              path_len = int.from_bytes(raw[pos:pos+2], 'big'); pos += 2
+              relative = bytes(raw[pos:pos+path_len]).decode('utf-8'); pos += path_len
+              file_len = int.from_bytes(raw[pos:pos+4], 'big'); pos += 4
+              body = bytes(raw[pos:pos+file_len]); pos += file_len
+              assert relative.startswith('experiments/controlled-audit/')
+              assert '..' not in pathlib.PurePosixPath(relative).parts
+              path = root / relative
+              path.parent.mkdir(parents=True, exist_ok=True)
+              path.write_bytes(body)
+              count += 1
+          assert count == 219, f'Expected 219 experiment files, found {count}'
+          assert pos == len(raw)
+          print(f'Restored {count} files; packed payload SHA256 verified.')
+          PY
+      - name: Commit experiment files to review branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf .release
+          rm .github/workflows/restore-experiments.yml
+          git add -A
+          git commit -m "Restore 219 controlled-audit files from verified supplement"
+          git push
