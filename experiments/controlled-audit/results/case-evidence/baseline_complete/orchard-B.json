@@ -1,0 +1,10 @@
+{
+  "areaM2": "30000",
+  "cropYear": 2024,
+  "evidenceId": "orchard-B",
+  "issuerActorKey": "growerB",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "recordType": "OrchardDeclaration",
+  "scope": "SYN/ORCHARD/B",
+  "synthetic": true
+}

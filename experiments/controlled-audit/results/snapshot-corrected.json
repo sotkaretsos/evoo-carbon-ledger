@@ -1,0 +1,3972 @@
+{
+  "actorRegistry": {
+    "auditor": {
+      "address": "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+      "organisationId": "0x2325f6017af00222fd5669a318db56ea556c0185d4a8a735de29cbeb7f26d5e3"
+    },
+    "certifier": {
+      "address": "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+      "organisationId": "0x4a6d62ea3537cb82842590e4294b1fcf8bd438300274c7b59a03e964a4997da8"
+    },
+    "grower": {
+      "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6"
+    },
+    "growerB": {
+      "address": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d"
+    },
+    "lcaService": {
+      "address": "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+      "organisationId": "0xb26a2e0715df9bd0af610dfb6515a83f61f8327eeec6b8acc99dc1adb24481fa"
+    },
+    "mill": {
+      "address": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1"
+    },
+    "transporter": {
+      "address": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1"
+    }
+  },
+  "batches": [
+    {
+      "closed": true,
+      "id": "SYN/BATCH/1",
+      "lotIds": [
+        "SYN/LOT/A1",
+        "SYN/LOT/B1"
+      ],
+      "mill": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "mixingRule": "MASS_PROPORTIONAL",
+      "oilOutputMilli": "2400000",
+      "receivedMassG": "12000000",
+      "receptionMassG": "12000000",
+      "revisionDigest": "0x9fff6aa11beb7ebd7f5dc14d0b89cb963d8fdf0db01283a320ce52568bcbac26",
+      "sharesPermille": [
+        250,
+        750
+      ]
+    },
+    {
+      "closed": true,
+      "id": "SYN/BATCH/2",
+      "lotIds": [
+        "SYN/LOT/A2",
+        "SYN/LOT/B2"
+      ],
+      "mill": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "mixingRule": "MASS_PROPORTIONAL",
+      "oilOutputMilli": "2600000",
+      "receivedMassG": "13000000",
+      "receptionMassG": "13000000",
+      "revisionDigest": "0x149a69ef1deb6c617a6f258e3e8984785ee62d4c735d289533267305c00d14e2",
+      "sharesPermille": [
+        538,
+        462
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+      "batch": "SYN/BATCH/1",
+      "limitationFlags": 1640,
+      "methodologicalCommitment": "0x36c74efc8201c663464f74e509063e1a9b70aa71c67f49015248a30515a36667",
+      "methodologicalStatus": 0,
+      "status": "Valid",
+      "totalMg": "760000",
+      "version": 2
+    },
+    {
+      "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+      "batch": "SYN/BATCH/2",
+      "limitationFlags": 1640,
+      "methodologicalCommitment": "0xba31e30fd16bbf328e5f110f71aea79496992ef5b303e2726f7c4684830db3e0",
+      "methodologicalStatus": 0,
+      "status": "Valid",
+      "totalMg": "738462",
+      "version": 2
+    }
+  ],
+  "chainId": "31337",
+  "claims": [
+    {
+      "allocationRule": "NONE_UNALLOCATED",
+      "batch": "SYN/BATCH/1",
+      "manifest": {
+        "batchId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+        "evidence": [
+          {
+            "eventIndex": 1,
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043"
+          },
+          {
+            "eventIndex": 2,
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5"
+          },
+          {
+            "eventIndex": 3,
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7"
+          },
+          {
+            "eventIndex": 5,
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8"
+          },
+          {
+            "eventIndex": 23,
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf"
+          },
+          {
+            "eventIndex": 6,
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f"
+          },
+          {
+            "eventIndex": 7,
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8"
+          },
+          {
+            "eventIndex": 8,
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c"
+          },
+          {
+            "eventIndex": 9,
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4"
+          },
+          {
+            "eventIndex": 10,
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654"
+          },
+          {
+            "eventIndex": 11,
+            "evidenceHash": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f"
+          },
+          {
+            "eventIndex": 13,
+            "evidenceHash": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376"
+          },
+          {
+            "eventIndex": 15,
+            "evidenceHash": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16"
+          },
+          {
+            "eventIndex": 16,
+            "evidenceHash": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56"
+          },
+          {
+            "eventIndex": 17,
+            "evidenceHash": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0"
+          },
+          {
+            "eventIndex": 18,
+            "evidenceHash": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518"
+          }
+        ],
+        "factorSetContentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+        "reportHash": "0xbbfde42bb77a1b636c1f525cd72cb041ceeb801326d658a4b0eb4c0e0546ff2c"
+      },
+      "manifestHash": "0x7e445c8a0cc73d9ec7255a14a93f01e41c891f2a74a6014b0514b64792f8afd4",
+      "report": {
+        "allocation": {
+          "rule": "NONE_UNALLOCATED"
+        },
+        "allocationRule": "NONE_UNALLOCATED",
+        "areaHa": 2.4,
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "batchId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+        "boundary": "PARTIAL_CRADLE_TO_MILL_GATE",
+        "coProducts": {
+          "pomaceKg": 6000
+        },
+        "engine": "evoo-lca-engine/1.2.0",
+        "events": [
+          {
+            "activity": "FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 1,
+            "kgCO2eq": 240,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067245,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 2,
+            "kgCO2eq": 4.8,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067246,
+            "phase": 1,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+            "group": "FIELD_FUEL",
+            "index": 3,
+            "kgCO2eq": 72,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067247,
+            "phase": 1,
+            "quantity": 100,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+            "group": "IRRIGATION",
+            "index": 5,
+            "kgCO2eq": 24,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067249,
+            "phase": 1,
+            "quantity": 200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+            "group": "FIELD_FUEL",
+            "index": 23,
+            "kgCO2eq": 21.599999999999998,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067296,
+            "phase": 1,
+            "quantity": 30,
+            "replaces": 4,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 6,
+            "kgCO2eq": 540,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067251,
+            "phase": 1,
+            "quantity": 450,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 7,
+            "kgCO2eq": 19.2,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067252,
+            "phase": 1,
+            "quantity": 20,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+            "group": "FIELD_FUEL",
+            "index": 8,
+            "kgCO2eq": 259.2,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067253,
+            "phase": 1,
+            "quantity": 180,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+            "group": "FIELD_FUEL",
+            "index": 9,
+            "kgCO2eq": 21.599999999999998,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067254,
+            "phase": 1,
+            "quantity": 15,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+            "group": "IRRIGATION",
+            "index": 10,
+            "kgCO2eq": 96,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067255,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f",
+            "group": "TRANSPORT",
+            "index": 11,
+            "kgCO2eq": 9.600000000000001,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067258,
+            "phase": 2,
+            "quantity": 4,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376",
+            "group": "TRANSPORT",
+            "index": 13,
+            "kgCO2eq": 24,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067266,
+            "phase": 2,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16",
+            "group": "MILL_PROCESSING",
+            "index": 15,
+            "kgCO2eq": 480,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067273,
+            "phase": 3,
+            "quantity": 1200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56",
+            "group": null,
+            "index": 16,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "reference_flow",
+            "observedAt": 1704067274,
+            "phase": 3,
+            "quantity": 2400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "OIL_OUTPUT_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0",
+            "group": null,
+            "index": 17,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "output_flow",
+            "observedAt": 1704067275,
+            "phase": 3,
+            "quantity": 6000,
+            "replaces": 0,
+            "source": "Estimate",
+            "uncertaintyPermille": 0,
+            "variable": "POMACE_KG"
+          },
+          {
+            "activity": "BY_PRODUCT_HANDLING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518",
+            "group": "MILL_PROCESSING",
+            "index": 18,
+            "kgCO2eq": 12,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067276,
+            "phase": 3,
+            "quantity": 5,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_DIESEL_L"
+          }
+        ],
+        "factorSet": {
+          "contentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+          "gwpBasis": "Hypothetical common GWP100: CO2=1; N2O=280. Not an IPCC parameter selection or the real field model.",
+          "id": "FS-SYNTHETIC-AUDIT-01",
+          "version": 1
+        },
+        "functionalUnit": "EVOO_1L_MILL_GATE",
+        "groups": {
+          "FERTILIZER_COMPOUND": {
+            "kgCO2eq": 780,
+            "label": "Synthetic compound manufacture and direct N2O",
+            "perFU": 0.325,
+            "perHa": 325
+          },
+          "FERTILIZER_FOLIAR": {
+            "kgCO2eq": 24,
+            "label": "Synthetic foliar manufacture and direct N2O",
+            "perFU": 0.01,
+            "perHa": 10
+          },
+          "FIELD_FUEL": {
+            "kgCO2eq": 374.4,
+            "label": "Field diesel combustion",
+            "perFU": 0.156,
+            "perHa": 156
+          },
+          "IRRIGATION": {
+            "kgCO2eq": 120,
+            "label": "Irrigation electricity",
+            "perFU": 0.05,
+            "perHa": 50
+          },
+          "MILL_PROCESSING": {
+            "kgCO2eq": 492,
+            "label": "Mill electricity and diesel",
+            "perFU": 0.205,
+            "perHa": 205
+          },
+          "TRANSPORT": {
+            "kgCO2eq": 33.6,
+            "label": "Transport diesel combustion",
+            "perFU": 0.014,
+            "perHa": 14.000000000000002
+          }
+        },
+        "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+        "lots": [
+          {
+            "harvestedKg": 3000,
+            "lotId": "0x53594e2f4c4f542f413100000000000000000000000000000000000000000000",
+            "receivedKg": 3000,
+            "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974"
+          },
+          {
+            "harvestedKg": 9000,
+            "lotId": "0x53594e2f4c4f542f423100000000000000000000000000000000000000000000",
+            "receivedKg": 9000,
+            "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3"
+          }
+        ],
+        "methodologicalAssessment": {
+          "applicability": [],
+          "factorPolicy": {
+            "minimumStatus": 0,
+            "requiredLimitations": 1024
+          },
+          "limitationFlags": 1640,
+          "limitations": [
+            "UncertaintyUnquantified",
+            "EstimatedActivityInput",
+            "ReportedActivityInput",
+            "UnassessedMethodology",
+            "SyntheticProcessExample"
+          ],
+          "numericalUse": "Within the applicability domain of the factor set.",
+          "schema": "evoo-methodological-assessment/1",
+          "sourceQuality": {
+            "counts": {
+              "Estimate": 1,
+              "Invoice": 4,
+              "Meter": 4,
+              "OperatorEntry": 7
+            },
+            "electricity": [
+              {
+                "eventIndex": 15,
+                "quantity": 1200,
+                "source": "Meter",
+                "unit": "kWh"
+              }
+            ]
+          },
+          "status": "Unassessed",
+          "statusCode": 0,
+          "uncertainty": {
+            "quantitativeInterval": null,
+            "uncertaintyDistribution": "notProvided"
+          }
+        },
+        "oilShare": 1,
+        "phases": {
+          "cultivation": {
+            "kgCO2eq": 1298.4,
+            "mg": 541000,
+            "perFU": 0.541
+          },
+          "mill": {
+            "kgCO2eq": 492,
+            "mg": 205000,
+            "perFU": 0.205
+          },
+          "transport": {
+            "kgCO2eq": 33.6,
+            "mg": 14000,
+            "perFU": 0.014
+          }
+        },
+        "referenceFlow": {
+          "quantity": 2400,
+          "unit": "L",
+          "variable": "OIL_OUTPUT_L"
+        },
+        "snapshot": {
+          "blockHash": "0xd3997d0c725002917fb3d5a6050ce98ebca320e98cb8b07297a5cc6a7c3d5911",
+          "blockNumber": 100,
+          "revisionDigest": "0x9fff6aa11beb7ebd7f5dc14d0b89cb963d8fdf0db01283a320ce52568bcbac26"
+        },
+        "total": {
+          "kgCO2eq": 1824,
+          "mg": 760000,
+          "perFU": 0.76,
+          "perHa": 760
+        }
+      },
+      "reportHash": "0xbbfde42bb77a1b636c1f525cd72cb041ceeb801326d658a4b0eb4c0e0546ff2c",
+      "resultInput": {
+        "allocationRule": "0x4e4f4e455f554e414c4c4f434154454400000000000000000000000000000000",
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e322e300000000000000000000000",
+        "evidenceManifest": "0x7e445c8a0cc73d9ec7255a14a93f01e41c891f2a74a6014b0514b64792f8afd4",
+        "expectedRevisionDigest": "0x9fff6aa11beb7ebd7f5dc14d0b89cb963d8fdf0db01283a320ce52568bcbac26",
+        "factorSetId": "0x46532d53594e5448455449432d41554449542d30310000000000000000000000",
+        "functionalUnit": "0x45564f4f5f314c5f4d494c4c5f47415445000000000000000000000000000000",
+        "limitationFlags": 1640,
+        "methodologicalStatus": 0,
+        "phaseMg": [
+          "541000",
+          "14000",
+          "205000"
+        ],
+        "reportHash": "0xbbfde42bb77a1b636c1f525cd72cb041ceeb801326d658a4b0eb4c0e0546ff2c",
+        "snapshotBlockHash": "0xd3997d0c725002917fb3d5a6050ce98ebca320e98cb8b07297a5cc6a7c3d5911",
+        "snapshotBlockNumber": "100",
+        "totalMg": "760000"
+      }
+    },
+    {
+      "allocationRule": "ECONOMIC",
+      "batch": "SYN/BATCH/1",
+      "manifest": {
+        "batchId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+        "evidence": [
+          {
+            "eventIndex": 1,
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043"
+          },
+          {
+            "eventIndex": 2,
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5"
+          },
+          {
+            "eventIndex": 3,
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7"
+          },
+          {
+            "eventIndex": 5,
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8"
+          },
+          {
+            "eventIndex": 23,
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf"
+          },
+          {
+            "eventIndex": 6,
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f"
+          },
+          {
+            "eventIndex": 7,
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8"
+          },
+          {
+            "eventIndex": 8,
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c"
+          },
+          {
+            "eventIndex": 9,
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4"
+          },
+          {
+            "eventIndex": 10,
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654"
+          },
+          {
+            "eventIndex": 11,
+            "evidenceHash": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f"
+          },
+          {
+            "eventIndex": 13,
+            "evidenceHash": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376"
+          },
+          {
+            "eventIndex": 15,
+            "evidenceHash": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16"
+          },
+          {
+            "eventIndex": 16,
+            "evidenceHash": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56"
+          },
+          {
+            "eventIndex": 17,
+            "evidenceHash": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0"
+          },
+          {
+            "eventIndex": 18,
+            "evidenceHash": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518"
+          }
+        ],
+        "factorSetContentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+        "reportHash": "0x8e1d390baaeb76792f6019dbd08657361c25a762ba0c15363d52f9b3552295f9"
+      },
+      "manifestHash": "0x73231de4cd753820ec0e73517fad1ba39d1058eb1cfe352923b71915516b7d04",
+      "report": {
+        "allocation": {
+          "prices": {
+            "oilEURPerUnit": 4,
+            "oilUnit": "L",
+            "pomaceEURPerKg": 0.04
+          },
+          "rule": "ECONOMIC"
+        },
+        "allocationRule": "ECONOMIC",
+        "areaHa": 2.4,
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "batchId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+        "boundary": "PARTIAL_CRADLE_TO_MILL_GATE",
+        "coProducts": {
+          "pomaceKg": 6000
+        },
+        "engine": "evoo-lca-engine/1.2.0",
+        "events": [
+          {
+            "activity": "FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 1,
+            "kgCO2eq": 240,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067245,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 2,
+            "kgCO2eq": 4.8,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067246,
+            "phase": 1,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+            "group": "FIELD_FUEL",
+            "index": 3,
+            "kgCO2eq": 72,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067247,
+            "phase": 1,
+            "quantity": 100,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+            "group": "IRRIGATION",
+            "index": 5,
+            "kgCO2eq": 24,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067249,
+            "phase": 1,
+            "quantity": 200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+            "group": "FIELD_FUEL",
+            "index": 23,
+            "kgCO2eq": 21.599999999999998,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067296,
+            "phase": 1,
+            "quantity": 30,
+            "replaces": 4,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 6,
+            "kgCO2eq": 540,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067251,
+            "phase": 1,
+            "quantity": 450,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 7,
+            "kgCO2eq": 19.2,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067252,
+            "phase": 1,
+            "quantity": 20,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+            "group": "FIELD_FUEL",
+            "index": 8,
+            "kgCO2eq": 259.2,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067253,
+            "phase": 1,
+            "quantity": 180,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+            "group": "FIELD_FUEL",
+            "index": 9,
+            "kgCO2eq": 21.599999999999998,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067254,
+            "phase": 1,
+            "quantity": 15,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+            "group": "IRRIGATION",
+            "index": 10,
+            "kgCO2eq": 96,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067255,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f",
+            "group": "TRANSPORT",
+            "index": 11,
+            "kgCO2eq": 9.600000000000001,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067258,
+            "phase": 2,
+            "quantity": 4,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376",
+            "group": "TRANSPORT",
+            "index": 13,
+            "kgCO2eq": 24,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067266,
+            "phase": 2,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16",
+            "group": "MILL_PROCESSING",
+            "index": 15,
+            "kgCO2eq": 480,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067273,
+            "phase": 3,
+            "quantity": 1200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56",
+            "group": null,
+            "index": 16,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "reference_flow",
+            "observedAt": 1704067274,
+            "phase": 3,
+            "quantity": 2400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "OIL_OUTPUT_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0",
+            "group": null,
+            "index": 17,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "output_flow",
+            "observedAt": 1704067275,
+            "phase": 3,
+            "quantity": 6000,
+            "replaces": 0,
+            "source": "Estimate",
+            "uncertaintyPermille": 0,
+            "variable": "POMACE_KG"
+          },
+          {
+            "activity": "BY_PRODUCT_HANDLING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518",
+            "group": "MILL_PROCESSING",
+            "index": 18,
+            "kgCO2eq": 12,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067276,
+            "phase": 3,
+            "quantity": 5,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_DIESEL_L"
+          }
+        ],
+        "factorSet": {
+          "contentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+          "gwpBasis": "Hypothetical common GWP100: CO2=1; N2O=280. Not an IPCC parameter selection or the real field model.",
+          "id": "FS-SYNTHETIC-AUDIT-01",
+          "version": 1
+        },
+        "functionalUnit": "EVOO_1L_MILL_GATE",
+        "groups": {
+          "FERTILIZER_COMPOUND": {
+            "kgCO2eq": 780,
+            "label": "Synthetic compound manufacture and direct N2O",
+            "perFU": 0.3170731707317073,
+            "perHa": 325
+          },
+          "FERTILIZER_FOLIAR": {
+            "kgCO2eq": 24,
+            "label": "Synthetic foliar manufacture and direct N2O",
+            "perFU": 0.00975609756097561,
+            "perHa": 10
+          },
+          "FIELD_FUEL": {
+            "kgCO2eq": 374.4,
+            "label": "Field diesel combustion",
+            "perFU": 0.1521951219512195,
+            "perHa": 156
+          },
+          "IRRIGATION": {
+            "kgCO2eq": 120,
+            "label": "Irrigation electricity",
+            "perFU": 0.048780487804878044,
+            "perHa": 50
+          },
+          "MILL_PROCESSING": {
+            "kgCO2eq": 492,
+            "label": "Mill electricity and diesel",
+            "perFU": 0.2,
+            "perHa": 205
+          },
+          "TRANSPORT": {
+            "kgCO2eq": 33.6,
+            "label": "Transport diesel combustion",
+            "perFU": 0.013658536585365854,
+            "perHa": 14.000000000000002
+          }
+        },
+        "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+        "lots": [
+          {
+            "harvestedKg": 3000,
+            "lotId": "0x53594e2f4c4f542f413100000000000000000000000000000000000000000000",
+            "receivedKg": 3000,
+            "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974"
+          },
+          {
+            "harvestedKg": 9000,
+            "lotId": "0x53594e2f4c4f542f423100000000000000000000000000000000000000000000",
+            "receivedKg": 9000,
+            "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3"
+          }
+        ],
+        "methodologicalAssessment": {
+          "applicability": [],
+          "factorPolicy": {
+            "minimumStatus": 0,
+            "requiredLimitations": 1024
+          },
+          "limitationFlags": 1640,
+          "limitations": [
+            "UncertaintyUnquantified",
+            "EstimatedActivityInput",
+            "ReportedActivityInput",
+            "UnassessedMethodology",
+            "SyntheticProcessExample"
+          ],
+          "numericalUse": "Within the applicability domain of the factor set.",
+          "schema": "evoo-methodological-assessment/1",
+          "sourceQuality": {
+            "counts": {
+              "Estimate": 1,
+              "Invoice": 4,
+              "Meter": 4,
+              "OperatorEntry": 7
+            },
+            "electricity": [
+              {
+                "eventIndex": 15,
+                "quantity": 1200,
+                "source": "Meter",
+                "unit": "kWh"
+              }
+            ]
+          },
+          "status": "Unassessed",
+          "statusCode": 0,
+          "uncertainty": {
+            "quantitativeInterval": null,
+            "uncertaintyDistribution": "notProvided"
+          }
+        },
+        "oilShare": 0.975609756097561,
+        "phases": {
+          "cultivation": {
+            "kgCO2eq": 1298.4,
+            "mg": 527805,
+            "perFU": 0.5278048780487805
+          },
+          "mill": {
+            "kgCO2eq": 492,
+            "mg": 200000,
+            "perFU": 0.2
+          },
+          "transport": {
+            "kgCO2eq": 33.6,
+            "mg": 13659,
+            "perFU": 0.013658536585365854
+          }
+        },
+        "referenceFlow": {
+          "quantity": 2400,
+          "unit": "L",
+          "variable": "OIL_OUTPUT_L"
+        },
+        "snapshot": {
+          "blockHash": "0xa67fdae09d906df9f311a11c645354f9672dee0a086c6498c24dcc7e8c64adaf",
+          "blockNumber": 103,
+          "revisionDigest": "0x9fff6aa11beb7ebd7f5dc14d0b89cb963d8fdf0db01283a320ce52568bcbac26"
+        },
+        "total": {
+          "kgCO2eq": 1824,
+          "mg": 741464,
+          "perFU": 0.7414634146341463,
+          "perHa": 760
+        }
+      },
+      "reportHash": "0x8e1d390baaeb76792f6019dbd08657361c25a762ba0c15363d52f9b3552295f9",
+      "resultInput": {
+        "allocationRule": "0x45434f4e4f4d4943000000000000000000000000000000000000000000000000",
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e322e300000000000000000000000",
+        "evidenceManifest": "0x73231de4cd753820ec0e73517fad1ba39d1058eb1cfe352923b71915516b7d04",
+        "expectedRevisionDigest": "0x9fff6aa11beb7ebd7f5dc14d0b89cb963d8fdf0db01283a320ce52568bcbac26",
+        "factorSetId": "0x46532d53594e5448455449432d41554449542d30310000000000000000000000",
+        "functionalUnit": "0x45564f4f5f314c5f4d494c4c5f47415445000000000000000000000000000000",
+        "limitationFlags": 1640,
+        "methodologicalStatus": 0,
+        "phaseMg": [
+          "527805",
+          "13659",
+          "200000"
+        ],
+        "reportHash": "0x8e1d390baaeb76792f6019dbd08657361c25a762ba0c15363d52f9b3552295f9",
+        "snapshotBlockHash": "0xa67fdae09d906df9f311a11c645354f9672dee0a086c6498c24dcc7e8c64adaf",
+        "snapshotBlockNumber": "103",
+        "totalMg": "741464"
+      }
+    },
+    {
+      "allocationRule": "WET_MASS",
+      "batch": "SYN/BATCH/1",
+      "manifest": {
+        "batchId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+        "evidence": [
+          {
+            "eventIndex": 1,
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043"
+          },
+          {
+            "eventIndex": 2,
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5"
+          },
+          {
+            "eventIndex": 3,
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7"
+          },
+          {
+            "eventIndex": 5,
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8"
+          },
+          {
+            "eventIndex": 23,
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf"
+          },
+          {
+            "eventIndex": 6,
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f"
+          },
+          {
+            "eventIndex": 7,
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8"
+          },
+          {
+            "eventIndex": 8,
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c"
+          },
+          {
+            "eventIndex": 9,
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4"
+          },
+          {
+            "eventIndex": 10,
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654"
+          },
+          {
+            "eventIndex": 11,
+            "evidenceHash": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f"
+          },
+          {
+            "eventIndex": 13,
+            "evidenceHash": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376"
+          },
+          {
+            "eventIndex": 15,
+            "evidenceHash": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16"
+          },
+          {
+            "eventIndex": 16,
+            "evidenceHash": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56"
+          },
+          {
+            "eventIndex": 17,
+            "evidenceHash": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0"
+          },
+          {
+            "eventIndex": 18,
+            "evidenceHash": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518"
+          }
+        ],
+        "factorSetContentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+        "reportHash": "0x7e3aad021a5dbdc69d98f2d148903138f08108cb6ea79f33d4973a2f366c2447"
+      },
+      "manifestHash": "0x10a9b444e9c2760f17d3bf5d6d9e7018d46e858f6eab77978d1fbea858561820",
+      "report": {
+        "allocation": {
+          "oilDensityKgPerL": 0.9,
+          "oilKg": 2160,
+          "rule": "WET_MASS"
+        },
+        "allocationRule": "WET_MASS",
+        "areaHa": 2.4,
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "batchId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+        "boundary": "PARTIAL_CRADLE_TO_MILL_GATE",
+        "coProducts": {
+          "pomaceKg": 6000
+        },
+        "engine": "evoo-lca-engine/1.2.0",
+        "events": [
+          {
+            "activity": "FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 1,
+            "kgCO2eq": 240,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067245,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 2,
+            "kgCO2eq": 4.8,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067246,
+            "phase": 1,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+            "group": "FIELD_FUEL",
+            "index": 3,
+            "kgCO2eq": 72,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067247,
+            "phase": 1,
+            "quantity": 100,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+            "group": "IRRIGATION",
+            "index": 5,
+            "kgCO2eq": 24,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067249,
+            "phase": 1,
+            "quantity": 200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+            "group": "FIELD_FUEL",
+            "index": 23,
+            "kgCO2eq": 21.599999999999998,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067296,
+            "phase": 1,
+            "quantity": 30,
+            "replaces": 4,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 6,
+            "kgCO2eq": 540,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067251,
+            "phase": 1,
+            "quantity": 450,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 7,
+            "kgCO2eq": 19.2,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067252,
+            "phase": 1,
+            "quantity": 20,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+            "group": "FIELD_FUEL",
+            "index": 8,
+            "kgCO2eq": 259.2,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067253,
+            "phase": 1,
+            "quantity": 180,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+            "group": "FIELD_FUEL",
+            "index": 9,
+            "kgCO2eq": 21.599999999999998,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067254,
+            "phase": 1,
+            "quantity": 15,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+            "group": "IRRIGATION",
+            "index": 10,
+            "kgCO2eq": 96,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067255,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f",
+            "group": "TRANSPORT",
+            "index": 11,
+            "kgCO2eq": 9.600000000000001,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067258,
+            "phase": 2,
+            "quantity": 4,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376",
+            "group": "TRANSPORT",
+            "index": 13,
+            "kgCO2eq": 24,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067266,
+            "phase": 2,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16",
+            "group": "MILL_PROCESSING",
+            "index": 15,
+            "kgCO2eq": 480,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067273,
+            "phase": 3,
+            "quantity": 1200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56",
+            "group": null,
+            "index": 16,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "reference_flow",
+            "observedAt": 1704067274,
+            "phase": 3,
+            "quantity": 2400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "OIL_OUTPUT_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0",
+            "group": null,
+            "index": 17,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "output_flow",
+            "observedAt": 1704067275,
+            "phase": 3,
+            "quantity": 6000,
+            "replaces": 0,
+            "source": "Estimate",
+            "uncertaintyPermille": 0,
+            "variable": "POMACE_KG"
+          },
+          {
+            "activity": "BY_PRODUCT_HANDLING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518",
+            "group": "MILL_PROCESSING",
+            "index": 18,
+            "kgCO2eq": 12,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067276,
+            "phase": 3,
+            "quantity": 5,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_DIESEL_L"
+          }
+        ],
+        "factorSet": {
+          "contentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+          "gwpBasis": "Hypothetical common GWP100: CO2=1; N2O=280. Not an IPCC parameter selection or the real field model.",
+          "id": "FS-SYNTHETIC-AUDIT-01",
+          "version": 1
+        },
+        "functionalUnit": "EVOO_1L_MILL_GATE",
+        "groups": {
+          "FERTILIZER_COMPOUND": {
+            "kgCO2eq": 780,
+            "label": "Synthetic compound manufacture and direct N2O",
+            "perFU": 0.08602941176470588,
+            "perHa": 325
+          },
+          "FERTILIZER_FOLIAR": {
+            "kgCO2eq": 24,
+            "label": "Synthetic foliar manufacture and direct N2O",
+            "perFU": 0.002647058823529412,
+            "perHa": 10
+          },
+          "FIELD_FUEL": {
+            "kgCO2eq": 374.4,
+            "label": "Field diesel combustion",
+            "perFU": 0.04129411764705882,
+            "perHa": 156
+          },
+          "IRRIGATION": {
+            "kgCO2eq": 120,
+            "label": "Irrigation electricity",
+            "perFU": 0.013235294117647059,
+            "perHa": 50
+          },
+          "MILL_PROCESSING": {
+            "kgCO2eq": 492,
+            "label": "Mill electricity and diesel",
+            "perFU": 0.054264705882352944,
+            "perHa": 205
+          },
+          "TRANSPORT": {
+            "kgCO2eq": 33.6,
+            "label": "Transport diesel combustion",
+            "perFU": 0.0037058823529411765,
+            "perHa": 14.000000000000002
+          }
+        },
+        "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+        "lots": [
+          {
+            "harvestedKg": 3000,
+            "lotId": "0x53594e2f4c4f542f413100000000000000000000000000000000000000000000",
+            "receivedKg": 3000,
+            "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974"
+          },
+          {
+            "harvestedKg": 9000,
+            "lotId": "0x53594e2f4c4f542f423100000000000000000000000000000000000000000000",
+            "receivedKg": 9000,
+            "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3"
+          }
+        ],
+        "methodologicalAssessment": {
+          "applicability": [],
+          "factorPolicy": {
+            "minimumStatus": 0,
+            "requiredLimitations": 1024
+          },
+          "limitationFlags": 1640,
+          "limitations": [
+            "UncertaintyUnquantified",
+            "EstimatedActivityInput",
+            "ReportedActivityInput",
+            "UnassessedMethodology",
+            "SyntheticProcessExample"
+          ],
+          "numericalUse": "Within the applicability domain of the factor set.",
+          "schema": "evoo-methodological-assessment/1",
+          "sourceQuality": {
+            "counts": {
+              "Estimate": 1,
+              "Invoice": 4,
+              "Meter": 4,
+              "OperatorEntry": 7
+            },
+            "electricity": [
+              {
+                "eventIndex": 15,
+                "quantity": 1200,
+                "source": "Meter",
+                "unit": "kWh"
+              }
+            ]
+          },
+          "status": "Unassessed",
+          "statusCode": 0,
+          "uncertainty": {
+            "quantitativeInterval": null,
+            "uncertaintyDistribution": "notProvided"
+          }
+        },
+        "oilShare": 0.2647058823529412,
+        "phases": {
+          "cultivation": {
+            "kgCO2eq": 1298.4,
+            "mg": 143206,
+            "perFU": 0.1432058823529412
+          },
+          "mill": {
+            "kgCO2eq": 492,
+            "mg": 54265,
+            "perFU": 0.054264705882352944
+          },
+          "transport": {
+            "kgCO2eq": 33.6,
+            "mg": 3706,
+            "perFU": 0.0037058823529411765
+          }
+        },
+        "referenceFlow": {
+          "quantity": 2400,
+          "unit": "L",
+          "variable": "OIL_OUTPUT_L"
+        },
+        "snapshot": {
+          "blockHash": "0xa67fdae09d906df9f311a11c645354f9672dee0a086c6498c24dcc7e8c64adaf",
+          "blockNumber": 103,
+          "revisionDigest": "0x9fff6aa11beb7ebd7f5dc14d0b89cb963d8fdf0db01283a320ce52568bcbac26"
+        },
+        "total": {
+          "kgCO2eq": 1824,
+          "mg": 201177,
+          "perFU": 0.2011764705882353,
+          "perHa": 760
+        }
+      },
+      "reportHash": "0x7e3aad021a5dbdc69d98f2d148903138f08108cb6ea79f33d4973a2f366c2447",
+      "resultInput": {
+        "allocationRule": "0x5745545f4d415353000000000000000000000000000000000000000000000000",
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e322e300000000000000000000000",
+        "evidenceManifest": "0x10a9b444e9c2760f17d3bf5d6d9e7018d46e858f6eab77978d1fbea858561820",
+        "expectedRevisionDigest": "0x9fff6aa11beb7ebd7f5dc14d0b89cb963d8fdf0db01283a320ce52568bcbac26",
+        "factorSetId": "0x46532d53594e5448455449432d41554449542d30310000000000000000000000",
+        "functionalUnit": "0x45564f4f5f314c5f4d494c4c5f47415445000000000000000000000000000000",
+        "limitationFlags": 1640,
+        "methodologicalStatus": 0,
+        "phaseMg": [
+          "143206",
+          "3706",
+          "54265"
+        ],
+        "reportHash": "0x7e3aad021a5dbdc69d98f2d148903138f08108cb6ea79f33d4973a2f366c2447",
+        "snapshotBlockHash": "0xa67fdae09d906df9f311a11c645354f9672dee0a086c6498c24dcc7e8c64adaf",
+        "snapshotBlockNumber": "103",
+        "totalMg": "201177"
+      }
+    },
+    {
+      "allocationRule": "NONE_UNALLOCATED",
+      "batch": "SYN/BATCH/2",
+      "manifest": {
+        "batchId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+        "evidence": [
+          {
+            "eventIndex": 1,
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043"
+          },
+          {
+            "eventIndex": 2,
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5"
+          },
+          {
+            "eventIndex": 3,
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7"
+          },
+          {
+            "eventIndex": 5,
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8"
+          },
+          {
+            "eventIndex": 23,
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf"
+          },
+          {
+            "eventIndex": 6,
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f"
+          },
+          {
+            "eventIndex": 7,
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8"
+          },
+          {
+            "eventIndex": 8,
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c"
+          },
+          {
+            "eventIndex": 9,
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4"
+          },
+          {
+            "eventIndex": 10,
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654"
+          },
+          {
+            "eventIndex": 12,
+            "evidenceHash": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734"
+          },
+          {
+            "eventIndex": 14,
+            "evidenceHash": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520"
+          },
+          {
+            "eventIndex": 19,
+            "evidenceHash": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0"
+          },
+          {
+            "eventIndex": 20,
+            "evidenceHash": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6"
+          },
+          {
+            "eventIndex": 21,
+            "evidenceHash": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e"
+          },
+          {
+            "eventIndex": 22,
+            "evidenceHash": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d"
+          }
+        ],
+        "factorSetContentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+        "reportHash": "0x6db71c77ce6ccbe61374e823072e84d49c1873e3dcb49541fe1af94f1848c874"
+      },
+      "manifestHash": "0x62385b1f64787106fd9f04a3332dea09e9d50b4e7b9effd7eba91ff0fc72c370",
+      "report": {
+        "allocation": {
+          "rule": "NONE_UNALLOCATED"
+        },
+        "allocationRule": "NONE_UNALLOCATED",
+        "areaHa": 2.6,
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "batchId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+        "boundary": "PARTIAL_CRADLE_TO_MILL_GATE",
+        "coProducts": {
+          "pomaceKg": 8000
+        },
+        "engine": "evoo-lca-engine/1.2.0",
+        "events": [
+          {
+            "activity": "FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 1,
+            "kgCO2eq": 560,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067245,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 2,
+            "kgCO2eq": 11.2,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067246,
+            "phase": 1,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+            "group": "FIELD_FUEL",
+            "index": 3,
+            "kgCO2eq": 168,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067247,
+            "phase": 1,
+            "quantity": 100,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+            "group": "IRRIGATION",
+            "index": 5,
+            "kgCO2eq": 56,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067249,
+            "phase": 1,
+            "quantity": 200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+            "group": "FIELD_FUEL",
+            "index": 23,
+            "kgCO2eq": 50.4,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067296,
+            "phase": 1,
+            "quantity": 30,
+            "replaces": 4,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 6,
+            "kgCO2eq": 360,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067251,
+            "phase": 1,
+            "quantity": 450,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 7,
+            "kgCO2eq": 12.8,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067252,
+            "phase": 1,
+            "quantity": 20,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+            "group": "FIELD_FUEL",
+            "index": 8,
+            "kgCO2eq": 172.8,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067253,
+            "phase": 1,
+            "quantity": 180,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+            "group": "FIELD_FUEL",
+            "index": 9,
+            "kgCO2eq": 14.4,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067254,
+            "phase": 1,
+            "quantity": 15,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+            "group": "IRRIGATION",
+            "index": 10,
+            "kgCO2eq": 64,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067255,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734",
+            "group": "TRANSPORT",
+            "index": 12,
+            "kgCO2eq": 19.200000000000003,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067262,
+            "phase": 2,
+            "quantity": 8,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520",
+            "group": "TRANSPORT",
+            "index": 14,
+            "kgCO2eq": 16.8,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067270,
+            "phase": 2,
+            "quantity": 7,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0",
+            "group": "MILL_PROCESSING",
+            "index": 19,
+            "kgCO2eq": 400,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067279,
+            "phase": 3,
+            "quantity": 1000,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6",
+            "group": null,
+            "index": 20,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "reference_flow",
+            "observedAt": 1704067280,
+            "phase": 3,
+            "quantity": 2600,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "OIL_OUTPUT_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e",
+            "group": null,
+            "index": 21,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "output_flow",
+            "observedAt": 1704067281,
+            "phase": 3,
+            "quantity": 8000,
+            "replaces": 0,
+            "source": "Estimate",
+            "uncertaintyPermille": 0,
+            "variable": "POMACE_KG"
+          },
+          {
+            "activity": "BY_PRODUCT_HANDLING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d",
+            "group": "MILL_PROCESSING",
+            "index": 22,
+            "kgCO2eq": 14.400000000000002,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067282,
+            "phase": 3,
+            "quantity": 6,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_DIESEL_L"
+          }
+        ],
+        "factorSet": {
+          "contentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+          "gwpBasis": "Hypothetical common GWP100: CO2=1; N2O=280. Not an IPCC parameter selection or the real field model.",
+          "id": "FS-SYNTHETIC-AUDIT-01",
+          "version": 1
+        },
+        "functionalUnit": "EVOO_1L_MILL_GATE",
+        "groups": {
+          "FERTILIZER_COMPOUND": {
+            "kgCO2eq": 920,
+            "label": "Synthetic compound manufacture and direct N2O",
+            "perFU": 0.35384615384615387,
+            "perHa": 353.8461538461538
+          },
+          "FERTILIZER_FOLIAR": {
+            "kgCO2eq": 24,
+            "label": "Synthetic foliar manufacture and direct N2O",
+            "perFU": 0.009230769230769232,
+            "perHa": 9.23076923076923
+          },
+          "FIELD_FUEL": {
+            "kgCO2eq": 405.6,
+            "label": "Field diesel combustion",
+            "perFU": 0.156,
+            "perHa": 156
+          },
+          "IRRIGATION": {
+            "kgCO2eq": 120,
+            "label": "Irrigation electricity",
+            "perFU": 0.046153846153846156,
+            "perHa": 46.15384615384615
+          },
+          "MILL_PROCESSING": {
+            "kgCO2eq": 414.4,
+            "label": "Mill electricity and diesel",
+            "perFU": 0.15938461538461537,
+            "perHa": 159.38461538461536
+          },
+          "TRANSPORT": {
+            "kgCO2eq": 36,
+            "label": "Transport diesel combustion",
+            "perFU": 0.013846153846153847,
+            "perHa": 13.846153846153845
+          }
+        },
+        "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+        "lots": [
+          {
+            "harvestedKg": 7000,
+            "lotId": "0x53594e2f4c4f542f413200000000000000000000000000000000000000000000",
+            "receivedKg": 7000,
+            "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974"
+          },
+          {
+            "harvestedKg": 6000,
+            "lotId": "0x53594e2f4c4f542f423200000000000000000000000000000000000000000000",
+            "receivedKg": 6000,
+            "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3"
+          }
+        ],
+        "methodologicalAssessment": {
+          "applicability": [],
+          "factorPolicy": {
+            "minimumStatus": 0,
+            "requiredLimitations": 1024
+          },
+          "limitationFlags": 1640,
+          "limitations": [
+            "UncertaintyUnquantified",
+            "EstimatedActivityInput",
+            "ReportedActivityInput",
+            "UnassessedMethodology",
+            "SyntheticProcessExample"
+          ],
+          "numericalUse": "Within the applicability domain of the factor set.",
+          "schema": "evoo-methodological-assessment/1",
+          "sourceQuality": {
+            "counts": {
+              "Estimate": 1,
+              "Invoice": 4,
+              "Meter": 4,
+              "OperatorEntry": 7
+            },
+            "electricity": [
+              {
+                "eventIndex": 19,
+                "quantity": 1000,
+                "source": "Meter",
+                "unit": "kWh"
+              }
+            ]
+          },
+          "status": "Unassessed",
+          "statusCode": 0,
+          "uncertainty": {
+            "quantitativeInterval": null,
+            "uncertaintyDistribution": "notProvided"
+          }
+        },
+        "oilShare": 1,
+        "phases": {
+          "cultivation": {
+            "kgCO2eq": 1469.6,
+            "mg": 565231,
+            "perFU": 0.5652307692307692
+          },
+          "mill": {
+            "kgCO2eq": 414.4,
+            "mg": 159385,
+            "perFU": 0.15938461538461537
+          },
+          "transport": {
+            "kgCO2eq": 36,
+            "mg": 13846,
+            "perFU": 0.013846153846153847
+          }
+        },
+        "referenceFlow": {
+          "quantity": 2600,
+          "unit": "L",
+          "variable": "OIL_OUTPUT_L"
+        },
+        "snapshot": {
+          "blockHash": "0xa67fdae09d906df9f311a11c645354f9672dee0a086c6498c24dcc7e8c64adaf",
+          "blockNumber": 103,
+          "revisionDigest": "0x149a69ef1deb6c617a6f258e3e8984785ee62d4c735d289533267305c00d14e2"
+        },
+        "total": {
+          "kgCO2eq": 1920,
+          "mg": 738462,
+          "perFU": 0.7384615384615385,
+          "perHa": 738.4615384615385
+        }
+      },
+      "reportHash": "0x6db71c77ce6ccbe61374e823072e84d49c1873e3dcb49541fe1af94f1848c874",
+      "resultInput": {
+        "allocationRule": "0x4e4f4e455f554e414c4c4f434154454400000000000000000000000000000000",
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e322e300000000000000000000000",
+        "evidenceManifest": "0x62385b1f64787106fd9f04a3332dea09e9d50b4e7b9effd7eba91ff0fc72c370",
+        "expectedRevisionDigest": "0x149a69ef1deb6c617a6f258e3e8984785ee62d4c735d289533267305c00d14e2",
+        "factorSetId": "0x46532d53594e5448455449432d41554449542d30310000000000000000000000",
+        "functionalUnit": "0x45564f4f5f314c5f4d494c4c5f47415445000000000000000000000000000000",
+        "limitationFlags": 1640,
+        "methodologicalStatus": 0,
+        "phaseMg": [
+          "565231",
+          "13846",
+          "159385"
+        ],
+        "reportHash": "0x6db71c77ce6ccbe61374e823072e84d49c1873e3dcb49541fe1af94f1848c874",
+        "snapshotBlockHash": "0xa67fdae09d906df9f311a11c645354f9672dee0a086c6498c24dcc7e8c64adaf",
+        "snapshotBlockNumber": "103",
+        "totalMg": "738462"
+      }
+    },
+    {
+      "allocationRule": "ECONOMIC",
+      "batch": "SYN/BATCH/2",
+      "manifest": {
+        "batchId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+        "evidence": [
+          {
+            "eventIndex": 1,
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043"
+          },
+          {
+            "eventIndex": 2,
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5"
+          },
+          {
+            "eventIndex": 3,
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7"
+          },
+          {
+            "eventIndex": 5,
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8"
+          },
+          {
+            "eventIndex": 23,
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf"
+          },
+          {
+            "eventIndex": 6,
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f"
+          },
+          {
+            "eventIndex": 7,
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8"
+          },
+          {
+            "eventIndex": 8,
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c"
+          },
+          {
+            "eventIndex": 9,
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4"
+          },
+          {
+            "eventIndex": 10,
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654"
+          },
+          {
+            "eventIndex": 12,
+            "evidenceHash": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734"
+          },
+          {
+            "eventIndex": 14,
+            "evidenceHash": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520"
+          },
+          {
+            "eventIndex": 19,
+            "evidenceHash": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0"
+          },
+          {
+            "eventIndex": 20,
+            "evidenceHash": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6"
+          },
+          {
+            "eventIndex": 21,
+            "evidenceHash": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e"
+          },
+          {
+            "eventIndex": 22,
+            "evidenceHash": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d"
+          }
+        ],
+        "factorSetContentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+        "reportHash": "0x14eb594b832a2a87f107edfba8c2972717ef1f2b71b8fd19220cd6ea342ea664"
+      },
+      "manifestHash": "0xf158fdc72eed8a45294325a9a019a554670480396d5e8ef7ff5910d6072949a6",
+      "report": {
+        "allocation": {
+          "prices": {
+            "oilEURPerUnit": 4,
+            "oilUnit": "L",
+            "pomaceEURPerKg": 0.04
+          },
+          "rule": "ECONOMIC"
+        },
+        "allocationRule": "ECONOMIC",
+        "areaHa": 2.6,
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "batchId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+        "boundary": "PARTIAL_CRADLE_TO_MILL_GATE",
+        "coProducts": {
+          "pomaceKg": 8000
+        },
+        "engine": "evoo-lca-engine/1.2.0",
+        "events": [
+          {
+            "activity": "FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 1,
+            "kgCO2eq": 560,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067245,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 2,
+            "kgCO2eq": 11.2,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067246,
+            "phase": 1,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+            "group": "FIELD_FUEL",
+            "index": 3,
+            "kgCO2eq": 168,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067247,
+            "phase": 1,
+            "quantity": 100,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+            "group": "IRRIGATION",
+            "index": 5,
+            "kgCO2eq": 56,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067249,
+            "phase": 1,
+            "quantity": 200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+            "group": "FIELD_FUEL",
+            "index": 23,
+            "kgCO2eq": 50.4,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067296,
+            "phase": 1,
+            "quantity": 30,
+            "replaces": 4,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 6,
+            "kgCO2eq": 360,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067251,
+            "phase": 1,
+            "quantity": 450,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 7,
+            "kgCO2eq": 12.8,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067252,
+            "phase": 1,
+            "quantity": 20,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+            "group": "FIELD_FUEL",
+            "index": 8,
+            "kgCO2eq": 172.8,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067253,
+            "phase": 1,
+            "quantity": 180,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+            "group": "FIELD_FUEL",
+            "index": 9,
+            "kgCO2eq": 14.4,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067254,
+            "phase": 1,
+            "quantity": 15,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+            "group": "IRRIGATION",
+            "index": 10,
+            "kgCO2eq": 64,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067255,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734",
+            "group": "TRANSPORT",
+            "index": 12,
+            "kgCO2eq": 19.200000000000003,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067262,
+            "phase": 2,
+            "quantity": 8,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520",
+            "group": "TRANSPORT",
+            "index": 14,
+            "kgCO2eq": 16.8,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067270,
+            "phase": 2,
+            "quantity": 7,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0",
+            "group": "MILL_PROCESSING",
+            "index": 19,
+            "kgCO2eq": 400,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067279,
+            "phase": 3,
+            "quantity": 1000,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6",
+            "group": null,
+            "index": 20,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "reference_flow",
+            "observedAt": 1704067280,
+            "phase": 3,
+            "quantity": 2600,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "OIL_OUTPUT_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e",
+            "group": null,
+            "index": 21,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "output_flow",
+            "observedAt": 1704067281,
+            "phase": 3,
+            "quantity": 8000,
+            "replaces": 0,
+            "source": "Estimate",
+            "uncertaintyPermille": 0,
+            "variable": "POMACE_KG"
+          },
+          {
+            "activity": "BY_PRODUCT_HANDLING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d",
+            "group": "MILL_PROCESSING",
+            "index": 22,
+            "kgCO2eq": 14.400000000000002,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067282,
+            "phase": 3,
+            "quantity": 6,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_DIESEL_L"
+          }
+        ],
+        "factorSet": {
+          "contentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+          "gwpBasis": "Hypothetical common GWP100: CO2=1; N2O=280. Not an IPCC parameter selection or the real field model.",
+          "id": "FS-SYNTHETIC-AUDIT-01",
+          "version": 1
+        },
+        "functionalUnit": "EVOO_1L_MILL_GATE",
+        "groups": {
+          "FERTILIZER_COMPOUND": {
+            "kgCO2eq": 920,
+            "label": "Synthetic compound manufacture and direct N2O",
+            "perFU": 0.34328358208955223,
+            "perHa": 353.8461538461538
+          },
+          "FERTILIZER_FOLIAR": {
+            "kgCO2eq": 24,
+            "label": "Synthetic foliar manufacture and direct N2O",
+            "perFU": 0.008955223880597015,
+            "perHa": 9.23076923076923
+          },
+          "FIELD_FUEL": {
+            "kgCO2eq": 405.6,
+            "label": "Field diesel combustion",
+            "perFU": 0.15134328358208957,
+            "perHa": 156
+          },
+          "IRRIGATION": {
+            "kgCO2eq": 120,
+            "label": "Irrigation electricity",
+            "perFU": 0.04477611940298508,
+            "perHa": 46.15384615384615
+          },
+          "MILL_PROCESSING": {
+            "kgCO2eq": 414.4,
+            "label": "Mill electricity and diesel",
+            "perFU": 0.1546268656716418,
+            "perHa": 159.38461538461536
+          },
+          "TRANSPORT": {
+            "kgCO2eq": 36,
+            "label": "Transport diesel combustion",
+            "perFU": 0.013432835820895524,
+            "perHa": 13.846153846153845
+          }
+        },
+        "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+        "lots": [
+          {
+            "harvestedKg": 7000,
+            "lotId": "0x53594e2f4c4f542f413200000000000000000000000000000000000000000000",
+            "receivedKg": 7000,
+            "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974"
+          },
+          {
+            "harvestedKg": 6000,
+            "lotId": "0x53594e2f4c4f542f423200000000000000000000000000000000000000000000",
+            "receivedKg": 6000,
+            "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3"
+          }
+        ],
+        "methodologicalAssessment": {
+          "applicability": [],
+          "factorPolicy": {
+            "minimumStatus": 0,
+            "requiredLimitations": 1024
+          },
+          "limitationFlags": 1640,
+          "limitations": [
+            "UncertaintyUnquantified",
+            "EstimatedActivityInput",
+            "ReportedActivityInput",
+            "UnassessedMethodology",
+            "SyntheticProcessExample"
+          ],
+          "numericalUse": "Within the applicability domain of the factor set.",
+          "schema": "evoo-methodological-assessment/1",
+          "sourceQuality": {
+            "counts": {
+              "Estimate": 1,
+              "Invoice": 4,
+              "Meter": 4,
+              "OperatorEntry": 7
+            },
+            "electricity": [
+              {
+                "eventIndex": 19,
+                "quantity": 1000,
+                "source": "Meter",
+                "unit": "kWh"
+              }
+            ]
+          },
+          "status": "Unassessed",
+          "statusCode": 0,
+          "uncertainty": {
+            "quantitativeInterval": null,
+            "uncertaintyDistribution": "notProvided"
+          }
+        },
+        "oilShare": 0.9701492537313433,
+        "phases": {
+          "cultivation": {
+            "kgCO2eq": 1469.6,
+            "mg": 548358,
+            "perFU": 0.5483582089552238
+          },
+          "mill": {
+            "kgCO2eq": 414.4,
+            "mg": 154627,
+            "perFU": 0.1546268656716418
+          },
+          "transport": {
+            "kgCO2eq": 36,
+            "mg": 13433,
+            "perFU": 0.013432835820895524
+          }
+        },
+        "referenceFlow": {
+          "quantity": 2600,
+          "unit": "L",
+          "variable": "OIL_OUTPUT_L"
+        },
+        "snapshot": {
+          "blockHash": "0xc3504c22bbb8a57bfd9438427598cd8a4096ee08a964d03812416443cbf5b1b8",
+          "blockNumber": 106,
+          "revisionDigest": "0x149a69ef1deb6c617a6f258e3e8984785ee62d4c735d289533267305c00d14e2"
+        },
+        "total": {
+          "kgCO2eq": 1920,
+          "mg": 716418,
+          "perFU": 0.7164179104477613,
+          "perHa": 738.4615384615385
+        }
+      },
+      "reportHash": "0x14eb594b832a2a87f107edfba8c2972717ef1f2b71b8fd19220cd6ea342ea664",
+      "resultInput": {
+        "allocationRule": "0x45434f4e4f4d4943000000000000000000000000000000000000000000000000",
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e322e300000000000000000000000",
+        "evidenceManifest": "0xf158fdc72eed8a45294325a9a019a554670480396d5e8ef7ff5910d6072949a6",
+        "expectedRevisionDigest": "0x149a69ef1deb6c617a6f258e3e8984785ee62d4c735d289533267305c00d14e2",
+        "factorSetId": "0x46532d53594e5448455449432d41554449542d30310000000000000000000000",
+        "functionalUnit": "0x45564f4f5f314c5f4d494c4c5f47415445000000000000000000000000000000",
+        "limitationFlags": 1640,
+        "methodologicalStatus": 0,
+        "phaseMg": [
+          "548358",
+          "13433",
+          "154627"
+        ],
+        "reportHash": "0x14eb594b832a2a87f107edfba8c2972717ef1f2b71b8fd19220cd6ea342ea664",
+        "snapshotBlockHash": "0xc3504c22bbb8a57bfd9438427598cd8a4096ee08a964d03812416443cbf5b1b8",
+        "snapshotBlockNumber": "106",
+        "totalMg": "716418"
+      }
+    },
+    {
+      "allocationRule": "WET_MASS",
+      "batch": "SYN/BATCH/2",
+      "manifest": {
+        "batchId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+        "evidence": [
+          {
+            "eventIndex": 1,
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043"
+          },
+          {
+            "eventIndex": 2,
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5"
+          },
+          {
+            "eventIndex": 3,
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7"
+          },
+          {
+            "eventIndex": 5,
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8"
+          },
+          {
+            "eventIndex": 23,
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf"
+          },
+          {
+            "eventIndex": 6,
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f"
+          },
+          {
+            "eventIndex": 7,
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8"
+          },
+          {
+            "eventIndex": 8,
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c"
+          },
+          {
+            "eventIndex": 9,
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4"
+          },
+          {
+            "eventIndex": 10,
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654"
+          },
+          {
+            "eventIndex": 12,
+            "evidenceHash": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734"
+          },
+          {
+            "eventIndex": 14,
+            "evidenceHash": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520"
+          },
+          {
+            "eventIndex": 19,
+            "evidenceHash": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0"
+          },
+          {
+            "eventIndex": 20,
+            "evidenceHash": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6"
+          },
+          {
+            "eventIndex": 21,
+            "evidenceHash": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e"
+          },
+          {
+            "eventIndex": 22,
+            "evidenceHash": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d"
+          }
+        ],
+        "factorSetContentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+        "reportHash": "0xebf3478484c081a02811f49f9399369ae3fd08c0b86269b2f750db24451232a5"
+      },
+      "manifestHash": "0x167850d057cc299b56285d472e8f4efb98d4cd8abc81e667068a46770af1a4d9",
+      "report": {
+        "allocation": {
+          "oilDensityKgPerL": 0.9,
+          "oilKg": 2340,
+          "rule": "WET_MASS"
+        },
+        "allocationRule": "WET_MASS",
+        "areaHa": 2.6,
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "batchId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+        "boundary": "PARTIAL_CRADLE_TO_MILL_GATE",
+        "coProducts": {
+          "pomaceKg": 8000
+        },
+        "engine": "evoo-lca-engine/1.2.0",
+        "events": [
+          {
+            "activity": "FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 1,
+            "kgCO2eq": 560,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067245,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 2,
+            "kgCO2eq": 11.2,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067246,
+            "phase": 1,
+            "quantity": 10,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+            "group": "FIELD_FUEL",
+            "index": 3,
+            "kgCO2eq": 168,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067247,
+            "phase": 1,
+            "quantity": 100,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+            "group": "IRRIGATION",
+            "index": 5,
+            "kgCO2eq": 56,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067249,
+            "phase": 1,
+            "quantity": 200,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+            "group": "FIELD_FUEL",
+            "index": 23,
+            "kgCO2eq": 50.4,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067296,
+            "phase": 1,
+            "quantity": 30,
+            "replaces": 4,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+            "group": "FERTILIZER_COMPOUND",
+            "index": 6,
+            "kgCO2eq": 360,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067251,
+            "phase": 1,
+            "quantity": 450,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "COMPOUND_FERTILISER_KG"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+            "group": "FERTILIZER_FOLIAR",
+            "index": 7,
+            "kgCO2eq": 12.8,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067252,
+            "phase": 1,
+            "quantity": 20,
+            "replaces": 0,
+            "source": "Invoice",
+            "uncertaintyPermille": 0,
+            "variable": "FOLIAR_FERTILISER_KG"
+          },
+          {
+            "activity": "SOIL_PREPARATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+            "group": "FIELD_FUEL",
+            "index": 8,
+            "kgCO2eq": 172.8,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067253,
+            "phase": 1,
+            "quantity": 180,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "FOLIAR_FERTILISATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+            "group": "FIELD_FUEL",
+            "index": 9,
+            "kgCO2eq": 14.4,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067254,
+            "phase": 1,
+            "quantity": 15,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "FIELD_DIESEL_L"
+          },
+          {
+            "activity": "IRRIGATION",
+            "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+            "group": "IRRIGATION",
+            "index": 10,
+            "kgCO2eq": 64,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067255,
+            "phase": 1,
+            "quantity": 400,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "IRRIGATION_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734",
+            "group": "TRANSPORT",
+            "index": 12,
+            "kgCO2eq": 19.200000000000003,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067262,
+            "phase": 2,
+            "quantity": 8,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "TRANSPORT",
+            "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "evidenceHash": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520",
+            "group": "TRANSPORT",
+            "index": 14,
+            "kgCO2eq": 16.8,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067270,
+            "phase": 2,
+            "quantity": 7,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "TRANSPORT_DIESEL_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0",
+            "group": "MILL_PROCESSING",
+            "index": 19,
+            "kgCO2eq": 400,
+            "materialCode": null,
+            "method": "linear",
+            "observedAt": 1704067279,
+            "phase": 3,
+            "quantity": 1000,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_ELECTRICITY_KWH"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6",
+            "group": null,
+            "index": 20,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "reference_flow",
+            "observedAt": 1704067280,
+            "phase": 3,
+            "quantity": 2600,
+            "replaces": 0,
+            "source": "Meter",
+            "uncertaintyPermille": 0,
+            "variable": "OIL_OUTPUT_L"
+          },
+          {
+            "activity": "MILL_PROCESSING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e",
+            "group": null,
+            "index": 21,
+            "kgCO2eq": 0,
+            "materialCode": null,
+            "method": "output_flow",
+            "observedAt": 1704067281,
+            "phase": 3,
+            "quantity": 8000,
+            "replaces": 0,
+            "source": "Estimate",
+            "uncertaintyPermille": 0,
+            "variable": "POMACE_KG"
+          },
+          {
+            "activity": "BY_PRODUCT_HANDLING",
+            "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "evidenceHash": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d",
+            "group": "MILL_PROCESSING",
+            "index": 22,
+            "kgCO2eq": 14.400000000000002,
+            "materialCode": null,
+            "method": "fuel",
+            "observedAt": 1704067282,
+            "phase": 3,
+            "quantity": 6,
+            "replaces": 0,
+            "source": "OperatorEntry",
+            "uncertaintyPermille": 0,
+            "variable": "MILL_DIESEL_L"
+          }
+        ],
+        "factorSet": {
+          "contentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+          "gwpBasis": "Hypothetical common GWP100: CO2=1; N2O=280. Not an IPCC parameter selection or the real field model.",
+          "id": "FS-SYNTHETIC-AUDIT-01",
+          "version": 1
+        },
+        "functionalUnit": "EVOO_1L_MILL_GATE",
+        "groups": {
+          "FERTILIZER_COMPOUND": {
+            "kgCO2eq": 920,
+            "label": "Synthetic compound manufacture and direct N2O",
+            "perFU": 0.08007736943907157,
+            "perHa": 353.8461538461538
+          },
+          "FERTILIZER_FOLIAR": {
+            "kgCO2eq": 24,
+            "label": "Synthetic foliar manufacture and direct N2O",
+            "perFU": 0.0020889748549323016,
+            "perHa": 9.23076923076923
+          },
+          "FIELD_FUEL": {
+            "kgCO2eq": 405.6,
+            "label": "Field diesel combustion",
+            "perFU": 0.0353036750483559,
+            "perHa": 156
+          },
+          "IRRIGATION": {
+            "kgCO2eq": 120,
+            "label": "Irrigation electricity",
+            "perFU": 0.010444874274661509,
+            "perHa": 46.15384615384615
+          },
+          "MILL_PROCESSING": {
+            "kgCO2eq": 414.4,
+            "label": "Mill electricity and diesel",
+            "perFU": 0.03606963249516441,
+            "perHa": 159.38461538461536
+          },
+          "TRANSPORT": {
+            "kgCO2eq": 36,
+            "label": "Transport diesel combustion",
+            "perFU": 0.0031334622823984528,
+            "perHa": 13.846153846153845
+          }
+        },
+        "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+        "lots": [
+          {
+            "harvestedKg": 7000,
+            "lotId": "0x53594e2f4c4f542f413200000000000000000000000000000000000000000000",
+            "receivedKg": 7000,
+            "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974"
+          },
+          {
+            "harvestedKg": 6000,
+            "lotId": "0x53594e2f4c4f542f423200000000000000000000000000000000000000000000",
+            "receivedKg": 6000,
+            "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3"
+          }
+        ],
+        "methodologicalAssessment": {
+          "applicability": [],
+          "factorPolicy": {
+            "minimumStatus": 0,
+            "requiredLimitations": 1024
+          },
+          "limitationFlags": 1640,
+          "limitations": [
+            "UncertaintyUnquantified",
+            "EstimatedActivityInput",
+            "ReportedActivityInput",
+            "UnassessedMethodology",
+            "SyntheticProcessExample"
+          ],
+          "numericalUse": "Within the applicability domain of the factor set.",
+          "schema": "evoo-methodological-assessment/1",
+          "sourceQuality": {
+            "counts": {
+              "Estimate": 1,
+              "Invoice": 4,
+              "Meter": 4,
+              "OperatorEntry": 7
+            },
+            "electricity": [
+              {
+                "eventIndex": 19,
+                "quantity": 1000,
+                "source": "Meter",
+                "unit": "kWh"
+              }
+            ]
+          },
+          "status": "Unassessed",
+          "statusCode": 0,
+          "uncertainty": {
+            "quantitativeInterval": null,
+            "uncertaintyDistribution": "notProvided"
+          }
+        },
+        "oilShare": 0.2263056092843327,
+        "phases": {
+          "cultivation": {
+            "kgCO2eq": 1469.6,
+            "mg": 127915,
+            "perFU": 0.12791489361702127
+          },
+          "mill": {
+            "kgCO2eq": 414.4,
+            "mg": 36070,
+            "perFU": 0.03606963249516441
+          },
+          "transport": {
+            "kgCO2eq": 36,
+            "mg": 3133,
+            "perFU": 0.0031334622823984528
+          }
+        },
+        "referenceFlow": {
+          "quantity": 2600,
+          "unit": "L",
+          "variable": "OIL_OUTPUT_L"
+        },
+        "snapshot": {
+          "blockHash": "0xc3504c22bbb8a57bfd9438427598cd8a4096ee08a964d03812416443cbf5b1b8",
+          "blockNumber": 106,
+          "revisionDigest": "0x149a69ef1deb6c617a6f258e3e8984785ee62d4c735d289533267305c00d14e2"
+        },
+        "total": {
+          "kgCO2eq": 1920,
+          "mg": 167118,
+          "perFU": 0.16711798839458414,
+          "perHa": 738.4615384615385
+        }
+      },
+      "reportHash": "0xebf3478484c081a02811f49f9399369ae3fd08c0b86269b2f750db24451232a5",
+      "resultInput": {
+        "allocationRule": "0x5745545f4d415353000000000000000000000000000000000000000000000000",
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "boundaryCode": "0x5041525449414c5f435241444c455f544f5f4d494c4c5f474154450000000000",
+        "engineVersion": "0x65766f6f2d6c63612d656e67696e652f312e322e300000000000000000000000",
+        "evidenceManifest": "0x167850d057cc299b56285d472e8f4efb98d4cd8abc81e667068a46770af1a4d9",
+        "expectedRevisionDigest": "0x149a69ef1deb6c617a6f258e3e8984785ee62d4c735d289533267305c00d14e2",
+        "factorSetId": "0x46532d53594e5448455449432d41554449542d30310000000000000000000000",
+        "functionalUnit": "0x45564f4f5f314c5f4d494c4c5f47415445000000000000000000000000000000",
+        "limitationFlags": 1640,
+        "methodologicalStatus": 0,
+        "phaseMg": [
+          "127915",
+          "3133",
+          "36070"
+        ],
+        "reportHash": "0xebf3478484c081a02811f49f9399369ae3fd08c0b86269b2f750db24451232a5",
+        "snapshotBlockHash": "0xc3504c22bbb8a57bfd9438427598cd8a4096ee08a964d03812416443cbf5b1b8",
+        "snapshotBlockNumber": "106",
+        "totalMg": "167118"
+      }
+    }
+  ],
+  "events": [
+    {
+      "activity": "FERTILISATION",
+      "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "blockNumber": 47,
+      "evidenceHash": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+      "evidenceId": "A-compound",
+      "index": 1,
+      "observedAt": "1704067245",
+      "phase": 1,
+      "quantityMilli": "400000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/A",
+      "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974",
+      "source": "Invoice",
+      "sourceId": "0x8cc582bc42f1047845985dd641ec6bb3271c4d29354129f50ad7e9b0753da029",
+      "status": 1,
+      "transactionHash": "0xb8a265a3ea409ad3301f114983c692fb68442508abcb4c1c3ecba932de505160",
+      "uncertaintyPermille": 0,
+      "variable": "COMPOUND_FERTILISER_KG"
+    },
+    {
+      "activity": "FOLIAR_FERTILISATION",
+      "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "blockNumber": 48,
+      "evidenceHash": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+      "evidenceId": "A-foliar",
+      "index": 2,
+      "observedAt": "1704067246",
+      "phase": 1,
+      "quantityMilli": "10000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/A",
+      "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974",
+      "source": "Invoice",
+      "sourceId": "0xffdf37628fde7e1f9ea8013124d3ead870a5db0d386277b8dac58c6e1e4eeeec",
+      "status": 1,
+      "transactionHash": "0xb7bd358e78b50a150064c19125d3a777dfb1e78d45a6c7aa6de37e5ef817bb4b",
+      "uncertaintyPermille": 0,
+      "variable": "FOLIAR_FERTILISER_KG"
+    },
+    {
+      "activity": "SOIL_PREPARATION",
+      "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "blockNumber": 49,
+      "evidenceHash": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+      "evidenceId": "A-field-diesel",
+      "index": 3,
+      "observedAt": "1704067247",
+      "phase": 1,
+      "quantityMilli": "100000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/A",
+      "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974",
+      "source": "OperatorEntry",
+      "sourceId": "0x2516dd3e164aea632c6101416b5525c5c79f72781ac03965f1ab411065f656b4",
+      "status": 1,
+      "transactionHash": "0xbda2cc5ec5c61a47fab4b3c430730000e737d011896a90aa7181be3a89328c64",
+      "uncertaintyPermille": 0,
+      "variable": "FIELD_DIESEL_L"
+    },
+    {
+      "activity": "FOLIAR_FERTILISATION",
+      "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "blockNumber": 50,
+      "evidenceHash": "0x931b69394a0e43701605351d158ab91129fbd9e48735423c4a01895d00f032ff",
+      "evidenceId": "A-foliar-diesel",
+      "index": 4,
+      "observedAt": "1704067248",
+      "phase": 1,
+      "quantityMilli": "20000",
+      "replacedBy": 23,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/A",
+      "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974",
+      "source": "OperatorEntry",
+      "sourceId": "0x17cd1e827084c9ee98c155f1ef8430ed09bf41303eb8d45fd3649a6908a94f84",
+      "status": 3,
+      "transactionHash": "0x2ea5ec7743518b6e421e89b278611d7c06d4960d4cf9750db46493055c41e92d",
+      "uncertaintyPermille": 0,
+      "variable": "FIELD_DIESEL_L"
+    },
+    {
+      "activity": "IRRIGATION",
+      "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "blockNumber": 51,
+      "evidenceHash": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+      "evidenceId": "A-irrigation",
+      "index": 5,
+      "observedAt": "1704067249",
+      "phase": 1,
+      "quantityMilli": "200000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/A",
+      "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974",
+      "source": "Meter",
+      "sourceId": "0x49525249474154494f4e2d4d455445522d303100000000000000000000000000",
+      "status": 1,
+      "transactionHash": "0x2bee64087d339854ba4643ec15145b53c747d29277388e2503fdd37c3095919d",
+      "uncertaintyPermille": 0,
+      "variable": "IRRIGATION_ELECTRICITY_KWH"
+    },
+    {
+      "activity": "FERTILISATION",
+      "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "blockNumber": 53,
+      "evidenceHash": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+      "evidenceId": "B-compound",
+      "index": 6,
+      "observedAt": "1704067251",
+      "phase": 1,
+      "quantityMilli": "450000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/B",
+      "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3",
+      "source": "Invoice",
+      "sourceId": "0xb1d77f9720e0bb97f77090000dbccbfc49ac432280b0f00aaed0674299a5e329",
+      "status": 1,
+      "transactionHash": "0x26e7ae5b69c006446b0cffc0863a5cab94e5a9a79d28047ea995e723621994fc",
+      "uncertaintyPermille": 0,
+      "variable": "COMPOUND_FERTILISER_KG"
+    },
+    {
+      "activity": "FOLIAR_FERTILISATION",
+      "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "blockNumber": 54,
+      "evidenceHash": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+      "evidenceId": "B-foliar",
+      "index": 7,
+      "observedAt": "1704067252",
+      "phase": 1,
+      "quantityMilli": "20000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/B",
+      "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3",
+      "source": "Invoice",
+      "sourceId": "0xdfde8a6c674e0b7bae3c3dc8a1b8143bbe695dd3240fc82ffb096677d586b530",
+      "status": 1,
+      "transactionHash": "0xe245d16af0ea69ecc16432f38c98f11fa18689e31b4abc7a70f709af397a70c4",
+      "uncertaintyPermille": 0,
+      "variable": "FOLIAR_FERTILISER_KG"
+    },
+    {
+      "activity": "SOIL_PREPARATION",
+      "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "blockNumber": 55,
+      "evidenceHash": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+      "evidenceId": "B-field-diesel",
+      "index": 8,
+      "observedAt": "1704067253",
+      "phase": 1,
+      "quantityMilli": "180000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/B",
+      "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3",
+      "source": "OperatorEntry",
+      "sourceId": "0xd25e2fcaf386d9c18972f0ba9348979d12401c9696234b53d7d28a6c261fb035",
+      "status": 1,
+      "transactionHash": "0x28cfea5c20a6992bb65a0c9dc7c869d30a51327569e3d4d1f09d9eb43669ea98",
+      "uncertaintyPermille": 0,
+      "variable": "FIELD_DIESEL_L"
+    },
+    {
+      "activity": "FOLIAR_FERTILISATION",
+      "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "blockNumber": 56,
+      "evidenceHash": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+      "evidenceId": "B-foliar-diesel",
+      "index": 9,
+      "observedAt": "1704067254",
+      "phase": 1,
+      "quantityMilli": "15000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/B",
+      "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3",
+      "source": "OperatorEntry",
+      "sourceId": "0x8307af1306df87733dac824eafb4c66236966e598d0ca272360c7de0374ae0b0",
+      "status": 1,
+      "transactionHash": "0x82b47ca423a62d5387afc61fe1e814f7b7530dc9d5b553f55fca792b300c0f65",
+      "uncertaintyPermille": 0,
+      "variable": "FIELD_DIESEL_L"
+    },
+    {
+      "activity": "IRRIGATION",
+      "actor": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "blockNumber": 57,
+      "evidenceHash": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+      "evidenceId": "B-irrigation",
+      "index": 10,
+      "observedAt": "1704067255",
+      "phase": 1,
+      "quantityMilli": "400000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/ORCHARD/B",
+      "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3",
+      "source": "Meter",
+      "sourceId": "0x53594e2d49525249474154494f4e2d4200000000000000000000000000000000",
+      "status": 1,
+      "transactionHash": "0xaf74166fbca2e1924394f70f598cbdffefa711a30edb02a5b1569a27fee54f11",
+      "uncertaintyPermille": 0,
+      "variable": "IRRIGATION_ELECTRICITY_KWH"
+    },
+    {
+      "activity": "TRANSPORT",
+      "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "blockNumber": 60,
+      "evidenceHash": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f",
+      "evidenceId": "transport-A1",
+      "index": 11,
+      "observedAt": "1704067258",
+      "phase": 2,
+      "quantityMilli": "4000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/LOT/A1",
+      "scopeId": "0x53594e2f4c4f542f413100000000000000000000000000000000000000000000",
+      "source": "OperatorEntry",
+      "sourceId": "0x655bbe20457eaa9d8c54c114ad7a269ea55c7ded14a342bf25241f19a85a403a",
+      "status": 1,
+      "transactionHash": "0x064ee2fe37a99bc36bcc8e2f494230f44f0b770e45c64345e9fd15a9cd6ea596",
+      "uncertaintyPermille": 0,
+      "variable": "TRANSPORT_DIESEL_L"
+    },
+    {
+      "activity": "TRANSPORT",
+      "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "blockNumber": 64,
+      "evidenceHash": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734",
+      "evidenceId": "transport-A2",
+      "index": 12,
+      "observedAt": "1704067262",
+      "phase": 2,
+      "quantityMilli": "8000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/LOT/A2",
+      "scopeId": "0x53594e2f4c4f542f413200000000000000000000000000000000000000000000",
+      "source": "OperatorEntry",
+      "sourceId": "0x623339468ab64d7f3ede451cf03095f0604ec50446eec2069b3b547f5aa9b835",
+      "status": 1,
+      "transactionHash": "0x22834a59fcf01c7e2d77ba1a0cb113d52d95427e0de1bafc72262236a880a2a0",
+      "uncertaintyPermille": 0,
+      "variable": "TRANSPORT_DIESEL_L"
+    },
+    {
+      "activity": "TRANSPORT",
+      "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "blockNumber": 68,
+      "evidenceHash": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376",
+      "evidenceId": "transport-B1",
+      "index": 13,
+      "observedAt": "1704067266",
+      "phase": 2,
+      "quantityMilli": "10000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/LOT/B1",
+      "scopeId": "0x53594e2f4c4f542f423100000000000000000000000000000000000000000000",
+      "source": "OperatorEntry",
+      "sourceId": "0x5c72f07402cacd83fdc076bb20701243cb44ad21200e3faedcd8ea0385d48ac5",
+      "status": 1,
+      "transactionHash": "0xdd60e57a7d9234efb1932213a0c9f3a4f9093ae8f9283314f9544e936c1e28c0",
+      "uncertaintyPermille": 0,
+      "variable": "TRANSPORT_DIESEL_L"
+    },
+    {
+      "activity": "TRANSPORT",
+      "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "blockNumber": 72,
+      "evidenceHash": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520",
+      "evidenceId": "transport-B2",
+      "index": 14,
+      "observedAt": "1704067270",
+      "phase": 2,
+      "quantityMilli": "7000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/LOT/B2",
+      "scopeId": "0x53594e2f4c4f542f423200000000000000000000000000000000000000000000",
+      "source": "OperatorEntry",
+      "sourceId": "0xbb55800f652b8804f73598da8f822b95c6652897f839081578c83469c6d422d0",
+      "status": 1,
+      "transactionHash": "0xaf1ada68bd4902d77409b406e0edf40af1039fb1b7983a7a5a2654014d7d7bdd",
+      "uncertaintyPermille": 0,
+      "variable": "TRANSPORT_DIESEL_L"
+    },
+    {
+      "activity": "MILL_PROCESSING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 75,
+      "evidenceHash": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16",
+      "evidenceId": "mill-1-electricity",
+      "index": 15,
+      "observedAt": "1704067273",
+      "phase": 3,
+      "quantityMilli": "1200000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/1",
+      "scopeId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+      "source": "Meter",
+      "sourceId": "0x454c45432d5355424d455445522d303100000000000000000000000000000000",
+      "status": 1,
+      "transactionHash": "0x5d66762f0ca535165fae85882e33ea209d7b7f97a6d8cd66883845827417b365",
+      "uncertaintyPermille": 0,
+      "variable": "MILL_ELECTRICITY_KWH"
+    },
+    {
+      "activity": "MILL_PROCESSING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 76,
+      "evidenceHash": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56",
+      "evidenceId": "mill-1-oil",
+      "index": 16,
+      "observedAt": "1704067274",
+      "phase": 3,
+      "quantityMilli": "2400000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/1",
+      "scopeId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+      "source": "Meter",
+      "sourceId": "0x4f494c2d4d455445522d30310000000000000000000000000000000000000000",
+      "status": 1,
+      "transactionHash": "0xdf36012570f50889e4b8eb22ceb8368cec14598813cb41b7ce89f60756086426",
+      "uncertaintyPermille": 0,
+      "variable": "OIL_OUTPUT_L"
+    },
+    {
+      "activity": "MILL_PROCESSING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 77,
+      "evidenceHash": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0",
+      "evidenceId": "mill-1-pomace",
+      "index": 17,
+      "observedAt": "1704067275",
+      "phase": 3,
+      "quantityMilli": "6000000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/1",
+      "scopeId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+      "source": "Estimate",
+      "sourceId": "0xd9512156da260c51e1483e04a322b40aa0ea6d593cdebe922c23898eb3158a61",
+      "status": 1,
+      "transactionHash": "0x542570632ce188cf4983b0d618204505ce07bfa5652c7e217184c1744b92334b",
+      "uncertaintyPermille": 0,
+      "variable": "POMACE_KG"
+    },
+    {
+      "activity": "BY_PRODUCT_HANDLING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 78,
+      "evidenceHash": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518",
+      "evidenceId": "mill-1-diesel",
+      "index": 18,
+      "observedAt": "1704067276",
+      "phase": 3,
+      "quantityMilli": "5000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/1",
+      "scopeId": "0x53594e2f42415443482f31000000000000000000000000000000000000000000",
+      "source": "OperatorEntry",
+      "sourceId": "0xf9d28650e30fc26f87791178ea3a8a9429cd423f9b7bd47f3a27906c32d7e527",
+      "status": 1,
+      "transactionHash": "0xb60942be34d22170528c22f03b7a8a3e4fa222a12933e46adcabb580885112e8",
+      "uncertaintyPermille": 0,
+      "variable": "MILL_DIESEL_L"
+    },
+    {
+      "activity": "MILL_PROCESSING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 81,
+      "evidenceHash": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0",
+      "evidenceId": "mill-2-electricity",
+      "index": 19,
+      "observedAt": "1704067279",
+      "phase": 3,
+      "quantityMilli": "1000000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/2",
+      "scopeId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+      "source": "Meter",
+      "sourceId": "0x454c45432d5355424d455445522d303100000000000000000000000000000000",
+      "status": 1,
+      "transactionHash": "0x45c33b8f3c6a2a2b76c5ee262352ac8b780d5b6260fae8be298eaceb60685839",
+      "uncertaintyPermille": 0,
+      "variable": "MILL_ELECTRICITY_KWH"
+    },
+    {
+      "activity": "MILL_PROCESSING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 82,
+      "evidenceHash": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6",
+      "evidenceId": "mill-2-oil",
+      "index": 20,
+      "observedAt": "1704067280",
+      "phase": 3,
+      "quantityMilli": "2600000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/2",
+      "scopeId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+      "source": "Meter",
+      "sourceId": "0x4f494c2d4d455445522d30310000000000000000000000000000000000000000",
+      "status": 1,
+      "transactionHash": "0xbd9501cb71ea4cae99dc778baef1fa2d3b1432499f993aa88956714867e85136",
+      "uncertaintyPermille": 0,
+      "variable": "OIL_OUTPUT_L"
+    },
+    {
+      "activity": "MILL_PROCESSING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 83,
+      "evidenceHash": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e",
+      "evidenceId": "mill-2-pomace",
+      "index": 21,
+      "observedAt": "1704067281",
+      "phase": 3,
+      "quantityMilli": "8000000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/2",
+      "scopeId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+      "source": "Estimate",
+      "sourceId": "0x629a7e93dd252fbe7e575d97f7c2d164369b9258e2960e66a8e29538743f9c58",
+      "status": 1,
+      "transactionHash": "0xd09035f01ca4c85908c9029d55a3f67173dc0a22aa8eaf00671f852642f92512",
+      "uncertaintyPermille": 0,
+      "variable": "POMACE_KG"
+    },
+    {
+      "activity": "BY_PRODUCT_HANDLING",
+      "actor": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+      "blockNumber": 84,
+      "evidenceHash": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d",
+      "evidenceId": "mill-2-diesel",
+      "index": 22,
+      "observedAt": "1704067282",
+      "phase": 3,
+      "quantityMilli": "6000",
+      "replacedBy": 0,
+      "replaces": 0,
+      "scope": "SYN/BATCH/2",
+      "scopeId": "0x53594e2f42415443482f32000000000000000000000000000000000000000000",
+      "source": "OperatorEntry",
+      "sourceId": "0x67a1b3a7655f0dc1c04e3d21d2772122cf22c8903ca071d18eadcae3e956af2e",
+      "status": 1,
+      "transactionHash": "0x511c3090c206edd28635aff03ac7854b4f988c374ef9330132d620b36af2e117",
+      "uncertaintyPermille": 0,
+      "variable": "MILL_DIESEL_L"
+    },
+    {
+      "activity": "FOLIAR_FERTILISATION",
+      "actor": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "blockNumber": 98,
+      "evidenceHash": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+      "evidenceId": "A-foliar-diesel-corrected",
+      "index": 23,
+      "observedAt": "1704067296",
+      "phase": 1,
+      "quantityMilli": "30000",
+      "replacedBy": 0,
+      "replaces": 4,
+      "scope": "SYN/ORCHARD/A",
+      "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974",
+      "source": "OperatorEntry",
+      "sourceId": "0x17cd1e827084c9ee98c155f1ef8430ed09bf41303eb8d45fd3649a6908a94f84",
+      "status": 1,
+      "transactionHash": "0x4bca7b721a0501e48ed7b6563ebf52fea95ecf3c7aea850a4b980f2be3876905",
+      "uncertaintyPermille": 0,
+      "variable": "FIELD_DIESEL_L"
+    }
+  ],
+  "label": "corrected",
+  "ledger": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+  "lots": [
+    {
+      "batch": "SYN/BATCH/1",
+      "cropYear": 2024,
+      "evidenceHash": "0x6a8c98e10e018d7f1efa4cae996272643dd730f4b77d55ad5d6e90bb6229c497",
+      "evidenceId": "lot-A1",
+      "harvestedMassG": "3000000",
+      "id": "SYN/LOT/A1",
+      "orchard": "SYN/ORCHARD/A",
+      "receivedMassG": "3000000",
+      "transfer": {
+        "confirmedAt": "1704067261",
+        "declaredMassG": "3000000",
+        "evidenceHash": "0x6a8c98e10e018d7f1efa4cae996272643dd730f4b77d55ad5d6e90bb6229c497",
+        "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+        "receivedMassG": "3000000",
+        "to": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+        "transporter": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+        "weighbridgeId": "0x57454947484252494447452d3031000000000000000000000000000000000000"
+      }
+    },
+    {
+      "batch": "SYN/BATCH/2",
+      "cropYear": 2024,
+      "evidenceHash": "0xed827c27541c2933ff24bd26176c6ba31f20e574ced469c7848b7537461d86b1",
+      "evidenceId": "lot-A2",
+      "harvestedMassG": "7000000",
+      "id": "SYN/LOT/A2",
+      "orchard": "SYN/ORCHARD/A",
+      "receivedMassG": "7000000",
+      "transfer": {
+        "confirmedAt": "1704067265",
+        "declaredMassG": "7000000",
+        "evidenceHash": "0xed827c27541c2933ff24bd26176c6ba31f20e574ced469c7848b7537461d86b1",
+        "from": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+        "receivedMassG": "7000000",
+        "to": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+        "transporter": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+        "weighbridgeId": "0x57454947484252494447452d3031000000000000000000000000000000000000"
+      }
+    },
+    {
+      "batch": "SYN/BATCH/1",
+      "cropYear": 2024,
+      "evidenceHash": "0x9af7b4b64fc088a043b9da00f74454a64b335ec9338512b4efd4a72b621657ae",
+      "evidenceId": "lot-B1",
+      "harvestedMassG": "9000000",
+      "id": "SYN/LOT/B1",
+      "orchard": "SYN/ORCHARD/B",
+      "receivedMassG": "9000000",
+      "transfer": {
+        "confirmedAt": "1704067269",
+        "declaredMassG": "9000000",
+        "evidenceHash": "0x9af7b4b64fc088a043b9da00f74454a64b335ec9338512b4efd4a72b621657ae",
+        "from": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+        "receivedMassG": "9000000",
+        "to": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+        "transporter": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+        "weighbridgeId": "0x57454947484252494447452d3031000000000000000000000000000000000000"
+      }
+    },
+    {
+      "batch": "SYN/BATCH/2",
+      "cropYear": 2024,
+      "evidenceHash": "0xe892c600f92c0e0a7ce0e76eb2da0c48e265344c1025090a8f910a6348be40e9",
+      "evidenceId": "lot-B2",
+      "harvestedMassG": "6000000",
+      "id": "SYN/LOT/B2",
+      "orchard": "SYN/ORCHARD/B",
+      "receivedMassG": "6000000",
+      "transfer": {
+        "confirmedAt": "1704067273",
+        "declaredMassG": "6000000",
+        "evidenceHash": "0xe892c600f92c0e0a7ce0e76eb2da0c48e265344c1025090a8f910a6348be40e9",
+        "from": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+        "receivedMassG": "6000000",
+        "to": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+        "transporter": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+        "weighbridgeId": "0x57454947484252494447452d3031000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "orchards": [
+    {
+      "areaM2": "20000",
+      "closed": true,
+      "cropYear": 2024,
+      "evidenceId": "orchard-A",
+      "grower": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+      "harvestedMassG": "10000000",
+      "id": "SYN/ORCHARD/A",
+      "locationHash": "0x07c09c1b2b0abacba72e7d81b31cf5eafe5ecf63282edbf26d87c33407d64b6f",
+      "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6",
+      "revision": 1,
+      "scopeId": "0x1642f833928454dc2a5c6ab3a6f7a091d3d9547690647c988d56455b077f4974",
+      "verified": true
+    },
+    {
+      "areaM2": "30000",
+      "closed": true,
+      "cropYear": 2024,
+      "evidenceId": "orchard-B",
+      "grower": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "harvestedMassG": "15000000",
+      "id": "SYN/ORCHARD/B",
+      "locationHash": "0x346822d9e795a1286233f190ee0af6be68719be20fb73501acb832d9981b44e8",
+      "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d",
+      "revision": 0,
+      "scopeId": "0x3153ecef7f05d0b76cd3e0f708c4999390871c7491d926f54dcea96db11b08b3",
+      "verified": true
+    }
+  ],
+  "snapshot": {
+    "blockHash": "0xc3504c22bbb8a57bfd9438427598cd8a4096ee08a964d03812416443cbf5b1b8",
+    "blockNumber": 106
+  },
+  "sourceRegistry": {
+    "ELEC-SUBMETER-01": {
+      "actorKey": "mill",
+      "device": {
+        "active": true,
+        "calibratedUntil": "1830297599",
+        "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+        "signer": "0xE546EDAA2aAC9136D283373e9C1C28B520e32B48"
+      },
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "Meter",
+      "sourceId": "0x454c45432d5355424d455445522d303100000000000000000000000000000000"
+    },
+    "IRRIGATION-METER-01": {
+      "actorKey": "grower",
+      "device": {
+        "active": true,
+        "calibratedUntil": "1830297599",
+        "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6",
+        "signer": "0x3908a96c73b5A4753A3640b62aFfff4e650D615e"
+      },
+      "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6",
+      "source": "Meter",
+      "sourceId": "0x49525249474154494f4e2d4d455445522d303100000000000000000000000000"
+    },
+    "OIL-METER-01": {
+      "actorKey": "mill",
+      "device": {
+        "active": true,
+        "calibratedUntil": "1830297599",
+        "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+        "signer": "0xAeBED4326ad3Dadce60cd70AcE278084B38c1D6e"
+      },
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "Meter",
+      "sourceId": "0x4f494c2d4d455445522d30310000000000000000000000000000000000000000"
+    },
+    "SYN-DOC-A-COMPOUND": {
+      "actorKey": "grower",
+      "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6",
+      "source": "Invoice",
+      "sourceId": "0x8cc582bc42f1047845985dd641ec6bb3271c4d29354129f50ad7e9b0753da029"
+    },
+    "SYN-DOC-A-FOLIAR": {
+      "actorKey": "grower",
+      "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6",
+      "source": "Invoice",
+      "sourceId": "0xffdf37628fde7e1f9ea8013124d3ead870a5db0d386277b8dac58c6e1e4eeeec"
+    },
+    "SYN-DOC-B-COMPOUND": {
+      "actorKey": "growerB",
+      "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d",
+      "source": "Invoice",
+      "sourceId": "0xb1d77f9720e0bb97f77090000dbccbfc49ac432280b0f00aaed0674299a5e329"
+    },
+    "SYN-DOC-B-FOLIAR": {
+      "actorKey": "growerB",
+      "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d",
+      "source": "Invoice",
+      "sourceId": "0xdfde8a6c674e0b7bae3c3dc8a1b8143bbe695dd3240fc82ffb096677d586b530"
+    },
+    "SYN-IRRIGATION-B": {
+      "actorKey": "growerB",
+      "device": {
+        "active": true,
+        "calibratedUntil": "1830297599",
+        "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d",
+        "signer": "0x2FFfff43B86e83db4a277EAc8845213972222038"
+      },
+      "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d",
+      "source": "Meter",
+      "sourceId": "0x53594e2d49525249474154494f4e2d4200000000000000000000000000000000"
+    },
+    "SYN-LOG-A-FIELD": {
+      "actorKey": "grower",
+      "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6",
+      "source": "OperatorEntry",
+      "sourceId": "0x2516dd3e164aea632c6101416b5525c5c79f72781ac03965f1ab411065f656b4"
+    },
+    "SYN-LOG-A-FOLIAR": {
+      "actorKey": "grower",
+      "organisationId": "0x421b50b45ce67579a73d49fddc45a0b54e7f8e0a64ba86c569e495f5705193c6",
+      "source": "OperatorEntry",
+      "sourceId": "0x17cd1e827084c9ee98c155f1ef8430ed09bf41303eb8d45fd3649a6908a94f84"
+    },
+    "SYN-LOG-B-FIELD": {
+      "actorKey": "growerB",
+      "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d",
+      "source": "OperatorEntry",
+      "sourceId": "0xd25e2fcaf386d9c18972f0ba9348979d12401c9696234b53d7d28a6c261fb035"
+    },
+    "SYN-LOG-B-FOLIAR": {
+      "actorKey": "growerB",
+      "organisationId": "0xa0a2e88222124693ab79c6ee737620b32c5893ed0de6783d887873136da0171d",
+      "source": "OperatorEntry",
+      "sourceId": "0x8307af1306df87733dac824eafb4c66236966e598d0ca272360c7de0374ae0b0"
+    },
+    "SYN-MILL-FUEL-1": {
+      "actorKey": "mill",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "OperatorEntry",
+      "sourceId": "0xf9d28650e30fc26f87791178ea3a8a9429cd423f9b7bd47f3a27906c32d7e527"
+    },
+    "SYN-MILL-FUEL-2": {
+      "actorKey": "mill",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "OperatorEntry",
+      "sourceId": "0x67a1b3a7655f0dc1c04e3d21d2772122cf22c8903ca071d18eadcae3e956af2e"
+    },
+    "SYN-POMACE-1": {
+      "actorKey": "mill",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "Estimate",
+      "sourceId": "0xd9512156da260c51e1483e04a322b40aa0ea6d593cdebe922c23898eb3158a61"
+    },
+    "SYN-POMACE-2": {
+      "actorKey": "mill",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "Estimate",
+      "sourceId": "0x629a7e93dd252fbe7e575d97f7c2d164369b9258e2960e66a8e29538743f9c58"
+    },
+    "SYN-TRUCK-LOG-A1": {
+      "actorKey": "transporter",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "OperatorEntry",
+      "sourceId": "0x655bbe20457eaa9d8c54c114ad7a269ea55c7ded14a342bf25241f19a85a403a"
+    },
+    "SYN-TRUCK-LOG-A2": {
+      "actorKey": "transporter",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "OperatorEntry",
+      "sourceId": "0x623339468ab64d7f3ede451cf03095f0604ec50446eec2069b3b547f5aa9b835"
+    },
+    "SYN-TRUCK-LOG-B1": {
+      "actorKey": "transporter",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "OperatorEntry",
+      "sourceId": "0x5c72f07402cacd83fdc076bb20701243cb44ad21200e3faedcd8ea0385d48ac5"
+    },
+    "SYN-TRUCK-LOG-B2": {
+      "actorKey": "transporter",
+      "organisationId": "0xe01649e4bebbf4b6185fe3fe7d7d13276d3760161304493eae093ed7798507b1",
+      "source": "OperatorEntry",
+      "sourceId": "0xbb55800f652b8804f73598da8f822b95c6652897f839081578c83469c6d422d0"
+    }
+  }
+}

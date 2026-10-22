@@ -1,0 +1,15 @@
+{
+  "activity": "MILL_PROCESSING",
+  "evidenceId": "mill-2-oil",
+  "issuerActorKey": "mill",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "2600",
+  "recordType": "Activity",
+  "scope": "SYN/BATCH/2",
+  "scopeType": "mill",
+  "source": "Meter",
+  "sourceCode": "OIL-METER-01",
+  "synthetic": true,
+  "unit": "L",
+  "variable": "OIL_OUTPUT_L"
+}

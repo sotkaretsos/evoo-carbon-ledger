@@ -1,0 +1,12 @@
+{
+  "cropYear": 2024,
+  "evidenceId": "lot-B2",
+  "harvestedKg": "6000",
+  "issuerActorKey": "growerB",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "orchard": "SYN/ORCHARD/B",
+  "receivedKg": "6000",
+  "recordType": "HarvestAndDelivery",
+  "scope": "SYN/LOT/B2",
+  "synthetic": true
+}

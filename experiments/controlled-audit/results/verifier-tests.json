@@ -1,0 +1,17 @@
+{
+  "testsRun": 8,
+  "failures": 0,
+  "errors": 0,
+  "pass": true,
+  "scope": "Targeted checker falsification tests; not additional field observations or evaluation cases",
+  "tests": [
+    "test_combined_engine_factor_is_not_reference_oracle",
+    "test_corrected_evidence_changes_both_batch_burdens",
+    "test_duplicate_claim_is_not_accepted",
+    "test_exported_quantity_disagrees_with_actual_bytes",
+    "test_fractional_mg_rounds_up_at_half",
+    "test_hash_correct_source_wrong_is_rejected",
+    "test_published_total_perturbation_detected",
+    "test_retrieved_complete_case_passes"
+  ]
+}

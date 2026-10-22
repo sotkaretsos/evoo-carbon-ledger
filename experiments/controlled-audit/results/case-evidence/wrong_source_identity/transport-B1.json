@@ -1,0 +1,15 @@
+{
+  "activity": "TRANSPORT",
+  "evidenceId": "transport-B1",
+  "issuerActorKey": "transporter",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "10",
+  "recordType": "Activity",
+  "scope": "SYN/LOT/B1",
+  "scopeType": "transport",
+  "source": "OperatorEntry",
+  "sourceCode": "SYN-TRUCK-LOG-B1",
+  "synthetic": true,
+  "unit": "L",
+  "variable": "TRANSPORT_DIESEL_L"
+}

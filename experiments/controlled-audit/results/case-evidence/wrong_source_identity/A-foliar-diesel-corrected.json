@@ -1,0 +1,18 @@
+{
+  "activity": "FOLIAR_FERTILISATION",
+  "cropYear": 2024,
+  "evidenceId": "A-foliar-diesel-corrected",
+  "issuerActorKey": "grower",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "30",
+  "reason": "Predeclared synthetic correction; original retained as superseded.",
+  "recordType": "Activity",
+  "replacesEvidenceId": "A-foliar-diesel",
+  "scope": "SYN/ORCHARD/A",
+  "scopeType": "farm",
+  "source": "OperatorEntry",
+  "sourceCode": "SYN-LOG-A-FOLIAR",
+  "synthetic": true,
+  "unit": "L",
+  "variable": "FIELD_DIESEL_L"
+}

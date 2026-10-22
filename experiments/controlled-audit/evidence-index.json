@@ -1,0 +1,184 @@
+{
+  "algorithm": "sha256",
+  "entries": [
+    {
+      "evidenceId": "orchard-A",
+      "path": "evidence/orchard-A.json",
+      "sha256": "0x07c09c1b2b0abacba72e7d81b31cf5eafe5ecf63282edbf26d87c33407d64b6f",
+      "bytes": 275
+    },
+    {
+      "evidenceId": "A-compound",
+      "path": "evidence/A-compound.json",
+      "sha256": "0xe4d9c20e89e2ea8b0c4df48b33d91805582cfc8f93b7b1bda28d362890043043",
+      "bytes": 437
+    },
+    {
+      "evidenceId": "A-foliar",
+      "path": "evidence/A-foliar.json",
+      "sha256": "0x1798e12286f889648ad3f7b2eab2b8716b0f71ddd61c40d9cf3943e09b4ce6e5",
+      "bytes": 437
+    },
+    {
+      "evidenceId": "A-field-diesel",
+      "path": "evidence/A-field-diesel.json",
+      "sha256": "0xb8f92c41d8510419884c6b66f6d28754cc1c1ba30e8019300aea05838e9d7bd7",
+      "bytes": 438
+    },
+    {
+      "evidenceId": "A-foliar-diesel",
+      "path": "evidence/A-foliar-diesel.json",
+      "sha256": "0x931b69394a0e43701605351d158ab91129fbd9e48735423c4a01895d00f032ff",
+      "bytes": 443
+    },
+    {
+      "evidenceId": "A-irrigation",
+      "path": "evidence/A-irrigation.json",
+      "sha256": "0x9055b96539958a0e8968d5f184dc29813cdc3167c5d41f181d36d44ae34a7bc8",
+      "bytes": 440
+    },
+    {
+      "evidenceId": "orchard-B",
+      "path": "evidence/orchard-B.json",
+      "sha256": "0x346822d9e795a1286233f190ee0af6be68719be20fb73501acb832d9981b44e8",
+      "bytes": 276
+    },
+    {
+      "evidenceId": "B-compound",
+      "path": "evidence/B-compound.json",
+      "sha256": "0xb43155cd3e3ec8f86a940dce1a47e5d3aea86e9875a6e50a32c594847cc6242f",
+      "bytes": 438
+    },
+    {
+      "evidenceId": "B-foliar",
+      "path": "evidence/B-foliar.json",
+      "sha256": "0x034b6f4f6ac82e32281d5ecfbbd045cc6ce0e5cae8059df534decafdecd621d8",
+      "bytes": 438
+    },
+    {
+      "evidenceId": "B-field-diesel",
+      "path": "evidence/B-field-diesel.json",
+      "sha256": "0xbecee0d1df151c50a189619c30fa5a8bb6a12a3e293f4853a9a375725804f07c",
+      "bytes": 439
+    },
+    {
+      "evidenceId": "B-foliar-diesel",
+      "path": "evidence/B-foliar-diesel.json",
+      "sha256": "0x474d2b6dc61294bad98251ef6bf9b007488a66e41497a9958499665e07ed13e4",
+      "bytes": 444
+    },
+    {
+      "evidenceId": "B-irrigation",
+      "path": "evidence/B-irrigation.json",
+      "sha256": "0x5c1457088bbf985b4930dd5d7ee172a79178336691371854b6d6c15fa533d654",
+      "bytes": 438
+    },
+    {
+      "evidenceId": "A-foliar-diesel-corrected",
+      "path": "evidence/A-foliar-diesel-corrected.json",
+      "sha256": "0xae79280ae4ddceccf851750574dfa280f0335502628160e80df5abc4a9d04aaf",
+      "bytes": 578
+    },
+    {
+      "evidenceId": "lot-A1",
+      "path": "evidence/lot-A1.json",
+      "sha256": "0x6a8c98e10e018d7f1efa4cae996272643dd730f4b77d55ad5d6e90bb6229c497",
+      "bytes": 327
+    },
+    {
+      "evidenceId": "transport-A1",
+      "path": "evidence/transport-A1.json",
+      "sha256": "0x123bd03a973325a5ecaac1d49475a1960d0a8e6b399befad889ab16a3736931f",
+      "bytes": 419
+    },
+    {
+      "evidenceId": "lot-A2",
+      "path": "evidence/lot-A2.json",
+      "sha256": "0xed827c27541c2933ff24bd26176c6ba31f20e574ced469c7848b7537461d86b1",
+      "bytes": 327
+    },
+    {
+      "evidenceId": "transport-A2",
+      "path": "evidence/transport-A2.json",
+      "sha256": "0x53017bb8598aef834101c77afb1c18486dbe9b5e5aaeced1d1910977eb4f7734",
+      "bytes": 419
+    },
+    {
+      "evidenceId": "lot-B1",
+      "path": "evidence/lot-B1.json",
+      "sha256": "0x9af7b4b64fc088a043b9da00f74454a64b335ec9338512b4efd4a72b621657ae",
+      "bytes": 328
+    },
+    {
+      "evidenceId": "transport-B1",
+      "path": "evidence/transport-B1.json",
+      "sha256": "0x01a9fd3e3c91fa02b9f06aaca43b22e2dd91ba30c39e4e25959751252e7f5376",
+      "bytes": 420
+    },
+    {
+      "evidenceId": "lot-B2",
+      "path": "evidence/lot-B2.json",
+      "sha256": "0xe892c600f92c0e0a7ce0e76eb2da0c48e265344c1025090a8f910a6348be40e9",
+      "bytes": 328
+    },
+    {
+      "evidenceId": "transport-B2",
+      "path": "evidence/transport-B2.json",
+      "sha256": "0xae7e4aceefa8abe36cddebd77b93d42d962d4d7af0b7d4062caec38c0ae6a520",
+      "bytes": 419
+    },
+    {
+      "evidenceId": "mill-1-electricity",
+      "path": "evidence/mill-1-electricity.json",
+      "sha256": "0x4ba29f89bd9d848b33fe5f656fc50c5c0499bff4b6e7e5facd67644d84c55c16",
+      "bytes": 419
+    },
+    {
+      "evidenceId": "mill-1-oil",
+      "path": "evidence/mill-1-oil.json",
+      "sha256": "0xe09b516223224a6db1485fb3a4d682dd4f1b0cd6ac5769fbcc4154459e079f56",
+      "bytes": 397
+    },
+    {
+      "evidenceId": "mill-1-pomace",
+      "path": "evidence/mill-1-pomace.json",
+      "sha256": "0x31de72057adc214831d20639bd86c5a4587e87478e88405bbb609297f61357c0",
+      "bytes": 401
+    },
+    {
+      "evidenceId": "mill-1-diesel",
+      "path": "evidence/mill-1-diesel.json",
+      "sha256": "0x2c3851612108d3d7c6dc73ef69d1a217ac88986701ffe449e5315446f8261518",
+      "bytes": 413
+    },
+    {
+      "evidenceId": "mill-2-electricity",
+      "path": "evidence/mill-2-electricity.json",
+      "sha256": "0xff43bdf982d4ebb5628ba4e4180e20d8756b9b71788f9a5b20cf1dab3805e8e0",
+      "bytes": 419
+    },
+    {
+      "evidenceId": "mill-2-oil",
+      "path": "evidence/mill-2-oil.json",
+      "sha256": "0xc899b11a5f51c7e905a9f2d225fdfcfcc095f564f77403ace0b45029929d0fe6",
+      "bytes": 397
+    },
+    {
+      "evidenceId": "mill-2-pomace",
+      "path": "evidence/mill-2-pomace.json",
+      "sha256": "0xf9d495a29b547f2dad17841ab9427839bc8dfa934a1afbc108f8740c7792e99e",
+      "bytes": 401
+    },
+    {
+      "evidenceId": "mill-2-diesel",
+      "path": "evidence/mill-2-diesel.json",
+      "sha256": "0x4da4d0442e8de50f0eae3ff025b8622fce7bca429ce4b7879dc52554a37bab5d",
+      "bytes": 413
+    }
+  ],
+  "fixtureCommitments": {
+    "design.json": "0214df07fbde0459a48cc7dae4f2b9a17e2b45b3d4051b00794a7133e5dd21be",
+    "factors.synthetic.json": "e6500b4c6e79c65214df00c298be04296fadeeb686cbab7ed0c3cadadd999446",
+    "expectations.json": "b0bc0520b4f838e795c34828a1d712d5e62eb900cd68224b16a3189e545d75fc"
+  }
+}

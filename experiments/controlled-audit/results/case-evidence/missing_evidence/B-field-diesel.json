@@ -1,0 +1,16 @@
+{
+  "activity": "SOIL_PREPARATION",
+  "cropYear": 2024,
+  "evidenceId": "B-field-diesel",
+  "issuerActorKey": "growerB",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "180",
+  "recordType": "Activity",
+  "scope": "SYN/ORCHARD/B",
+  "scopeType": "farm",
+  "source": "OperatorEntry",
+  "sourceCode": "SYN-LOG-B-FIELD",
+  "synthetic": true,
+  "unit": "L",
+  "variable": "FIELD_DIESEL_L"
+}

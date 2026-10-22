@@ -1,0 +1,95 @@
+{
+  "baselineEvents": 22,
+  "certificateTimeline": {
+    "afterCorrection": [
+      {
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "batch": "SYN/BATCH/1",
+        "limitationFlags": 1640,
+        "methodologicalCommitment": "0x362a0becee66a314a13bf773dcf3bb0d453442cf26b8b73ba889d329af6162dc",
+        "methodologicalStatus": 0,
+        "status": "Outdated",
+        "totalMg": "757000",
+        "version": 1
+      },
+      {
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "batch": "SYN/BATCH/2",
+        "limitationFlags": 1640,
+        "methodologicalCommitment": "0xb4f037d2b069280ceeee45a6df072dc0ce07802ca9127c22b8fd777b58156e26",
+        "methodologicalStatus": 0,
+        "status": "Outdated",
+        "totalMg": "732000",
+        "version": 1
+      }
+    ],
+    "baseline": [
+      {
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "batch": "SYN/BATCH/1",
+        "limitationFlags": 1640,
+        "methodologicalCommitment": "0x362a0becee66a314a13bf773dcf3bb0d453442cf26b8b73ba889d329af6162dc",
+        "methodologicalStatus": 0,
+        "status": "Valid",
+        "totalMg": "757000",
+        "version": 1
+      },
+      {
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "batch": "SYN/BATCH/2",
+        "limitationFlags": 1640,
+        "methodologicalCommitment": "0xb4f037d2b069280ceeee45a6df072dc0ce07802ca9127c22b8fd777b58156e26",
+        "methodologicalStatus": 0,
+        "status": "Valid",
+        "totalMg": "732000",
+        "version": 1
+      }
+    ],
+    "recomputed": [
+      {
+        "assessmentHash": "0xe664b63e7a295ca53b2d2cc85a16473695074aa4bfd0453bdd03d3bee4485df5",
+        "batch": "SYN/BATCH/1",
+        "limitationFlags": 1640,
+        "methodologicalCommitment": "0x36c74efc8201c663464f74e509063e1a9b70aa71c67f49015248a30515a36667",
+        "methodologicalStatus": 0,
+        "status": "Valid",
+        "totalMg": "760000",
+        "version": 2
+      },
+      {
+        "assessmentHash": "0x7725bd215f84c27364693feed96d9798be453ae4855c20ec9ca93204a3567e57",
+        "batch": "SYN/BATCH/2",
+        "limitationFlags": 1640,
+        "methodologicalCommitment": "0xba31e30fd16bbf328e5f110f71aea79496992ef5b303e2726f7c4684830db3e0",
+        "methodologicalStatus": 0,
+        "status": "Valid",
+        "totalMg": "738462",
+        "version": 2
+      }
+    ]
+  },
+  "completedAt": "2026-10-21T15:08:49.030Z",
+  "experiment": "CONTROLLED-SYNTHETIC-AUDIT-01",
+  "factorSetContentHash": "0x922f9ec842f04edfa086bf8bba56a696a35f3d65e81f1b31402fd73a6071f757",
+  "finalEvents": 24,
+  "limitations": [
+    "All evidence and factors are invented test fixtures",
+    "Same-team separately implemented arithmetic verifier, not an external human audit",
+    "Local retrieval only; no repository uptime or replication test",
+    "No physical observation validation",
+    "No complete environmental footprint or uncertainty quantification"
+  ],
+  "machineWallSeconds": 2.366342192,
+  "predeclaredCommitments": {
+    "design.json": "0214df07fbde0459a48cc7dae4f2b9a17e2b45b3d4051b00794a7133e5dd21be",
+    "expectations.json": "b0bc0520b4f838e795c34828a1d712d5e62eb900cd68224b16a3189e545d75fc",
+    "factors.synthetic.json": "e6500b4c6e79c65214df00c298be04296fadeeb686cbab7ed0c3cadadd999446"
+  },
+  "runtime": {
+    "hardhat": "2.29.1",
+    "network": "Hardhat in-process EVM; not Besu multi-node or a field deployment",
+    "node": "v22.22.0"
+  },
+  "synthetic": true,
+  "timingScope": "Actual local machine elapsed producer execution, including deployment/configuration/transactions; not human audit time or network latency."
+}

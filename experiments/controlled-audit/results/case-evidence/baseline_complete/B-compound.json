@@ -1,0 +1,16 @@
+{
+  "activity": "FERTILISATION",
+  "cropYear": 2024,
+  "evidenceId": "B-compound",
+  "issuerActorKey": "growerB",
+  "notice": "Invented test record; not empirical evidence or a real device export.",
+  "quantity": "450",
+  "recordType": "Activity",
+  "scope": "SYN/ORCHARD/B",
+  "scopeType": "farm",
+  "source": "Invoice",
+  "sourceCode": "SYN-DOC-B-COMPOUND",
+  "synthetic": true,
+  "unit": "kg",
+  "variable": "COMPOUND_FERTILISER_KG"
+}
