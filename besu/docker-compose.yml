@@ -1,7 +1,7 @@
 # Four-validator Hyperledger Besu QBFT network for the evoo-carbon-ledger prototype.
 # Run ./setup.sh first. Node 1 exposes JSON-RPC on http://127.0.0.1:8545.
 x-besu-node: &besu-node
-  image: ${BESU_IMAGE:-hyperledger/besu:latest}
+  image: ${BESU_IMAGE:?Set BESU_IMAGE to an explicitly tested version or immutable image digest}
   user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
   volumes:
     - ./nodes:/opt/network
@@ -15,8 +15,8 @@ services:
       --rpc-http-port=8545
       --genesis-file=/opt/network/genesis.json --sync-mode=FULL --min-gas-price=0
       --rpc-http-enabled --rpc-http-host=0.0.0.0 --rpc-http-api=ETH,NET,WEB3,QBFT,TXPOOL
-      --host-allowlist=* --rpc-http-cors-origins=all
-    ports: ["8545:8545"]
+      --host-allowlist=localhost,127.0.0.1
+    ports: ["127.0.0.1:8545:8545"]
     networks:
       qbft:
         ipv4_address: 172.16.240.11
@@ -27,7 +27,7 @@ services:
       --bootnodes=${BOOTNODE}
       --genesis-file=/opt/network/genesis.json --sync-mode=FULL --min-gas-price=0
       --rpc-http-enabled --rpc-http-host=0.0.0.0 --rpc-http-api=ETH,NET,WEB3,QBFT,TXPOOL
-      --host-allowlist=* --rpc-http-cors-origins=all
+      --host-allowlist=localhost,127.0.0.1
     networks:
       qbft:
         ipv4_address: 172.16.240.12
@@ -38,7 +38,7 @@ services:
       --bootnodes=${BOOTNODE}
       --genesis-file=/opt/network/genesis.json --sync-mode=FULL --min-gas-price=0
       --rpc-http-enabled --rpc-http-host=0.0.0.0 --rpc-http-api=ETH,NET,WEB3,QBFT,TXPOOL
-      --host-allowlist=* --rpc-http-cors-origins=all
+      --host-allowlist=localhost,127.0.0.1
     networks:
       qbft:
         ipv4_address: 172.16.240.13
@@ -49,7 +49,7 @@ services:
       --bootnodes=${BOOTNODE}
       --genesis-file=/opt/network/genesis.json --sync-mode=FULL --min-gas-price=0
       --rpc-http-enabled --rpc-http-host=0.0.0.0 --rpc-http-api=ETH,NET,WEB3,QBFT,TXPOOL
-      --host-allowlist=* --rpc-http-cors-origins=all
+      --host-allowlist=localhost,127.0.0.1
     networks:
       qbft:
         ipv4_address: 172.16.240.14

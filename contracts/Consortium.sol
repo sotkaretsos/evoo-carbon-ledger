@@ -187,8 +187,9 @@ contract Consortium is AccessControl, IConsortium {
         if (code == bytes32(0) || unit == bytes8(0) || phase == 0 || phase > 3 || minQuantity == 0 || minQuantity > maxQuantity) {
             revert InvalidArgument();
         }
-        // Mandatory closure fields are mill meter fields (Table 4: "mandatory meter fields").
-        if (mandatoryForClosure && (phase != 3 || !meterRequired)) revert InvalidArgument();
+        // Mandatory presence and signed-meter provenance are distinct governed policies.
+        // Reported/estimated case inputs may be mandatory without pretending to be measurements.
+        if (mandatoryForClosure && phase != 3) revert InvalidArgument();
         bool wasMandatory = _variables[code].mandatoryForClosure && _variables[code].active;
         _variables[code] = Variable({
             unit: unit,

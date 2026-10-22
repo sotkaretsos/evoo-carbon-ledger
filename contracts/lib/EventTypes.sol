@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-/// Data-source class of an observation (Appendix A, Table A1 of the article).
+/// Data-source class of an observation (Section 2.5 of the article).
 enum SourceClass {
     Sensor,
     Meter,
@@ -18,7 +18,7 @@ enum Phase {
     Mill
 }
 
-/// Common event envelope (Section 2.8) supplied by the edge gateway or the operator.
+/// Common event envelope (Section 2.5) supplied by the edge gateway or the operator.
 struct EventInput {
     bytes32 activity; // business step, e.g. "FERTILISATION" (EPCIS bizStep)
     bytes32 variable; // governed variable code carrying unit and admissible range
@@ -30,6 +30,7 @@ struct EventInput {
     bytes32 evidenceHash; // hash of the off-chain evidence package
     bytes32 locationHash; // hash of the georeference (read point / business location)
     bytes32 methodCode; // measurement or estimation method
+    bytes32 materialCode; // optional declared product/grade identity; not a chemical verification
 }
 
 // Validation errors raised by {EnvelopeValidation} (requirements R1-R3).

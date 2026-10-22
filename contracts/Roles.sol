@@ -4,7 +4,7 @@ pragma solidity ^0.8.24;
 /// @title Roles
 /// @notice Role identifiers of the olive-oil carbon-traceability consortium.
 /// @dev Roles are granted by the consortium governor in {Consortium}. They correspond to the
-///      responsible roles of Table 4 of the article.
+///      responsible roles of Table 3 of the article.
 library Roles {
     /// Consortium governance (admission of members, role assignment).
     bytes32 internal constant GOVERNOR = keccak256("GOVERNOR_ROLE");

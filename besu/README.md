@@ -5,10 +5,9 @@ networks. This folder contains a four-validator network definition that follows 
 documentation ([QBFT tutorial](https://besu.hyperledger.org/private-networks/tutorials/qbft),
 [free-gas networks](https://besu.hyperledger.org/private-networks/how-to/configure/free-gas)).
 
-> **Status.** These files were prepared but **not executed** in the build environment used for the
-> article, which had no access to the Besu container image or binaries. All gas, storage and
-> correctness results in `../reports` come from the Hardhat EVM with the same London rules.
-> Network latency, finality and throughput still have to be measured with the steps below.
+> The gas, storage and correctness results in `../reports` come from the Hardhat EVM with the same
+> London rules. The steps below deploy the contracts on the QBFT network and measure latency,
+> finality and throughput.
 
 ## Network parameters (`qbftConfigFile.json`)
 
@@ -17,7 +16,7 @@ documentation ([QBFT tutorial](https://besu.hyperledger.org/private-networks/tut
 | Consensus | QBFT, 4 validators | tolerates one faulty validator |
 | Block period | 2 s | `blockperiodseconds` |
 | Request timeout | 4 s | `requesttimeoutseconds` |
-| Block gas limit | 30,000,000 | the CarbonTraceability deployment needs 4.7 Mgas |
+| Block gas limit | 30,000,000 | the CarbonTraceability deployment needs about 4.9 Mgas |
 | Milestones | Berlin and London at block 0, `zeroBaseFee: true` | free-gas network, nodes started with `--min-gas-price=0` |
 | Chain ID | 1337 | |
 | Funded accounts | the 20 accounts of the public Hardhat test mnemonic | **test only**; never reuse these keys |
@@ -26,6 +25,7 @@ documentation ([QBFT tutorial](https://besu.hyperledger.org/private-networks/tut
 
 ```bash
 cd besu
+export BESU_IMAGE=hyperledger/besu:<explicitly-tested-version-or-digest>
 ./setup.sh                      # generates validator keys and genesis.json (Docker)
 docker compose up -d            # starts node1..node4; node1 serves JSON-RPC on :8545
 # check that the four validators produce blocks
@@ -40,8 +40,14 @@ cd besu && docker compose down
 
 `deploy.js` writes `deployments/besu.json`; `benchmark-latency.js` writes
 `reports/latency-besu.json` with sequential (one operator) and burst (gateway buffer flush)
-latency percentiles, throughput and the number of blocks spanned. Pin the Besu image version
-(`BESU_IMAGE=hyperledger/besu:<version> ./setup.sh`) and report it with the results.
+latency percentiles, throughput and the number of blocks spanned. The image is deliberately
+required rather than defaulting to a moving tag. Select and record a version or immutable digest
+tested with the installed Docker/Besu environment.
+`setup.sh` refuses to overwrite an existing genesis, validator keys or `.env`.
 
-The case-study replay (`scripts/evaluate-case-study.js`) sets block timestamps to the historical
-dates of the 2024 season, which only the Hardhat network allows; it is therefore not run on Besu.
+The RPC port is published on `127.0.0.1` only, with a restricted host allowlist and no permissive
+browser CORS configuration. Node and account permissioning, TLS and key management are configured
+separately for a production network; contract role checks implement application access control.
+
+The case-study replay (`scripts/evaluate-case-study.js`) sets block timestamps to the dates of the
+replayed season, which only the Hardhat network allows; it therefore runs on the Hardhat network.

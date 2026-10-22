@@ -1,0 +1,147 @@
+{
+  "review_date": "2026-10-20",
+  "scope": "Primary-source comparison of the carbon-accounting systems in Table 8 of the article.",
+  "legend": {
+    "I": "Implemented and evidenced by the inspected primary source",
+    "P": "Proposed/designed, without inspected execution evidence",
+    "NR": "Not reported in the inspected source",
+    "A": "Explicitly excluded or absent according to the inspected source"
+  },
+  "sources": [
+    {
+      "key": "SH19",
+      "citation": "Shakhbulatov, D.; Arora, A.; Dong, Z.; Rojas-Cessa, R. Blockchain Implementation for Analysis of Carbon Footprint across Food Supply Chain. 2019 IEEE International Conference on Blockchain (Blockchain), pp.546–551. DOI:10.1109/Blockchain.2019.00079.",
+      "doi": "https://doi.org/10.1109/Blockchain.2019.00079",
+      "primary_fulltext": "https://par.nsf.gov/servlets/purl/10165833",
+      "locators": [
+        "§III.A–D, printedpp548–549; PDFpages3–4",
+        "§IV, printedpp549–550; PDFpages4–5",
+        "§V, printedp551; PDFpage6"
+      ],
+      "quote": "We simulated the data that come from the HD-OBD",
+      "quote_locator": "§IV, PDFpage4",
+      "features": {
+        "carbon_tracking": {
+          "state": "I",
+          "evidence": "Transport-focused carbon-footprint chain."
+        },
+        "ledger": {
+          "state": "I",
+          "evidence": "Custom Python Quart/asyncio private-cluster implementation with Raft-style election and cross-cluster predecessor verification."
+        },
+        "physical_sensor_acquisition": {
+          "state": "P",
+          "evidence": "RaspberryPi/HD-OBD/LTE/GPS acquisition architecture described; evaluation uses simulated HD-OBD inputs."
+        },
+        "execution_scope": {
+          "state": "I",
+          "evidence": "Nodes run on separate localhost ports of one Dell Ubuntu machine; throughput, transaction-time and storage experiments."
+        },
+        "versioned_factors_fu_allocation_certificate_invalidation": {
+          "state": "NR",
+          "evidence": "No corresponding explicit control/evaluation located in the six-page article."
+        },
+        "consumption_waste_recycling": {
+          "state": "A",
+          "evidence": "Explicitly outside present focus in§III.A and deferred."
+        },
+        "corrupted_majority_security_evaluation": {
+          "state": "P",
+          "evidence": "Deferred as future work near the end of§IV."
+        }
+      }
+    },
+    {
+      "key": "RC20",
+      "citation": "Rosado da Cruz, A.; Santos, F.; Mendes, P.; Cruz, E. Blockchain-based Traceability of Carbon Footprint: A Solidity Smart Contract for Ethereum. Proceedings of ICEIS2020,Volume2,pp258–268.SciTePress.DOI:10.5220/0009412602580268.",
+      "doi": "https://doi.org/10.5220/0009412602580268",
+      "publisher_record": "https://www.scitepress.org/Papers/2020/94126/",
+      "publisher_fulltext": "https://www.scitepress.org/PublishedPapers/2020/94126/94126.pdf",
+      "inspected_fulltext_copy": "https://pdfs.semanticscholar.org/95fe/2089267c52453ce14a523c2511371d122b9c.pdf",
+      "locators": [
+        "§3,pp260–262",
+        "§4.1,pp262–265",
+        "§4.2,p265",
+        "§5,pp265–267"
+      ],
+      "quote": "Truffle suite",
+      "quote_locator": "§5,p265",
+      "features": {
+        "carbon_accounting": {
+          "state": "I",
+          "evidence": "Product/month CO2e combines input-product footprints, production activities and allocated organizational fixed costs."
+        },
+        "unit_and_time_metadata": {
+          "state": "I",
+          "evidence": "Product Unit entity, year/month and monthly-activity structures shown in contract domain model and code."
+        },
+        "contract_and_dapp": {
+          "state": "I",
+          "evidence": "Solidity contract, local Truffle development tests, NodeJS/Web3 middleware and React DApp are described with examples/screenshots."
+        },
+        "versioned_factor_manifest_explicit_boundary_and_certificate_revision_lifecycle": {
+          "state": "NR",
+          "evidence": "These specific governed controls were not located."
+        },
+        "field_deployment_network_benchmark": {
+          "state": "NR",
+          "evidence": "Development validation presented; no comparable physical-case or network-performance benchmark located."
+        }
+      }
+    },
+    {
+      "key": "CA22",
+      "citation": "Carrières,V.;Lemieux,A.-A.;Margni,M.;Pellerin,R.;Cariou,S.Measuring the Value of Blockchain Traceability in Supporting LCA for Textile Products.Sustainability2022,14,2109.DOI:10.3390/su14042109.",
+      "doi": "https://doi.org/10.3390/su14042109",
+      "primary_fulltext_copy": "https://d2mulcrgfv1yq5.cloudfront.net/documents/Article-Sustainability.pdf",
+      "institutional_record": "https://publications.polymtl.ca/50300/",
+      "locators": [
+        "§3.1,printedp4 (PDFpage5 including cover)",
+        "Table1,printedp5",
+        "§3.2,printedpp7–8",
+        "§5,printedp13"
+      ],
+      "quote": "CLM did not have access to all of the data needed to establish an LCA",
+      "quote_locator": "§3.2,printedp7",
+      "features": {
+        "industrial_blockchain_traceability": {
+          "state": "I",
+          "evidence": "Operational Crystalchain private Ethereum/PoA traceability at Chargeurs Luxury Materials wool combing factory in China."
+        },
+        "batch_lca": {
+          "state": "I",
+          "evidence": "Static OpenLCA comparison of generic and more specific inventories; FU1kg combed wool top lot at factory gate; ecoinventv3 and ReCiPe2016."
+        },
+        "method_disclosure": {
+          "state": "I",
+          "evidence": "FU, cradle-to-gate boundary, source table and generic/specific-data methodology explicitly documented offchain."
+        },
+        "fully_primary_upstream_inventory": {
+          "state": "A",
+          "evidence": "§3.1 explicitly reports unavailable specific supplier-farm inventories; literature farm archetypes used."
+        },
+        "all_lca_inputs_on_blockchain": {
+          "state": "A",
+          "evidence": "§3.2 explicitly reports emailed client data; energy and chemicals not available on the platform."
+        },
+        "contract_enforced_factor_version_and_certificate_revision_lifecycle": {
+          "state": "NR",
+          "evidence": "No corresponding contract implementation or revision-lifecycle test located."
+        }
+      }
+    }
+  ],
+  "signed_central_counterfactual": {
+    "common_assumptions": [
+      "Same authenticated actors and signatures",
+      "Same units, sources, factor manifests and calculation engine",
+      "Same authorization and correction semantics",
+      "Same offchain evidence and retention policy",
+      "Same adversary powers; explicit key compromise and operator collusion assumptions"
+    ],
+    "central_log": "Single ordering/administration authority; signatures and hash chaining detect content alteration when verifiers retain authentic receipts/checkpoints. Independently witnessed checkpoints can reveal equivocation; they do not prevent withholding or replicate state-machine governance.",
+    "permissioned_ledger": "Potential shared ordering and execution with independently operated validators and a stated consensus fault threshold. Admission, key management, storage and source-data correctness still need governance.",
+    "single_governor": "A single controller of all validators, administrative keys and storage reintroduces central trust. Neither design verifies physical inputs or the adequacy of emission factors.",
+    "evidence_class": "Analytical threat-model comparison based on NISTIR 8202, sections 3.5 and 7.1–7.8 (Table 9 of the article)."
+  }
+}

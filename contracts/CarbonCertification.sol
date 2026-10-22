@@ -12,7 +12,7 @@ import {ICarbonTraceability} from "./interfaces/ICarbonTraceability.sol";
 /// @dev The carbon calculation is performed off-chain by an authorised LCA service. This contract
 ///      checks mandatory method metadata (R6), the factor-set version (R5), evidence retention (R9),
 ///      separation of duties and the revision state of the underlying event chain (R7) before a
-///      result is recorded or approved (Section 2.8 and Table 4 of the article).
+///      result is recorded or approved (Section 2.5 and Table 3 of the article).
 contract CarbonCertification {
     enum ResultStatus {
         None,
@@ -28,6 +28,9 @@ contract CarbonCertification {
         FactorSetRetired
     }
 
+    /// A separate disclosure axis. None of these states asserts physical or scientific validation.
+    enum MethodologicalStatus { Unassessed, AggregateLimited, NeedsRecalculation }
+
     /// LCA result package submitted by the off-chain LCA service.
     struct ResultInput {
         bytes32 boundaryCode;
@@ -37,8 +40,14 @@ contract CarbonCertification {
         bytes32 engineVersion;
         bytes32 reportHash;
         bytes32 evidenceManifest;
+        bytes32 expectedRevisionDigest;
+        uint64 snapshotBlockNumber;
+        bytes32 snapshotBlockHash;
         uint64[3] phaseMg; // mg CO2eq per functional unit: cultivation and harvesting, transport, mill
         uint64 totalMg;
+        MethodologicalStatus methodologicalStatus;
+        uint32 limitationFlags;
+        bytes32 assessmentHash; // canonical off-chain methodological assessment, included in report
     }
 
     struct Result {
@@ -65,6 +74,10 @@ contract CarbonCertification {
         uint64 approvedAt;
         address approver;
         bool evidenceCheckFailed;
+        MethodologicalStatus methodologicalStatus;
+        uint32 limitationFlags;
+        bytes32 assessmentHash;
+        bytes32 methodologicalCommitment; // binds public metadata to the report and assessment
     }
 
     IConsortium public immutable consortium;
@@ -98,6 +111,9 @@ contract CarbonCertification {
     error InvalidStatus();
     error SeparationOfDuties();
     error StaleResult(bytes32 batchId, uint32 version);
+    error RevisionMismatch(bytes32 expected, bytes32 actual);
+    error InvalidSnapshot(uint64 blockNumber, bytes32 blockHash);
+    error MethodologicalPolicyViolation();
 
     constructor(IConsortium consortium_, IFactorRegistry factorRegistry_, IEvidenceRegistry evidenceRegistry_, ICarbonTraceability traceability_) {
         consortium = consortium_;
@@ -154,8 +170,18 @@ contract CarbonCertification {
         uint64 sum = r.phaseMg[0] + r.phaseMg[1] + r.phaseMg[2];
         if (sum != r.totalMg || r.totalMg == 0) revert InconsistentTotal(sum, r.totalMg);
         if (!factorRegistry.isUsable(r.factorSetId, uint64(block.timestamp))) revert FactorSetNotUsable(r.factorSetId);
+        IFactorRegistry.MethodPolicy memory policy = factorRegistry.methodologicalPolicy(r.factorSetId);
+        if (uint8(r.methodologicalStatus) < policy.minimumStatus || r.limitationFlags == 0 ||
+            (r.limitationFlags & policy.requiredLimitations) != policy.requiredLimitations || r.assessmentHash == bytes32(0)) {
+            revert MethodologicalPolicyViolation();
+        }
         if (!evidenceRegistry.isRetained(r.evidenceManifest, uint64(block.timestamp) + minRetentionSeconds, minEvidenceReplicas)) {
             revert EvidenceNotRetained(r.evidenceManifest);
+        }
+        if (r.expectedRevisionDigest != digest) revert RevisionMismatch(r.expectedRevisionDigest, digest);
+        // blockhash is available for the preceding 256 blocks. Recompute older packages.
+        if (r.snapshotBlockNumber >= block.number || r.snapshotBlockHash == bytes32(0) || blockhash(r.snapshotBlockNumber) != r.snapshotBlockHash) {
+            revert InvalidSnapshot(r.snapshotBlockNumber, r.snapshotBlockHash);
         }
         version = ++_resultCount[batchId];
         if (version > 1 && _results[batchId][version - 1].status == ResultStatus.Submitted) {
@@ -180,6 +206,9 @@ contract CarbonCertification {
         if (res.revisionDigest != digest) revert StaleResult(batchId, version);
         if (!farmVerified) revert PhaseNotVerified(batchId);
         if (!factorRegistry.isUsable(res.data.factorSetId, uint64(block.timestamp))) revert FactorSetNotUsable(res.data.factorSetId);
+        if (!evidenceRegistry.isRetained(res.data.evidenceManifest, uint64(block.timestamp) + minRetentionSeconds, minEvidenceReplicas)) {
+            revert EvidenceNotRetained(res.data.evidenceManifest);
+        }
         uint32 previous = _certifiedVersion[batchId];
         if (previous != 0) _results[batchId][previous].status = ResultStatus.Superseded;
         res.status = ResultStatus.Approved;
@@ -221,6 +250,10 @@ contract CarbonCertification {
         cert.approvedAt = res.approvedAt;
         cert.approver = res.approver;
         cert.evidenceCheckFailed = evidenceRegistry.lastCheckFailed(res.data.evidenceManifest);
+        cert.methodologicalStatus = res.data.methodologicalStatus;
+        cert.limitationFlags = res.data.limitationFlags;
+        cert.assessmentHash = res.data.assessmentHash;
+        cert.methodologicalCommitment = keccak256(abi.encode(cert.reportHash, cert.methodologicalStatus, cert.limitationFlags, cert.assessmentHash));
     }
 
     // ------------------------------------------------------------------

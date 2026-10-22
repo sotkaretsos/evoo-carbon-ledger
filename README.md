@@ -1,160 +1,78 @@
-# EVOO Carbon Ledger
+# EVOO Carbon Ledger 1.2.0
 
-Prototype smart contracts, off-chain LCA engine and evaluation for the article
-*An IoT-Enabled Blockchain Architecture for Auditable Carbon Footprint Traceability in Extra
-Virgin Olive Oil* by Sotirios Karetsos, Konstantinos Demestichas and Constantina Costopoulou
-(Informatics Laboratory, Agricultural University of Athens). The same code is provided as Supplementary File S1 of the article.
-
-The prototype implements the event model and smart-contract controls of the article for a
-permissioned Ethereum-compatible ledger (Hyperledger Besu with QBFT consensus), and replays the
-Western Achaia case study through them.
-
-## Live demo
-
-**https://sotkaretsos.github.io/evoo-carbon-ledger/**
-
-The compiled contracts run in the browser on an in-memory EVM (EthereumJS, London rules, zero gas
-price). The page replays the case study step by step, shows the public certificate as it changes,
-and lets visitors try eleven rule-breaking attempts (wrong functional unit, forged meter
-signature, duplicate envelope, out-of-range quantity, short delivery, self-approved factor set,
-retired factor set, edits to a closed season, tampered evidence, unarchived evidence, non-member
-writes), each on a snapshot that is rolled back afterwards. The in-browser replay reproduces the
-transaction count and gas of the Hardhat replay exactly: 92 transactions and 16,608,339 gas for
-the season, 9,682,513 gas for deployment. Source: `demo/`; built site: `docs/`.
+Supplementary File S1 of *An IoT-Enabled Blockchain Architecture for Auditable Carbon Footprint Traceability in Extra Virgin Olive Oil* (*Blockchains*). The release contains the smart contracts, the off-chain calculation service, the tests, the case-study replay and its reports, the controlled experiment with its checker and the browser demonstration. The SHA-256 checksums of all files are listed in `SHA256SUMS`; the release is tagged `v1.2.0` in the repository.
 
 ## Contents
 
-| Path | Content |
+| Folder | Content |
 |---|---|
-| `contracts/` | Solidity 0.8.28 contracts (London EVM rules) |
-| `offchain/lca-engine.js` | Reference off-chain LCA calculation service |
-| `offchain/factor-sets/` | Factor-set documents FS-2025-CONF (basis of the source calculation) and FS-2026-01 (documented factors of the article) |
-| `offchain/case-study/western-achaia.json` | Replay plan built from Tables 1–2 of the article and the source thesis |
-| `lib/` | Encoding helpers, consortium catalogue, deployment, replay and gas/storage recorder |
-| `test/` | 77 tests: requirement-mapped (R1–R9), edge cases and case-study replay |
-| `scripts/` | Evaluation, scaling, deployment and network benchmark scripts |
-| `reports/` | Generated results: gas report, scaling, replay results, LCA reports, test and coverage output |
-| `besu/` | Four-validator QBFT network definition (not executed by the authors; see `besu/README.md`) |
-| `docs/requirements-mapping.md` | Requirement-by-requirement mapping to functions, tests and residual risks |
-| `demo/` | Source of the live demo: in-browser chain (`src/local-chain.js`), browser replay and rule-breaking attempts (`src/scenario.js`), page logic, build script |
-| `docs/` | GitHub Pages site: the built live demo (`index.html`, `assets/`) |
+| `contracts/` | Consortium, FactorRegistry, EvidenceRegistry, CarbonTraceability and CarbonCertification contracts and the EnvelopeValidation library (Solidity 0.8.28) |
+| `offchain/` | Calculation service (`lca-engine.js`), methodological assessment, case inventory and factor set FS-2026-RECON-01 |
+| `lib/`, `scripts/` | Deployment, replay, evaluation, scaling, input validation and mutation check |
+| `test/` | Requirement, edge-case, regression, methodological-status and case-study tests |
+| `reports/` | Test, coverage, mutation, gas, replay and calculation reports |
+| `experiments/controlled-audit/` | Controlled experiment: synthetic evidence, ledger run and Python checker |
+| `demo/`, `docs/` | Browser demonstration (source and built site) and documentation |
+| `besu/` | Four-validator Hyperledger Besu QBFT network configuration |
 
-## Architecture
+## Case study
 
-| Contract | Responsibility | Requirements |
-|---|---|---|
-| `Consortium` | Members (pseudonymous actor IDs, organisations, roles), devices (signing key, accuracy class, calibration), governed variables (unit, phase, admissible range, meter requirement, mandatory closure fields) | R1, R2, R3 |
-| `FactorRegistry` | Versioned emission-factor sets: content hash, GWP basis, validity window; proposal and approval by two different methodological-authority accounts; retirement | R5 |
-| `EvidenceRegistry` | Evidence packages: persistent-identifier hash, repository, retention period, replicas, auditor retrieval checks | R8, R9 |
-| `CarbonTraceability` | Farm events per orchard and crop year, harvest lots, dual-signature custody transfer, transport events, mill batches with mass balance and mixing rule, append-only corrections | R1–R4, R7, R8 |
-| `CarbonCertification` | LCA result packages, method-field checks, certifier approval, public certificate | R5–R9 |
-| `EnvelopeValidation` (library) | Envelope checks against the variable definition; device and calibration checks; EIP-191 signature verification | R1–R3 |
+The replay enters the farm and mill records of a 4.8 ha Koroneiki orchard in Western Achaia, Greece (means of the 2022–2024 seasons: 45,000 kg of olives and 8894 L of oil), as one season with ten harvest lots of 4500 kg and one mill batch. Mill electricity (5000 kWh) and oil output are signed readings of calibrated mill meters; the farm and other mill records are operator entries with document references. Dates, document identifiers and device keys were generated for the replay.
 
-Every event carries the common envelope of Section 2.8: activity (business step), governed
-variable (with its unit), quantity, observation time, source class, declared uncertainty, device or
-document identifier, evidence hash, location hash, method code, actor and schema version. Fields
-that later rules depend on are kept in contract storage; the whole envelope is emitted in the
-`ActivityRecorded` log. Raw observations and documents stay off-chain.
+Factor set FS-2026-RECON-01 contains the diesel, petrol and grid-electricity factors and the fertilization and plant-protection group intensities of the reference assessment. The unallocated result is 3400.5 kg CO2eq/ha, or 1.835 kg CO2eq/L (reported as 1.84); economic and wet-mass allocation give 1.78 and 0.36 kg CO2eq/L.
 
-The LCA calculation itself is off-chain (`offchain/lca-engine.js`): it reads the effective event
-chain of a batch from the ledger, applies a registered factor set, and produces the result package,
-the calculation report and the evidence manifest whose hashes are submitted on-chain.
+## Certificate status
 
-## Case-study replay
+The certificate records the procedural status (`Valid`, `Outdated`, `FactorSetRetired`) separately from the methodological status:
 
-`lib/replay.js` records the Western Achaia season (three-year average inventory replayed as crop
-year 2024; ten illustrative harvest lots of 4500 kg) in three acts:
+| Methodological status | Meaning |
+|---|---|
+| `Unassessed` | The methodology of the result has not been assessed. |
+| `AggregateLimited` | The inputs of every farm scope match the reference input pattern of each group intensity or scale it proportionally (applicability domain). |
+| `NeedsRecalculation` | An input quantity or material code differs from the reference pattern; a process-level recalculation is required. |
 
-1. **Season 2024** – 25 farm events, 10 custody transfers with transport fuel and signed weighbridge
-   readings, one mill batch with signed electricity and oil-scale readings and mill estimates.
-2. **Source calculation** – factor set FS-2025-CONF reconstructs the basis of the original
-   calculation of the case study (all portable equipment as diesel, implied grid factor of about
-   0.60 kg CO2eq/kWh). The per-liter result package is rejected
-   (`FunctionalUnitMismatch`: oil output was weighed in kg); the per-kg package is certified.
-3. **Revisions of the article** – the chainsaw and olive-beater fuel records are reclassified from diesel to
-   petrol by two audited corrections (the certificate becomes `Outdated`), FS-2026-01 replaces
-   FS-2025-CONF, and the recalculated result is certified.
+The case result is `AggregateLimited` with limitation flags 73. See [methodological status](docs/methodological-assurance.md).
 
-| Result package | kg CO2eq/kg EVOO | kg CO2eq/ha | Article |
-|---|---|---|---|
-| v1, FS-2025-CONF | 1.993 | 3693.1 | source calculation: 1.993 |
-| v2, FS-2026-01 | 1.835 | 3400.5 | Table 5: 1.84 (1.835) and 3400.5 |
-| v2, economic / wet-mass allocation (off-chain variants) | 1.78 / 0.38 | – | Table 7: 1.78 / 0.38 |
+## Results
 
-All six activity-group results of Table 5 are reproduced to within 0.05 kg CO2eq/ha.
+| Evaluation | Result |
+|---|---|
+| Tests | 107 passing |
+| Solidity coverage | statements, functions and lines 100%; branches 83.61% |
+| Safeguard removals (mutation check) | 10/10 detected |
+| Case replay | 80 transactions, 15,015,970 gas, 40 events |
+| Replay footprint | 28,224 B calldata, 32,512 B logs, 430 new 32-byte storage slots |
+| Deployment | 10,327,115 gas; largest contract 22,157 bytes (90.2% of the EIP-170 limit) |
+| Batch scaling (1–64 lots) | createBatch +56,539 gas per lot; submitResult and approveResult +7494 gas per lot |
+| Controlled experiment | 54/54 reconstruction checks, 112/112 commitment checks, 6/6 predeclared cases, 8/8 checker tests |
+| Browser replay (Node) | 11/11 rule checks; gas totals within the 512-gas tolerance of the Hardhat replay |
 
-## Measurements (Hardhat EVM, London rules)
+## Reproduce
 
-Full tables: `reports/gas-report.md`, `reports/scaling.json`, `reports/transactions.csv`.
+Node.js 22 or later; Python 3.10 or later for the checker.
 
-| Operation | Gas (mean) | New storage slots |
-|---|---|---|
-| Farm event, operator entry | 202,998 | 6 |
-| Mill event, signed meter reading | 238,934–244,177 | 7 |
-| Custody transfer (declaration + signed receipt) | 216,625 + 106,077 | 7 + 1 |
-| Batch of 10 lots | 772,440 | 28 |
-| Result submission / approval | 458,017 / 157,936 | 13.5 / 0.5 |
-| Correction (proposal + authorization) | 297,348 + 65,930 | 10 + 0 |
-| Deployment (five contracts and the library) | 9,682,513 | – |
-
-The operational record of the whole season (92 transactions, from orchard registration to the
-second certified result) used 16.6 Mgas, 14.9 kB of new contract storage, 28.9 kB of calldata and
-34.6 kB of logs. Batch creation, result submission and approval grow approximately linearly with
-the number of lots (56,770 gas per lot at batch creation; 7,494 gas per lot at submission and
-approval), while batch closure does not depend on it. Network latency, finality and throughput on a multi-node QBFT network were **not**
-measured; `scripts/benchmark-latency.js` measures them on such a network.
-
-Tests: 77 passing; coverage 100% of statements, functions and lines and 82.3% of branches
-(`reports/coverage-summary.txt`). Mutation check: removing any one of four safeguards (separation
-of duties at approval, functional-unit check, envelope idempotency, verification reset) makes at
-least one test fail (`reports/mutation-check.txt`).
-
-## Usage
-
-Requires Node.js 18 or later (tested with Node 22.22, npm 10.9).
-
-```bash
+```text
 npm ci
-npm run compile          # solc 0.8.28 (solc-js), London, viaIR, optimizer 200 runs
-npm test                 # 77 tests
+npm test
 npm run coverage
-npm run evaluate         # scaling + case-study replay -> reports/
-node scripts/mutation-check.js   # removes four safeguards one at a time
-npm run deploy:besu      # see besu/README.md
-npm run bench:besu
+npm run compile -- --force
+npm run evaluate
+npm run validate:inputs
+node scripts/mutation-check.js
 ```
 
-The compiler is taken from the `solc` npm package (solc-js), so compilation does not download
-binaries.
+Coverage instruments the contracts; compile again with `--force` before measuring bytecode or generating reports. The mutation check restores the sources and recompiles. The controlled experiment is run as described in [its documentation](docs/controlled-audit-experiment.md). For the demonstration, run `npm ci`, `npm run build` and `npm run test:node` in `demo/`; the built site is in `docs/`.
 
-Live demo (after `npm run compile` in the repository root):
+## Documentation
 
-```bash
-cd demo
-npm ci
-npm run test:node        # replay + rule-breaking attempts in Node; compares gas with reports/
-npm run build            # writes docs/assets/demo.js
-python3 -m http.server --directory ../docs 8000   # then open http://localhost:8000
-```
-
-## Design limits
-
-- Ledger logic attributes and constrains data but cannot prove that a physical measurement is
-  true (oracle problem); device keys in the replay are test keys standing in for edge gateways.
-- The off-chain LCA engine is trusted to compute correctly; the ledger fixes its inputs, factor
-  set, report hash and approval, so that an auditor can recompute the result.
-- Consortium members can read on-chain quantities; private transactions (e.g. Besu privacy
-  groups) are not used. The governor is a single account in the prototype and should be a
-  multi-signature or on-chain governance contract in a deployment.
-- Contracts are not upgradeable; a new version would be deployed alongside the old one.
-- The replay uses three-year average quantities split into illustrative events and lots; it
-  demonstrates the mechanisms, not lot-specific claims.
-
-## Versions
-
-Solidity 0.8.28 (solc-js), Hardhat 2.29.1, hardhat-toolbox 5.0.0, ethers 6.17.0,
-OpenZeppelin Contracts 5.6.1 (AccessControl, ECDSA).
+- [Methodological status and applicability domain](docs/methodological-assurance.md)
+- [Requirement mapping R1–R9](docs/requirements-mapping.md)
+- [Requirement sources and policy parameters](docs/requirements-provenance.md)
+- [Controlled experiment](docs/controlled-audit-experiment.md)
+- [Comparison with a signed central log](docs/governance-comparison.md)
+- [Related carbon-accounting systems](docs/related-work-evidence.json)
+- [Besu QBFT network](besu/README.md)
 
 ## License
 
-MIT. See `LICENSE`.
+Project code is [MIT licensed](LICENSE). Bundled dependencies retain their own licenses; see [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES) and, for the demonstration, [docs/THIRD_PARTY_NOTICES.txt](docs/THIRD_PARTY_NOTICES.txt).

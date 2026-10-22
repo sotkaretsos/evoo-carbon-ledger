@@ -1,6 +1,6 @@
 // Browser version of lib/replay.js: the Western Achaia case study replayed through the compiled
-// contracts on the in-browser chain, act by act, plus a set of rule-breaking attempts that are
-// executed on a snapshot and rolled back. The replay logic, catalogue, encodings and the off-chain
+// contracts on the in-browser chain in two acts (the 2024 season; calculation and certification),
+// plus a set of rule-breaking attempts that are executed on a snapshot and rolled back. The replay logic, catalogue, encodings and the off-chain
 // LCA engine are the same modules as in the repository's tests.
 
 import { ethers } from "ethers";
@@ -9,13 +9,13 @@ import catalogue from "../../lib/catalogue.js";
 import deployLib from "../../lib/deploy.js";
 import recorderLib from "../../lib/recorder.js";
 import lcaEngine from "../../offchain/lca-engine.js";
+import methodology from "../../offchain/methodological-assessment.js";
 import plan from "../../offchain/case-study/western-achaia.json";
-import FS25 from "../../offchain/factor-sets/FS-2025-CONF.json";
-import FS26 from "../../offchain/factor-sets/FS-2026-01.json";
+import FS from "../../offchain/factor-sets/FS-2026-RECON-01.json";
 import ARTIFACTS from "../build/contracts.json";
 import { LocalChain } from "./local-chain.js";
 
-const { b32, id, ts, eventInput, SourceClass, signObservation, signReceipt, farmScopeId, CertificateStatusName, str32, unitStr, deviceWallet } = encoding;
+const { b32, id, ts, eventInput, SourceClass, signObservation, signReceipt, farmScopeId, CertificateStatusName, MethodologicalStatusName, str32, unitStr, deviceWallet } = encoding;
 const { deviceId } = catalogue;
 const { configureConsortium } = deployLib;
 const { Recorder } = recorderLib;
@@ -131,7 +131,7 @@ export class CaseStudyDemo {
     this.contracts = { envelopeLib, consortium, factorRegistry, evidenceRegistry, traceability, certification };
     for (const a of catalogue.ACTORS) this.actorByAddress.set(this.signers[a.index].address.toLowerCase(), a.key);
     this.actorByAddress.set(this.signers[0].address.toLowerCase(), "governor");
-    const { actors, devices } = await configureConsortium(this.contracts, this.signers, this.rec);
+    const { actors, devices } = await configureConsortium(this.contracts, this.signers, this.rec, {});
     this.actors = actors;
     this.devices = devices;
     this.chainId = (await this.provider.getNetwork()).chainId;
@@ -140,8 +140,7 @@ export class CaseStudyDemo {
       orchardId: b32("ORCHARD/WESTERN-ACHAIA-01"),
       cropYear: plan.orchard.cropYear,
       batchId: b32("BATCH/WA-01/2024"),
-      fsId25: b32(FS25.id),
-      fsId26: b32(FS26.id),
+      fsId: b32(FS.id),
       lotIds: [],
     };
     this.ids.scopeId = farmScopeId(this.ids.orchardId, this.ids.cropYear);
@@ -166,6 +165,10 @@ export class CaseStudyDemo {
       approvedAt: Number(c.approvedAt),
       approver: c.approver,
       evidenceCheckFailed: c.evidenceCheckFailed,
+      methodologicalStatus: c.version ? MethodologicalStatusName[Number(c.methodologicalStatus)] : null,
+      limitationFlags: Number(c.limitationFlags),
+      assessmentHash: c.assessmentHash,
+      methodologicalCommitment: c.methodologicalCommitment,
     };
     this.certificateTimeline.push(entry);
     this.emit("onCertificate", entry);
@@ -205,13 +208,13 @@ export class CaseStudyDemo {
           evidenceHash: id(`EVIDENCE/${fe.doc}/${fe.date}/${fe.variable}`),
           locationHash: this.farmLocation,
           methodCode: METHOD[fe.source],
+        materialCode: fe.materialCode,
         });
         const receipt = await rec.send("CarbonTraceability.recordFarmEvent", "act1", ct.connect(actors.grower).recordFarmEvent(orchardId, cropYear, e, "0x"), {
           detail: `${fe.activity} · ${fe.variable} ${fe.quantity}`,
         });
         const parsed = receipt.logs.map((l) => ct.interface.parseLog(l)).find((l) => l && l.name === "ActivityRecorded");
         fe._index = Number(parsed.args.index);
-        fe._input = e;
       } else if (item.kind === "harvest") {
         const lotId = b32(`LOT/WA-01/2024/${String(item.i + 1).padStart(2, "0")}`);
         lotIds.push(lotId);
@@ -272,7 +275,7 @@ export class CaseStudyDemo {
         });
         const sig = me.device ? await signObservation(devices[me.device], this.chainId, this.ledger, batchId, e) : "0x";
         await rec.send("CarbonTraceability.recordMillEvent", "act1", ct.connect(actors.mill).recordMillEvent(batchId, e, sig), {
-          detail: `${me.variable} ${me.quantity}${me.device ? " · signed by " + me.device : " · mill estimate"}`,
+          detail: `${me.variable} ${me.quantity}${me.device ? " · signed by " + me.device : " · mill record"}`,
         });
       } else if (item.kind === "closeBatch") {
         await this.at(item.date);
@@ -290,119 +293,54 @@ export class CaseStudyDemo {
     this.state.act = 1;
   }
 
-  // ------------------------------------------------------------------ Act 2: source calculation
+  // ------------------------------------------------------------------ Act 2: calculation and certification
 
   async act2() {
     const { traceability: ct, certification: cc, factorRegistry: fr, evidenceRegistry: er } = this.contracts;
     const { actors, rec } = this;
-    const { batchId, fsId25 } = this.ids;
-    await this.at("2025-03-01T09:00:00Z");
+    const { batchId, fsId } = this.ids;
+    await this.at(plan.act2.factorSetProposed);
     await rec.send(
       "FactorRegistry.propose",
       "act2",
-      fr.connect(actors.methodAuthorityA).propose(fsId25, FS25.version, factorSetContentHash(FS25), b32("GWP100-PRESUMED"), ts(FS25.validFrom), ts(FS25.validTo), ethers.ZeroHash),
-      { detail: "FS-2025-CONF proposed" }
+      fr.connect(actors.methodAuthorityA).propose(fsId, FS.version, factorSetContentHash(FS), b32("GWP100"), ts(FS.validFrom), ts(FS.validTo), ethers.ZeroHash, FS.methodologicalPolicy),
+      { detail: `${FS.id} proposed` }
     );
-    await this.at("2025-03-02T09:00:00Z");
-    await rec.send("FactorRegistry.approve", "act2", fr.connect(actors.methodAuthorityB).approve(fsId25), { detail: "FS-2025-CONF approved by a second authority" });
+    await this.at(plan.act2.factorSetApproved);
+    await rec.send("FactorRegistry.approve", "act2", fr.connect(actors.methodAuthorityB).approve(fsId), { detail: `${FS.id} approved by a second authority` });
 
-    await this.at(plan.act2.date);
-    const v1 = await computeBatchResult(ct, batchId, FS25, { functionalUnit: "EVOO_1KG_MILL_GATE" });
-    const v1Litre = await computeBatchResult(ct, batchId, FS25, { functionalUnit: "EVOO_1L_MILL_GATE" });
+    await this.at(plan.act2.resultSubmitted);
+    const v1 = await computeBatchResult(ct, batchId, FS, { functionalUnit: "EVOO_1L_MILL_GATE" });
+    const v1Kg = { resultInput: { ...v1.resultInput, functionalUnit: b32("EVOO_1KG_MILL_GATE") } };
     const retention = this.latest() + 10 * 365 * 86400;
     await rec.send("EvidenceRegistry.register", "act2", er.connect(actors.lcaService).register(v1.manifestHash, id("hdl:21.T11148/evoo-wa01-2024-v1"), b32("REPO/CONSORTIUM-ARCHIVE"), retention, 3), {
-      detail: "evidence manifest v1 · 3 replicas",
-    });
-    await rec.send("EvidenceRegistry.register", "act2", er.connect(actors.lcaService).register(v1Litre.manifestHash, id("hdl:21.T11148/evoo-wa01-2024-v1L"), b32("REPO/CONSORTIUM-ARCHIVE"), retention, 3), {
       detail: "evidence manifest v1 (per liter) · 3 replicas",
     });
-    const rejection = await this.attempt(() => cc.connect(actors.lcaService).submitResult.staticCall(batchId, v1Litre.resultInput));
+    const rejection = await this.attempt(() => cc.connect(actors.lcaService).submitResult.staticCall(batchId, v1Kg.resultInput));
     this.emit("onReject", {
       label: "CarbonCertification.submitResult",
       act: "act2",
       actor: "lcaService",
       timestamp: this.latest(),
-      detail: "result package declaring 1 L EVOO as functional unit",
+      detail: "result package declaring 1 kg EVOO as functional unit",
       ...rejection,
     });
     await rec.send("CarbonCertification.submitResult", "act2", cc.connect(actors.lcaService).submitResult(batchId, v1.resultInput), {
-      detail: `v1 · ${v1.report.total.perKgOil.toFixed(3)} kg CO2eq per kg EVOO`,
+      detail: `v1 · ${v1.report.total.perFU.toFixed(3)} kg CO2eq per L EVOO`,
     });
     await this.snapshotCertificate("v1 submitted, awaiting approval");
     await this.at(plan.act2.approval);
     await rec.send("CarbonCertification.approveResult", "act2", cc.connect(actors.certifier).approveResult(batchId, 1), { detail: "v1 approved" });
     await this.snapshotCertificate("v1 approved");
+    const publicCertificate = await cc.getCertificate(batchId);
+    if (!methodology.verifyMethodologicalDisclosure(v1.report, publicCertificate)) throw new Error("Public methodological disclosure does not match the hash-bound report");
     this.results.v1 = v1;
-    this.results.v1Litre = v1Litre;
-    this.results.literRejection = rejection;
-    this.state.act = 2;
-  }
-
-  // ------------------------------------------------------------------ Act 3: revisions of the article
-
-  async act3() {
-    const { traceability: ct, certification: cc, factorRegistry: fr, evidenceRegistry: er } = this.contracts;
-    const { actors, rec } = this;
-    const { orchardId, cropYear, batchId, fsId25, fsId26 } = this.ids;
-    await this.at(plan.act3.factorSetProposed);
-    await rec.send(
-      "FactorRegistry.propose",
-      "act3",
-      fr.connect(actors.methodAuthorityA).propose(fsId26, FS26.version, factorSetContentHash(FS26), b32("GWP100-PRESUMED"), ts(FS26.validFrom), ts(FS26.validTo), fsId25),
-      { detail: "FS-2026-01 proposed (supersedes FS-2025-CONF)" }
-    );
-    await this.at(plan.act3.factorSetApproved);
-    await rec.send("FactorRegistry.approve", "act3", fr.connect(actors.methodAuthorityB).approve(fsId26), { detail: "FS-2026-01 approved by a second authority" });
-
-    await this.at(plan.act3.correctionsProposed);
-    const correctionIds = [];
-    for (const fe of this.farmEvents.filter((x) => x.correction)) {
-      const replacement = { ...fe._input, variable: b32(fe.correction.variable), evidenceHash: id(`EVIDENCE/${fe.correction.doc}/${fe.activity}`) };
-      const receipt = await rec.send("CarbonTraceability.proposeCorrection", "act3", ct.connect(actors.grower).proposeCorrection(fe._index, replacement, "0x", id(fe.correction.reason)), {
-        detail: `event #${fe._index} ${fe.activity}: ${fe.variable} → ${fe.correction.variable}`,
-      });
-      const parsed = receipt.logs.map((l) => ct.interface.parseLog(l)).find((l) => l && l.name === "CorrectionProposed");
-      correctionIds.push(Number(parsed.args.correctionId));
-    }
-    await this.snapshotCertificate("corrections proposed, pending authorization");
-    await this.at(plan.act3.correctionsAuthorized);
-    for (const cid of correctionIds) {
-      await rec.send("CarbonTraceability.authorizeCorrection", "act3", ct.connect(actors.auditor).authorizeCorrection(cid), { detail: `correction ${cid} authorized` });
-    }
-    await this.snapshotCertificate("corrections authorized");
-    try {
-      await computeBatchResult(ct, batchId, FS25);
-      this.results.fs25OnCorrectedChain = null;
-    } catch (err) {
-      this.results.fs25OnCorrectedChain = err.message;
-      this.emit("onNote", { act: "act3", timestamp: this.latest(), text: `Off-chain LCA service: FS-2025-CONF cannot evaluate the corrected chain (${err.message}).` });
-    }
-    await this.at(plan.act3.oldFactorSetRetired);
-    await rec.send("FactorRegistry.retire", "act3", fr.connect(actors.methodAuthorityA).retire(fsId25, id("Undocumented grid factor; petrol equipment classified as diesel")), {
-      detail: "FS-2025-CONF retired",
-    });
-    await this.snapshotCertificate("FS-2025-CONF retired");
-    await this.at(plan.act3.reverification);
-    await rec.send("CarbonTraceability.verifyFarmPhase", "act3", ct.connect(actors.certifier).verifyFarmPhase(orchardId, cropYear, id("VERIFICATION-REPORT/2026-06")), {
-      detail: "corrected farm records re-verified",
-    });
-    await this.at(plan.act3.resultSubmitted);
-    const v2 = await computeBatchResult(ct, batchId, FS26, { functionalUnit: "EVOO_1KG_MILL_GATE" });
-    const retention2 = this.latest() + 10 * 365 * 86400;
-    await rec.send("EvidenceRegistry.register", "act3", er.connect(actors.lcaService).register(v2.manifestHash, id("hdl:21.T11148/evoo-wa01-2024-v2"), b32("REPO/CONSORTIUM-ARCHIVE"), retention2, 3), {
-      detail: "evidence manifest v2 · 3 replicas",
-    });
-    await rec.send("CarbonCertification.submitResult", "act3", cc.connect(actors.lcaService).submitResult(batchId, v2.resultInput), {
-      detail: `v2 · ${v2.report.total.perKgOil.toFixed(3)} kg CO2eq per kg EVOO`,
-    });
-    await this.at(plan.act3.approval);
-    await rec.send("CarbonCertification.approveResult", "act3", cc.connect(actors.certifier).approveResult(batchId, 2), { detail: "v2 approved" });
-    await this.snapshotCertificate("v2 approved");
-    this.results.v2 = v2;
-    this.results.economic = await computeBatchResult(ct, batchId, FS26, { allocationRule: "ECONOMIC", prices: { oil: 4.0, pomace: 0.03 } });
-    this.results.wetMass = await computeBatchResult(ct, batchId, FS26, { allocationRule: "WET_MASS" });
+    this.results.v1Kg = v1Kg;
+    this.results.kgRejection = rejection;
+    this.results.economic = await computeBatchResult(ct, batchId, FS, { allocationRule: "ECONOMIC", prices: { oil: 4.0, pomace: 0.03 } });
+    this.results.wetMass = await computeBatchResult(ct, batchId, FS, { allocationRule: "WET_MASS", oilDensityKgPerL: 0.916 });
     this.results.eventCount = Number(await ct.eventCount());
-    this.state.act = 3;
+    this.state.act = 2;
   }
 
   // ------------------------------------------------------------------ rejected transactions
@@ -465,7 +403,6 @@ export class CaseStudyDemo {
 
   /** Rule-breaking attempts shown in the "Try to break the rules" panel. */
   attacks() {
-    const self = this;
     const ct = () => this.contracts.traceability;
     const cc = () => this.contracts.certification;
     const fr = () => this.contracts.factorRegistry;
@@ -552,28 +489,33 @@ export class CaseStudyDemo {
             const fsId = b32("FS-DEMO");
             const a = this.actors.methodAuthorityA;
             const now = this.latest();
-            await (await fr().connect(a).propose(fsId, 1, id("FS-DEMO content"), b32("GWP100"), now, now + 365 * 86400, ethers.ZeroHash)).wait();
+            await (await fr().connect(a).propose(fsId, 1, id("FS-DEMO content"), b32("GWP100"), now, now + 365 * 86400, ethers.ZeroHash, [0, 0])).wait();
             return this.attempt(() => fr().connect(a).approve.staticCall(fsId));
           }),
       },
       {
         key: "retired",
         requirement: "R5",
-        title: "Re-submit with the retired factor set",
-        story: "After FS-2025-CONF was retired, the LCA service re-submits the certified package of the source calculation.",
-        needs: 3,
-        run: () => this.sandbox(() => this.attempt(() => cc().connect(this.actors.lcaService).submitResult.staticCall(this.ids.batchId, this.results.v1.resultInput))),
+        title: "Re-submit with a retired factor set",
+        story: `The methodological authority retires ${FS.id}; the LCA service then re-submits the certified result package, which cites it.`,
+        needs: 2,
+        run: () =>
+          this.sandbox(async () => {
+            await (await fr().connect(this.actors.methodAuthorityA).retire(this.ids.fsId, id("Factor set withdrawn"))).wait();
+            return this.attempt(() => cc().connect(this.actors.lcaService).submitResult.staticCall(this.ids.batchId, this.results.v1.resultInput));
+          }),
       },
       {
-        key: "perLiter",
+        key: "perKg",
         requirement: "R6",
-        title: "Declare the result per liter",
-        story: "The result package states 1 L of EVOO as functional unit, although the mill weighed the oil in kilograms.",
+        title: "Declare the result per kilogram",
+        story: "The result package states 1 kg of EVOO as functional unit, although the mill reports oil output in liters.",
         needs: 1,
         run: () =>
           this.sandbox(async () => {
-            const pkg = await computeBatchResult(ct(), this.ids.batchId, FS26, { functionalUnit: "EVOO_1L_MILL_GATE" });
-            return this.attempt(() => cc().connect(this.actors.lcaService).submitResult.staticCall(this.ids.batchId, pkg.resultInput));
+            const pkg = await computeBatchResult(ct(), this.ids.batchId, FS, { functionalUnit: "EVOO_1L_MILL_GATE" });
+            const input = { ...pkg.resultInput, functionalUnit: b32("EVOO_1KG_MILL_GATE") };
+            return this.attempt(() => cc().connect(this.actors.lcaService).submitResult.staticCall(this.ids.batchId, input));
           }),
       },
       {
@@ -592,14 +534,14 @@ export class CaseStudyDemo {
       {
         key: "tampered",
         requirement: "R8",
-        title: "Show a tampered invoice to an auditor",
-        story: "The fertilizer invoice is compared with the hash on the ledger, once as archived and once with an edited quantity.",
+        title: "Alter an evidence payload",
+        story: "An evidence payload is compared with its ledger hash; the edited payload no longer matches.",
         needs: 1,
         run: () =>
           this.sandbox(async () => {
             const fe = this.farmEvents[0];
             const original = `EVIDENCE/${fe.doc}/${fe.date}/${fe.variable}`;
-            const edited = original.replace("fertiliser invoice", "fertiliser invoice (edited: 1900 kg)");
+            const edited = original + " (edited quantity: 1900 kg)";
             const okOriginal = await ct().matchesEvidence(fe._index, id(original));
             const okEdited = await ct().matchesEvidence(fe._index, id(edited));
             return { accepted: false, view: true, name: okOriginal && !okEdited ? "HashMismatch" : "Unexpected", args: [okOriginal, okEdited], eventIndex: fe._index };
@@ -613,8 +555,7 @@ export class CaseStudyDemo {
         needs: 2,
         run: () =>
           this.sandbox(async () => {
-            const fs = self.state.act >= 3 ? FS26 : FS25;
-            const pkg = await computeBatchResult(ct(), this.ids.batchId, fs, { functionalUnit: "EVOO_1KG_MILL_GATE" });
+            const pkg = await computeBatchResult(ct(), this.ids.batchId, FS, { functionalUnit: "EVOO_1L_MILL_GATE" });
             const input = { ...pkg.resultInput, evidenceManifest: id("MANIFEST/NOT-ARCHIVED") };
             return this.attempt(() => cc().connect(this.actors.lcaService).submitResult.staticCall(this.ids.batchId, input));
           }),
@@ -654,14 +595,14 @@ export class CaseStudyDemo {
       case "Unauthorized":
         return [`account: ${short(args[0])}`];
       case "HashMismatch":
-        return [`archived invoice: ${args[0] ? "matches" : "does not match"}`, `edited invoice: ${args[1] ? "matches" : "does not match"}`];
+        return [`original payload: ${args[0] ? "matches" : "does not match"}`, `edited payload: ${args[1] ? "matches" : "does not match"}`];
       default:
         return (args ?? []).map((a) => String(short(typeof a === "bigint" ? a.toString() : a)));
     }
   }
 
   totals() {
-    const acts = ["setup", "act1", "act2", "act3"];
+    const acts = ["setup", "act1", "act2"];
     const out = Object.fromEntries(acts.map((a) => [a, this.rec.totals((e) => e.act === a)]));
     out.operational = this.rec.totals((e) => e.act !== "setup");
     out.deploymentGas = this.rec.deployments.reduce((s, d) => s + d.gasUsed, 0);

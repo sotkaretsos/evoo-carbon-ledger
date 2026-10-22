@@ -12,7 +12,7 @@
 <body>
   <header class="site">
     <div class="wrap">
-      <p class="eyebrow">Live demo · Smart-contract prototype</p>
+      <p class="eyebrow">Live demo · Smart-contract prototype · Release 1.2.0</p>
       <h1>EVOO Carbon Ledger</h1>
       <p class="lede">The Solidity contracts of the article <cite>An IoT-Enabled Blockchain Architecture for Auditable Carbon Footprint Traceability in Extra Virgin Olive Oil</cite> run here, in your browser, on an in-memory Ethereum Virtual Machine. Replay the Western Achaia case study event by event, then try to break the rules.</p>
       <ul class="facts">
@@ -21,8 +21,9 @@
         <li>Runs locally · no wallet, no fees</li>
       </ul>
       <nav class="links">
-        <a class="btn ghost" href="https://github.com/sotkaretsos/evoo-carbon-ledger">Source code on GitHub</a>
-        <a class="btn ghost" href="https://github.com/sotkaretsos/evoo-carbon-ledger/blob/main/docs/requirements-mapping.md">Requirements R1–R9</a>
+        <a class="btn ghost" href="https://github.com/sotkaretsos/evoo-carbon-ledger">Project repository</a>
+        <a class="btn ghost" href="requirements-mapping.md">Requirements R1–R9</a>
+        <a class="btn ghost" href="THIRD_PARTY_NOTICES.txt">Third-party licenses</a>
       </nav>
     </div>
   </header>
@@ -31,7 +32,7 @@
     <section aria-labelledby="replay-title">
       <div class="section-head">
         <h2 id="replay-title"><span class="n">1</span> Replay the case study</h2>
-        <p>A 4.8 ha Koroneiki orchard and its olive mill record one season on a permissioned ledger. An off-chain LCA service computes the footprint from the ledger records and the contracts decide what can be certified.</p>
+        <p>The replay enters the farm and mill records of a 4.8 ha Koroneiki orchard and its olive mill as one season with ten harvest lots and one mill batch. An off-chain service computes the result; the certificate shows procedural status and methodological status separately.</p>
       </div>
 
       <div class="controls">
@@ -52,7 +53,7 @@
             <span id="cert-status" class="pill none">No certificate yet</span>
             <span id="cert-version" class="version">–</span>
           </div>
-          <p class="cert-value"><span id="cert-value">–</span> <span class="unit">kg CO<sub>2</sub>eq per kg EVOO</span></p>
+          <p class="cert-value"><span id="cert-value">–</span> <span class="unit">kg CO<sub>2</sub>eq per L EVOO</span></p>
           <p id="cert-note" class="cert-note">A certificate appears once a result package is approved.</p>
           <div id="cert-bars" class="bars" aria-label="Phase shares"></div>
           <dl class="kv">
@@ -60,6 +61,9 @@
             <dt>Functional unit</dt><dd id="cert-fu">–</dd>
             <dt>Approved</dt><dd id="cert-approved">–</dd>
             <dt>Evidence</dt><dd id="cert-evidence">–</dd>
+            <dt>Method status</dt><dd id="cert-method">–</dd>
+            <dt>Method limits</dt><dd id="cert-limits">–</dd>
+            <dt>Assessment hash</dt><dd id="cert-assessment">–</dd>
           </dl>
           <p class="card-kicker">History</p>
           <ol id="cert-timeline" class="timeline"></ol>
@@ -120,7 +124,7 @@
         </div>
         <div>
           <h3>Run it yourself</h3>
-          <p>Clone the repository, then run <code>npm ci</code> and <code>npx hardhat test</code> for the 77 tests, or <code>npm run evaluate</code> for the gas and storage reports. The demo is rebuilt with <code>cd demo &amp;&amp; npm ci &amp;&amp; npm run build</code>.</p>
+          <p>Unpack this release, then run <code>npm ci</code> and <code>npx hardhat test</code> for the 107 tests, or <code>npm run evaluate</code> for the gas and storage reports. The demo is rebuilt with <code>cd demo &amp;&amp; npm ci &amp;&amp; npm run build</code>.</p>
         </div>
       </div>
     </section>

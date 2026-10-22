@@ -28,12 +28,13 @@ contract FactorRegistry is IFactorRegistry {
         Status status;
         address proposer;
         address approver;
+        MethodPolicy policy;
     }
 
     IConsortium public immutable consortium;
     mapping(bytes32 => FactorSet) private _sets;
 
-    event FactorSetProposed(bytes32 indexed id, uint32 version, bytes32 contentHash, bytes32 gwpBasis, uint64 validFrom, uint64 validTo, bytes32 supersedes, address indexed proposer);
+    event FactorSetProposed(bytes32 indexed id, uint32 version, bytes32 contentHash, bytes32 gwpBasis, uint64 validFrom, uint64 validTo, bytes32 supersedes, address indexed proposer, MethodPolicy policy);
     event FactorSetApproved(bytes32 indexed id, address indexed approver);
     event FactorSetRetired(bytes32 indexed id, bytes32 reasonHash, address indexed by);
 
@@ -54,12 +55,13 @@ contract FactorRegistry is IFactorRegistry {
         bytes32 gwpBasis,
         uint64 validFrom,
         uint64 validTo,
-        bytes32 supersedes
+        bytes32 supersedes,
+        MethodPolicy calldata policy
     ) external {
         if (!(consortium.isActiveWithRole(msg.sender, Roles.METHOD_AUTHORITY) || consortium.isActiveWithRole(msg.sender, Roles.LCA_SERVICE))) {
             revert Unauthorized(msg.sender);
         }
-        if (id == bytes32(0) || contentHash == bytes32(0) || gwpBasis == bytes32(0) || validFrom >= validTo || version == 0) {
+        if (id == bytes32(0) || contentHash == bytes32(0) || gwpBasis == bytes32(0) || validFrom >= validTo || version == 0 || policy.minimumStatus > 2) {
             revert InvalidArgument();
         }
         if (_sets[id].status != Status.None) revert FactorSetExists(id);
@@ -72,9 +74,10 @@ contract FactorRegistry is IFactorRegistry {
             version: version,
             status: Status.Proposed,
             proposer: msg.sender,
-            approver: address(0)
+            approver: address(0),
+            policy: policy
         });
-        emit FactorSetProposed(id, version, contentHash, gwpBasis, validFrom, validTo, supersedes, msg.sender);
+        emit FactorSetProposed(id, version, contentHash, gwpBasis, validFrom, validTo, supersedes, msg.sender, policy);
     }
 
     function approve(bytes32 id) external {
@@ -97,6 +100,10 @@ contract FactorRegistry is IFactorRegistry {
 
     function factorSetOf(bytes32 id) external view returns (FactorSet memory) {
         return _sets[id];
+    }
+
+    function methodologicalPolicy(bytes32 id) external view returns (MethodPolicy memory) {
+        return _sets[id].policy;
     }
 
     /// @inheritdoc IFactorRegistry

@@ -4,8 +4,11 @@
 # Requires Docker. Not executed in the authors' build environment (see besu/README.md).
 set -euo pipefail
 cd "$(dirname "$0")"
-BESU_IMAGE="${BESU_IMAGE:-hyperledger/besu:latest}"
-rm -rf networkFiles nodes .env
+BESU_IMAGE="${BESU_IMAGE:?Set BESU_IMAGE to an explicitly tested version or immutable image digest}"
+if [[ -e networkFiles || -e nodes || -e .env ]]; then
+  printf '%s\n' 'Existing network state found. Preserve or relocate it before generating a new network.' >&2
+  exit 1
+fi
 docker run --rm --user "$(id -u):$(id -g)" -v "$PWD":/work -w /work "$BESU_IMAGE" \
   operator generate-blockchain-config \
   --config-file=qbftConfigFile.json --to=networkFiles --private-key-file-name=key

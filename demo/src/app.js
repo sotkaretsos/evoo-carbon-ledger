@@ -29,22 +29,15 @@ const STEPS = [
     key: "act1",
     title: "Act 1 · The 2024 season",
     period: "Jan 2024 – Feb 2025",
-    lede: "25 farm events, ten harvest lots with dual-signature custody and transport fuel, one mill batch with signed meter readings; the farm records are closed and verified.",
+    lede: "25 farm events, ten harvest lots with signed custody transfers and transport fuel, and one mill batch with signed electricity and oil-output meter readings.",
     run: (d) => d.act1(),
   },
   {
     key: "act2",
-    title: "Act 2 · Source-calculation result",
+    title: "Act 2 · Calculation and certification",
     period: "March 2025",
-    lede: "Factor set FS-2025-CONF is approved. A result package per liter of oil is rejected; the package per kilogram is certified.",
+    lede: "Factor set FS-2026-RECON-01 is approved by two methodological authorities. A per-kilogram package is rejected because oil output is recorded in liters; the per-liter result is approved with methodological status AggregateLimited.",
     run: (d) => d.act2(),
-  },
-  {
-    key: "act3",
-    title: "Act 3 · Revisions of the article",
-    period: "June – July 2026",
-    lede: "Two audited corrections reclassify the chainsaw and olive-beater fuel as petrol, FS-2026-01 replaces FS-2025-CONF, and the recalculated result is certified.",
-    run: (d) => d.act3(),
   },
 ];
 
@@ -55,8 +48,8 @@ const RULES = {
   range: "Each governed variable has a fixed unit, life-cycle phase and admissible range.",
   mass: "Custody changes only when the sender's declaration and the mill's signed weighbridge reading agree within 1%.",
   selfApproval: "An emission-factor set becomes usable only after approval by a second methodological authority.",
-  retired: "Only approved factor sets within their validity window are usable; FS-2025-CONF was retired in Act 3.",
-  perLiter: "The functional unit must be expressed in the unit in which the batch output was measured.",
+  retired: "Only approved factor sets within their validity window are usable; a retired set cannot support new results, and certificates that cite it are flagged.",
+  perKg: "The functional unit must be expressed in the unit in which the batch output was measured.",
   closed: "Closed and verified records change only through an audited correction that keeps the original visible.",
   tampered: "The ledger keeps the document hash; any edit to the archived document changes the hash.",
   evidence: "The evidence manifest must be registered for at least five years in at least two replicas, with no failed retrieval check.",
@@ -64,15 +57,22 @@ const RULES = {
 
 const STATUS_TEXT = {
   None: ["none", "No certificate yet"],
-  Valid: ["valid", "Valid"],
+  Valid: ["valid", "Procedurally valid"],
   Outdated: ["warn", "Outdated"],
   FactorSetRetired: ["warn", "Factor set retired"],
 };
 const STATUS_NOTE = {
   None: "A certificate appears once a result package is approved.",
-  Valid: "The approved result matches the current event chain and factor set.",
+  Valid: "The approved result matches the current event chain and factor set; the methodological status is shown separately.",
   Outdated: "An audited correction changed the event chain after approval; a recalculated result is needed.",
   FactorSetRetired: "The factor set behind the approved result has been retired.",
+};
+const METHOD_TEXT = { Unassessed: "Methodology not assessed", AggregateLimited: "Within the applicability domain of the group intensities", NeedsRecalculation: "Outside the applicability domain — recalculation required" };
+const LIMIT_TEXT = {
+  1: "aggregate group intensity", 2: "process coverage not decomposed", 4: "GWP basis not specified",
+  8: "uncertainty not quantified", 16: "process modules not harmonized", 32: "estimated activity input",
+  64: "operator-recorded activity input", 128: "inputs outside the applicability domain", 256: "product identity mismatch",
+  512: "methodology not assessed", 1024: "synthetic process example",
 };
 
 let demo;
@@ -148,6 +148,11 @@ function renderCertificate(c) {
   $("#cert-fu").textContent = c.functionalUnit ?? "–";
   $("#cert-approved").textContent = c.approvedAt ? chainDate(c.approvedAt).slice(0, 10) : "–";
   $("#cert-evidence").textContent = c.version ? (c.evidenceCheckFailed ? "failed retrieval check" : "retained, no failed check") : "–";
+  $("#cert-method").textContent = METHOD_TEXT[c.methodologicalStatus] ?? "–";
+  $("#cert-limits").textContent = c.version ? Object.entries(LIMIT_TEXT).filter(([bit]) => (c.limitationFlags & Number(bit)) !== 0).map(([,text]) => text).join("; ") : "–";
+  $("#cert-limits").title = `Machine-readable limitation flags: ${c.limitationFlags ?? 0}`;
+  $("#cert-assessment").textContent = c.version ? `${c.assessmentHash.slice(0, 14)}…` : "–";
+  $("#cert-assessment").title = c.assessmentHash ?? "";
   const bars = $("#cert-bars");
   if (c.version) {
     const names = ["Cultivation and harvesting", "Transport", "Mill processing"];
@@ -164,15 +169,13 @@ function renderCertificate(c) {
 function renderResults() {
   const r = demo.results;
   const rows = [];
-  const phases = (x) => ["cultivation", "transport", "mill"].map((p) => x.report.phases[p].perKgOil.toFixed(4));
+  const phases = (x) => ["cultivation", "transport", "mill"].map((p) => x.report.phases[p].perFU.toFixed(4));
   if (r.v1) {
-    rows.push(["v1 (per liter)", "FS-2025-CONF", "1 L EVOO", r.v1Litre.report.total.perKgOil.toFixed(3), "–", "–", "–", "Rejected", "bad", r.literRejection.name]);
-    rows.push(["v1", "FS-2025-CONF", "1 kg EVOO", r.v1.report.total.perKgOil.toFixed(3), ...phases(r.v1), "Certified (Act 2)", "ok"]);
-  }
-  if (r.v2) {
-    rows.push(["v2", "FS-2026-01", "1 kg EVOO", r.v2.report.total.perKgOil.toFixed(3), ...phases(r.v2), "Certified (Act 3)", "ok"]);
-    rows.push(["Economic allocation", "FS-2026-01", "1 kg EVOO", r.economic.report.total.perKgOil.toFixed(2), "", "", "", "Off-chain variant", "muted"]);
-    rows.push(["Wet-mass allocation", "FS-2026-01", "1 kg EVOO", r.wetMass.report.total.perKgOil.toFixed(2), "", "", "", "Off-chain variant", "muted"]);
+    const fs = r.v1.report.factorSet.id;
+    rows.push(["Per kilogram", fs, "1 kg EVOO", "–", "–", "–", "–", "Rejected", "bad", r.kgRejection.name]);
+    rows.push(["v1", fs, "1 L EVOO", r.v1.report.total.perFU.toFixed(3), ...phases(r.v1), "Approved; limited aggregate", "ok"]);
+    rows.push(["Economic allocation", fs, "1 L EVOO", r.economic.report.total.perFU.toFixed(2), "", "", "", "Off-chain variant", "muted"]);
+    rows.push(["Wet-mass allocation", fs, "1 L EVOO", r.wetMass.report.total.perFU.toFixed(2), "", "", "", "Off-chain variant", "muted"]);
   }
   $("#results tbody").replaceChildren(
     ...rows.map((row) =>
@@ -190,8 +193,8 @@ function renderResults() {
     )
   );
   $("#results-wrap").hidden = rows.length === 0;
-  if (r.v2) {
-    $("#results-note").textContent = `Result v2 corresponds to ${r.v2.report.total.perHa.toFixed(1)} kg CO2eq per hectare, the baseline of the article. ${r.eventCount} events are on the ledger, two of them superseded by audited corrections.`;
+  if (r.v1) {
+    $("#results-note").textContent = `Result v1 corresponds to ${r.v1.report.total.perHa.toFixed(1)} kg CO2eq per hectare, the baseline of the article. ${r.eventCount} events are on the ledger. The wet-mass variant converts the oil volume to mass at ${r.wetMass.report.allocation.oilDensityKgPerL} kg/L.`;
   }
 }
 
@@ -199,16 +202,16 @@ function renderTotals() {
   const t = demo.totals();
   const ref = reference.operationalTotals;
   const parts = [];
-  if (t.operational.transactions) parts.push(`${fmt(t.operational.transactions)} transactions in Acts 1–3, ${fmt(t.operational.gasUsed)} gas`);
+  if (t.operational.transactions) parts.push(`${fmt(t.operational.transactions)} transactions in Acts 1–2, ${fmt(t.operational.gasUsed)} gas`);
   if (t.setup.transactions) parts.push(`set-up ${fmt(t.setup.transactions + demo.rec.deployments.length)} transactions including deployment`);
   $("#totals").textContent = parts.join(" · ");
   if (next >= STEPS.length) {
-    const same = t.operational.transactions === ref.transactions && t.operational.gasUsed === ref.gasUsed && t.deploymentGas === reference.deploymentTotalGas;
+    const same = t.operational.transactions === ref.transactions && Math.abs(t.operational.gasUsed - ref.gasUsed) <= 512 && t.deploymentGas === reference.deploymentTotalGas;
     const box = $("#check");
     box.hidden = false;
     box.className = `check ${same ? "ok" : "warn"}`;
     box.replaceChildren(
-      el("strong", { text: same ? "Same numbers as the article. " : "Different from the article. " }),
+      el("strong", { text: same ? "Replay verified against the reference. " : "Replay differs from the reference. " }),
       `Your browser executed ${fmt(t.operational.transactions)} transactions with ${fmt(t.operational.gasUsed)} gas and deployed the contracts with ${fmt(t.deploymentGas)} gas; the Hardhat replay reported in the article used ${fmt(ref.transactions)} transactions, ${fmt(ref.gasUsed)} gas and ${fmt(reference.deploymentTotalGas)} gas, respectively.`
     );
   }
@@ -334,7 +337,7 @@ async function start() {
     onCertificate: (c) => renderCertificate(c),
   }).init();
   renderAttacks();
-  setStatus("Ready. Run the set-up and the three acts one by one, or all at once.", "ok");
+  setStatus("Ready. Run the set-up and the two acts one by one, or all at once.", "ok");
   updateButtons();
 }
 

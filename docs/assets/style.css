@@ -175,6 +175,7 @@ h3 { margin: 0; font-size: 1.02rem; }
 .kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 0 0 14px; font-size: 0.88rem; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; font-family: var(--mono); font-size: 0.84rem; overflow-wrap: anywhere; }
+#cert-limits { font-family: inherit; font-size: 0.82rem; line-height: 1.4; }
 .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.82rem; }
 .timeline li { display: flex; align-items: center; gap: 8px; }
 .tl-text { color: var(--muted); }

@@ -12,7 +12,7 @@ import {SourceClass, Phase, EventInput, FutureTimestamp, InvalidDevice, InvalidD
 ///         (EVOO): farm activity events, dual-signature custody transfer of harvested lots,
 ///         transport events, mill batches and append-only corrections. LCA result packages and
 ///         certificates are handled by {CarbonCertification}.
-/// @dev Raw observations and documents stay off-chain (Section 2.8 of the article). Contract
+/// @dev Raw observations and documents stay off-chain (Section 2.5 of the article). Contract
 ///      storage keeps only the fields that later rules depend on; the complete event envelope
 ///      is emitted in the transaction log.
 contract CarbonTraceability is ICarbonTraceability {
@@ -20,7 +20,7 @@ contract CarbonTraceability is ICarbonTraceability {
     // Constants and types
     // ------------------------------------------------------------------
 
-    uint16 public constant SCHEMA_VERSION = 1;
+    uint16 public constant SCHEMA_VERSION = 2;
     uint64 public constant MAX_CLOCK_SKEW = 300; // seconds tolerated between gateway and ledger clocks
     uint256 public constant MAX_LOTS_PER_BATCH = 64;
     bytes32 public constant MASS_PROPORTIONAL = "MASS_PROPORTIONAL";
@@ -117,7 +117,7 @@ contract CarbonTraceability is ICarbonTraceability {
         bytes32 mixingRule;
         uint128 receivedMassG; // sum of masses confirmed at custody transfer
         uint128 receptionMassG; // reception mass declared by the mill at closure
-        uint128 oilOutputMilli; // sum of effective oil-output quantities (milli-units, i.e. g for kg)
+        uint128 oilOutputMilli; // sum of effective oil-output quantities (milli-units, i.e. mL for L)
         uint64 createdAt;
         uint64 closedAt;
         uint32 revision;
@@ -141,9 +141,11 @@ contract CarbonTraceability is ICarbonTraceability {
 
     // Governed parameters (methodological authority).
     uint16 public massToleranceBp = 100; // 1.00 %
-    uint16 public minYieldPermille = 50; // 5.0 %
-    uint16 public maxYieldPermille = 350; // 35.0 %
-    bytes32 public oilOutputVariable = "OIL_OUTPUT_KG";
+    // Oil yield = oil-output milli-units per gram of olives received, in per mille (output units per
+    // 1000 kg of olives): 50-350 corresponds to 5-35 L (or kg) of oil per 100 kg of olives.
+    uint16 public minYieldPermille = 50;
+    uint16 public maxYieldPermille = 350;
+    bytes32 public oilOutputVariable = "OIL_OUTPUT_L";
 
     ActivityEvent[] private _events; // index 0 is a sentinel
     Correction[] private _corrections; // index 0 is a sentinel
@@ -157,6 +159,7 @@ contract CarbonTraceability is ICarbonTraceability {
     mapping(bytes32 => bytes32[]) private _batchLots;
     mapping(bytes32 => uint16[]) private _batchShares;
     mapping(bytes32 => mapping(bytes32 => bool)) private _batchMetered;
+    mapping(bytes32 => mapping(bytes32 => bool)) private _batchRecorded;
 
     // ------------------------------------------------------------------
     // Events (ledger log)
@@ -192,6 +195,8 @@ contract CarbonTraceability is ICarbonTraceability {
     error MassMismatch(uint256 expected, uint256 actual);
     error MixingRuleRequired();
     error SharesMismatch();
+    error DuplicateLot(bytes32 lotId);
+    error CorrectionVariableMismatch(bytes32 original, bytes32 replacement);
     error MissingMandatoryVariable(bytes32 variable);
     error ImplausibleYield(uint32 yieldPermille);
     error InvalidStatus();
@@ -410,9 +415,14 @@ contract CarbonTraceability is ICarbonTraceability {
         uint256 massSum;
         for (uint256 i = 0; i < n; i++) {
             Lot storage l = _lots[lotIds[i]];
+            if (l.batchId == batchId) revert DuplicateLot(lotIds[i]);
             if (l.state != LotState.AtMill || l.custodian != msg.sender) revert InvalidLotState(lotIds[i]);
             shareSum += sharesPermille[i];
             massSum += l.receivedMassG;
+            // Consume each lot immediately. A duplicate in this call fails above;
+            // any later failure rolls back every state change atomically.
+            l.state = LotState.InBatch;
+            l.batchId = batchId;
         }
         if (shareSum != 1000) revert SharesMismatch();
         if (mixingRule == MASS_PROPORTIONAL) {
@@ -421,11 +431,6 @@ contract CarbonTraceability is ICarbonTraceability {
                 uint256 s = sharesPermille[i];
                 if ((s > expected ? s - expected : expected - s) > 1) revert SharesMismatch();
             }
-        }
-        for (uint256 i = 0; i < n; i++) {
-            Lot storage l = _lots[lotIds[i]];
-            l.state = LotState.InBatch;
-            l.batchId = batchId;
         }
         Batch storage b = _batches[batchId];
         b.mill = msg.sender;
@@ -448,11 +453,12 @@ contract CarbonTraceability is ICarbonTraceability {
         if (consortium.organisationOf(msg.sender) != b.organisationId) revert Unauthorized(msg.sender);
         if (b.closed) revert PhaseClosed(batchId);
         index = _appendEvent(Phase.Mill, batchId, b.organisationId, e, deviceSig, 0, EventStatus.Effective);
+        _batchRecorded[batchId][e.variable] = true;
         if (e.source == SourceClass.Sensor || e.source == SourceClass.Meter) _batchMetered[batchId][e.variable] = true;
         if (e.variable == oilOutputVariable) b.oilOutputMilli += e.quantity;
     }
 
-    /// @notice Closes a batch when the input-lot mass balance and the mandatory meter fields pass.
+    /// @notice Requires every mandatory variable; signed readings only where the governed policy requires them.
     function closeBatch(bytes32 batchId, uint128 receptionMassG) external onlyRole(Roles.MILL) {
         Batch storage b = _batches[batchId];
         if (b.mill == address(0)) revert NotFound(batchId);
@@ -461,7 +467,8 @@ contract CarbonTraceability is ICarbonTraceability {
         if (receptionMassG == 0) revert InvalidArgument();
         bytes32[] memory mandatory = consortium.mandatoryMillVariables();
         for (uint256 i = 0; i < mandatory.length; i++) {
-            if (!_batchMetered[batchId][mandatory[i]]) revert MissingMandatoryVariable(mandatory[i]);
+            if (!_batchRecorded[batchId][mandatory[i]] ||
+                (consortium.getVariable(mandatory[i]).meterRequired && !_batchMetered[batchId][mandatory[i]])) revert MissingMandatoryVariable(mandatory[i]);
         }
         if (!_withinTolerance(b.receivedMassG, receptionMassG)) revert MassMismatch(b.receivedMassG, receptionMassG);
         uint32 yieldPermille = uint32((uint256(b.oilOutputMilli) * 1000) / receptionMassG);
@@ -486,6 +493,8 @@ contract CarbonTraceability is ICarbonTraceability {
         if (eventIndex == 0 || eventIndex >= _events.length || reasonHash == bytes32(0)) revert InvalidArgument();
         ActivityEvent storage orig = _events[eventIndex];
         if (orig.status != EventStatus.Effective) revert InvalidStatus();
+        // A correction revises one measurement, preserving its governed variable and unit.
+        if (replacement.variable != orig.variable) revert CorrectionVariableMismatch(orig.variable, replacement.variable);
         bytes32 org = consortium.organisationOf(msg.sender);
         if (org == bytes32(0) || !consortium.isActive(msg.sender) || org != consortium.organisationOf(orig.actor)) {
             revert Unauthorized(msg.sender);

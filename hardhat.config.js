@@ -37,7 +37,7 @@ module.exports = {
   networks: {
     hardhat: {
       hardfork: "london",
-      // The case-study replay records the 2024 season at its historical dates.
+      // The case-study replay records the averaged season as crop year 2024 with constructed dates.
       initialDate: "2024-01-01T00:00:00Z",
       // Permissioned consortium networks are typically run with zero gas price.
       initialBaseFeePerGas: 0,

@@ -46,7 +46,19 @@ export class LocalChain {
 
   async init() {
     this.common = createCustomCommon({ chainId: Number(this.chainId), name: "evoo-demo" }, Mainnet, { hardfork: Hardfork.London });
-    this.vm = await createVM({ common: this.common });
+    // BLOCKHASH must read the same sealed headers returned by JSON-RPC. The VM's
+    // default mock blockchain returns zero hashes and cannot validate snapshots.
+    this.blocks = [];
+    const history = {
+      getBlock: async (number) => {
+        const entry = this.blocks[Number(number)];
+        if (!entry) throw new RpcError(`Unknown historical block ${number}`);
+        return { hash: () => entry.hash };
+      },
+      putBlock: async () => {}, // LocalChain owns sealing and snapshot rollback.
+      shallowCopy: () => history,
+    };
+    this.vm = await createVM({ common: this.common, blockchain: history });
     this.keys = new Map();
     this.accounts = [];
     for (const pk of this.privateKeys) {
@@ -54,7 +66,6 @@ export class LocalChain {
       this.keys.set(a, pk);
       this.accounts.push(a);
     }
-    this.blocks = [];
     this.txs = new Map();
     this.receipts = new Map();
     this.txOrder = [];
