@@ -1,0 +1,53 @@
+name: Verify and publish EVOO Carbon Ledger v1.2.0
+on:
+  push:
+    branches:
+      - release/publish-v1.2.0-tag-20261022
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the exact main commit
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Verify immutable release target and experiment checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "b2fbbb0cff9d1d3e2cb1dac54a34bba85dc66364"
+          test "$(find experiments/controlled-audit -type f | wc -l)" -eq 219
+          test "$(grep -c '  experiments/controlled-audit/' SHA256SUMS)" -eq 219
+          grep '  experiments/controlled-audit/' SHA256SUMS | sha256sum -c -
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run 107 contract tests
+        run: npm test
+      - name: Compile noninstrumented contracts
+        run: npm run compile -- --force
+      - name: Verify controlled-audit commitments
+        run: node experiments/controlled-audit/verify-commitments.js
+      - name: Verify controlled-audit evidence and arithmetic
+        run: python3 experiments/controlled-audit/verify-evidence.py
+      - name: Test the independent checker
+        run: python3 experiments/controlled-audit/test-verifier.py
+      - name: Publish annotated v1.2.0 tag on verified main commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --tags origin refs/tags/v1.2.0 >/dev/null 2>&1; then
+            echo "Tag v1.2.0 already exists: refusing to change its target"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a v1.2.0 b2fbbb0cff9d1d3e2cb1dac54a34bba85dc66364 -m "EVOO Carbon Ledger v1.2.0 — manuscript and supplementary evaluation"
+          git push origin refs/tags/v1.2.0
