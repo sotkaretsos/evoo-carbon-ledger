@@ -1,0 +1,115 @@
+{
+  "baselineKgPerL": 1.8352,
+  "n": 100000,
+  "seed": 20261123,
+  "distributions": {
+    "fertilization_multiplier": {
+      "dist": "triangular",
+      "low": 0.7,
+      "mode": 1.0,
+      "high": 1.3,
+      "basis": "Group result without reported uncertainty; the +-30% stress-test bounds of Section 2.3 are used as the range, with the reference value most likely"
+    },
+    "grid_factor": {
+      "dist": "triangular",
+      "low": 0.3,
+      "mode": 0.345,
+      "high": 0.45,
+      "unit": "kg CO2eq kWh-1",
+      "basis": "Scenario range of Section 2.3; mode at the 2022-2024 mean of the Greek generation-based intensity"
+    },
+    "irrigation_kwh_per_ha": {
+      "dist": "uniform",
+      "low": 377.0,
+      "high": 687.0,
+      "unit": "kWh ha-1",
+      "basis": "Orchard irrigated, pumping electricity not recorded; range between smart and conventional irrigation of Fotia et al. [10]"
+    },
+    "oil_yield_multiplier": {
+      "dist": "triangular",
+      "low": 0.9,
+      "mode": 1.0,
+      "high": 1.1,
+      "basis": "Representativeness of the three-year mean oil output; season-level records were not used (assumption)"
+    },
+    "minor_group_multiplier": {
+      "dist": "triangular",
+      "low": 0.9,
+      "mode": 1.0,
+      "high": 1.1,
+      "basis": "Soil preparation, plant protection and transport group results (5.5% of the total), varied together (assumption)"
+    },
+    "petrol_density": {
+      "dist": "uniform",
+      "low": 0.72,
+      "high": 0.775,
+      "unit": "kg L-1",
+      "basis": "EN 228 range [27]"
+    }
+  },
+  "independence": "Inputs sampled independently",
+  "variants": {
+    "main_with_irrigation": {
+      "description": "All uncertain inputs, including the unrecorded irrigation electricity",
+      "kgCO2eqPerL": {
+        "mean": 1.9546,
+        "median": 1.9505,
+        "sd": 0.1937,
+        "p2_5": 1.5931,
+        "p5": 1.6406,
+        "p95": 2.2801,
+        "p97_5": 2.3353,
+        "shareAboveBaseline": 0.7187
+      },
+      "firstOrderIndices": {
+        "fertilization_multiplier": 0.7991,
+        "grid_factor": 0.0196,
+        "irrigation_kwh_per_ha": 0.0096,
+        "oil_yield_multiplier": 0.1682,
+        "minor_group_multiplier": 0.0008,
+        "petrol_density": 0.0008
+      }
+    },
+    "baseline_boundary": {
+      "description": "Same distributions, irrigation electricity excluded as in the baseline",
+      "kgCO2eqPerL": {
+        "mean": 1.8486,
+        "median": 1.8466,
+        "sd": 0.1901,
+        "p2_5": 1.4924,
+        "p5": 1.5391,
+        "p95": 2.1665,
+        "p97_5": 2.2215,
+        "shareAboveBaseline": 0.523
+      },
+      "firstOrderIndices": {
+        "fertilization_multiplier": 0.8297,
+        "grid_factor": 0.0085,
+        "oil_yield_multiplier": 0.1577,
+        "minor_group_multiplier": 0.0014,
+        "petrol_density": 0.0005
+      }
+    },
+    "uniform_fertilization": {
+      "description": "As main, fertilization multiplier uniform on 0.7-1.3",
+      "kgCO2eqPerL": {
+        "mean": 1.9543,
+        "median": 1.9506,
+        "sd": 0.26,
+        "p2_5": 1.5134,
+        "p5": 1.5528,
+        "p95": 2.3725,
+        "p97_5": 2.4264,
+        "shareAboveBaseline": 0.6356
+      },
+      "firstOrderIndices": {
+        "fertilization_multiplier": 0.888,
+        "grid_factor": 0.0112,
+        "irrigation_kwh_per_ha": 0.0056,
+        "oil_yield_multiplier": 0.0934,
+        "minor_group_multiplier": 0.0006,
+        "petrol_density": 0.0008
+      }
+    }
+  }
+}

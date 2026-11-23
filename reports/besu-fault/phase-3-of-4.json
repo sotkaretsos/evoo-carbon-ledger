@@ -1,0 +1,38 @@
+{
+  "phase": "3-of-4",
+  "network": "besu",
+  "chainId": 1337,
+  "measuredAt": "2026-11-23T12:25:28.181Z",
+  "clientVersion": "besu/v26.11.1/windows-x86_64/openjdk-java-25",
+  "peerCount": 2,
+  "validatorCount": 4,
+  "timeoutS": 30,
+  "nextBlockMs": 218,
+  "blocks": {
+    "start": 157,
+    "end": 178,
+    "produced": 21,
+    "intervalS": {
+      "n": 21,
+      "mean": 3,
+      "p50": 2,
+      "p95": 6,
+      "max": 6
+    }
+  },
+  "transactions": {
+    "submitted": 20,
+    "included": 20,
+    "reverted": 0,
+    "notIncludedWithinTimeout": 0,
+    "latencyMs": {
+      "n": 20,
+      "mean": 3198,
+      "p50": 2056,
+      "p95": 6120,
+      "max": 6120
+    }
+  },
+  "earlierPending": [],
+  "durationMs": 64242
+}

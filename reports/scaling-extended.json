@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-11-23T09:58:50.161Z",
+  "note": "MAX_LOTS_PER_BATCH raised from 64 to 4096 for this experiment only",
+  "blockGasLimit": 60000000,
+  "rows": [
+    {
+      "lots": 64,
+      "createBatch": 3831475,
+      "closeBatch": 106211,
+      "submitResult": 966752,
+      "approveResult": 581094,
+      "getCertificate_view": 557599
+    },
+    {
+      "lots": 128,
+      "createBatch": 7471511,
+      "closeBatch": 106211,
+      "submitResult": 1447115,
+      "approveResult": 1061457,
+      "getCertificate_view": 1037962
+    },
+    {
+      "lots": 256,
+      "createBatch": 14752447,
+      "closeBatch": 106211,
+      "submitResult": 2410206,
+      "approveResult": 2024536,
+      "getCertificate_view": 2001041
+    },
+    {
+      "lots": 384,
+      "createBatch": 22033407,
+      "closeBatch": 106211,
+      "submitResult": 3376420,
+      "approveResult": 2990750,
+      "getCertificate_view": 2973050
+    },
+    {
+      "lots": 448,
+      "createBatch": 25672835,
+      "closeBatch": 106211,
+      "submitResult": 3860703,
+      "approveResult": 3475033,
+      "getCertificate_view": 3465020
+    },
+    {
+      "lots": 512,
+      "createBatch": 29314319,
+      "closeBatch": 106211,
+      "submitResult": 4345771,
+      "approveResult": 3960101,
+      "getCertificate_view": 3959672
+    },
+    {
+      "lots": 520,
+      "createBatch": 29780527,
+      "closeBatch": 106211,
+      "submitResult": 4406459,
+      "approveResult": 4020789,
+      "getCertificate_view": 4028522
+    },
+    {
+      "lots": 524,
+      "failed": "Transaction ran out of gas"
+    },
+    {
+      "lots": 526,
+      "failed": "Transaction ran out of gas"
+    },
+    {
+      "lots": 528,
+      "failed": "Transaction ran out of gas"
+    }
+  ],
+  "marginalGasPerLot": {
+    "createBatch": 56906,
+    "closeBatch": 0,
+    "submitResult": 7543,
+    "approveResult": 7543,
+    "getCertificate_view": 7612
+  }
+}

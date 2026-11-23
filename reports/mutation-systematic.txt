@@ -1,0 +1,48 @@
+Systematic mutation analysis (scripts/mutation-systematic.js): each guard and role restriction removed in turn.
+{
+  "mutants": 146,
+  "killedSuite120": 129,
+  "survivedSuite120": 17,
+  "killedSuite130": 146,
+  "invalid": 0,
+  "byOperator": {
+    "GUARD": {
+      "mutants": 113,
+      "killed120": 110,
+      "killed130": 113,
+      "invalid": 0
+    },
+    "GUARD_ML": {
+      "mutants": 14,
+      "killed120": 14,
+      "killed130": 14,
+      "invalid": 0
+    },
+    "ROLE": {
+      "mutants": 19,
+      "killed120": 5,
+      "killed130": 19,
+      "invalid": 0
+    }
+  },
+  "note": "Suite 1.2.0: 107 tests (release 1.2.0). Suite 1.3.0: 115 tests, with test/role-restrictions.test.js added after the first run. Mutants killed by the 1.2.0 suite remain killed by its superset; only the 17 survivors were re-run."
+}
+
+Survivors of the 1.2.0 suite (all killed by the 1.3.0 suite):
+  #65 ROLE contracts/CarbonTraceability.sol:266 (function registerLot): onlyRole(Roles.GROWER)
+  #66 ROLE contracts/CarbonTraceability.sol:285 (function closeFarmPhase): onlyRole(Roles.GROWER)
+  #67 ROLE contracts/CarbonTraceability.sol:297 (function verifyFarmPhase): onlyRole(Roles.CERTIFIER)
+  #68 ROLE contracts/CarbonTraceability.sol:321 (function initiateTransfer): onlyRole(Roles.GROWER)
+  #69 ROLE contracts/CarbonTraceability.sol:366 (function confirmReceipt): onlyRole(Roles.MILL)
+  #70 ROLE contracts/CarbonTraceability.sol:408 (function createBatch): onlyRole(Roles.MILL)
+  #71 ROLE contracts/CarbonTraceability.sol:448 (function recordMillEvent): onlyRole(Roles.MILL)
+  #72 ROLE contracts/CarbonTraceability.sol:462 (function closeBatch): onlyRole(Roles.MILL)
+  #74 ROLE contracts/CarbonTraceability.sol:556 (function rejectCorrection): onlyRole(Roles.AUDITOR)
+  #75 GUARD contracts/CarbonCertification.sol:126 (modifier onlyRole): if (!consortium.isActiveWithRole(msg.sender, role)) revert Unauthorized(msg.sender);
+  #100 ROLE contracts/CarbonCertification.sol:134 (function setParameters): onlyRole(Roles.METHOD_AUTHORITY)
+  #101 ROLE contracts/CarbonCertification.sol:142 (function defineFunctionalUnit): onlyRole(Roles.METHOD_AUTHORITY)
+  #102 ROLE contracts/CarbonCertification.sol:156 (function submitResult): onlyRole(Roles.LCA_SERVICE)
+  #103 ROLE contracts/CarbonCertification.sol:201 (function approveResult): onlyRole(Roles.CERTIFIER)
+  #104 GUARD contracts/Consortium.sol:53 (constructor): if (governor == address(0)) revert InvalidArgument();
+  #105 GUARD contracts/Consortium.sol:76 (function registerActor): if (account == address(0) || actorId == bytes32(0) || organisationId == bytes32(0)) revert InvalidArgument();
+  #122 ROLE contracts/Consortium.sol:85 (function setActorActive): onlyRole(Roles.GOVERNOR)

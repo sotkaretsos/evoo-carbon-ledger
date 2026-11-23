@@ -12,6 +12,8 @@ const { deviceId } = require("../lib/catalogue");
 
 const LOT_COUNTS = [1, 4, 16, 64];
 const kg = (x) => BigInt(Math.round(x * 1000));
+// Optional explicit gas limit (SCALE_GAS_LIMIT) for batches beyond the release cap (scripts/scaling-extended.js).
+const GL = process.env.SCALE_GAS_LIMIT ? { gasLimit: BigInt(process.env.SCALE_GAS_LIMIT) } : {};
 
 async function measure(n) {
   const { ethers } = hre;
@@ -46,7 +48,7 @@ async function measure(n) {
     const r = await (await txp).wait();
     gas[label] = Number(r.gasUsed);
   };
-  await g("createBatch", ct.connect(actors.mill).createBatch(batch, lots, shares, b32("MASS_PROPORTIONAL")));
+  await g("createBatch", ct.connect(actors.mill).createBatch(batch, lots, shares, b32("MASS_PROPORTIONAL"), GL));
   for (const [variable, q, device] of [
     ["MILL_ELECTRICITY_KWH", 111 * n, "ELEC-SUBMETER-01"],
     ["OIL_OUTPUT_L", 198 * n, "OIL-METER-01"],
@@ -78,8 +80,8 @@ async function measure(n) {
     phaseMg: [1609508n, 29940n, 195758n],
     totalMg: 1835206n,
   };
-  await g("submitResult", cc.connect(actors.lcaService).submitResult(batch, result));
-  await g("approveResult", cc.connect(actors.certifier).approveResult(batch, 1));
+  await g("submitResult", cc.connect(actors.lcaService).submitResult(batch, result, GL));
+  await g("approveResult", cc.connect(actors.certifier).approveResult(batch, 1, GL));
   gas.getCertificate_view = Number(await cc.getCertificate.estimateGas(batch));
   return { lots: n, ...gas };
 }
