@@ -1,0 +1,2488 @@
+{
+  "summary": {
+    "mutants": 146,
+    "killedSuite120": 129,
+    "survivedSuite120": 17,
+    "killedSuite130": 146,
+    "invalid": 0,
+    "byOperator": {
+      "GUARD": {
+        "mutants": 113,
+        "killed120": 110,
+        "killed130": 113,
+        "invalid": 0
+      },
+      "GUARD_ML": {
+        "mutants": 14,
+        "killed120": 14,
+        "killed130": 14,
+        "invalid": 0
+      },
+      "ROLE": {
+        "mutants": 19,
+        "killed120": 5,
+        "killed130": 19,
+        "invalid": 0
+      }
+    },
+    "note": "Suite 1.2.0: 107 tests (release 1.2.0). Suite 1.3.0: 115 tests, with test/role-restrictions.test.js added after the first run. Mutants killed by the 1.2.0 suite remain killed by its superset; only the 17 survivors were re-run.",
+    "firstRun": {
+      "generatedAt": "2026-11-23T10:17:58.104Z",
+      "files": [
+        "contracts/CarbonTraceability.sol",
+        "contracts/CarbonCertification.sol",
+        "contracts/Consortium.sol",
+        "contracts/FactorRegistry.sol",
+        "contracts/EvidenceRegistry.sol",
+        "contracts/lib/EnvelopeValidation.sol"
+      ],
+      "mutants": 146,
+      "valid": 146,
+      "killed": 129,
+      "survived": 17,
+      "invalid": 0,
+      "mutationScore": 0.8836,
+      "byOperator": {
+        "GUARD": {
+          "mutants": 113,
+          "killed": 110,
+          "survived": 3,
+          "invalid": 0
+        },
+        "GUARD_ML": {
+          "mutants": 14,
+          "killed": 14,
+          "survived": 0,
+          "invalid": 0
+        },
+        "ROLE": {
+          "mutants": 19,
+          "killed": 5,
+          "survived": 14,
+          "invalid": 0
+        }
+      },
+      "minutes": 32
+    },
+    "rerunOfSurvivors": {
+      "generatedAt": "2026-11-23T10:22:56.325Z",
+      "files": [
+        "contracts/CarbonTraceability.sol",
+        "contracts/CarbonCertification.sol",
+        "contracts/Consortium.sol",
+        "contracts/FactorRegistry.sol",
+        "contracts/EvidenceRegistry.sol",
+        "contracts/lib/EnvelopeValidation.sol"
+      ],
+      "mutants": 17,
+      "valid": 17,
+      "killed": 17,
+      "survived": 0,
+      "invalid": 0,
+      "mutationScore": 1,
+      "byOperator": {
+        "GUARD": {
+          "mutants": 3,
+          "killed": 3,
+          "survived": 0,
+          "invalid": 0
+        },
+        "GUARD_ML": {
+          "mutants": 0,
+          "killed": 0,
+          "survived": 0,
+          "invalid": 0
+        },
+        "ROLE": {
+          "mutants": 14,
+          "killed": 14,
+          "survived": 0,
+          "invalid": 0
+        }
+      },
+      "minutes": 4.2
+    }
+  },
+  "results": [
+    {
+      "id": 1,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 216,
+      "function": "modifier onlyRole",
+      "removed": "if (!consortium.isActiveWithRole(msg.sender, role)) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 4,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates orchard registration",
+        "applies governed plausibility parameters",
+        "rejects suspended actors without erasing their earlier records",
+        "requires authorization by an auditor other than the proposer",
+        "Edge cases \u2014 farm phase",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 2,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 239,
+      "function": "function registerOrchard",
+      "removed": "if (orchardId == bytes32(0) || areaM2 == 0) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates orchard registration",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 3,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 240,
+      "function": "function registerOrchard",
+      "removed": "if (_orchards[orchardId].grower != address(0)) revert AlreadyExists(orchardId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates orchard registration",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 4,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 254,
+      "function": "function recordFarmEvent",
+      "removed": "if (cropYear == 0) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 5,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 257,
+      "function": "function recordFarmEvent",
+      "removed": "if (s.closed) revert PhaseClosed(scopeId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "freezes the harvest basis and the farm record set at farm-phase closure",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 6,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 269,
+      "function": "function registerLot",
+      "removed": "if (lotId == bytes32(0) || harvestedMassG == 0 || cropYear == 0 || evidenceHash == bytes32(0)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 7,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 270,
+      "function": "function registerLot",
+      "removed": "if (_lots[lotId].state != LotState.None) revert AlreadyExists(lotId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 8,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 273,
+      "function": "function registerLot",
+      "removed": "if (s.closed) revert PhaseClosed(scopeId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "freezes the harvest basis and the farm record set at farm-phase closure",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 9,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 289,
+      "function": "function closeFarmPhase",
+      "removed": "if (s.closed) revert PhaseClosed(scopeId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 10,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 290,
+      "function": "function closeFarmPhase",
+      "removed": "if (s.eventCount == 0 || s.lotCount == 0) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 11,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 300,
+      "function": "function verifyFarmPhase",
+      "removed": "if (!s.closed) revert PhaseNotClosed(scopeId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 12,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 301,
+      "function": "function verifyFarmPhase",
+      "removed": "if (reportHash == bytes32(0)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 13,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 323,
+      "function": "function initiateTransfer",
+      "removed": "if (l.state != LotState.AtFarm) revert InvalidLotState(lotId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the sender's declaration",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 14,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 324,
+      "function": "function initiateTransfer",
+      "removed": "if (msg.sender != l.custodian) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the sender's declaration",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 15,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 325,
+      "function": "function initiateTransfer",
+      "removed": "if (!consortium.isActiveWithRole(to, Roles.MILL)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the sender's declaration",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 16,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 326,
+      "function": "function initiateTransfer",
+      "removed": "if (transporter != address(0) && !consortium.isActiveWithRole(transporter, Roles.TRANSPORTER)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the sender's declaration",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 17,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 327,
+      "function": "function initiateTransfer",
+      "removed": "if (declaredMassG == 0 || distanceM == 0 || evidenceHash == bytes32(0)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the sender's declaration",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 18,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 328,
+      "function": "function initiateTransfer",
+      "removed": "if (!_withinTolerance(l.harvestedMassG, declaredMassG)) revert MassMismatch(l.harvestedMassG, declaredMassG);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the sender's declaration",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 19,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 358,
+      "function": "function recordTransportEvent",
+      "removed": "if (msg.sender != reporter || !consortium.isActiveWithRole(msg.sender, role)) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "records transport events only for lots in transit, by the designated transporter",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 20,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 370,
+      "function": "function confirmReceipt",
+      "removed": "if (l.state != LotState.InTransit) revert InvalidLotState(lotId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the receiver's weighing",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 21,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 371,
+      "function": "function confirmReceipt",
+      "removed": "if (msg.sender != t.to) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects confirmation by a mill other than the designated receiver",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 22,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 372,
+      "function": "function confirmReceipt",
+      "removed": "if (weighedAt > block.timestamp + MAX_CLOCK_SKEW || weighedAt + MAX_CLOCK_SKEW < t.initiatedAt) revert FutureTimestamp(weighedAt);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the receiver's weighing",
+        "rejects timestamps beyond the tolerated clock skew",
+        "Edge cases \u2014 custody transfer",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 23,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 374,
+      "function": "function confirmReceipt",
+      "removed": "if (signer == address(0)) revert InvalidDevice(weighbridgeId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 5,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates the receiver's weighing",
+        "rejects readings attributed to a device of another organisation",
+        "rejects readings observed after the calibration certificate expired",
+        "rejects readings of a deactivated device",
+        "stores only the evidence hash and verifies presented documents against it",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 24,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 380,
+      "function": "function confirmReceipt",
+      "removed": "if (!_withinTolerance(t.declaredMassG, receivedMassG)) revert MassMismatch(t.declaredMassG, receivedMassG);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects received masses outside the tolerance and unsigned weighings",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 25,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 394,
+      "function": "function cancelTransfer",
+      "removed": "if (l.state != LotState.InTransit) revert InvalidLotState(lotId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "lets the sender cancel an unconfirmed transfer",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 26,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 395,
+      "function": "function cancelTransfer",
+      "removed": "if (msg.sender != _transfers[lotId].from) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "lets the sender cancel an unconfirmed transfer",
+        "Edge cases \u2014 custody transfer"
+      ]
+    },
+    {
+      "id": 27,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 411,
+      "function": "function createBatch",
+      "removed": "if (batchId == bytes32(0) || n == 0 || n > MAX_LOTS_PER_BATCH || sharesPermille.length != n) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates batch composition",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 28,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 412,
+      "function": "function createBatch",
+      "removed": "if (_batches[batchId].mill != address(0)) revert AlreadyExists(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates batch composition",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 29,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 413,
+      "function": "function createBatch",
+      "removed": "if (n > 1 && mixingRule == bytes32(0)) revert MixingRuleRequired();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires a declared mixing rule and mass-proportional shares",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 30,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 418,
+      "function": "function createBatch",
+      "removed": "if (l.batchId == batchId) revert DuplicateLot(lotIds[i]);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects duplicate IDs and rolls back consumption of every lot",
+        "R4 regression \u2014 unique lots within one batch"
+      ]
+    },
+    {
+      "id": 31,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 419,
+      "function": "function createBatch",
+      "removed": "if (l.state != LotState.AtMill || l.custodian != msg.sender) revert InvalidLotState(lotIds[i]);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates batch composition",
+        "does not batch lots that have not been received, nor the same lot twice",
+        "Edge cases \u2014 mill batches",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 32,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 427,
+      "function": "function createBatch",
+      "removed": "if (shareSum != 1000) revert SharesMismatch();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates batch composition",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 33,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 432,
+      "function": "function createBatch",
+      "removed": "if ((s > expected ? s - expected : expected - s) > 1) revert SharesMismatch();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires a declared mixing rule and mass-proportional shares",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 34,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 452,
+      "function": "function recordMillEvent",
+      "removed": "if (b.mill == address(0)) revert NotFound(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 35,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 453,
+      "function": "function recordMillEvent",
+      "removed": "if (consortium.organisationOf(msg.sender) != b.organisationId) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 36,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 454,
+      "function": "function recordMillEvent",
+      "removed": "if (b.closed) revert PhaseClosed(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 37,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 464,
+      "function": "function closeBatch",
+      "removed": "if (b.mill == address(0)) revert NotFound(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 38,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 465,
+      "function": "function closeBatch",
+      "removed": "if (consortium.organisationOf(msg.sender) != b.organisationId) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 39,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 466,
+      "function": "function closeBatch",
+      "removed": "if (b.closed) revert PhaseClosed(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 40,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 467,
+      "function": "function closeBatch",
+      "removed": "if (receptionMassG == 0) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 41,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 470,
+      "function": "function closeBatch",
+      "removed": "if (!_batchRecorded[batchId][mandatory[i]] || (consortium.getVariable(mandatory[i]).meterRequired && !_batchMetered[batchId][mandatory[i]])) revert MissingMandatoryVariable(mandatory[i]);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires the mandatory mill inputs and keeps their source classes",
+        "closes a batch only when mandatory meter fields and the mass balance pass",
+        "Mandatory mill inputs",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 42,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 473,
+      "function": "function closeBatch",
+      "removed": "if (!_withinTolerance(b.receivedMassG, receptionMassG)) revert MassMismatch(b.receivedMassG, receptionMassG);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "closes a batch only when mandatory meter fields and the mass balance pass",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 43,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 475,
+      "function": "function closeBatch",
+      "removed": "if (yieldPermille < minYieldPermille || yieldPermille > maxYieldPermille) revert ImplausibleYield(yieldPermille);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects an implausible oil yield at batch closure",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 44,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 493,
+      "function": "function proposeCorrection",
+      "removed": "if (eventIndex == 0 || eventIndex >= _events.length || reasonHash == bytes32(0)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates correction identifiers and competing proposals",
+        "Edge cases \u2014 corrections and results"
+      ]
+    },
+    {
+      "id": 45,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 495,
+      "function": "function proposeCorrection",
+      "removed": "if (orig.status != EventStatus.Effective) revert InvalidStatus();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "does not correct a superseded event again and validates replacements like new events",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 46,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 497,
+      "function": "function proposeCorrection",
+      "removed": "if (replacement.variable != orig.variable) revert CorrectionVariableMismatch(orig.variable, replacement.variable);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "cannot replace the mandatory electricity variable with a coproduct",
+        "does not correct a superseded event again and validates replacements like new events",
+        "R7 regression \u2014 calculation snapshots and correction invariants",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 47,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 521,
+      "function": "function authorizeCorrection",
+      "removed": "if (correctionId == 0 || correctionId >= _corrections.length) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates correction identifiers and competing proposals",
+        "Edge cases \u2014 corrections and results"
+      ]
+    },
+    {
+      "id": 48,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 523,
+      "function": "function authorizeCorrection",
+      "removed": "if (c.status != CorrectionStatus.Pending) revert InvalidStatus();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "leaves the original effective when a correction is rejected",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 49,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 524,
+      "function": "function authorizeCorrection",
+      "removed": "if (c.proposer == msg.sender) revert SeparationOfDuties();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires authorization by an auditor other than the proposer",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 50,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 527,
+      "function": "function authorizeCorrection",
+      "removed": "if (orig.status != EventStatus.Effective) revert InvalidStatus();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates correction identifiers and competing proposals",
+        "Edge cases \u2014 corrections and results"
+      ]
+    },
+    {
+      "id": 51,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 548,
+      "function": "function authorizeCorrection",
+      "removed": "if (yieldPermille < minYieldPermille || yieldPermille > maxYieldPermille) revert ImplausibleYield(yieldPermille);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "re-checks the oil yield when the oil output of a closed batch is corrected",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 52,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 557,
+      "function": "function rejectCorrection",
+      "removed": "if (correctionId == 0 || correctionId >= _corrections.length) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates correction identifiers and competing proposals",
+        "Edge cases \u2014 corrections and results"
+      ]
+    },
+    {
+      "id": 53,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 559,
+      "function": "function rejectCorrection",
+      "removed": "if (c.status != CorrectionStatus.Pending) revert InvalidStatus();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates correction identifiers and competing proposals",
+        "Edge cases \u2014 corrections and results"
+      ]
+    },
+    {
+      "id": 54,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 582,
+      "function": "function certificationStatus",
+      "removed": "if (b.mill == address(0)) revert NotFound(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 55,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 653,
+      "function": "function _requireOrchardMember",
+      "removed": "if (org == bytes32(0)) revert NotFound(orchardId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates farm events, lots, closure and verification",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 56,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 654,
+      "function": "function _requireOrchardMember",
+      "removed": "if (consortium.organisationOf(msg.sender) != org) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects growers of another organisation on this orchard",
+        "R1 \u2014 attribution of every quantity to a source class and an actor"
+      ]
+    },
+    {
+      "id": 57,
+      "op": "GUARD",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 669,
+      "function": "function _appendEvent",
+      "removed": "if (_recordedEnvelopes[envelope]) revert DuplicateEvent(envelope);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "binds signatures to one scope and rejects re-sent envelopes",
+        "does not correct a superseded event again and validates replacements like new events",
+        "R2 \u2014 device identity and calibration status",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 58,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 224,
+      "function": "function setParameters",
+      "removed": "if (massToleranceBp_ > 1000 || minYieldPermille_ >= maxYieldPermille_ || maxYieldPermille_ > 1000 || oilOutputVariable_ == bytes32(0)) { revert InvalidArgument(); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "applies governed plausibility parameters",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 59,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 352,
+      "function": "function recordTransportEvent",
+      "removed": "if (!(st == LotState.InTransit || st == LotState.AtMill || (st == LotState.InBatch && !_batches[l.batchId].closed))) { revert InvalidLotState(lotId); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates mill events and closure",
+        "records transport events only for lots in transit, by the designated transporter",
+        "Edge cases \u2014 mill batches",
+        "R4 \u2014 lot identity across custody and transformation"
+      ]
+    },
+    {
+      "id": 60,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 377,
+      "function": "function confirmReceipt",
+      "removed": "if (!EnvelopeValidation.isValidSignature(signer, digest, weighbridgeSig)) { revert InvalidDeviceSignature(weighbridgeId); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 5,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects readings signed with another key",
+        "rejects malformed signatures without reverting inside the signature library",
+        "binds signatures to one scope and rejects re-sent envelopes",
+        "binds the declared material identity into the signed envelope",
+        "rejects received masses outside the tolerance and unsigned weighings",
+        "R2 \u2014 device identity and calibration status"
+      ]
+    },
+    {
+      "id": 61,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 499,
+      "function": "function proposeCorrection",
+      "removed": "if (org == bytes32(0) || !consortium.isActive(msg.sender) || org != consortium.organisationOf(orig.actor)) { revert Unauthorized(msg.sender); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects corrections proposed by another organisation",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 62,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 222,
+      "function": "function setParameters",
+      "removed": "onlyRole(Roles.METHOD_AUTHORITY)",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "applies governed plausibility parameters",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 63,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 238,
+      "function": "function registerOrchard",
+      "removed": "onlyRole(Roles.GROWER)",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates orchard registration",
+        "Edge cases \u2014 farm phase"
+      ]
+    },
+    {
+      "id": 64,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 250,
+      "function": "function recordFarmEvent",
+      "removed": "onlyRole(Roles.GROWER)",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects suspended actors without erasing their earlier records",
+        "R1 \u2014 attribution of every quantity to a source class and an actor"
+      ]
+    },
+    {
+      "id": 65,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 266,
+      "function": "function registerLot",
+      "removed": "onlyRole(Roles.GROWER)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended grower can no longer register orchards, record events, register or transfer lots, or close its farm phase",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 66,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 285,
+      "function": "function closeFarmPhase",
+      "removed": "onlyRole(Roles.GROWER)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended grower can no longer register orchards, record events, register or transfer lots, or close its farm phase",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 67,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 297,
+      "function": "function verifyFarmPhase",
+      "removed": "onlyRole(Roles.CERTIFIER)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended certifier cannot verify farm phases or approve results, and a suspended LCA service cannot submit results",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 68,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 321,
+      "function": "function initiateTransfer",
+      "removed": "onlyRole(Roles.GROWER)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended grower can no longer register orchards, record events, register or transfer lots, or close its farm phase",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 69,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 366,
+      "function": "function confirmReceipt",
+      "removed": "onlyRole(Roles.MILL)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended mill can no longer confirm receipts or create, record or close batches",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 70,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 408,
+      "function": "function createBatch",
+      "removed": "onlyRole(Roles.MILL)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended mill can no longer confirm receipts or create, record or close batches",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 71,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 448,
+      "function": "function recordMillEvent",
+      "removed": "onlyRole(Roles.MILL)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 2,
+      "failingTestsSuite130": [
+        "a suspended mill can no longer confirm receipts or create, record or close batches",
+        "a transporter of the mill's organization cannot record mill events or close batches",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 72,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 462,
+      "function": "function closeBatch",
+      "removed": "onlyRole(Roles.MILL)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 2,
+      "failingTestsSuite130": [
+        "a suspended mill can no longer confirm receipts or create, record or close batches",
+        "a transporter of the mill's organization cannot record mill events or close batches",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 73,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 520,
+      "function": "function authorizeCorrection",
+      "removed": "onlyRole(Roles.AUDITOR)",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires authorization by an auditor other than the proposer",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 74,
+      "op": "ROLE",
+      "file": "contracts/CarbonTraceability.sol",
+      "line": 556,
+      "function": "function rejectCorrection",
+      "removed": "onlyRole(Roles.AUDITOR)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended auditor can neither authorize nor reject a correction",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 75,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 126,
+      "function": "modifier onlyRole",
+      "removed": "if (!consortium.isActiveWithRole(msg.sender, role)) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 2,
+      "failingTestsSuite130": [
+        "a suspended certifier cannot verify farm phases or approve results, and a suspended LCA service cannot submit results",
+        "a suspended method authority can neither change parameters nor define functional units",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 76,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 135,
+      "function": "function setParameters",
+      "removed": "if (minEvidenceReplicas_ == 0) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "applies governed plausibility parameters",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 77,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 143,
+      "function": "function defineFunctionalUnit",
+      "removed": "if (code == bytes32(0) || unit == bytes8(0)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "applies governed plausibility parameters",
+        "Edge cases \u2014 mill batches"
+      ]
+    },
+    {
+      "id": 78,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 158,
+      "function": "function submitResult",
+      "removed": "if (!batchClosed || !farmClosed) revert PhaseNotClosed(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "does not accept results before the batch and its farm phases are closed",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 79,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 159,
+      "function": "function submitResult",
+      "removed": "if (r.boundaryCode == bytes32(0)) revert MissingField(1);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects result packages with missing method fields",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 80,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 160,
+      "function": "function submitResult",
+      "removed": "if (r.functionalUnit == bytes32(0)) revert MissingField(2);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects result packages with missing method fields",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 81,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 161,
+      "function": "function submitResult",
+      "removed": "if (r.allocationRule == bytes32(0)) revert MissingField(3);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects result packages with missing method fields",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 82,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 162,
+      "function": "function submitResult",
+      "removed": "if (r.factorSetId == bytes32(0)) revert MissingField(4);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects result packages with missing method fields",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 83,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 163,
+      "function": "function submitResult",
+      "removed": "if (r.engineVersion == bytes32(0)) revert MissingField(5);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects result packages with missing method fields",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 84,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 164,
+      "function": "function submitResult",
+      "removed": "if (r.reportHash == bytes32(0)) revert MissingField(6);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects result packages with missing method fields",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 85,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 165,
+      "function": "function submitResult",
+      "removed": "if (r.evidenceManifest == bytes32(0)) revert MissingField(7);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects result packages with missing method fields",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 86,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 167,
+      "function": "function submitResult",
+      "removed": "if (fuUnit == bytes8(0)) revert UnknownFunctionalUnit(r.functionalUnit);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects unknown functional units and units that differ from the measured output",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 87,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 169,
+      "function": "function submitResult",
+      "removed": "if (fuUnit != outputUnit) revert FunctionalUnitMismatch(fuUnit, outputUnit);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects a per-kilogram declaration because the oil output is reported in liters",
+        "rejects unknown functional units and units that differ from the measured output",
+        "Case study \u2014 Western Achaia replay",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 88,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 171,
+      "function": "function submitResult",
+      "removed": "if (sum != r.totalMg || r.totalMg == 0) revert InconsistentTotal(sum, r.totalMg);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects totals that differ from the sum of the phase results",
+        "R6 \u2014 functional unit, system boundary and allocation rule"
+      ]
+    },
+    {
+      "id": 89,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 172,
+      "function": "function submitResult",
+      "removed": "if (!factorRegistry.isUsable(r.factorSetId, uint64(block.timestamp))) revert FactorSetNotUsable(r.factorSetId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects results that reference an unapproved, expired or retired factor set",
+        "R5 \u2014 emission-factor versioning"
+      ]
+    },
+    {
+      "id": 90,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 181,
+      "function": "function submitResult",
+      "removed": "if (r.expectedRevisionDigest != digest) revert RevisionMismatch(r.expectedRevisionDigest, digest);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects a report computed before a correction even when submitted afterwards",
+        "R7 regression \u2014 calculation snapshots and correction invariants"
+      ]
+    },
+    {
+      "id": 91,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 203,
+      "function": "function approveResult",
+      "removed": "if (res.status != ResultStatus.Submitted) revert InvalidStatus();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "handles result versions, approvals and empty certificates",
+        "Edge cases \u2014 corrections and results"
+      ]
+    },
+    {
+      "id": 92,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 204,
+      "function": "function approveResult",
+      "removed": "if (res.submitter == msg.sender) revert SeparationOfDuties();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "prevents an account holding both roles from approving its own result",
+        "Separation of duties and consortium governance"
+      ]
+    },
+    {
+      "id": 93,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 206,
+      "function": "function approveResult",
+      "removed": "if (res.revisionDigest != digest) revert StaleResult(batchId, version);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "outdates the certificate and invalidates results computed from the earlier chain",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 94,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 207,
+      "function": "function approveResult",
+      "removed": "if (!farmVerified) revert PhaseNotVerified(batchId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires renewed farm verification after a farm correction",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 95,
+      "op": "GUARD",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 208,
+      "function": "function approveResult",
+      "removed": "if (!factorRegistry.isUsable(res.data.factorSetId, uint64(block.timestamp))) revert FactorSetNotUsable(res.data.factorSetId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "handles result versions, approvals and empty certificates",
+        "Edge cases \u2014 corrections and results"
+      ]
+    },
+    {
+      "id": 96,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 174,
+      "function": "function submitResult",
+      "removed": "if (uint8(r.methodologicalStatus) < policy.minimumStatus || r.limitationFlags == 0 || (r.limitationFlags & policy.requiredLimitations) != policy.requiredLimitations || r.assessmentHash == bytes32(0)) { revert MethodologicalPolicyViolation(); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects an Unassessed package or missing mandatory limitation flags",
+        "Methodological assurance \u2014 public certificate and governed floor"
+      ]
+    },
+    {
+      "id": 97,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 178,
+      "function": "function submitResult",
+      "removed": "if (!evidenceRegistry.isRetained(r.evidenceManifest, uint64(block.timestamp) + minRetentionSeconds, minEvidenceReplicas)) { revert EvidenceNotRetained(r.evidenceManifest); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects results whose evidence manifest is unregistered, too short-lived or under-replicated",
+        "flags failed retrieval checks on the certificate and blocks new results until resolved",
+        "R9 \u2014 retention of off-chain evidence"
+      ]
+    },
+    {
+      "id": 98,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 183,
+      "function": "function submitResult",
+      "removed": "if (r.snapshotBlockNumber >= block.number || r.snapshotBlockHash == bytes32(0) || blockhash(r.snapshotBlockNumber) != r.snapshotBlockHash) { revert InvalidSnapshot(r.snapshotBlockNumber, r.snapshotBlockHash); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects missing, altered and future snapshot block hashes",
+        "requires recomputation after the snapshot blockhash window expires",
+        "R7 regression \u2014 calculation snapshots and correction invariants"
+      ]
+    },
+    {
+      "id": 99,
+      "op": "GUARD_ML",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 209,
+      "function": "function approveResult",
+      "removed": "if (!evidenceRegistry.isRetained(res.data.evidenceManifest, uint64(block.timestamp) + minRetentionSeconds, minEvidenceReplicas)) { revert EvidenceNotRetained(res.data.evidenceManifest); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 3,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects approval after failed retrieval and accepts it after retrieval recovers",
+        "rejects approval when replica metadata falls below the required minimum",
+        "rechecks the retention horizon at approval rather than only at submission",
+        "R9 regression \u2014 evidence remains usable at approval"
+      ]
+    },
+    {
+      "id": 100,
+      "op": "ROLE",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 134,
+      "function": "function setParameters",
+      "removed": "onlyRole(Roles.METHOD_AUTHORITY)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended method authority can neither change parameters nor define functional units",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 101,
+      "op": "ROLE",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 142,
+      "function": "function defineFunctionalUnit",
+      "removed": "onlyRole(Roles.METHOD_AUTHORITY)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended method authority can neither change parameters nor define functional units",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 102,
+      "op": "ROLE",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 156,
+      "function": "function submitResult",
+      "removed": "onlyRole(Roles.LCA_SERVICE)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended certifier cannot verify farm phases or approve results, and a suspended LCA service cannot submit results",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 103,
+      "op": "ROLE",
+      "file": "contracts/CarbonCertification.sol",
+      "line": 201,
+      "function": "function approveResult",
+      "removed": "onlyRole(Roles.CERTIFIER)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "a suspended certifier cannot verify farm phases or approve results, and a suspended LCA service cannot submit results",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 104,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 53,
+      "function": "constructor",
+      "removed": "if (governor == address(0)) revert InvalidArgument();",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "the consortium rejects a zero governor and actors registered without account, identity or organization",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 105,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 76,
+      "function": "function registerActor",
+      "removed": "if (account == address(0) || actorId == bytes32(0) || organisationId == bytes32(0)) revert InvalidArgument();",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "the consortium rejects a zero governor and actors registered without account, identity or organization",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 106,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 77,
+      "function": "function registerActor",
+      "removed": "if (_actors[account].actorId != bytes32(0)) revert AlreadyRegistered(account);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "admits members only through the governor and only with operational roles",
+        "Separation of duties and consortium governance"
+      ]
+    },
+    {
+      "id": 107,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 78,
+      "function": "function registerActor",
+      "removed": "if (!_isOperationalRole(role)) revert InvalidRole(role);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "admits members only through the governor and only with operational roles",
+        "Separation of duties and consortium governance"
+      ]
+    },
+    {
+      "id": 108,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 86,
+      "function": "function setActorActive",
+      "removed": "if (_actors[account].actorId == bytes32(0)) revert UnknownActor(account);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 109,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 117,
+      "function": "function registerDevice",
+      "removed": "if (!a.active) revert NotActiveMember(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 110,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 118,
+      "function": "function registerDevice",
+      "removed": "if (deviceId == bytes32(0) || signer == address(0)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 111,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 119,
+      "function": "function registerDevice",
+      "removed": "if (_devices[deviceId].signer != address(0)) revert DeviceExists(deviceId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 112,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 135,
+      "function": "function recordCalibration",
+      "removed": "if (!isActiveWithRole(msg.sender, Roles.CERTIFIER)) revert NotActiveMember(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "lets only certification bodies record calibration certificates",
+        "R2 \u2014 device identity and calibration status"
+      ]
+    },
+    {
+      "id": 113,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 137,
+      "function": "function recordCalibration",
+      "removed": "if (d.signer == address(0)) revert UnknownDevice(deviceId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 114,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 138,
+      "function": "function recordCalibration",
+      "removed": "if (certHash == bytes32(0)) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 115,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 147,
+      "function": "function setDeviceActive",
+      "removed": "if (d.signer == address(0)) revert UnknownDevice(deviceId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 116,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 186,
+      "function": "function defineVariable",
+      "removed": "if (!isActiveWithRole(msg.sender, Roles.METHOD_AUTHORITY)) revert NotActiveMember(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "restricts variable definitions to the methodological authority",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 117,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 192,
+      "function": "function defineVariable",
+      "removed": "if (mandatoryForClosure && phase != 3) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "restricts variable definitions to the methodological authority",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 118,
+      "op": "GUARD",
+      "file": "contracts/Consortium.sol",
+      "line": 209,
+      "function": "function deactivateVariable",
+      "removed": "if (!isActiveWithRole(msg.sender, Roles.METHOD_AUTHORITY)) revert NotActiveMember(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "maintains the list of mandatory mill fields",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 119,
+      "op": "GUARD_ML",
+      "file": "contracts/Consortium.sol",
+      "line": 148,
+      "function": "function setDeviceActive",
+      "removed": "if (!(hasRole(Roles.GOVERNOR, msg.sender) || (_actors[msg.sender].active && _actors[msg.sender].organisationId == d.organisationId))) { revert NotDeviceOwner(deviceId); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates device registration and calibration",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 120,
+      "op": "GUARD_ML",
+      "file": "contracts/Consortium.sol",
+      "line": 187,
+      "function": "function defineVariable",
+      "removed": "if (code == bytes32(0) || unit == bytes8(0) || phase == 0 || phase > 3 || minQuantity == 0 || minQuantity > maxQuantity) { revert InvalidArgument(); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "maintains the list of mandatory mill fields",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 121,
+      "op": "ROLE",
+      "file": "contracts/Consortium.sol",
+      "line": 74,
+      "function": "function registerActor",
+      "removed": "onlyRole(Roles.GOVERNOR)",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "admits members only through the governor and only with operational roles",
+        "Separation of duties and consortium governance"
+      ]
+    },
+    {
+      "id": 122,
+      "op": "ROLE",
+      "file": "contracts/Consortium.sol",
+      "line": 85,
+      "function": "function setActorActive",
+      "removed": "onlyRole(Roles.GOVERNOR)",
+      "outcomeSuite120": "survived",
+      "failingSuite120": 0,
+      "outcomeSuite130": "killed",
+      "failingSuite130": 1,
+      "failingTestsSuite130": [
+        "only the governor can register or suspend actors",
+        "R5 \u2014 role restrictions and governance guards enforced on their own (mutation analysis)"
+      ]
+    },
+    {
+      "id": 123,
+      "op": "GUARD",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 67,
+      "function": "function propose",
+      "removed": "if (_sets[id].status != Status.None) revert FactorSetExists(id);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates factor-set governance",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 124,
+      "op": "GUARD",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 84,
+      "function": "function approve",
+      "removed": "if (!consortium.isActiveWithRole(msg.sender, Roles.METHOD_AUTHORITY)) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires approval of a factor set by a second methodological authority",
+        "R5 \u2014 emission-factor versioning"
+      ]
+    },
+    {
+      "id": 125,
+      "op": "GUARD",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 86,
+      "function": "function approve",
+      "removed": "if (f.status != Status.Proposed) revert InvalidStatus(id);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates factor-set governance",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 126,
+      "op": "GUARD",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 87,
+      "function": "function approve",
+      "removed": "if (f.proposer == msg.sender) revert SeparationOfDuties();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "requires approval of a factor set by a second methodological authority",
+        "R5 \u2014 emission-factor versioning"
+      ]
+    },
+    {
+      "id": 127,
+      "op": "GUARD",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 94,
+      "function": "function retire",
+      "removed": "if (!consortium.isActiveWithRole(msg.sender, Roles.METHOD_AUTHORITY)) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates factor-set governance",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 128,
+      "op": "GUARD",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 96,
+      "function": "function retire",
+      "removed": "if (f.status != Status.Approved && f.status != Status.Proposed) revert InvalidStatus(id);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates factor-set governance",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 129,
+      "op": "GUARD_ML",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 61,
+      "function": "function propose",
+      "removed": "if (!(consortium.isActiveWithRole(msg.sender, Roles.METHOD_AUTHORITY) || consortium.isActiveWithRole(msg.sender, Roles.LCA_SERVICE))) { revert Unauthorized(msg.sender); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates factor-set governance",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 130,
+      "op": "GUARD_ML",
+      "file": "contracts/FactorRegistry.sol",
+      "line": 64,
+      "function": "function propose",
+      "removed": "if (id == bytes32(0) || contentHash == bytes32(0) || gwpBasis == bytes32(0) || validFrom >= validTo || version == 0 || policy.minimumStatus > 2) { revert InvalidArgument(); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates factor-set governance",
+        "rejects an undefined methodological status in factor governance",
+        "Edge cases \u2014 registries",
+        "Methodological assurance \u2014 public certificate and governed floor"
+      ]
+    },
+    {
+      "id": 131,
+      "op": "GUARD",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 45,
+      "function": "function register",
+      "removed": "if (consortium.organisationOf(msg.sender) == bytes32(0) || !consortium.isActive(msg.sender)) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates evidence registration and retention",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 132,
+      "op": "GUARD",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 49,
+      "function": "function register",
+      "removed": "if (_evidence[evidenceHash].registrant != address(0)) revert EvidenceExists(evidenceHash);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates evidence registration and retention",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 133,
+      "op": "GUARD",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 66,
+      "function": "function extendRetention",
+      "removed": "if (e.registrant == address(0)) revert UnknownEvidence(evidenceHash);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates evidence registration and retention",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 134,
+      "op": "GUARD",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 67,
+      "function": "function extendRetention",
+      "removed": "if (e.registrant != msg.sender) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates evidence registration and retention",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 135,
+      "op": "GUARD",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 68,
+      "function": "function extendRetention",
+      "removed": "if (retentionUntil < e.retentionUntil || replicas == 0) revert InvalidArgument();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "allows retention to be extended but never shortened",
+        "R9 \u2014 retention of off-chain evidence"
+      ]
+    },
+    {
+      "id": 136,
+      "op": "GUARD",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 76,
+      "function": "function logRetrievalCheck",
+      "removed": "if (!consortium.isActiveWithRole(msg.sender, Roles.AUDITOR)) revert Unauthorized(msg.sender);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "flags failed retrieval checks on the certificate and blocks new results until resolved",
+        "R9 \u2014 retention of off-chain evidence"
+      ]
+    },
+    {
+      "id": 137,
+      "op": "GUARD",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 78,
+      "function": "function logRetrievalCheck",
+      "removed": "if (e.registrant == address(0)) revert UnknownEvidence(evidenceHash);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates evidence registration and retention",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 138,
+      "op": "GUARD_ML",
+      "file": "contracts/EvidenceRegistry.sol",
+      "line": 46,
+      "function": "function register",
+      "removed": "if (evidenceHash == bytes32(0) || persistentIdHash == bytes32(0) || repositoryId == bytes32(0) || replicas == 0 || retentionUntil <= block.timestamp) { revert InvalidArgument(); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "validates evidence registration and retention",
+        "Edge cases \u2014 registries"
+      ]
+    },
+    {
+      "id": 139,
+      "op": "GUARD",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 32,
+      "function": "function validate",
+      "removed": "if (!v.active) revert VariableInactive(e.variable);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects undefined or deactivated variables",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 140,
+      "op": "GUARD",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 33,
+      "function": "function validate",
+      "removed": "if (v.phase != phase) revert WrongPhase(e.variable);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects variables that belong to another phase",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 141,
+      "op": "GUARD",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 34,
+      "function": "function validate",
+      "removed": "if (e.quantity < v.minQuantity || e.quantity > v.maxQuantity) revert OutOfRange(e.variable, e.quantity);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects quantities outside the governed range",
+        "does not correct a superseded event again and validates replacements like new events",
+        "R3 \u2014 unit and range validation",
+        "R7 \u2014 correction without deletion of history"
+      ]
+    },
+    {
+      "id": 142,
+      "op": "GUARD",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 35,
+      "function": "function validate",
+      "removed": "if (e.activity == bytes32(0) || e.observedAt == 0 || e.evidenceHash == bytes32(0)) revert InvalidEnvelope();",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects incomplete envelopes",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 143,
+      "op": "GUARD",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 36,
+      "function": "function validate",
+      "removed": "if (e.observedAt > block.timestamp + MAX_CLOCK_SKEW) revert FutureTimestamp(e.observedAt);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 1,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects timestamps beyond the tolerated clock skew",
+        "R3 \u2014 unit and range validation"
+      ]
+    },
+    {
+      "id": 144,
+      "op": "GUARD",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 38,
+      "function": "function validate",
+      "removed": "if (v.meterRequired && !deviceSourced) revert MeterRequired(e.variable);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 2,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "preserves the required signed meter after a legitimate same-variable correction",
+        "rejects operator entries for variables that must come from a meter",
+        "R7 regression \u2014 calculation snapshots and correction invariants",
+        "R2 \u2014 device identity and calibration status"
+      ]
+    },
+    {
+      "id": 145,
+      "op": "GUARD",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 42,
+      "function": "function validate",
+      "removed": "if (signer == address(0)) revert InvalidDevice(e.sourceId);",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 3,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects readings attributed to a device of another organisation",
+        "rejects readings observed after the calibration certificate expired",
+        "rejects readings of a deactivated device",
+        "R2 \u2014 device identity and calibration status"
+      ]
+    },
+    {
+      "id": 146,
+      "op": "GUARD_ML",
+      "file": "contracts/lib/EnvelopeValidation.sol",
+      "line": 44,
+      "function": "function validate",
+      "removed": "if (!isValidSignature(signer, keccak256(abi.encode(block.chainid, ledger, envelope)), deviceSig)) { revert InvalidDeviceSignature(e.sourceId); }",
+      "outcomeSuite120": "killed",
+      "failingSuite120": 4,
+      "outcomeSuite130": "killed",
+      "failingSuite130": null,
+      "failingTestsSuite130": [
+        "rejects readings signed with another key",
+        "rejects malformed signatures without reverting inside the signature library",
+        "binds signatures to one scope and rejects re-sent envelopes",
+        "binds the declared material identity into the signed envelope",
+        "R2 \u2014 device identity and calibration status"
+      ]
+    }
+  ]
+}

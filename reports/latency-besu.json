@@ -1,0 +1,26 @@
+{
+  "network": "besu",
+  "chainId": 1337,
+  "measuredAt": "2026-11-23T12:21:52.302Z",
+  "clientVersion": "besu/v26.11.1/windows-x86_64/openjdk-java-25",
+  "sequential": {
+    "n": 30,
+    "meanMs": 1990,
+    "p50Ms": 2051,
+    "p95Ms": 2089,
+    "maxMs": 2089,
+    "blocks": 30
+  },
+  "burst": {
+    "n": 100,
+    "meanMs": 6796,
+    "p50Ms": 6937,
+    "p95Ms": 9889,
+    "maxMs": 11689,
+    "wallClockMs": 11689,
+    "throughputTxPerS": 8.56,
+    "blocksSpanned": 1,
+    "chainTimeSpanS": 0,
+    "gasUsedTotal": 20218432
+  }
+}

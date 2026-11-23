@@ -1,0 +1,12 @@
+date: 2026-11-23T14:34:27+02:00
+besu: besu/v26.11.1/windows-x86_64/openjdk-java-25
+java: openjdk version "25.0.5.1" 2026-11-17 LTS
+node: v22.23.5
+platform: native Windows (no virtualisation layer)
+windows: Microsoft Windows 11 Pro 10.0.26300
+cpu: Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz
+cpu cores / logical processors: 8 / 16
+host memory GB: 15.8
+jvm heap per node: -Xmx768m
+fault injection: validator process tree terminated with taskkill /F (crash stop), restarted from its data directory
+receipt polling: 500 ms (benchmark, Hardhat ethers provider) and 250 ms (phases)

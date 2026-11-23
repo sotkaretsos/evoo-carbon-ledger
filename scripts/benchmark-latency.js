@@ -1,6 +1,7 @@
 "use strict";
 // Network-level benchmark: submission-to-receipt latency and throughput of recordFarmEvent.
-// Intended for a multi-node Besu QBFT network (it was not run on one by the authors):
+// Intended for a multi-node Besu QBFT network; the result of the four-validator run of release 1.3.0
+// is reports/latency-besu.json (see besu/README.md):
 //   npx hardhat run scripts/benchmark-latency.js --network besu
 // Environment: BENCH_SEQUENTIAL (default 30), BENCH_BURST (default 100), BENCH_GAS_LIMIT.
 // Writes reports/latency-<network>.json. On the in-process Hardhat network the figures only
